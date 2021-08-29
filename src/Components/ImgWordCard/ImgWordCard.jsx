@@ -21,7 +21,7 @@ function ImgWordCard(props) {
 
     let src = dictionary[children];
     if (!dictionary[children]) {
-        src = "/word_images/alt/alt-light.svg";
+        src = "/Images/alt/alt-light.svg";
     }
     let isSvg = false;
     if (src.endsWith(".svg") || src.endsWith(".SVG")) {

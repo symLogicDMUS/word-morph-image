@@ -52,9 +52,9 @@ function App() {
                         // Signed in..
                     })
                     .catch((error) => {
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
-                        // ...
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        console.log("ERROR:", errorCode, ` ${errorMessage}`)
                     });
             }
         });

@@ -4,11 +4,11 @@ import wordPattern from "../../regex/wordPattern";
 import { Box, Typography } from "@material-ui/core";
 import Morph from "./Morph";
 import Image from "../Image/Image";
-import { useStyles } from "./Morphs.jss";
 import { PauseButton } from "./PauseButton";
 import { RestartButton } from "./RestartButton";
 import { BackButton } from "./BackButton";
 import AppContext from "../../AppContext";
+import { useStyles } from "./Morphs.jss";
 
 function Morphs(props) {
     const wordIndex = props.location.state.wordIndex;
