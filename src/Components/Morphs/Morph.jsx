@@ -21,6 +21,7 @@ function Morph(props) {
 
         if (theme.palette.type === "light")
             return "/Images/alt/alt-light.svg";
+
     }, [theme.palette.type]);
 
     const variants = {

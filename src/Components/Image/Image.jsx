@@ -12,10 +12,10 @@ function Image({ word, children }) {
             return dictionary[children];
 
         if (theme.palette.type === "dark")
-            return "/Images/alt/alt-dark.svg";
+            return "/Images/alt/alt-light.svg";
 
         if (theme.palette.type === "light")
-            return "/Images/alt/alt-light.svg";
+            return "/Images/alt/alt-dark.svg";
 
     }, [theme.palette.type]);
 
