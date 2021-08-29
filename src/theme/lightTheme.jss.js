@@ -18,6 +18,11 @@ const lightTheme = {
     },
     palette: {
         type: "light",
+        primary: {
+            main: "#1a73e8",
+            light: "#69a1ff",
+            dark: "#0049b5",
+        },
     },
     typography: {
         fontSize: 16,
