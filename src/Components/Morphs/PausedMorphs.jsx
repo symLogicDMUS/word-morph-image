@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import wordPattern from "../../regex/wordPattern";
-import dictionary from "../../dictionary";
 import { Box, Button, Typography } from "@material-ui/core";
 import Word from "../Word/Word";
 import Image from "../Image/Image";
@@ -31,7 +30,7 @@ function PausedMorphs(props) {
     const morphed = () => {
         const images = [];
         for (let i = 0; i <= currentIndex; i++) {
-            images.push(<Image word={words[i]}>{dictionary[words[i]]}</Image>);
+            images.push(<Image word={words[i]}>{state.dictionary[words[i]]}</Image>);
         }
         return images;
     };

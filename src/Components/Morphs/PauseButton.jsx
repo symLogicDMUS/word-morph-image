@@ -19,8 +19,7 @@ export function PauseButton({ wordIndex, currentIndex }) {
         <>
             <Hidden xsDown>
                 <Button color="primary" variant="contained" onClick={pause}>
-                    <Pause fontSize={"small"} className={classes.icon} />
-                    Pause
+                    <Pause fontSize={"small"} className={classes.icon} /> Pause
                 </Button>
             </Hidden>
             <Hidden smUp>

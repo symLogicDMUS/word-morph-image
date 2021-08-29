@@ -71,6 +71,8 @@ function App() {
                         result.items.forEach(async function (imageRef) {
                             const image = await imageRef.getDownloadURL();
                             const metadata = await imageRef.getMetadata();
+                            console.log("image:", image, "metadata:", metadata)
+                            // dispatch({action: "udpate-dictionary", dictionary:  })
                         });
                     })
                     .catch(function (error) {

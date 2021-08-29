@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { motion } from "framer-motion";
 import variants from "../Morphs/variants";
-import dictionary from "../../dictionary";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./ImgWordCard.jss";
+import AppContext from "../../AppContext";
 
 function ImgWordCard(props) {
     const {
@@ -19,8 +19,10 @@ function ImgWordCard(props) {
         children,
     } = props;
 
-    let src = dictionary[children];
-    if (!dictionary[children]) {
+    const {state, dispatch} = useContext(AppContext);
+
+    let src = state.dictionary[children];
+    if (!state.dictionary[children]) {
         src = "/Images/alt/alt-dark.svg";
     }
     let isSvg = false;

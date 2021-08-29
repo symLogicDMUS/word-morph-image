@@ -1,9 +1,19 @@
 export function reducer(state, action) {
     switch (action.type) {
+        // word/image pair:
         case "add-pair":
-            return {};
-        case "add-group":
-            return {};
+            return {
+                ...state,
+                dictionary: {
+                    ...state.dictionary,
+                    [action.word]: action.url,
+                }
+            };
+        case "update-dictionary":
+            return {
+                ...state,
+                dictionary: action.dictionary,
+            }
         case "update-text":
             return {
                 ...state,

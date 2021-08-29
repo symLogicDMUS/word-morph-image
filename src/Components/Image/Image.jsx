@@ -1,14 +1,16 @@
-import React, { useMemo } from "react";
+import React, {useContext, useMemo} from "react";
 import { useStyles } from "../Morphs/Morph.jss";
-import dictionary from "../../dictionary";
 import { useTheme } from "@material-ui/core";
+import AppContext from "../../AppContext";
 
 function Image({ word, children }) {
+    const {state, dispatch} = useContext(AppContext);
+
     const classes = useStyles({ word: word });
     const theme = useTheme();
 
     const src = useMemo(() => {
-        if (!!dictionary[children]) return dictionary[children];
+        if (!!state.dictionary[children]) return state.dictionary[children];
 
         if (theme.palette.type === "dark") return "/Images/alt/alt-light.svg";
 

@@ -1,20 +1,22 @@
-import React, { useMemo } from "react";
+import React, {useContext, useMemo} from "react";
 import { motion } from "framer-motion";
-import dictionary from "../../dictionary";
 import totalDuration from "./totalDuration";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./Morph.jss";
 import { useTheme } from "@material-ui/core";
+import AppContext from "../../AppContext";
 
 function Morph(props) {
     const { index, currentIndex, incrementIndex, children } = props;
+
+    const { state, dispatch } = useContext(AppContext);
 
     const theme = useTheme();
 
     const classes = useStyles({ word: children });
 
     const src = useMemo(() => {
-        if (!!dictionary[children]) return dictionary[children];
+        if (!!state.dictionary[children]) return state.dictionary[children];
 
         if (theme.palette.type === "dark") return "/Images/alt/alt-dark.svg";
 

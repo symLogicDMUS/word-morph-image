@@ -1,5 +1,4 @@
 import React, { useContext, useMemo, useState } from "react";
-import dictionary from "../../dictionary";
 import wordPattern from "../../regex/wordPattern";
 import { Box, Typography } from "@material-ui/core";
 import Morph from "./Morph";
@@ -18,7 +17,7 @@ function Morphs(props) {
     const prevMorphs = useMemo(() => {
         const images = [];
         for (let i = 0; i <= wordIndex; i++) {
-            images.push(<Image word={words[i]}>{dictionary[words[i]]}</Image>);
+            images.push(<Image word={words[i]}>{state.dictionary[words[i]]}</Image>);
         }
         return images;
     }, []);

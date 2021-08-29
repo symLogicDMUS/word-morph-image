@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
@@ -7,24 +7,29 @@ import { Avatar } from "@material-ui/core";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import { useStyles } from "./ImgUploadAvatar.jss";
 import { getDir } from "../../helpers/getDir";
+import AppContext from "../../AppContext";
 
 function ImgUploadAvatar({ word, index }) {
+    const {state, dispatch} = useContext(AppContext);
+
     const classes = useStyles();
 
     const [src, setSrc] = useState("");
 
     const uploadStorageImg = (e) => {
         const user = firebase.auth().currentUser;
+        //visitors or users:
         const dir = getDir(user);
         const uid = user.uid;
 
         const file = e.target.files[0];
+        //file.type example: image/png:
         const exten = file.type.split("/")[1];
-        const name = word + "." + exten;
+        const imgName = word + "." + exten;
 
         const storageRef = firebase
             .storage()
-            .ref(`${dir}/images/${uid}/${name}`);
+            .ref(`${dir}/images/${uid}/${imgName}`);
 
         const task = storageRef.put(file);
 
@@ -44,11 +49,16 @@ function ImgUploadAvatar({ word, index }) {
             async function complete() {
                 return await firebase
                     .storage()
-                    .ref(`${dir}/images/${uid}/${name}`)
+                    .ref(`${dir}/images/${uid}/${imgName}`)
                     .getDownloadURL()
                     .then(async (url) => {
                         console.log("URL: ", url);
                         setSrc(url);
+                        dispatch({
+                            type: "add-pair",
+                            word: word,
+                            url: url,
+                        })
                         //TODO: send URL to parent, here
                     });
             }
