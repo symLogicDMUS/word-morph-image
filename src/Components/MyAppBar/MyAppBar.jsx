@@ -9,7 +9,7 @@ import {
     IconButton,
     Typography,
 } from "@material-ui/core";
-import SignInOutButton from "../../SignInOutButton";
+import SignInOutButton from "./SignInOutButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useStyles } from "./MyAppBar.jss";
 import AppContext from "../../AppContext";
