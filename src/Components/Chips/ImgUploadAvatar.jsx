@@ -6,6 +6,7 @@ import "firebase/auth";
 import { Avatar } from "@material-ui/core";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import { useStyles } from "./ImgUploadAvatar.jss";
+import { getDir } from "../../helpers/getDir";
 
 function ImgUploadAvatar({ word, index }) {
     const classes = useStyles();
@@ -14,6 +15,7 @@ function ImgUploadAvatar({ word, index }) {
 
     const uploadStorageImg = (e) => {
         const user = firebase.auth().currentUser;
+        const dir = getDir(user);
         const uid = user.uid;
 
         const file = e.target.files[0];
@@ -22,7 +24,7 @@ function ImgUploadAvatar({ word, index }) {
 
         const storageRef = firebase
             .storage()
-            .ref(`users/images/${uid}/${name}`);
+            .ref(`${dir}/images/${uid}/${name}`);
 
         const task = storageRef.put(file);
 
@@ -42,7 +44,7 @@ function ImgUploadAvatar({ word, index }) {
             async function complete() {
                 return await firebase
                     .storage()
-                    .ref(`users/images/${uid}/${name}`)
+                    .ref(`${dir}/images/${uid}/${name}`)
                     .getDownloadURL()
                     .then(async (url) => {
                         console.log("URL: ", url);

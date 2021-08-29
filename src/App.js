@@ -27,9 +27,26 @@ function App() {
         isDarkMode: prefersDarkMode,
     });
 
+    const user = firebase.auth().currentUser
+    //If no user, sign user in anonymously:
+    React.useEffect(() => {
+        if (! user) {
+            firebase.auth().signInAnonymously()
+                .then(() => {
+                    console.log("ID:", firebase.auth().currentUser)
+                    console.log("Is anonymous:", firebase.auth().currentUser.isAnonymous)
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
+        }
+    }, [user])
+
     React.useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (!!user) {
+                console.log("ID after state change:", user)
                 const uid = user.uid;
                 const storageRef = firebase
                     .storage()
@@ -44,18 +61,6 @@ function App() {
                     })
                     .catch(function (error) {
                         // Handle any errors here
-                    });
-            } else {
-                firebase
-                    .auth()
-                    .signInAnonymously()
-                    .then(() => {
-                        // Signed in..
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        console.log("ERROR:", errorCode, ` ${errorMessage}`);
                     });
             }
         });
