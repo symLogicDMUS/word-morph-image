@@ -1,28 +1,34 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
 import firebase from "firebase/app";
-import "firebase/functions";
-import "firebase/database";
 import "firebase/auth";
-import App from "./App";
+import { AccountCircle } from "@material-ui/icons";
+import IconButton from "@material-ui/core/IconButton";
+import SignInWindow from "./Components/SignInWindow";
+import { Tooltip } from "@material-ui/core";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBqfHHi_jK_cMEX0O_0dD8d6ymJPxVA9Jc",
-  authDomain: "word-morph-image.firebaseapp.com",
-  databaseURL: "https://word-morph-image-default-rtdb.firebaseio.com",
-  projectId: "word-morph-image",
-  storageBucket: "word-morph-image.appspot.com",
-  messagingSenderId: "724904043135",
-  appId: "1:724904043135:web:042be513e468382907154a",
-  measurementId: "G-XTF50TCXHF"
-};
+function SignInOutButton() {
+  const [open, setOpen] = useState(false);
 
-firebase.initializeApp(firebaseConfig);
+  const handleClick = () => {
+    if (!!firebase.auth().currentUser) {
+      firebase.auth().signOut();
+    } else {
+      setOpen(true);
+    }
+  };
 
-ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    document.getElementById("root")
-);
+  return (
+      <>
+        <SignInWindow open={open} setOpen={setOpen} />
+        <Tooltip
+            title={!!firebase.auth().currentUser ? "Sign out" : "Sign in"}
+        >
+          <IconButton onClick={handleClick}>
+            <AccountCircle />
+          </IconButton>
+        </Tooltip>
+      </>
+  );
+}
+
+export default SignInOutButton;

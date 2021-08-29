@@ -1,4 +1,3 @@
-// import {appDefaultState} from "./appDefaultState";
 
 export function reducer(state, action) {
     switch (action.type) {

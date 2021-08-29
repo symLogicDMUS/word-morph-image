@@ -6,23 +6,23 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
 
 function SignInWindow(props) {
-    const { open, setOpen } = props;
+  const { open, setOpen } = props;
 
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((r) => setOpen(false));
-    }, []);
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((r) => setOpen(false));
+  }, []);
 
-    return (
-        <Dialog onBackdropClick={() => setOpen(false)} open={open}>
-            <DialogTitle>Sign In</DialogTitle>
-            <DialogContent>
-                <StyledFirebaseAuth
-                    uiConfig={uiConfig}
-                    firebaseAuth={firebase.auth()}
-                />
-            </DialogContent>
-        </Dialog>
-    );
+  return (
+      <Dialog onBackdropClick={() => setOpen(false)} open={open}>
+        <DialogTitle>Sign In</DialogTitle>
+        <DialogContent>
+          <StyledFirebaseAuth
+              uiConfig={uiConfig}
+              firebaseAuth={firebase.auth()}
+          />
+        </DialogContent>
+      </Dialog>
+  );
 }
 
 export default SignInWindow;
