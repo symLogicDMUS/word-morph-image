@@ -1,0 +1,20 @@
+// TODO: display error message to the user if special chars in input, and explain can't have.
+export const specialChars = [
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "+",
+    "{",
+    "}",
+    "[",
+    "]",
+    "<",
+    ">",
+    "/",
+];

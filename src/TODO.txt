@@ -1,0 +1,12 @@
+* Pause, Play, and Back buttons and components
+** Buttons disabled if no input
+* context providers for text and maybe currentIndex
+* Get sample images
+* initialize as firebase project (Firebase Storage and hosting)
+* dark theme (theme switcher)
+* GitHub link
+* About page
+* Word adder (Dialog component for upload image and word)
+* don't let add "word" with numbers or special characters
+
+1.

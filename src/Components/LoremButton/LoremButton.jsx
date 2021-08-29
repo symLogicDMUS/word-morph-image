@@ -1,0 +1,41 @@
+import React, { useContext } from "react";
+import { Button } from "@material-ui/core";
+import SubjectIcon from "@material-ui/icons/Subject";
+import { useStyles } from "./LoremButton.jss";
+import { LoremIpsum } from "lorem-ipsum";
+import AppContext from "../../AppContext";
+
+function LoremButton(props) {
+    const { children, ...other } = props;
+    const classes = useStyles();
+    const { state, dispatch } = useContext(AppContext);
+
+    const lorem = new LoremIpsum({
+        sentencesPerParagraph: {
+            max: 8,
+            min: 4,
+        },
+        wordsPerSentence: {
+            max: 16,
+            min: 4,
+        },
+    });
+
+    return (
+        <Button
+            className={classes.button}
+            onClick={() =>
+                dispatch({
+                    type: "update-text",
+                    text: lorem.generateParagraphs(3),
+                })
+            }
+            {...other}
+        >
+            <SubjectIcon fontSize={"small"} className={classes.icon} />{" "}
+            {children}
+        </Button>
+    );
+}
+
+export default LoremButton;
