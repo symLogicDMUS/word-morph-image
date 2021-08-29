@@ -1,6 +1,6 @@
 import "firebase/auth";
 import React from "react";
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
 import AppContext from "./AppContext";
 import Home from "./Components/Home/Home";
 import Chips from "./Components/Chips/Chips";
@@ -44,6 +44,17 @@ function App() {
                     })
                     .catch(function (error) {
                         // Handle any errors here
+                    });
+            }
+            else {
+                firebase.auth().signInAnonymously()
+                    .then(() => {
+                        // Signed in..
+                    })
+                    .catch((error) => {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        // ...
                     });
             }
         });
