@@ -9,6 +9,11 @@ export function reducer(state, action) {
                 ...state,
                 text: action.text,
             };
+        case "update-mode":
+            return {
+                ...state,
+                isDarkMode: action.isDarkMode,
+            }
         default:
             throw new Error();
     }

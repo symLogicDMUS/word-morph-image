@@ -15,10 +15,9 @@ import { useStyles } from "./MyAppBar.jss";
 import AppContext from "../../AppContext";
 
 export function MyAppBar({ handleDrawerToggle }) {
-    const classes = useStyles();
-
-    // const { isDarkMode, setIsDarkMode } = useContext(ModeContext);
     const { state, dispatch } = useContext(AppContext);
+
+    const classes = useStyles();
 
     return (
         <AppBar position="fixed" className={classes.appBar}>
@@ -35,33 +34,18 @@ export function MyAppBar({ handleDrawerToggle }) {
                 <Typography className={classes.title} noWrap>
                     Words to Images
                 </Typography>
-                {state.isDarkMode ? (
-                    <Tooltip title={"Toggle light/dark theme"}>
-                        <IconButton
-                            onClick={() =>
-                                dispatch({
-                                    type: "update-mode",
-                                    isDarkMode: false,
-                                })
-                            }
-                        >
-                            <Brightness7Icon />
-                        </IconButton>
-                    </Tooltip>
-                ) : (
-                    <Tooltip title={"Toggle light/dark theme"}>
-                        <IconButton
-                            onClick={() =>
-                                dispatch({
-                                    type: "update-mode",
-                                    isDarkMode: true,
-                                })
-                            }
-                        >
-                            <Brightness4Icon />
-                        </IconButton>
-                    </Tooltip>
-                )}
+                <Tooltip title={"Toggle light/dark theme"}>
+                    <IconButton
+                        onClick={() =>
+                            dispatch({
+                                type: "update-mode",
+                                isDarkMode: ! state.isDarkMode,
+                            })
+                        }
+                    >
+                        <Brightness7Icon />
+                    </IconButton>
+                </Tooltip>
                 <SignInOutButton />
                 <Tooltip title="Author's GitHub">
                     <IconButton

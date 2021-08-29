@@ -15,21 +15,34 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
 import { reducer } from "./App.red";
 import "./App.scss";
+import {appDefaultState} from "./appDefaultState";
 
 function App() {
     const prefersDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
     ).matches;
 
-    const [state, dispatch] = React.useReducer(reducer, {
-        text: "",
-        dictionary: {},
-        isDarkMode: prefersDarkMode,
-    });
+    const [state, dispatch] = React.useReducer(reducer, prefersDarkMode, appDefaultState);
+
+    const theme = React.useMemo(
+        () =>
+            state.isDarkMode
+                ? createTheme({ ...darkTheme })
+                : createTheme({ ...lightTheme }),
+        [state.isDarkMode]
+    );
+
+    React.useEffect(() => {
+        if (state.isDarkMode) {
+            document.body.className = "scrollbars-dark";
+        } else {
+            document.body.className = "scrollbars-light";
+        }
+    }, [state.isDarkMode]);
 
     const user = firebase.auth().currentUser
-    //If no user, sign user in anonymously:
     React.useEffect(() => {
+        //If no user, sign user in anonymously:
         if (! user) {
             firebase.auth().signInAnonymously()
                 .then(() => {
@@ -39,6 +52,7 @@ function App() {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    console.log("ERROR:", errorCode, " " + errorMessage)
                 });
         }
     }, [user])
@@ -65,22 +79,6 @@ function App() {
             }
         });
     }, []);
-
-    const theme = React.useMemo(
-        () =>
-            prefersDarkMode
-                ? createTheme({ ...darkTheme })
-                : createTheme({ ...lightTheme }),
-        [prefersDarkMode]
-    );
-
-    React.useEffect(() => {
-        if (state.isDarkMode) {
-            document.body.className = "scrollbars-dark";
-        } else {
-            document.body.className = "scrollbars-light";
-        }
-    }, [prefersDarkMode]);
 
     return (
         <AppContext.Provider value={{ state, dispatch }}>
