@@ -54,11 +54,11 @@ function ImgUploadAvatar({ word, index }) {
                     .then(async (url) => {
                         console.log("URL: ", url);
                         setSrc(url);
-                        dispatch({
-                            type: "add-pair",
-                            word: word,
-                            url: url,
-                        })
+                        // dispatch({
+                        //     type: "add-pair",
+                        //     word: word,
+                        //     url: url,
+                        // })
                         //TODO: send URL to parent, here
                     });
             }

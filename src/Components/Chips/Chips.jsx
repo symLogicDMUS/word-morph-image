@@ -3,8 +3,10 @@ import ChipInput from "./ChipInput";
 import { Box } from "@material-ui/core";
 import TextFieldUnderline from "./TextFieldUnderline";
 import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
-import { useStyles } from "./Chips.jss";
+import firebase from "firebase/app";
+import "firebase/auth";
 import { AddPairs } from "./AddPairs";
+import { useStyles } from "./Chips.jss";
 
 function Chips(props) {
     const classes = useStyles();
@@ -38,7 +40,7 @@ function Chips(props) {
             <Box className={classes.actions}>
                 <AddPairs chips={chips} />
             </Box>
-            <RenderCodeOrOutput>{chips}</RenderCodeOrOutput>
+            <RenderCodeOrOutput>{chips}{firebase.auth().currentUser.isAnonymous}</RenderCodeOrOutput>
         </Box>
     );
 }
