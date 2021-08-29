@@ -15,14 +15,14 @@ const firebaseConfig = {
     storageBucket: "word-morph-image.appspot.com",
     messagingSenderId: "724904043135",
     appId: "1:724904043135:web:042be513e468382907154a",
-    measurementId: "G-XTF50TCXHF"
+    measurementId: "G-XTF50TCXHF",
 };
 
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
     <React.StrictMode>
-      <App />
+        <App />
     </React.StrictMode>,
     document.getElementById("root")
 );

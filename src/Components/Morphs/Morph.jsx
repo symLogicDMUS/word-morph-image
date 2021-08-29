@@ -16,12 +16,9 @@ function Morph(props) {
     const src = useMemo(() => {
         if (!!dictionary[children]) return dictionary[children];
 
-        if (theme.palette.type === "dark")
-            return "/Images/alt/alt-dark.svg";
+        if (theme.palette.type === "dark") return "/Images/alt/alt-dark.svg";
 
-        if (theme.palette.type === "light")
-            return "/Images/alt/alt-light.svg";
-
+        if (theme.palette.type === "light") return "/Images/alt/alt-light.svg";
     }, [theme.palette.type]);
 
     const variants = {

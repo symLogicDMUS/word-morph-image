@@ -8,15 +8,11 @@ function Image({ word, children }) {
     const theme = useTheme();
 
     const src = useMemo(() => {
-        if (!!dictionary[children])
-            return dictionary[children];
+        if (!!dictionary[children]) return dictionary[children];
 
-        if (theme.palette.type === "dark")
-            return "/Images/alt/alt-light.svg";
+        if (theme.palette.type === "dark") return "/Images/alt/alt-light.svg";
 
-        if (theme.palette.type === "light")
-            return "/Images/alt/alt-dark.svg";
-
+        if (theme.palette.type === "light") return "/Images/alt/alt-dark.svg";
     }, [theme.palette.type]);
 
     return <img src={src} className={classes.img} alt={word} />;

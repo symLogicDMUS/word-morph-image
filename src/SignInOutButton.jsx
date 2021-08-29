@@ -7,28 +7,33 @@ import SignInWindow from "./Components/SignInWindow";
 import { Tooltip } from "@material-ui/core";
 
 function SignInOutButton() {
-  const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    if (!!firebase.auth().currentUser) {
-      firebase.auth().signOut();
-    } else {
-      setOpen(true);
-    }
-  };
+    const handleClick = () => {
+        if (!!firebase.auth().currentUser) {
+            firebase.auth().signOut();
+        } else {
+            setOpen(true);
+        }
+    };
 
-  return (
-      <>
-        <SignInWindow open={open} setOpen={setOpen} />
-        <Tooltip
-            title={!!firebase.auth().currentUser ? "Sign out" : "Sign in"}
-        >
-          <IconButton onClick={handleClick}>
-            <AccountCircle />
-          </IconButton>
-        </Tooltip>
-      </>
-  );
+    const getTitle = () => {
+        // if (!!firebase.auth().currentUser) {
+        if (firebase.auth().currentUser.isAnonymous) return "Sign In";
+        else return "Sign Out";
+        // }
+    };
+
+    return (
+        <>
+            <SignInWindow open={open} setOpen={setOpen} />
+            <Tooltip title={getTitle}>
+                <IconButton onClick={handleClick}>
+                    <AccountCircle />
+                </IconButton>
+            </Tooltip>
+        </>
+    );
 }
 
 export default SignInOutButton;
