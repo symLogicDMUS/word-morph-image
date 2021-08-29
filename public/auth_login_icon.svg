@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   height="1024"
+   width="1024"
+   viewBox="0 0 1024 1024"
+   id="wordImgIcon"
+   sodipodi:docname="auth_login_icon.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:export-filename="C:\Users\bjrat\source\repos\Javascript\word-morph-image\public\auth_login_icon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="0.19104773"
+     inkscape:cx="-1950.2449"
+     inkscape:cy="-496.87625"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="wordImgIcon" />
+  <path
+     fill="none"
+     d="M 0,0 H 24 V 24 H 0 Z"
+     id="path2" />
+  <g
+     transform="translate(1867.0304,581.14427)"
+     id="g857">
+    <path
+       d="M -1113.3301,-47.922447 V 259.64018 h -615.1253 v -615.12525 h 220.5664 a 276.80636,276.80636 0 0 1 21.09,-87.87504 h -241.6564 a 88.138661,88.138661 0 0 0 -87.875,87.87504 v 615.12525 a 88.138661,88.138661 0 0 0 87.875,87.87503 h 615.1253 a 88.138661,88.138661 0 0 0 87.875,-87.87503 V 39.952589 Z m -65.9063,219.687587 h -483.3127 l 120.8282,-155.099436 86.1175,103.692546 120.8282,-155.538817 z"
+       id="path4"
+       style="fill:#1a73e8;fill-opacity:1;stroke-width:43.9375" />
+    <g
+       transform="matrix(43.937518,0,0,43.937518,-2070.5529,-623.50393)"
+       id="text839"
+       style="fill:#1a73e8;fill-opacity:1">
+      <path
+         d="M 17.748,11.64 15.336,4.562 H 14.443 V 3.134 h 3.809 V 4.562 H 17.377 L 18.751,8.62 20.039,4.562 H 19.274 V 3.134 h 3.038 v 1.428 h -0.784 l 1.384,4.058 1.33,-4.058 H 23.4 V 3.134 h 3.384 v 1.428 h -0.917 l -2.335,7.078 h -1.58 l -1.33,-3.858 -1.258,3.858 z"
+         id="path841"
+         style="fill:#1a73e8;fill-opacity:1" />
+    </g>
+  </g>
+</svg>
