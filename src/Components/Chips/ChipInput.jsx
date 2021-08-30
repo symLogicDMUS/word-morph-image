@@ -114,7 +114,7 @@ class ChipInput extends React.Component {
         else this.updateChips([]);
     };
 
-    handleKeyDown = (event) => {
+    handleKeyCode = (event) => {
         const { focusedChip } = this.state;
         this._keyPressed = false;
         this._preventChipCreation = false;
@@ -182,6 +182,11 @@ class ChipInput extends React.Component {
                 this.setState({ focusedChip: null });
                 break;
         }
+    }
+
+    handleKeyDown = (event) => {
+        this.handleKeyCode(event);
+        this.props.updatePair(this.state.chips.length, event.target.value, false)
     };
 
     handleKeyUp = (event) => {
@@ -327,6 +332,7 @@ class ChipInput extends React.Component {
         }
     };
 
+    /*edit text field of already created chip*/
     updateChipAtIndex = (i, value) => {
         let chips = copy(this.state.chips);
         chips[i] = value;
@@ -380,9 +386,12 @@ class ChipInput extends React.Component {
             rootRef,
             value,
             variant,
+            updatePair,
+            removePair,
             chipProps,
             ...other
         } = this.props;
+
 
         const chips = value || this.state.chips;
         const actualInputValue =
@@ -414,6 +423,8 @@ class ChipInput extends React.Component {
                         this.actualInput.focus();
                     },
                     className: classes.chip,
+                    updatePair,
+                    removePair,
                     chipProps,
                 },
                 i

@@ -9,7 +9,7 @@ import { useStyles } from "./ImgUploadAvatar.jss";
 import { getDir } from "../../helpers/getDir";
 import AppContext from "../../AppContext";
 
-function ImgUploadAvatar({ word, index }) {
+function ImgUploadAvatar({ word, index, updatePair}) {
     const {state, dispatch} = useContext(AppContext);
 
     const classes = useStyles();
@@ -53,13 +53,8 @@ function ImgUploadAvatar({ word, index }) {
                     .getDownloadURL()
                     .then(async (url) => {
                         console.log("URL: ", url);
+                        updatePair(index, url, true)
                         setSrc(url);
-                        // dispatch({
-                        //     type: "add-pair",
-                        //     word: word,
-                        //     url: url,
-                        // })
-                        //TODO: send URL to parent, here
                     });
             }
         );
