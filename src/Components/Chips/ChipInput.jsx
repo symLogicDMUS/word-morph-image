@@ -112,6 +112,9 @@ class ChipInput extends React.Component {
         const chips = text.match(wordPattern);
         if (!!chips) this.updateChips([...this.state.chips, ...chips]);
         else this.updateChips([]);
+        this.state.chips.forEach((chip, index) => {
+            this.props.updatePair(index, chip, false)
+        })
     };
 
     handleKeyCode = (event) => {
@@ -186,7 +189,9 @@ class ChipInput extends React.Component {
 
     handleKeyDown = (event) => {
         this.handleKeyCode(event);
-        this.props.updatePair(this.state.chips.length, event.target.value, false)
+        if (event.keyCode == keyCodes.ENTER) {
+            this.props.updatePair(this.state.chips.length, event.target.value, false)
+        }
     };
 
     handleKeyUp = (event) => {

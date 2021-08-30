@@ -32,7 +32,13 @@ export function reducer(state, action) {
         case "remove-pair":
             const pairs = copy(state);
             delete pairs[action.key]
-            return pairs;
+            const newPairs = {};
+            let i = -1;
+            Object.keys(pairs).forEach(index => {
+                i += 1;
+                newPairs[i] = pairs[index];
+            })
+            return newPairs;
         default:
             throw new Error();
     }
