@@ -8,6 +8,7 @@ import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
 import { CssBaseline } from "@material-ui/core";
+import {appDefaultState} from "./appDefaultState";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -15,7 +16,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
 import { reducer } from "./App.red";
 import "./App.scss";
-import {appDefaultState} from "./appDefaultState";
 
 function App() {
     const prefersDarkMode = window.matchMedia(

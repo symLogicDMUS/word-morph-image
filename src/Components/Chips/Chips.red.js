@@ -3,7 +3,9 @@ import {copy} from "../../helpers/copy";
 
 export function reducer(state, action) {
     let word, url;
-    if (!Object.keys(state).includes(action.key)) {
+    const index = String(action.key)
+    const indexes = Object.keys(state);
+    if (! indexes.includes(index)) {
         word = "";
         url = null;
     } else {

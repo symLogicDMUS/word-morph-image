@@ -32,7 +32,6 @@ export const defaultChipRenderer = (
                 defaultValue={text}
                 refocusParent={refocusParent}
                 updateChipAtIndex={updateChipAtIndex}
-                updatePair={updatePair}
             />
         }
         avatar={<ImgUploadAvatar key={key} word={text} index={key} updatePair={updatePair} />}

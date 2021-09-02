@@ -4,8 +4,7 @@ import { Typography } from "@material-ui/core";
 import { useStyles } from "./ChipTextField.jss";
 
 export function ChipTextField(props) {
-    const { defaultValue, index, updateChipAtIndex, updatePair, refocusParent, ...other } =
-        props;
+    const { defaultValue, index, updateChipAtIndex, refocusParent, ...other } = props;
 
     const classes = useStyles();
 
