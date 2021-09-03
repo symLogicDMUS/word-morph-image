@@ -30,7 +30,9 @@ function PausedMorphs(props) {
     const morphed = () => {
         const images = [];
         for (let i = 0; i <= currentIndex; i++) {
-            images.push(<Image word={words[i]}>{state.dictionary[words[i]]}</Image>);
+            images.push(
+                <Image word={words[i]}>{state.dictionary[words[i]]}</Image>
+            );
         }
         return images;
     };

@@ -1,10 +1,10 @@
-import React, {useContext, useMemo} from "react";
+import React, { useContext, useMemo } from "react";
 import { useStyles } from "../Morphs/Morph.jss";
 import { useTheme } from "@material-ui/core";
 import AppContext from "../../AppContext";
 
 function Image({ word, children }) {
-    const {state, dispatch} = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
 
     const classes = useStyles({ word: word });
     const theme = useTheme();

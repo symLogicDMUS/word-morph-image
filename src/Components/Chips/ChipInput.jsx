@@ -111,11 +111,11 @@ class ChipInput extends React.Component {
         const text = event.clipboardData.getData("Text");
         const chips = text.match(wordPattern);
         if (!!chips) {
-            this.setState({chips: [...this.state.chips, ...chips]}, () => {
+            this.setState({ chips: [...this.state.chips, ...chips] }, () => {
                 this.state.chips.forEach((chip, index) => {
-                    this.props.updatePair(index, chip, false)
-                })
-            })
+                    this.props.updatePair(index, chip, false);
+                });
+            });
         }
         // if (!!chips) this.updateChips([...this.state.chips, ...chips]);
         // else this.updateChips([]);
@@ -192,12 +192,16 @@ class ChipInput extends React.Component {
                 this.setState({ focusedChip: null });
                 break;
         }
-    }
+    };
 
     handleKeyDown = (event) => {
         this.handleKeyCode(event);
         if (event.keyCode == keyCodes.ENTER) {
-            this.props.updatePair(this.state.chips.length, event.target.value, false)
+            this.props.updatePair(
+                this.state.chips.length,
+                event.target.value,
+                false
+            );
         }
     };
 
@@ -403,7 +407,6 @@ class ChipInput extends React.Component {
             chipProps,
             ...other
         } = this.props;
-
 
         const chips = value || this.state.chips;
         const actualInputValue =

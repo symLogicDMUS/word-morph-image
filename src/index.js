@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import firebase from "firebase/app";
-import {emulators} from "./emulators";
+import { emulators } from "./emulators";
 import "firebase/auth";
 import "firebase/storage";
 import "firebase/database";

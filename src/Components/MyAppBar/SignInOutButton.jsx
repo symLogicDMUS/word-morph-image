@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { AccountCircle } from "@material-ui/icons";
@@ -12,26 +12,24 @@ function SignInOutButton() {
     const [boolean, triggerRender] = useState(true);
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
-            triggerRender((boolean => ! boolean))
-        })
-    }, [])
+            triggerRender((boolean) => !boolean);
+        });
+    }, []);
 
     const handleClick = () => {
         if (firebase.auth().currentUser.isAnonymous) {
             setOpen(true);
         } else {
-            firebase.auth().signInAnonymously()
+            firebase.auth().signInAnonymously();
         }
     };
-
-
 
     const getTitle = () => {
         if (!!firebase.auth().currentUser) {
             if (firebase.auth().currentUser.isAnonymous) {
-                return "Sign In"
+                return "Sign In";
             } else {
-                return "Sign Out"
+                return "Sign Out";
             }
         }
         return "Sign In";

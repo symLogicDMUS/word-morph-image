@@ -39,7 +39,7 @@ export function MyAppBar({ handleDrawerToggle }) {
                         onClick={() =>
                             dispatch({
                                 type: "update-mode",
-                                isDarkMode: ! state.isDarkMode,
+                                isDarkMode: !state.isDarkMode,
                             })
                         }
                     >

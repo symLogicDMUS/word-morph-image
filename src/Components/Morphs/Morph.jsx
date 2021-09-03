@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from "react";
+import React, { useContext, useMemo } from "react";
 import { motion } from "framer-motion";
 import totalDuration from "./totalDuration";
 import Typography from "@material-ui/core/Typography";

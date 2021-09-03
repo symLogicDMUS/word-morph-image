@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import variants from "../Morphs/variants";
 import Card from "@material-ui/core/Card";
@@ -19,7 +19,7 @@ function ImgWordCard(props) {
         children,
     } = props;
 
-    const {state, dispatch} = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
 
     let src = state.dictionary[children];
     if (!state.dictionary[children]) {

@@ -21,7 +21,8 @@ export function RestartButton({ wordIndex, currentIndex }) {
         <>
             <Hidden xsDown>
                 <Button variant="outlined" onClick={restart}>
-                    <SkipPrevious fontSize={"small"} className={classes.icon} /> Restart
+                    <SkipPrevious fontSize={"small"} className={classes.icon} />{" "}
+                    Restart
                 </Button>
             </Hidden>
             <Hidden smUp>

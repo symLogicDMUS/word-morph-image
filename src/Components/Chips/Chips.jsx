@@ -1,17 +1,16 @@
-import React, {useReducer, useState} from "react";
-import ChipInput from "./ChipInput";
-import {Box, useForkRef} from "@material-ui/core";
-import TextFieldUnderline from "./TextFieldUnderline";
-import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
+import React, { useReducer, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
-import {AddPairs} from "./AddPairs";
-import {useStyles} from "./Chips.jss";
-import {reducer} from "./Chips.red";
+import { Box } from "@material-ui/core";
+import TextFieldUnderline from "./TextFieldUnderline";
+import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
+import ChipInput from "./ChipInput";
+import { AddPairs } from "./AddPairs";
+import { reducer } from "./Chips.red";
+import { useStyles } from "./Chips.jss";
 
 function Chips(props) {
-
-    const [state, dispatch] = useReducer(reducer, {})
+    const [state, dispatch] = useReducer(reducer, {});
 
     const classes = useStyles();
 
@@ -31,11 +30,16 @@ function Chips(props) {
     };
 
     const updatePair = (key, newItem, isUrl) => {
-        dispatch({type: "update-pair", key: key, newItem: newItem, isUrl: isUrl})
+        dispatch({
+            type: "update-pair",
+            key: key,
+            newItem: newItem,
+            isUrl: isUrl,
+        });
     };
 
     const removePair = (key) => {
-        dispatch({type: "remove-pair", key: key})
+        dispatch({ type: "remove-pair", key: key });
     };
 
     return (
@@ -52,13 +56,13 @@ function Chips(props) {
             />
             <TextFieldUnderline isFocused={isFocused} />
             <Box className={classes.actions}>
+                <RenderCodeOrOutput iconButton style={{marginRight: '1rem'}}>
+                    {chips}
+                    {state}
+                    {firebase.auth().currentUser.isAnonymous}
+                </RenderCodeOrOutput>
                 <AddPairs chips={chips} />
             </Box>
-            <RenderCodeOrOutput>
-                {chips}
-                {state}
-                {firebase.auth().currentUser.isAnonymous}
-            </RenderCodeOrOutput>
         </Box>
     );
 }

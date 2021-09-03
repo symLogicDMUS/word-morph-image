@@ -19,7 +19,8 @@ export function BackButton() {
                     <ArrowBackIcon
                         fontSize={"small"}
                         className={classes.icon}
-                    /> Go Back
+                    />{" "}
+                    Go Back
                 </Button>
             </Hidden>
             <Hidden smUp>

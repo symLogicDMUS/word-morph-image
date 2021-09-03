@@ -8,7 +8,7 @@ import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
 import { CssBaseline } from "@material-ui/core";
-import {appDefaultState} from "./appDefaultState";
+import { appDefaultState } from "./appDefaultState";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -22,7 +22,11 @@ function App() {
         "(prefers-color-scheme: dark)"
     ).matches;
 
-    const [state, dispatch] = React.useReducer(reducer, prefersDarkMode, appDefaultState);
+    const [state, dispatch] = React.useReducer(
+        reducer,
+        prefersDarkMode,
+        appDefaultState
+    );
 
     const theme = React.useMemo(
         () =>
@@ -40,27 +44,32 @@ function App() {
         }
     }, [state.isDarkMode]);
 
-    const user = firebase.auth().currentUser
+    const user = firebase.auth().currentUser;
     React.useEffect(() => {
         //If no user, sign user in anonymously:
-        if (! user) {
-            firebase.auth().signInAnonymously()
+        if (!user) {
+            firebase
+                .auth()
+                .signInAnonymously()
                 .then(() => {
-                    console.log("ID:", firebase.auth().currentUser)
-                    console.log("Is anonymous:", firebase.auth().currentUser.isAnonymous)
+                    console.log("ID:", firebase.auth().currentUser);
+                    console.log(
+                        "Is anonymous:",
+                        firebase.auth().currentUser.isAnonymous
+                    );
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    console.log("ERROR:", errorCode, " " + errorMessage)
+                    console.log("ERROR:", errorCode, " " + errorMessage);
                 });
         }
-    }, [user])
+    }, [user]);
 
     React.useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (!!user) {
-                console.log("ID after state change:", user)
+                console.log("ID after state change:", user);
                 const uid = user.uid;
                 const storageRef = firebase
                     .storage()
@@ -71,7 +80,7 @@ function App() {
                         result.items.forEach(async function (imageRef) {
                             const image = await imageRef.getDownloadURL();
                             const metadata = await imageRef.getMetadata();
-                            console.log("image:", image, "metadata:", metadata)
+                            console.log("image:", image, "metadata:", metadata);
                             // dispatch({action: "udpate-dictionary", dictionary:  })
                         });
                     })

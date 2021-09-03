@@ -23,8 +23,8 @@ export const defaultChipRenderer = (
         className={className}
         onClick={handleClick}
         onDelete={() => {
-            removePair(key)
-            handleDelete()
+            removePair(key);
+            handleDelete();
         }}
         label={
             <ChipTextField
@@ -34,7 +34,14 @@ export const defaultChipRenderer = (
                 updateChipAtIndex={updateChipAtIndex}
             />
         }
-        avatar={<ImgUploadAvatar key={key} word={text} index={key} updatePair={updatePair} />}
+        avatar={
+            <ImgUploadAvatar
+                key={key}
+                word={text}
+                index={key}
+                updatePair={updatePair}
+            />
+        }
         {...chipProps}
     />
 );

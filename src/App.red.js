@@ -7,13 +7,13 @@ export function reducer(state, action) {
                 dictionary: {
                     ...state.dictionary,
                     [action.word]: action.url,
-                }
+                },
             };
         case "update-dictionary":
             return {
                 ...state,
                 dictionary: action.dictionary,
-            }
+            };
         case "update-text":
             return {
                 ...state,
@@ -23,7 +23,7 @@ export function reducer(state, action) {
             return {
                 ...state,
                 isDarkMode: action.isDarkMode,
-            }
+            };
         default:
             throw new Error();
     }
