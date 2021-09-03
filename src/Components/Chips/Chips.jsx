@@ -56,12 +56,7 @@ function Chips(props) {
             />
             <TextFieldUnderline isFocused={isFocused} />
             <Box className={classes.actions}>
-                <RenderCodeOrOutput iconButton style={{marginRight: '1rem'}}>
-                    {chips}
-                    {state}
-                    {firebase.auth().currentUser.isAnonymous}
-                </RenderCodeOrOutput>
-                <AddPairs chips={chips} />
+                <AddPairs pairs={state} />
             </Box>
         </Box>
     );

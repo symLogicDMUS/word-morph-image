@@ -1,13 +1,15 @@
 import React, {useContext, useState} from "react";
 import Button from "@material-ui/core/Button";
 import CodeIcon from '@material-ui/icons/Code';
-import {Dialog, DialogContent, Portal} from "@material-ui/core";
+import {Dialog, DialogContent, DialogTitle, Portal} from "@material-ui/core";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {vs, atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import IconButton from "@material-ui/core/IconButton";
 import AppContext from "../AppContext";
 
 function RenderCodeOrOutput({
+    file = "",
+    nameOfChild = "",
     replacer = null,
     space = 4,
     iconButton = false,
@@ -17,13 +19,13 @@ function RenderCodeOrOutput({
     const {state, dispatch} = useContext(AppContext);
     const [open, setOpen] = useState(false);
 
-
-
     return (
         <>
             <Portal>
                 <Dialog open={open} onBackdropClick={() => setOpen(false)}>
+                    <DialogTitle>{file}</DialogTitle>
                     <DialogContent>
+                        {nameOfChild}
                         <SyntaxHighlighter language="javascript" style={state.isDarkMode ? atomDark : vs}>
                             {JSON.stringify(children, replacer, space)}
                         </SyntaxHighlighter>

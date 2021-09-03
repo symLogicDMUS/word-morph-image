@@ -21,7 +21,7 @@ function ImgUploadAvatar({ word, index, updatePair}) {
         //visitors or users:
         const dir = getDir(user);
         const uid = user.uid;
-
+        console.log(uid)
         const file = e.target.files[0];
         //file.type example: image/png:
         const exten = file.type.split("/")[1];
@@ -29,7 +29,7 @@ function ImgUploadAvatar({ word, index, updatePair}) {
 
         const storageRef = firebase
             .storage()
-            .ref(`${dir}/images/${uid}/${imgName}`);
+            .ref(`${dir}/images/${uid}/${imgName}`)
 
         const task = storageRef.put(file);
 
