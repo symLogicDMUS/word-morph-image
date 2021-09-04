@@ -1,9 +1,9 @@
-import {Box, Fab} from "@material-ui/core";
+import { Box, Fab } from "@material-ui/core";
 import React, { useContext } from "react";
 import AppContext from "../../AppContext";
 import AddIcon from "@material-ui/icons/Add";
 import firebase from "firebase/app";
-import {getDir} from "../../helpers/getDir";
+import { getDir } from "../../helpers/getDir";
 import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
 
 /**
@@ -14,29 +14,36 @@ export function AddPairs({ pairs }) {
 
     const upload = async () => {
         const newPairs = {};
-        Object.values(pairs).forEach(pair => {
-            newPairs[pair.word] = pair.url
-        })
-        dispatch({type: "update-dictionary", newPairs: newPairs})
+        Object.values(pairs).forEach((pair) => {
+            newPairs[pair.word] = pair.url;
+        });
+        dispatch({ type: "update-dictionary", newPairs: newPairs });
 
         const user = firebase.auth().currentUser;
         const uid = user.uid;
         const dir = getDir(user);
-        return await firebase.database().ref(`${dir}/dictionary/${uid}`).update(newPairs)
+        return await firebase
+            .database()
+            .ref(`${dir}/dictionary/${uid}`)
+            .update(newPairs)
             .catch((err) => {
-                console.log(`ERROR: ${err}`)
-            })
-    }
+                console.log(`ERROR: ${err}`);
+            });
+    };
 
     return (
         <>
-            <RenderCodeOrOutput file={"AddPairs.jsx"} nameOfChild={"dictionary"} iconButton style={{marginRight: '1rem'}}>
+            <RenderCodeOrOutput
+                file={"AddPairs.jsx"}
+                nameOfChild={"dictionary"}
+                iconButton
+                style={{ marginRight: "1rem" }}
+            >
                 {state.dictionary}
             </RenderCodeOrOutput>
             <Fab color={"primary"} onClick={upload}>
                 <AddIcon />
             </Fab>
         </>
-
     );
 }

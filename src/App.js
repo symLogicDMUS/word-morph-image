@@ -18,11 +18,7 @@ import { reducer } from "./App.red";
 import "./App.scss";
 
 function App() {
-
-    const [state, dispatch] = React.useReducer(
-        reducer,
-        appDefaultState
-    );
+    const [state, dispatch] = React.useReducer(reducer, appDefaultState);
 
     const theme = React.useMemo(
         () =>

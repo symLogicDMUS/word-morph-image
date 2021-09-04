@@ -1,13 +1,13 @@
 import React, { useReducer, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
-import {Box, Dialog} from "@material-ui/core";
+import { Box, Dialog } from "@material-ui/core";
 import TextFieldUnderline from "./TextFieldUnderline";
 import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
 import ChipInput from "./ChipInput";
 import { AddPairs } from "./AddPairs";
 import { reducer } from "./Chips.red";
-import { Alert } from '@material-ui/lab';
+import { Alert } from "@material-ui/lab";
 import { useStyles } from "./Chips.jss";
 
 function Chips(props) {
@@ -15,7 +15,7 @@ function Chips(props) {
     const [alert, setAlert] = useState({
         severity: "",
         message: "",
-        open: false
+        open: false,
     });
     const classes = useStyles();
 
@@ -52,7 +52,7 @@ function Chips(props) {
             severity: severity,
             message: message,
             open: open,
-        })
+        });
     };
 
     return (
@@ -75,7 +75,12 @@ function Chips(props) {
                 </Box>
             </Box>
             {alert.open && (
-                <Dialog open={alert.open} onBackdropClick={() => setAlert({severity: "", message: "", open: false})}>
+                <Dialog
+                    open={alert.open}
+                    onBackdropClick={() =>
+                        setAlert({ severity: "", message: "", open: false })
+                    }
+                >
                     <Alert severity={alert.severity}>{alert.message}</Alert>
                 </Dialog>
             )}

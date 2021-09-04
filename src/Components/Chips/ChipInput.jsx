@@ -21,7 +21,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import { styles } from "./ChipInput.jss";
 import { ClearAll } from "./ClearAll";
 import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
-import {containsSpecialCharacters} from "../../helpers/containsSpecialCharacters";
+import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
 
 class ChipInput extends React.Component {
     state = {
@@ -144,12 +144,12 @@ class ChipInput extends React.Component {
             this.props.newChipKeyCodes.indexOf(event.keyCode) >= 0 ||
             this.props.newChipKeys.indexOf(event.key) >= 0
         ) {
-            if (containsSpecialCharacters(this.state.inputValue)) {
+            if (containsInvalidCharacters(this.state.inputValue)) {
                 this.props.newAlert(
                     "warning",
-                    "cannot add word with special characters!",
-                    true,
-                )
+                    "cannot add word with these characters: # $ [ ] . ",
+                    true
+                );
             } else {
                 const result = this.handleAddChip(event.target.value);
                 if (result !== false) {

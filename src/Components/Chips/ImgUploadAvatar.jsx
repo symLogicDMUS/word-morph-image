@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
@@ -9,8 +9,8 @@ import { useStyles } from "./ImgUploadAvatar.jss";
 import { getDir } from "../../helpers/getDir";
 import AppContext from "../../AppContext";
 
-function ImgUploadAvatar({ word, index, updatePair}) {
-    const {state, dispatch} = useContext(AppContext);
+function ImgUploadAvatar({ word, index, updatePair }) {
+    const { state, dispatch } = useContext(AppContext);
 
     const classes = useStyles();
 
@@ -21,7 +21,7 @@ function ImgUploadAvatar({ word, index, updatePair}) {
         //visitors or users:
         const dir = getDir(user);
         const uid = user.uid;
-        console.log(uid)
+        console.log(uid);
         const file = e.target.files[0];
         //file.type example: image/png:
         const exten = file.type.split("/")[1];
@@ -29,7 +29,7 @@ function ImgUploadAvatar({ word, index, updatePair}) {
 
         const storageRef = firebase
             .storage()
-            .ref(`${dir}/images/${uid}/${imgName}`)
+            .ref(`${dir}/images/${uid}/${imgName}`);
 
         const task = storageRef.put(file);
 
@@ -53,7 +53,7 @@ function ImgUploadAvatar({ word, index, updatePair}) {
                     .getDownloadURL()
                     .then(async (url) => {
                         console.log("URL: ", url);
-                        updatePair(index, url, true)
+                        updatePair(index, url, true);
                         setSrc(url);
                     });
             }
