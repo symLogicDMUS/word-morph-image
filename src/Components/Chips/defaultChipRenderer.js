@@ -29,7 +29,7 @@ export const defaultChipRenderer = (
         label={
             <ChipTextField
                 index={key}
-                defaultValue={text}
+                value={text}
                 refocusParent={refocusParent}
                 updateChipAtIndex={updateChipAtIndex}
             />

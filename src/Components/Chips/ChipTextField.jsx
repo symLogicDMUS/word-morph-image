@@ -1,10 +1,8 @@
 import React from "react";
-import { keyCodes } from "./keyCodes";
-import { Typography } from "@material-ui/core";
 import { useStyles } from "./ChipTextField.jss";
 
 export function ChipTextField(props) {
-    const { defaultValue, index, updateChipAtIndex, refocusParent, ...other } =
+    const { value, index, updateChipAtIndex, refocusParent, ...other } =
         props;
 
     const classes = useStyles();
@@ -14,20 +12,19 @@ export function ChipTextField(props) {
     };
 
     const handleKeyPress = (e) => {
-        if (e.keyCode == keyCodes.ENTER) {
+        if (e.key === "Enter") {
             refocusParent();
         }
     };
 
     return (
-        <span
-            contentEditable
+        <input
+            type="text"
+            value={value}
             onChange={handleChange}
             onKeyDown={handleKeyPress}
-            className={classes.span}
-            {...other}
-        >
-            <Typography>{props.defaultValue}</Typography>
-        </span>
+            size={value.length > 0 ? value.length : 1}
+            className="MuiInputBase-input MuiInput-input"
+        />
     );
 }
