@@ -20,6 +20,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { styles } from "./ChipInput.jss";
 import { ClearAll } from "./ClearAll";
+import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
+import {containsSpecialCharacters} from "../../helpers/containsSpecialCharacters";
 
 class ChipInput extends React.Component {
     state = {
@@ -124,7 +126,7 @@ class ChipInput extends React.Component {
         // })
     };
 
-    handleKeyCode = (event) => {
+    handleKeyDown = (event) => {
         const { focusedChip } = this.state;
         this._keyPressed = false;
         this._preventChipCreation = false;
@@ -142,14 +144,33 @@ class ChipInput extends React.Component {
             this.props.newChipKeyCodes.indexOf(event.keyCode) >= 0 ||
             this.props.newChipKeys.indexOf(event.key) >= 0
         ) {
-            const result = this.handleAddChip(event.target.value);
-            if (result !== false) {
-                event.preventDefault();
+            if (containsSpecialCharacters(this.state.inputValue)) {
+                this.props.newAlert(
+                    "warning",
+                    "cannot add word with special characters!",
+                    true,
+                )
+            } else {
+                const result = this.handleAddChip(event.target.value);
+                if (result !== false) {
+                    event.preventDefault();
+                }
+                this.props.updatePair(
+                    this.state.chips.length,
+                    event.target.value,
+                    false
+                );
             }
             return;
         }
 
         switch (event.keyCode) {
+            case keyCodes.ENTER:
+                this.props.updatePair(
+                    this.state.chips.length,
+                    event.target.value,
+                    false
+                );
             case keyCodes.BACKSPACE:
                 if (event.target.value === "") {
                     if (focusedChip != null) {
@@ -191,17 +212,6 @@ class ChipInput extends React.Component {
             default:
                 this.setState({ focusedChip: null });
                 break;
-        }
-    };
-
-    handleKeyDown = (event) => {
-        this.handleKeyCode(event);
-        if (event.keyCode == keyCodes.ENTER) {
-            this.props.updatePair(
-                this.state.chips.length,
-                event.target.value,
-                false
-            );
         }
     };
 

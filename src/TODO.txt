@@ -1,9 +1,9 @@
-* Need realtime or Firestore DB to store word/url dictionary:
-    * Fab button will save to App context first, then to DB
 * don't let user add "word" with numbers or special characters
 * remove beginning and ending whitespace of any "word" that has it
+* remove anonymous id when login using social media account.
 * if user has uploaded images with anonymous ID, show warning during login that if user logs out again, that they won't
   be able to access the images they saved anonymously.
-* remove anonymous id when login using social media account.
+* why does Chip TextField reset when Click Fab button (send to context and db)
+*** remove bug that causes crash on refresh
+*** make dark default theme
 * BorrowFirebaseStyle component
-* remove bug that causes crash on refresh

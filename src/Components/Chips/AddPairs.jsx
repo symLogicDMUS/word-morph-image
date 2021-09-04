@@ -12,16 +12,17 @@ import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
 export function AddPairs({ pairs }) {
     const { state, dispatch } = useContext(AppContext);
 
-    const dictionary = {};
     const upload = async () => {
-        // const dictionary = {};
+        const newPairs = {};
         Object.values(pairs).forEach(pair => {
-            dictionary[pair.word] = pair.url
+            newPairs[pair.word] = pair.url
         })
+        dispatch({type: "update-dictionary", newPairs: newPairs})
+
         const user = firebase.auth().currentUser;
         const uid = user.uid;
         const dir = getDir(user);
-        return await firebase.database().ref(`${dir}/dictionary/${uid}`).update(dictionary)
+        return await firebase.database().ref(`${dir}/dictionary/${uid}`).update(newPairs)
             .catch((err) => {
                 console.log(`ERROR: ${err}`)
             })
@@ -30,7 +31,7 @@ export function AddPairs({ pairs }) {
     return (
         <>
             <RenderCodeOrOutput file={"AddPairs.jsx"} nameOfChild={"dictionary"} iconButton style={{marginRight: '1rem'}}>
-                {dictionary}
+                {state.dictionary}
             </RenderCodeOrOutput>
             <Fab color={"primary"} onClick={upload}>
                 <AddIcon />

@@ -12,7 +12,10 @@ export function reducer(state, action) {
         case "update-dictionary":
             return {
                 ...state,
-                dictionary: action.dictionary,
+                dictionary: {
+                    ...state.dictionary,
+                    ...action.newPairs,
+                },
             };
         case "update-text":
             return {

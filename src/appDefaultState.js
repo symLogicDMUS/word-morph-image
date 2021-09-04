@@ -1,5 +1,5 @@
-export const appDefaultState = ({ prefersDarkMode }) => ({
+export const appDefaultState = {
     text: "",
     dictionary: {},
-    isDarkMode: prefersDarkMode,
-});
+    isDarkMode: true,
+};

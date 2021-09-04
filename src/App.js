@@ -18,13 +18,9 @@ import { reducer } from "./App.red";
 import "./App.scss";
 
 function App() {
-    const prefersDarkMode = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-    ).matches;
 
     const [state, dispatch] = React.useReducer(
         reducer,
-        prefersDarkMode,
         appDefaultState
     );
 
