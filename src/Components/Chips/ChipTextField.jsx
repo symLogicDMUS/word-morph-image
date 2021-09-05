@@ -1,14 +1,25 @@
-import React from "react";
-import { useStyles } from "./ChipTextField.jss";
+import React, { useState } from "react";
+import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
+import AlertDialog from "../AlertDialog/AlertDialog";
 
 export function ChipTextField(props) {
-    const { value, index, updateChipAtIndex, refocusParent, ...other } =
-        props;
+    const { value, index, updateChipAtIndex, refocusParent, ...other } = props;
 
-    const classes = useStyles();
-
+    const [alert, setAlert] = useState({
+        severity: "",
+        message: "",
+        open: false,
+    });
     const handleChange = (e) => {
-        updateChipAtIndex(index, e.target.value);
+        if (containsInvalidCharacters(e.target.value)) {
+            setAlert({
+                severity: "warning",
+                message: "cannot add word with these characters: # $ [ ] . ",
+                open: true,
+            });
+        } else {
+            updateChipAtIndex(index, e.target.value);
+        }
     };
 
     const handleKeyPress = (e) => {
@@ -17,14 +28,32 @@ export function ChipTextField(props) {
         }
     };
 
+    const closeAlert = () => {
+        setAlert({
+            severity: "",
+            message: "",
+            open: false,
+        });
+    };
+
     return (
-        <input
-            type="text"
-            value={value}
-            onChange={handleChange}
-            onKeyDown={handleKeyPress}
-            size={value.length > 0 ? value.length : 1}
-            className="MuiInputBase-input MuiInput-input"
-        />
+        <>
+            <input
+                type="text"
+                value={value}
+                onChange={handleChange}
+                onKeyDown={handleKeyPress}
+                size={value.length > 0 ? value.length : 1}
+                className="MuiInputBase-input MuiInput-input"
+                {...other}
+            />
+            <AlertDialog
+                severity={alert.severity}
+                open={alert.open}
+                onBackdropClick={closeAlert}
+            >
+                {alert.message}
+            </AlertDialog>
+        </>
     );
 }

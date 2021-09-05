@@ -26,7 +26,8 @@ const darkTheme = {
             },
             label: {
                 height: "auto",
-                paddingRight: 0,},
+                paddingRight: 0,
+            },
         },
         MuiFab: {
             primary: {

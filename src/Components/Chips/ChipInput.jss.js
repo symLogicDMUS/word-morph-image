@@ -113,7 +113,7 @@ export const styles = (theme) => ({
         float: "left",
         margin: "0 1rem 1rem 0",
         "& > .MuiChip-label": {
-            paddingLeft: "16px",
+            paddingLeft: "0 16px",
         },
     },
     marginDense: {},

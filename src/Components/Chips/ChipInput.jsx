@@ -119,11 +119,6 @@ class ChipInput extends React.Component {
                 });
             });
         }
-        // if (!!chips) this.updateChips([...this.state.chips, ...chips]);
-        // else this.updateChips([]);
-        // this.state.chips.forEach((chip, index) => {
-        //     this.props.updatePair(index, chip, false)
-        // })
     };
 
     handleKeyDown = (event) => {
@@ -565,10 +560,14 @@ class ChipInput extends React.Component {
                         </FormHelperText>
                     )}
                 </FormControl>
+                <RenderCodeOrOutput file="ChipInput.jsx" childName={"chips"}>
+                    {this.state.chips}
+                </RenderCodeOrOutput>
             </>
         );
     }
 }
+
 ChipInput.propTypes = {
     /** Allows duplicate chips if set to true. */
     allowDuplicates: PropTypes.bool,

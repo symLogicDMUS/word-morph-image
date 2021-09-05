@@ -35,7 +35,7 @@ export function AddPairs({ pairs }) {
         <>
             <RenderCodeOrOutput
                 file={"AddPairs.jsx"}
-                nameOfChild={"dictionary"}
+                childName={"dictionary"}
                 iconButton
                 style={{ marginRight: "1rem" }}
             >

@@ -9,7 +9,7 @@ import AppContext from "../AppContext";
 
 function RenderCodeOrOutput({
     file = "",
-    nameOfChild = "",
+    childName = "",
     replacer = null,
     space = 4,
     iconButton = false,
@@ -25,7 +25,7 @@ function RenderCodeOrOutput({
                 <Dialog open={open} onBackdropClick={() => setOpen(false)}>
                     <DialogTitle>{file}</DialogTitle>
                     <DialogContent>
-                        {nameOfChild}
+                        {childName}
                         <SyntaxHighlighter
                             language="javascript"
                             style={state.isDarkMode ? atomDark : vs}
