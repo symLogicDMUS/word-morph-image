@@ -9,6 +9,11 @@ export function reducer(state, action) {
                     [action.word]: action.url,
                 },
             };
+        case "new-dictionary":
+            return {
+                ...state,
+                dictionary: action.dictionary,
+            };
         case "update-dictionary":
             return {
                 ...state,

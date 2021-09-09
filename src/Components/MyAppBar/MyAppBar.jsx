@@ -9,7 +9,7 @@ import {
     IconButton,
     Typography,
 } from "@material-ui/core";
-import SignInOutButton from "./SignInOutButton";
+import SignOutButton from "./SignOutButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useStyles } from "./MyAppBar.jss";
 import AppContext from "../../AppContext";
@@ -46,7 +46,7 @@ export function MyAppBar({ handleDrawerToggle }) {
                         <Brightness7Icon />
                     </IconButton>
                 </Tooltip>
-                <SignInOutButton />
+                <SignOutButton />
                 <Tooltip title="Author's GitHub">
                     <IconButton
                         onClick={() =>

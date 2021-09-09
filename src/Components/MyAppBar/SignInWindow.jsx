@@ -15,12 +15,7 @@ function SignInWindow(props) {
     return (
         <Dialog onBackdropClick={() => setOpen(false)} open={open}>
             <DialogTitle>Sign In</DialogTitle>
-            <DialogContent>
-                <StyledFirebaseAuth
-                    uiConfig={uiConfig}
-                    firebaseAuth={firebase.auth()}
-                />
-            </DialogContent>
+            <DialogContent></DialogContent>
         </Dialog>
     );
 }
