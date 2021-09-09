@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import { Avatar } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
+import CloseIcon from '@material-ui/icons/Close';
 import { ReactComponent as Alt } from "./sample.svg";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Typography from "@material-ui/core/Typography";
-import { useStyles } from "./WordImagePair.jss";
 import { PairModifier } from "./PairModifier";
+import { useStyles } from "./WordImagePair.jss";
+import {Cancel} from "@material-ui/icons";
+import AppContext from "../../AppContext";
 
 function WordImagePair(props) {
     const { word, image } = props;
+
+    const { state, dispatch } = useContext(AppContext);
 
     const [pairModifier, setPairModifier] = useState(false);
 
@@ -28,6 +33,11 @@ function WordImagePair(props) {
                     className={classes.card}
                     onClick={() => setPairModifier(true)}
                 >
+                    <Cancel
+                        fontSize={"small"}
+                        className={classes.deletePair}
+                        onClick={() => dispatch({type: "remove-pair", word: word})}
+                    />
                     <CardActionArea>
                         <Avatar src={image} className={classes.img}>
                             <Alt className={classes.alt} />

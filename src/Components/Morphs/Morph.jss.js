@@ -4,7 +4,8 @@ import { getTextWidth } from "../../helpers/getTextWidth";
 export const useStyles = makeStyles(
     (theme) => ({
         img: (props) => ({
-            display: "inline",
+            display: "inline-block",
+            height: theme.typography.h2.fontSize,
             marginLeft:
                 props.word && props.word.length
                     ? getTextWidth(

@@ -1,5 +1,7 @@
+* fix default icon appearing no matter what on start page
+* implement word morph page
 * implement add single pair page
-* implement saved pairs page (with editing)
+** implement saved pairs page (with editing)
     *
 * create demo
 * add logos to drawer menu items and buttons
@@ -9,3 +11,5 @@
 * remove beginning and ending whitespace of any "word" that has it
 * BorrowFirebaseStyle component (import global css file?)
 * add svg title where title exists on AppBar
+* add alert if dictionary empty, that should add some pairs
+* fix default icon on morph page

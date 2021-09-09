@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {lighten, makeStyles} from "@material-ui/core/styles";
 import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles((theme) => ({
@@ -55,4 +55,13 @@ export const useStyles = makeStyles((theme) => ({
         height: "100%",
         opacity: 0.3,
     },
+    deletePair: {
+        margin: theme.spacing(1),
+        color: '#999999',
+        opacity: 0.6,
+        cursor:'pointer',
+        '&:hover':{
+            color: lighten('#999999', 0.35)
+        },
+    }
 }));
