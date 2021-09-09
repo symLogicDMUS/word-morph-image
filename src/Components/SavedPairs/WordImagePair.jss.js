@@ -1,7 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { drawerWidth } from "./ResponsiveDrawer.jss";
-
-const size = "15vw";
+import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: {
@@ -50,5 +48,11 @@ export const useStyles = makeStyles((theme) => ({
     img: {
         height: "var(--size)",
         width: "var(--size)",
+        background: 'none',
     },
+    alt: {
+        width: '100%',
+        height: '100%',
+        opacity: 0.35
+    }
 }));

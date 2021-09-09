@@ -560,9 +560,6 @@ class ChipInput extends React.Component {
                         </FormHelperText>
                     )}
                 </FormControl>
-                <RenderCode file="ChipInput.jsx" childName={"chips"}>
-                    {this.state.chips}
-                </RenderCode>
             </>
         );
     }

@@ -13,7 +13,7 @@ function DrawerListItems(props) {
             <List>
                 <DrawerListItem path="/chips">Add Pair Group</DrawerListItem>
                 <DrawerListItem>Add Single Pair</DrawerListItem>
-                <DrawerListItem>Saved Pairs</DrawerListItem>
+                <DrawerListItem path="/saved-pairs">Saved Pairs</DrawerListItem>
             </List>
             <Divider />
             <List>

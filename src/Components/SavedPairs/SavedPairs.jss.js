@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles(
     (theme) => ({
-        planetsAndMoons: (props) => ({
+        pairs: (props) => ({
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",

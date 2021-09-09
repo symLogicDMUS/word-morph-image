@@ -22,6 +22,7 @@ import {updateDictionary} from "./API/updateDictionary";
 import Home from "./Components/Home/Home";
 import { reducer } from "./App.red";
 import "./App.scss";
+import SavedPairs from "./Components/SavedPairs/SavedPairs";
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
@@ -40,6 +41,34 @@ function App() {
             return createTheme({ ...lightTheme });
         }
     }, [state.isDarkMode]);
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (!!user) {
+                const dir = user.isAnonymous ? "visitors" : "users";
+                firebase
+                    .database()
+                    .ref(`/${dir}/dictionary/${user.uid}`)
+                    .once("value")
+                    .then(function (snapshot) {
+                        if (!!snapshot.val()) {
+                            dispatch({
+                                type: "new-dictionary",
+                                dictionary: snapshot.val(),
+                            });
+                        } else {
+                            const firstEntry = {sample: "/Images/material_design.svg"}
+                            updateDictionary(firstEntry).then(r => {
+                                dispatch({
+                                    type: "new-dictionary",
+                                    dictionary: firstEntry,
+                                });
+                            })
+                        }
+                    });
+            }
+        });
+    }, []);
 
     return (
         <AppContext.Provider value={appContextValue}>
@@ -82,6 +111,15 @@ function App() {
                             component={(props) => (
                                 <ResponsiveDrawer>
                                     <PausedMorphs {...props} />
+                                </ResponsiveDrawer>
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/saved-pairs"
+                            component={(props) => (
+                                <ResponsiveDrawer>
+                                    <SavedPairs {...props} />
                                 </ResponsiveDrawer>
                             )}
                         />

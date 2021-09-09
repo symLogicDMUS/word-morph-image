@@ -13,6 +13,7 @@ import SignOutButton from "./SignOutButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useStyles } from "./MyAppBar.jss";
 import AppContext from "../../AppContext";
+import RenderCode from "../../helpers/RenderCode";
 
 export function MyAppBar({ handleDrawerToggle }) {
     const { state, dispatch } = useContext(AppContext);
@@ -34,6 +35,9 @@ export function MyAppBar({ handleDrawerToggle }) {
                 <Typography className={classes.title} noWrap>
                     Words to Images
                 </Typography>
+                <RenderCode childName={"state.dictionary"} iconButton>
+                    {state.dictionary}
+                </RenderCode>
                 <Tooltip title={"Toggle light/dark theme"}>
                     <IconButton
                         onClick={() =>

@@ -33,14 +33,6 @@ export function AddPairs({ pairs }) {
 
     return (
         <>
-            <RenderCode
-                file={"AddPairs.jsx"}
-                childName={"dictionary"}
-                iconButton
-                style={{ marginRight: "1rem" }}
-            >
-                {state.dictionary}
-            </RenderCode>
             <Fab color={"primary"} onClick={upload}>
                 <AddIcon />
             </Fab>
