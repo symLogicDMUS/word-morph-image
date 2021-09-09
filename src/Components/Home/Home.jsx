@@ -1,12 +1,13 @@
 import React from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
-import {Box} from "@material-ui/core";
-import {useHistory} from "react-router-dom";
+import { Box } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 import HomeIconButtons from "./HomeIconButtons";
-import {ReactComponent as Title} from "./title.svg";
+import { ReactComponent as Title } from "./title.svg";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import {useStyles} from "./Home.jss";
+import { useStyles } from "./Home.jss";
+import VisitorSignInButton from "./VisitorSignInButton";
 
 function Home() {
     const history = useHistory();
@@ -18,6 +19,7 @@ function Home() {
             <Box className={classes.content}>
                 <Title className={classes.title} />
                 <HomeIconButtons />
+                <VisitorSignInButton />
                 <StyledFirebaseAuth
                     uiConfig={{
                         signInFlow: "popup",

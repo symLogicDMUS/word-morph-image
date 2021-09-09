@@ -18,7 +18,6 @@ import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
-import About from "./Components/About/About";
 import Home from "./Components/Home/Home";
 import { reducer } from "./App.red";
 import "./App.scss";
@@ -68,7 +67,6 @@ function App() {
                 <Router>
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route exact path="/about" component={About} />
                         <Route exact path="/input" component={TextInput} />
                         <Route
                             exact

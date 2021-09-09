@@ -1,122 +1,102 @@
-[debug] [2021-09-03T22:37:39.916Z] ----------------------------------------------------------------------
-[debug] [2021-09-03T22:37:39.918Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bjrat\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
-[debug] [2021-09-03T22:37:39.918Z] CLI Version:   9.16.6
-[debug] [2021-09-03T22:37:39.919Z] Platform:      win32
-[debug] [2021-09-03T22:37:39.919Z] Node Version:  v14.17.6
-[debug] [2021-09-03T22:37:39.920Z] Time:          Fri Sep 03 2021 15:37:39 GMT-0700 (Pacific Daylight Time)
-[debug] [2021-09-03T22:37:39.920Z] ----------------------------------------------------------------------
+[debug] [2021-09-09T16:28:24.924Z] ----------------------------------------------------------------------
+[debug] [2021-09-09T16:28:24.926Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bjrat\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2021-09-09T16:28:24.927Z] CLI Version:   9.16.6
+[debug] [2021-09-09T16:28:24.927Z] Platform:      win32
+[debug] [2021-09-09T16:28:24.927Z] Node Version:  v14.17.6
+[debug] [2021-09-09T16:28:24.928Z] Time:          Thu Sep 09 2021 09:28:24 GMT-0700 (Pacific Daylight Time)
+[debug] [2021-09-09T16:28:24.928Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2021-09-03T22:37:39.986Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2021-09-03T22:37:39.987Z] > authorizing via signed-in user (bjrathbone1@gmail.com)
+[debug] [2021-09-09T16:28:24.996Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-09-09T16:28:24.996Z] > authorizing via signed-in user (bjrathbone1@gmail.com)
 [info] i  emulators: Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage"}}
-[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project word-morph-image. This may result in unexpected behavior. 
-[debug] [2021-09-03T22:37:40.007Z] [hub] writing locator at C:\Users\bjrat\AppData\Local\Temp\hub-word-morph-image.json
+[debug] [2021-09-09T16:28:25.016Z] [hub] writing locator at C:\Users\bjrat\AppData\Local\Temp\hub-word-morph-image.json
 [warn] !  Your requested "node" version "12" doesn't match your global version "14" {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"12\" doesn't match your global version \"14\""}}
-[debug] [2021-09-03T22:37:40.055Z] defaultcredentials: writing to file C:\Users\bjrat\AppData\Roaming\firebase\bjrathbone1_gmail_com_application_default_credentials.json
-[debug] [2021-09-03T22:37:40.060Z] Setting GAC to C:\Users\bjrat\AppData\Roaming\firebase\bjrathbone1_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\bjrat\\AppData\\Roaming\\firebase\\bjrathbone1_gmail_com_application_default_credentials.json"}}
-[debug] [2021-09-03T22:37:40.062Z] > refreshing access token with scopes: []
-[debug] [2021-09-03T22:37:40.063Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2021-09-03T22:37:40.283Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Fri, 03 Sep 2021 22:37:40 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-09-03T22:37:40.298Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig [none]
-[debug] [2021-09-03T22:37:40.660Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig 200
-[debug] [2021-09-03T22:37:40.661Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig {"projectId":"word-morph-image","databaseURL":"https://word-morph-image-default-rtdb.firebaseio.com","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1"}
-[debug] [2021-09-03T22:37:40.683Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2021-09-03T22:37:40.684Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2021-09-03T22:37:40.684Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\bjrat\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.13.1.jar","--host","localhost","--port",8080,"--rules","C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.13.1.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[debug] [2021-09-09T16:28:25.058Z] defaultcredentials: writing to file C:\Users\bjrat\AppData\Roaming\firebase\bjrathbone1_gmail_com_application_default_credentials.json
+[debug] [2021-09-09T16:28:25.062Z] Setting GAC to C:\Users\bjrat\AppData\Roaming\firebase\bjrathbone1_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\bjrat\\AppData\\Roaming\\firebase\\bjrathbone1_gmail_com_application_default_credentials.json"}}
+[debug] [2021-09-09T16:28:25.065Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig [none]
+[debug] [2021-09-09T16:28:25.474Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig 200
+[debug] [2021-09-09T16:28:25.475Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig {"projectId":"word-morph-image","databaseURL":"https://word-morph-image-default-rtdb.firebaseio.com","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1"}
+[debug] [2021-09-09T16:28:25.532Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-09-09T16:28:25.534Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-09-09T16:28:25.535Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\bjrat\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.13.1.jar","--host","localhost","--port",8080,"--rules","C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.13.1.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
 [info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
-[debug] [2021-09-03T22:37:43.152Z] Sep 03, 2021 3:37:43 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
-INFO: Started WebSocket server on ws://localhost:59880
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:37:43 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\r\nINFO: Started WebSocket server on ws://localhost:59880\r\n"}}
-[debug] [2021-09-03T22:37:43.190Z] API endpoint: http://localhost:8080
+[debug] [2021-09-09T16:28:27.925Z] Sep 09, 2021 9:28:27 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:59204
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:28:27 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\r\nINFO: Started WebSocket server on ws://localhost:59204\r\n"}}
+[debug] [2021-09-09T16:28:27.980Z] API endpoint: http://localhost:8080
 If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run: {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://localhost:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:"}}
-[debug] [2021-09-03T22:37:43.190Z] 
+[debug] [2021-09-09T16:28:27.980Z] 
 
    export FIRESTORE_EMULATOR_HOST=localhost:8080
 
 Dev App Server is now running.
 
  {"metadata":{"emulator":{"name":"firestore"},"message":"\r\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8080\n\nDev App Server is now running.\n\r\n"}}
-[debug] [2021-09-03T22:37:43.356Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image [none]
-[debug] [2021-09-03T22:37:43.666Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image 200
-[debug] [2021-09-03T22:37:43.667Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image {"projectId":"word-morph-image","projectNumber":"724904043135","displayName":"word morph image","name":"projects/word-morph-image","resources":{"hostingSite":"word-morph-image","realtimeDatabaseInstance":"word-morph-image-default-rtdb","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1"},"state":"ACTIVE"}
-[debug] [2021-09-03T22:37:43.667Z] database rules config:  [{"instance":"word-morph-image-default-rtdb","rules":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\database.rules.json"}]
-[debug] [2021-09-03T22:37:43.671Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2021-09-03T22:37:43.671Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2021-09-03T22:37:43.671Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2021-09-03T22:37:43.671Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\bjrat\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.7.2.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.7.2.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[debug] [2021-09-09T16:28:28.224Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image [none]
+[debug] [2021-09-09T16:28:28.570Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image 200
+[debug] [2021-09-09T16:28:28.571Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image {"projectId":"word-morph-image","projectNumber":"724904043135","displayName":"word morph image","name":"projects/word-morph-image","resources":{"hostingSite":"word-morph-image","realtimeDatabaseInstance":"word-morph-image-default-rtdb","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1"},"state":"ACTIVE"}
+[debug] [2021-09-09T16:28:28.571Z] database rules config:  [{"instance":"word-morph-image-default-rtdb","rules":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\database.rules.json"}]
+[debug] [2021-09-09T16:28:28.573Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-09-09T16:28:28.573Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-09-09T16:28:28.574Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2021-09-09T16:28:28.574Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\bjrat\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.7.2.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.7.2.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
 [info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2021-09-03T22:37:45.828Z] 15:37:45.824 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
- {"metadata":{"emulator":{"name":"database"},"message":"15:37:45.824 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\r\n"}}
-[debug] [2021-09-03T22:37:46.035Z] 15:37:46.027 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
- {"metadata":{"emulator":{"name":"database"},"message":"15:37:46.027 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000\r\n"}}
-[debug] [2021-09-03T22:37:49.034Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2021-09-03T22:37:49.034Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2021-09-03T22:37:49.034Z] Starting Pub/Sub Emulator with command {"binary":"C:\\Users\\bjrat\\.cache\\firebase\\emulators\\pubsub-emulator-0.1.0\\pubsub-emulator\\bin\\cloud-pubsub-emulator.bat","args":["--host=localhost","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\pubsub-emulator-0.1.0\\\\pubsub-emulator\\\\bin\\\\cloud-pubsub-emulator.bat\",\"args\":[\"--host=localhost\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
+[debug] [2021-09-09T16:28:30.856Z] 09:28:30.860 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"09:28:30.860 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\r\n"}}
+[debug] [2021-09-09T16:28:31.126Z] 09:28:31.125 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"09:28:31.125 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000\r\n"}}
+[debug] [2021-09-09T16:28:34.034Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-09-09T16:28:34.034Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-09-09T16:28:34.034Z] Starting Pub/Sub Emulator with command {"binary":"C:\\Users\\bjrat\\.cache\\firebase\\emulators\\pubsub-emulator-0.1.0\\pubsub-emulator\\bin\\cloud-pubsub-emulator.bat","args":["--host=localhost","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\pubsub-emulator-0.1.0\\\\pubsub-emulator\\\\bin\\\\cloud-pubsub-emulator.bat\",\"args\":[\"--host=localhost\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
 [info] i  pubsub: Pub/Sub Emulator logging to pubsub-debug.log {"metadata":{"emulator":{"name":"pubsub"},"message":"Pub/Sub Emulator logging to \u001b[1mpubsub-debug.log\u001b[22m"}}
-[debug] [2021-09-03T22:37:50.244Z] Sep 03, 2021 3:37:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:37:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:37:50.602Z] Sep 03, 2021 3:37:50 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
-INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:37:50 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
-[debug] [2021-09-03T22:37:51.679Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2021-09-03T22:37:51.975Z] Temp file directory for storage emulator: C:\Users\bjrat\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\bjrat\\AppData\\Local\\Temp/firebase/storage/blobs"}}
-[debug] [2021-09-03T22:37:52.941Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites 
-[debug] [2021-09-03T22:37:53.522Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites 200
-[debug] [2021-09-03T22:37:53.522Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites {"sites":[{"name":"projects/724904043135/sites/word-morph-image","defaultUrl":"https://word-morph-image.web.app","appId":"1:724904043135:web:042be513e468382907154a","type":"DEFAULT_SITE"}]}
-[debug] [2021-09-03T22:37:53.523Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config [none]
-[debug] [2021-09-03T22:37:54.082Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config 200
-[debug] [2021-09-03T22:37:54.082Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config {"projectId":"word-morph-image","appId":"1:724904043135:web:042be513e468382907154a","databaseURL":"https://word-morph-image-default-rtdb.firebaseio.com","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1","apiKey":"AIzaSyBqfHHi_jK_cMEX0O_0dD8d6ymJPxVA9Jc","authDomain":"word-morph-image.firebaseapp.com","messagingSenderId":"724904043135","measurementId":"G-XTF50TCXHF"}
+[debug] [2021-09-09T16:28:36.941Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2021-09-09T16:28:37.190Z] Temp file directory for storage emulator: C:\Users\bjrat\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\bjrat\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2021-09-09T16:28:38.026Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites 
+[debug] [2021-09-09T16:28:38.592Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites 200
+[debug] [2021-09-09T16:28:38.593Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites {"sites":[{"name":"projects/724904043135/sites/word-morph-image","defaultUrl":"https://word-morph-image.web.app","appId":"1:724904043135:web:042be513e468382907154a","type":"DEFAULT_SITE"}]}
+[debug] [2021-09-09T16:28:38.593Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config [none]
+[debug] [2021-09-09T16:28:39.199Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config 200
+[debug] [2021-09-09T16:28:39.199Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config {"projectId":"word-morph-image","appId":"1:724904043135:web:042be513e468382907154a","databaseURL":"https://word-morph-image-default-rtdb.firebaseio.com","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1","apiKey":"AIzaSyBqfHHi_jK_cMEX0O_0dD8d6ymJPxVA9Jc","authDomain":"word-morph-image.firebaseapp.com","messagingSenderId":"724904043135","measurementId":"G-XTF50TCXHF"}
 [info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
 [info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
 [warn] !  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
-[debug] [2021-09-03T22:37:54.140Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2021-09-03T22:37:54.140Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2021-09-03T22:37:54.140Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\bjrat\\.cache\\firebase\\emulators\\ui-v1.6.2\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.6.2\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[debug] [2021-09-09T16:28:39.272Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-09-09T16:28:39.272Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2021-09-09T16:28:39.272Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\bjrat\\.cache\\firebase\\emulators\\ui-v1.6.2\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.6.2\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
 [info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2021-09-03T22:37:54.293Z] Web / API server started at localhost:4001
+[debug] [2021-09-09T16:28:39.448Z] Web / API server started at localhost:4001
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4001\n"}}
 [info] i  functions: Watching "C:\Users\bjrat\source\repos\Javascript\word-morph-image\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\" for Cloud Functions..."}}
-[debug] [2021-09-03T22:37:54.487Z] [worker-pool] addWorker(~diagnostic~) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(~diagnostic~)"}}
-[debug] [2021-09-03T22:37:54.488Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key ~diagnostic~, total=1"}}
-[debug] [2021-09-03T22:37:54.488Z] [worker-pool] submitWork(triggerId=) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=)"}}
-[debug] [2021-09-03T22:37:54.489Z] [worker-~diagnostic~-d5ddc57c-bbfb-4ddd-8c26-b75d1351f7d2]: Assigning socketPath: \\?\pipe\C:\Users\bjrat\source\repos\Javascript\word-morph-image\functions\4796 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-d5ddc57c-bbfb-4ddd-8c26-b75d1351f7d2]: Assigning socketPath: \\\\?\\pipe\\C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\4796"}}
-[debug] [2021-09-03T22:37:54.489Z] [worker-~diagnostic~-d5ddc57c-bbfb-4ddd-8c26-b75d1351f7d2]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-d5ddc57c-bbfb-4ddd-8c26-b75d1351f7d2]: BUSY"}}
-[debug] [2021-09-03T22:37:54.502Z] Sep 03, 2021 3:37:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:37:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:37:54.552Z] Sep 03, 2021 3:37:54 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
-INFO: Websocket client disconnected
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:37:54 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
-[debug] [2021-09-03T22:37:54.831Z] Sep 03, 2021 3:37:54 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
-INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:37:54 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
-[debug] [2021-09-03T22:37:55.046Z] [runtime-status] [4796] Functions runtime initialized. {"cwd":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions","node_version":"14.17.6"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\",\"node_version\":\"14.17.6\"}"}}
-[debug] [2021-09-03T22:37:55.049Z] [runtime-status] [4796] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Disabled runtime features: undefined"}}
-[debug] [2021-09-03T22:37:55.053Z] [runtime-status] [4796] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-03T22:37:55.059Z] [runtime-status] [4796] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-03T22:37:55.061Z] [runtime-status] [4796] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-03T22:37:55.062Z] [runtime-status] [4796] Set PUBSUB_EMULATOR_HOST to localhost:8085 {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Set PUBSUB_EMULATOR_HOST to localhost:8085"}}
-[debug] [2021-09-03T22:37:55.064Z] [runtime-status] [4796] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2021-09-03T22:37:55.065Z] [runtime-status] [4796] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-03T22:37:55.152Z] [runtime-status] [4796] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Checked functions.config() {\"config\":{}}"}}
-[debug] [2021-09-03T22:37:55.152Z] [runtime-status] [4796] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}}"}}
-[debug] [2021-09-03T22:37:55.153Z] [runtime-status] [4796] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-03T22:37:55.154Z] [runtime-status] [4796] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-03T22:37:55.155Z] [runtime-status] [4796] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-03T22:37:55.156Z] [runtime-status] [4796] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
-[debug] [2021-09-03T22:37:55.159Z] [runtime-status] [4796] initializeApp(DEFAULT) {"storageBucket":"word-morph-image.appspot.com","databaseURL":"http://localhost:9000/?ns=word-morph-image-default-rtdb","projectId":"word-morph-image"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [4796] initializeApp(DEFAULT) {\"storageBucket\":\"word-morph-image.appspot.com\",\"databaseURL\":\"http://localhost:9000/?ns=word-morph-image-default-rtdb\",\"projectId\":\"word-morph-image\"}"}}
+[debug] [2021-09-09T16:28:39.682Z] [worker-pool] addWorker(~diagnostic~) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(~diagnostic~)"}}
+[debug] [2021-09-09T16:28:39.682Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key ~diagnostic~, total=1"}}
+[debug] [2021-09-09T16:28:39.682Z] [worker-pool] submitWork(triggerId=) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=)"}}
+[debug] [2021-09-09T16:28:39.683Z] [worker-~diagnostic~-2bc5f728-d869-4164-a914-4115056abad0]: Assigning socketPath: \\?\pipe\C:\Users\bjrat\source\repos\Javascript\word-morph-image\functions\19808 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-2bc5f728-d869-4164-a914-4115056abad0]: Assigning socketPath: \\\\?\\pipe\\C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\19808"}}
+[debug] [2021-09-09T16:28:39.683Z] [worker-~diagnostic~-2bc5f728-d869-4164-a914-4115056abad0]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-2bc5f728-d869-4164-a914-4115056abad0]: BUSY"}}
+[debug] [2021-09-09T16:28:40.169Z] [runtime-status] [19808] Functions runtime initialized. {"cwd":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions","node_version":"14.17.6"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\",\"node_version\":\"14.17.6\"}"}}
+[debug] [2021-09-09T16:28:40.172Z] [runtime-status] [19808] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Disabled runtime features: undefined"}}
+[debug] [2021-09-09T16:28:40.180Z] [runtime-status] [19808] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-09T16:28:40.184Z] [runtime-status] [19808] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-09T16:28:40.186Z] [runtime-status] [19808] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-09T16:28:40.187Z] [runtime-status] [19808] Set PUBSUB_EMULATOR_HOST to localhost:8085 {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Set PUBSUB_EMULATOR_HOST to localhost:8085"}}
+[debug] [2021-09-09T16:28:40.188Z] [runtime-status] [19808] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2021-09-09T16:28:40.189Z] [runtime-status] [19808] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-09T16:28:40.257Z] [runtime-status] [19808] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Checked functions.config() {\"config\":{}}"}}
+[debug] [2021-09-09T16:28:40.258Z] [runtime-status] [19808] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}}"}}
+[debug] [2021-09-09T16:28:40.258Z] [runtime-status] [19808] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-09T16:28:40.260Z] [runtime-status] [19808] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-09T16:28:40.261Z] [runtime-status] [19808] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
+[debug] [2021-09-09T16:28:40.261Z] [runtime-status] [19808] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2021-09-09T16:28:40.263Z] [runtime-status] [19808] initializeApp(DEFAULT) {"storageBucket":"word-morph-image.appspot.com","databaseURL":"http://localhost:9000/?ns=word-morph-image-default-rtdb","projectId":"word-morph-image"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [19808] initializeApp(DEFAULT) {\"storageBucket\":\"word-morph-image.appspot.com\",\"databaseURL\":\"http://localhost:9000/?ns=word-morph-image-default-rtdb\",\"projectId\":\"word-morph-image\"}"}}
 [info] +  functions[us-central1-helloWorld]: http function initialized (http://localhost:5001/word-morph-image/us-central1/helloWorld). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/word-morph-image/us-central1/helloWorld)."}}
-[debug] [2021-09-03T22:37:55.499Z] >>> HTTP REQUEST PUT http://localhost:9000/.settings/rules.json?ns=word-morph-image-default-rtdb  
+[debug] [2021-09-09T16:28:40.531Z] >>> HTTP REQUEST PUT http://localhost:9000/.settings/rules.json?ns=word-morph-image-default-rtdb  
  {
   "rules": {
     ".read": true,
     ".write": true
   }
 }
-[debug] [2021-09-03T22:37:55.501Z] [worker-~diagnostic~-d5ddc57c-bbfb-4ddd-8c26-b75d1351f7d2]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-d5ddc57c-bbfb-4ddd-8c26-b75d1351f7d2]: IDLE"}}
-[debug] [2021-09-03T22:37:55.570Z] <<< HTTP RESPONSE 200 {"content-length":"15","content-type":"application/json; charset=utf-8","access-control-allow-origin":"*","cache-control":"no-cache","x-firebase-project-id":"word-morph-image-default-rtdb","x-firebase-project-number":"123456789","x-firebase-uuid":"ac97c50e-0f1a-4b12-a92f-a323145e8b4c"}
+[debug] [2021-09-09T16:28:40.532Z] [worker-~diagnostic~-2bc5f728-d869-4164-a914-4115056abad0]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-2bc5f728-d869-4164-a914-4115056abad0]: IDLE"}}
+[debug] [2021-09-09T16:28:41.085Z] <<< HTTP RESPONSE 200 {"content-length":"15","content-type":"application/json; charset=utf-8","access-control-allow-origin":"*","cache-control":"no-cache","x-firebase-project-id":"word-morph-image-default-rtdb","x-firebase-project-number":"123456789","x-firebase-uuid":"41053de4-bde3-423e-bceb-08c9a3bf4947"}
 [info] 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
@@ -145,332 +125,36 @@ INFO: Connected to new websocket client
 
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
-[debug] [2021-09-03T22:37:57.098Z] Sep 03, 2021 3:37:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+[debug] [2021-09-09T16:30:04.989Z] Sep 09, 2021 9:30:04 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:37:57 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:00.817Z] Sep 03, 2021 3:38:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:02.032Z] Sep 03, 2021 3:38:02 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
-INFO: Websocket client disconnected
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:02 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
-[debug] [2021-09-03T22:38:04.030Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast [none]
-[debug] [2021-09-03T22:38:04.030Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast {"eventId":"9f8b1d8e-e6d9-4093-b775-af53bd28f16e","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/word-morph-image","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2021-09-03T22:38:04.030Z","data":{"uid":"oJVvFh9qEnr5SNWChisYPn1XDaZ6","metadata":{"creationTime":"1630708684029","lastSignInTime":"1630708684029"},"customClaims":{}}}
-[debug] [2021-09-03T22:38:04.038Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast 200
-[debug] [2021-09-03T22:38:04.038Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2021-09-03T22:38:06.838Z] Sep 03, 2021 3:38:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:07.227Z] Sep 03, 2021 3:38:07 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:30:04 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:30:05.459Z] Sep 09, 2021 9:30:05 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
 INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:07 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
-[debug] [2021-09-03T22:38:10.870Z] Sep 03, 2021 3:38:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:30:05 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
+[debug] [2021-09-09T16:30:08.980Z] Sep 09, 2021 9:30:08 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:10 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:12.912Z] Sep 03, 2021 3:38:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:30:08 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:30:10.995Z] Sep 09, 2021 9:30:10 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:14.943Z] Sep 03, 2021 3:38:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:30:10 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:30:13.020Z] Sep 09, 2021 9:30:13 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:16.979Z] Sep 03, 2021 3:38:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:30:13 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:30:16.923Z] Sep 09, 2021 9:30:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:16 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:19.033Z] Sep 03, 2021 3:38:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:30:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:40:02.950Z] Sep 09, 2021 9:40:02 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:19 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:21.077Z] Sep 03, 2021 3:38:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:40:02 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:40:25.402Z] Sep 09, 2021 9:40:25 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:21 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:23.118Z] Sep 03, 2021 3:38:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:40:25 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:40:46.048Z] Sep 09, 2021 9:40:46 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:23 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:25.251Z] Sep 03, 2021 3:38:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:40:46 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:41:13.803Z] Sep 09, 2021 9:41:13 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:25 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:35.936Z] Sep 03, 2021 3:38:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:41:13 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2021-09-09T16:49:12.326Z] Sep 09, 2021 9:49:12 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:37.974Z] Sep 03, 2021 3:38:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:38:38.700Z] Sep 03, 2021 3:38:38 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
-INFO: Websocket client disconnected
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:38:38 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
-[debug] [2021-09-03T22:39:02.779Z] Sep 03, 2021 3:39:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:03.224Z] Sep 03, 2021 3:39:03 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
-INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:03 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
-[debug] [2021-09-03T22:39:06.804Z] Sep 03, 2021 3:39:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:08.859Z] Sep 03, 2021 3:39:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:12.130Z] Sep 03, 2021 3:39:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:13.103Z] Sep 03, 2021 3:39:13 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
-INFO: Websocket client disconnected
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:13 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
-[debug] [2021-09-03T22:39:13.434Z] Sep 03, 2021 3:39:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:13.830Z] Sep 03, 2021 3:39:13 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
-INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:13 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
-[debug] [2021-09-03T22:39:18.535Z] Sep 03, 2021 3:39:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:18 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:29.801Z] Sep 03, 2021 3:39:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:31.565Z] Sep 03, 2021 3:39:31 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
-INFO: Websocket client disconnected
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:31 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
-[debug] [2021-09-03T22:39:31.829Z] Sep 03, 2021 3:39:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:31 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:32.208Z] Sep 03, 2021 3:39:32 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
-INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:32 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
-[debug] [2021-09-03T22:39:35.868Z] Sep 03, 2021 3:39:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:35 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:37.901Z] Sep 03, 2021 3:39:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:37 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:39.926Z] Sep 03, 2021 3:39:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:39 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:41.956Z] Sep 03, 2021 3:39:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:41 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:44.001Z] Sep 03, 2021 3:39:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:44 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:46.036Z] Sep 03, 2021 3:39:46 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:46 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:48.072Z] Sep 03, 2021 3:39:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:48 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:50.105Z] Sep 03, 2021 3:39:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:50 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:52.136Z] Sep 03, 2021 3:39:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:52 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:54.184Z] Sep 03, 2021 3:39:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:54 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:39:59.274Z] Sep 03, 2021 3:39:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:39:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:40:04.209Z] Sep 03, 2021 3:40:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:40:05.465Z] Sep 03, 2021 3:40:05 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
-INFO: Websocket client disconnected
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:05 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
-[debug] [2021-09-03T22:40:05.735Z] Sep 03, 2021 3:40:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:40:06.117Z] Sep 03, 2021 3:40:06 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
-INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:06 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
-[debug] [2021-09-03T22:40:09.755Z] Sep 03, 2021 3:40:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:40:11.809Z] Sep 03, 2021 3:40:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:40:13.837Z] Sep 03, 2021 3:40:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:40:41.780Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast [none]
-[debug] [2021-09-03T22:40:41.780Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast "{\"eventId\":\"1630708841780\",\"timestamp\":\"2021-09-03T15:40:41.780Z\",\"eventType\":\"google.storage.object.metadataUpdate\",\"resource\":{\"service\":\"storage.googleapis.com\",\"name\":\"projects/_/buckets/word-morph-image.appspot.com/objects/visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/dolor.png\",\"type\":\"storage#object\"},\"data\":{\"kind\":\"#storage#object\",\"name\":\"visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/dolor.png\",\"bucket\":\"word-morph-image.appspot.com\",\"generation\":\"1630708841773\",\"metageneration\":\"1\",\"contentType\":\"image/png\",\"timeCreated\":\"2021-09-03T15:40:41.772Z\",\"updated\":\"2021-09-03T15:40:41.779Z\",\"storageClass\":\"STANDARD\",\"size\":\"37006\",\"md5Hash\":\"kanGf4G/IYGygrd7w57Bag==\",\"etag\":\"someETag\",\"crc32c\":\"----9Q==\",\"timeStorageClassUpdated\":\"2021-09-03T15:40:41.772Z\",\"id\":\"word-morph-image.appspot.com/visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/dolor.png/1630708841773\",\"selfLink\":\"http://localhost:9199/storage/v1/b/word-morph-image.appspot.com/o/visitors%2Fimages%2FoJVvFh9qEnr5SNWChisYPn1XDaZ6%2Fdolor.png\",\"mediaLink\":\"http://localhost:9199/download/storage/v1/b/word-morph-image.appspot.com/o/visitors%2Fimages%2FoJVvFh9qEnr5SNWChisYPn1XDaZ6%2Fdolor.png?generation=1630708841773&alt=media\"}}"
-[debug] [2021-09-03T22:40:41.782Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast [none]
-[debug] [2021-09-03T22:40:41.783Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast "{\"eventId\":\"1630708841782\",\"timestamp\":\"2021-09-03T15:40:41.782Z\",\"eventType\":\"google.storage.object.finalize\",\"resource\":{\"service\":\"storage.googleapis.com\",\"name\":\"projects/_/buckets/word-morph-image.appspot.com/objects/visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/dolor.png\",\"type\":\"storage#object\"},\"data\":{\"kind\":\"#storage#object\",\"name\":\"visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/dolor.png\",\"bucket\":\"word-morph-image.appspot.com\",\"generation\":\"1630708841773\",\"metageneration\":\"1\",\"contentType\":\"image/png\",\"timeCreated\":\"2021-09-03T15:40:41.772Z\",\"updated\":\"2021-09-03T15:40:41.779Z\",\"storageClass\":\"STANDARD\",\"size\":\"37006\",\"md5Hash\":\"kanGf4G/IYGygrd7w57Bag==\",\"etag\":\"someETag\",\"crc32c\":\"----9Q==\",\"timeStorageClassUpdated\":\"2021-09-03T15:40:41.772Z\",\"id\":\"word-morph-image.appspot.com/visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/dolor.png/1630708841773\",\"selfLink\":\"http://localhost:9199/storage/v1/b/word-morph-image.appspot.com/o/visitors%2Fimages%2FoJVvFh9qEnr5SNWChisYPn1XDaZ6%2Fdolor.png\",\"mediaLink\":\"http://localhost:9199/download/storage/v1/b/word-morph-image.appspot.com/o/visitors%2Fimages%2FoJVvFh9qEnr5SNWChisYPn1XDaZ6%2Fdolor.png?generation=1630708841773&alt=media\"}}"
-[debug] [2021-09-03T22:40:41.794Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast 200
-[debug] [2021-09-03T22:40:41.794Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2021-09-03T22:40:41.797Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast 200
-[debug] [2021-09-03T22:40:41.797Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2021-09-03T22:40:47.314Z] Sep 03, 2021 3:40:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:47 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:40:49.824Z] Sep 03, 2021 3:40:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:40:56.251Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast [none]
-[debug] [2021-09-03T22:40:56.252Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast "{\"eventId\":\"1630708856251\",\"timestamp\":\"2021-09-03T15:40:56.251Z\",\"eventType\":\"google.storage.object.metadataUpdate\",\"resource\":{\"service\":\"storage.googleapis.com\",\"name\":\"projects/_/buckets/word-morph-image.appspot.com/objects/visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/adipiscing.png\",\"type\":\"storage#object\"},\"data\":{\"kind\":\"#storage#object\",\"name\":\"visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/adipiscing.png\",\"bucket\":\"word-morph-image.appspot.com\",\"generation\":\"1630708856248\",\"metageneration\":\"1\",\"contentType\":\"image/png\",\"timeCreated\":\"2021-09-03T15:40:56.247Z\",\"updated\":\"2021-09-03T15:40:56.251Z\",\"storageClass\":\"STANDARD\",\"size\":\"444523\",\"md5Hash\":\"B6edBFOVwRTjQKXrr1VWWw==\",\"etag\":\"someETag\",\"crc32c\":\"----lQ==\",\"timeStorageClassUpdated\":\"2021-09-03T15:40:56.247Z\",\"id\":\"word-morph-image.appspot.com/visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/adipiscing.png/1630708856248\",\"selfLink\":\"http://localhost:9199/storage/v1/b/word-morph-image.appspot.com/o/visitors%2Fimages%2FoJVvFh9qEnr5SNWChisYPn1XDaZ6%2Fadipiscing.png\",\"mediaLink\":\"http://localhost:9199/download/storage/v1/b/word-morph-image.appspot.com/o/visitors%2Fimages%2FoJVvFh9qEnr5SNWChisYPn1XDaZ6%2Fadipiscing.png?generation=1630708856248&alt=media\"}}"
-[debug] [2021-09-03T22:40:56.255Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast [none]
-[debug] [2021-09-03T22:40:56.255Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast "{\"eventId\":\"1630708856255\",\"timestamp\":\"2021-09-03T15:40:56.255Z\",\"eventType\":\"google.storage.object.finalize\",\"resource\":{\"service\":\"storage.googleapis.com\",\"name\":\"projects/_/buckets/word-morph-image.appspot.com/objects/visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/adipiscing.png\",\"type\":\"storage#object\"},\"data\":{\"kind\":\"#storage#object\",\"name\":\"visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/adipiscing.png\",\"bucket\":\"word-morph-image.appspot.com\",\"generation\":\"1630708856248\",\"metageneration\":\"1\",\"contentType\":\"image/png\",\"timeCreated\":\"2021-09-03T15:40:56.247Z\",\"updated\":\"2021-09-03T15:40:56.251Z\",\"storageClass\":\"STANDARD\",\"size\":\"444523\",\"md5Hash\":\"B6edBFOVwRTjQKXrr1VWWw==\",\"etag\":\"someETag\",\"crc32c\":\"----lQ==\",\"timeStorageClassUpdated\":\"2021-09-03T15:40:56.247Z\",\"id\":\"word-morph-image.appspot.com/visitors/images/oJVvFh9qEnr5SNWChisYPn1XDaZ6/adipiscing.png/1630708856248\",\"selfLink\":\"http://localhost:9199/storage/v1/b/word-morph-image.appspot.com/o/visitors%2Fimages%2FoJVvFh9qEnr5SNWChisYPn1XDaZ6%2Fadipiscing.png\",\"mediaLink\":\"http://localhost:9199/download/storage/v1/b/word-morph-image.appspot.com/o/visitors%2Fimages%2FoJVvFh9qEnr5SNWChisYPn1XDaZ6%2Fadipiscing.png?generation=1630708856248&alt=media\"}}"
-[debug] [2021-09-03T22:40:56.263Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast 200
-[debug] [2021-09-03T22:40:56.263Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2021-09-03T22:40:56.265Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast 200
-[debug] [2021-09-03T22:40:56.265Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast {"status":"multicast_acknowledged"}
-[debug] [2021-09-03T22:40:59.094Z] Sep 03, 2021 3:40:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:40:59 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:41:00.726Z] Sep 03, 2021 3:41:00 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed
-INFO: Websocket client disconnected
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:41:00 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler channelClosed\r\nINFO: Websocket client disconnected\r\n"}}
-[debug] [2021-09-03T22:41:00.994Z] Sep 03, 2021 3:41:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:41:00 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:41:01.362Z] Sep 03, 2021 3:41:01 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
-INFO: Connected to new websocket client
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:41:01 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel\r\nINFO: Connected to new websocket client\r\n"}}
-[debug] [2021-09-03T22:41:05.022Z] Sep 03, 2021 3:41:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:41:05 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:41:07.050Z] Sep 03, 2021 3:41:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:41:07 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:41:09.068Z] Sep 03, 2021 3:41:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:41:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-03T22:41:11.101Z] Sep 03, 2021 3:41:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 03, 2021 3:41:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
-[debug] [2021-09-05T01:14:23.931Z] ----------------------------------------------------------------------
-[debug] [2021-09-05T01:14:23.933Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bjrat\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
-[debug] [2021-09-05T01:14:23.934Z] CLI Version:   9.16.6
-[debug] [2021-09-05T01:14:23.934Z] Platform:      win32
-[debug] [2021-09-05T01:14:23.934Z] Node Version:  v14.17.6
-[debug] [2021-09-05T01:14:23.935Z] Time:          Sat Sep 04 2021 18:14:23 GMT-0700 (Pacific Daylight Time)
-[debug] [2021-09-05T01:14:23.935Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2021-09-05T01:14:23.938Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2021-09-05T01:14:24.040Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2021-09-05T01:14:24.040Z] > authorizing via signed-in user (bjrathbone1@gmail.com)
-[info] i  emulators: Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage"}}
-[debug] [2021-09-05T01:14:24.083Z] [hub] writing locator at C:\Users\bjrat\AppData\Local\Temp\hub-word-morph-image.json
-[warn] !  Your requested "node" version "12" doesn't match your global version "14" {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"12\" doesn't match your global version \"14\""}}
-[debug] [2021-09-05T01:14:24.122Z] defaultcredentials: writing to file C:\Users\bjrat\AppData\Roaming\firebase\bjrathbone1_gmail_com_application_default_credentials.json
-[debug] [2021-09-05T01:14:24.126Z] Setting GAC to C:\Users\bjrat\AppData\Roaming\firebase\bjrathbone1_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\bjrat\\AppData\\Roaming\\firebase\\bjrathbone1_gmail_com_application_default_credentials.json"}}
-[debug] [2021-09-05T01:14:24.127Z] > refreshing access token with scopes: []
-[debug] [2021-09-05T01:14:24.127Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2021-09-05T01:14:24.287Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2021-09-05T01:14:24.287Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2021-09-05T01:14:24.364Z] <<< HTTP RESPONSE 200 {"date":"Sun, 05 Sep 2021 01:14:24 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
-[debug] [2021-09-05T01:14:24.393Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig [none]
-[debug] [2021-09-05T01:14:24.761Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig 200
-[debug] [2021-09-05T01:14:24.762Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/adminSdkConfig {"projectId":"word-morph-image","databaseURL":"https://word-morph-image-default-rtdb.firebaseio.com","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1"}
-[debug] [2021-09-05T01:14:24.804Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2021-09-05T01:14:24.804Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2021-09-05T01:14:24.805Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\bjrat\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.13.1.jar","--host","localhost","--port",8080,"--rules","C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.13.1.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
-[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
-[debug] [2021-09-05T01:14:28.123Z] Sep 04, 2021 6:14:28 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
-INFO: Started WebSocket server on ws://localhost:62032
- {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 04, 2021 6:14:28 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\r\nINFO: Started WebSocket server on ws://localhost:62032\r\n"}}
-[debug] [2021-09-05T01:14:28.181Z] API endpoint: http://localhost:8080
-If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run: {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://localhost:8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:"}}
-[debug] [2021-09-05T01:14:28.181Z] 
-
-   export FIRESTORE_EMULATOR_HOST=localhost:8080
-
-Dev App Server is now running.
-
- {"metadata":{"emulator":{"name":"firestore"},"message":"\r\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8080\n\nDev App Server is now running.\n\r\n"}}
-[debug] [2021-09-05T01:14:28.284Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image [none]
-[debug] [2021-09-05T01:14:28.578Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image 200
-[debug] [2021-09-05T01:14:28.578Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image {"projectId":"word-morph-image","projectNumber":"724904043135","displayName":"word morph image","name":"projects/word-morph-image","resources":{"hostingSite":"word-morph-image","realtimeDatabaseInstance":"word-morph-image-default-rtdb","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1"},"state":"ACTIVE"}
-[debug] [2021-09-05T01:14:28.579Z] database rules config:  [{"instance":"word-morph-image-default-rtdb","rules":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\database.rules.json"}]
-[debug] [2021-09-05T01:14:28.587Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2021-09-05T01:14:28.587Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2021-09-05T01:14:28.587Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2021-09-05T01:14:28.587Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\bjrat\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.7.2.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.7.2.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
-[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2021-09-05T01:14:31.109Z] 18:14:31.102 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
- {"metadata":{"emulator":{"name":"database"},"message":"18:14:31.102 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\r\n"}}
-[debug] [2021-09-05T01:14:31.413Z] 18:14:31.415 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
- {"metadata":{"emulator":{"name":"database"},"message":"18:14:31.415 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000\r\n"}}
-[debug] [2021-09-05T01:14:34.559Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2021-09-05T01:14:34.559Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2021-09-05T01:14:34.560Z] Starting Pub/Sub Emulator with command {"binary":"C:\\Users\\bjrat\\.cache\\firebase\\emulators\\pubsub-emulator-0.1.0\\pubsub-emulator\\bin\\cloud-pubsub-emulator.bat","args":["--host=localhost","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\pubsub-emulator-0.1.0\\\\pubsub-emulator\\\\bin\\\\cloud-pubsub-emulator.bat\",\"args\":[\"--host=localhost\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
-[info] i  pubsub: Pub/Sub Emulator logging to pubsub-debug.log {"metadata":{"emulator":{"name":"pubsub"},"message":"Pub/Sub Emulator logging to \u001b[1mpubsub-debug.log\u001b[22m"}}
-[debug] [2021-09-05T01:14:37.511Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2021-09-05T01:14:37.813Z] Temp file directory for storage emulator: C:\Users\bjrat\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\bjrat\\AppData\\Local\\Temp/firebase/storage/blobs"}}
-[debug] [2021-09-05T01:14:38.806Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites 
-[debug] [2021-09-05T01:14:39.371Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites 200
-[debug] [2021-09-05T01:14:39.372Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/word-morph-image/sites {"sites":[{"name":"projects/724904043135/sites/word-morph-image","defaultUrl":"https://word-morph-image.web.app","appId":"1:724904043135:web:042be513e468382907154a","type":"DEFAULT_SITE"}]}
-[debug] [2021-09-05T01:14:39.374Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config [none]
-[debug] [2021-09-05T01:14:39.977Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config 200
-[debug] [2021-09-05T01:14:39.977Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/word-morph-image/webApps/1:724904043135:web:042be513e468382907154a/config {"projectId":"word-morph-image","appId":"1:724904043135:web:042be513e468382907154a","databaseURL":"https://word-morph-image-default-rtdb.firebaseio.com","storageBucket":"word-morph-image.appspot.com","locationId":"us-west1","apiKey":"AIzaSyBqfHHi_jK_cMEX0O_0dD8d6ymJPxVA9Jc","authDomain":"word-morph-image.firebaseapp.com","messagingSenderId":"724904043135","measurementId":"G-XTF50TCXHF"}
-[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
-[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
-[warn] !  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
-[debug] [2021-09-05T01:14:40.072Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2021-09-05T01:14:40.073Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2021-09-05T01:14:40.073Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\bjrat\\.cache\\firebase\\emulators\\ui-v1.6.2\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\bjrat\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.6.2\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
-[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2021-09-05T01:14:40.277Z] Web / API server started at localhost:4001
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4001\n"}}
-[info] i  functions: Watching "C:\Users\bjrat\source\repos\Javascript\word-morph-image\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\" for Cloud Functions..."}}
-[debug] [2021-09-05T01:14:40.463Z] [worker-pool] addWorker(~diagnostic~) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(~diagnostic~)"}}
-[debug] [2021-09-05T01:14:40.463Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key ~diagnostic~, total=1"}}
-[debug] [2021-09-05T01:14:40.463Z] [worker-pool] submitWork(triggerId=) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=)"}}
-[debug] [2021-09-05T01:14:40.464Z] [worker-~diagnostic~-c1bf9aa2-cef4-452d-84fe-1c0561e4d3ce]: Assigning socketPath: \\?\pipe\C:\Users\bjrat\source\repos\Javascript\word-morph-image\functions\20088 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-c1bf9aa2-cef4-452d-84fe-1c0561e4d3ce]: Assigning socketPath: \\\\?\\pipe\\C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\20088"}}
-[debug] [2021-09-05T01:14:40.464Z] [worker-~diagnostic~-c1bf9aa2-cef4-452d-84fe-1c0561e4d3ce]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-c1bf9aa2-cef4-452d-84fe-1c0561e4d3ce]: BUSY"}}
-[debug] [2021-09-05T01:14:40.974Z] [runtime-status] [20088] Functions runtime initialized. {"cwd":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions","node_version":"14.17.6"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\",\"node_version\":\"14.17.6\"}"}}
-[debug] [2021-09-05T01:14:40.978Z] [runtime-status] [20088] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Disabled runtime features: undefined"}}
-[debug] [2021-09-05T01:14:41.014Z] [runtime-status] [20088] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-05T01:14:41.020Z] [runtime-status] [20088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-05T01:14:41.024Z] [runtime-status] [20088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-05T01:14:41.024Z] [runtime-status] [20088] Set PUBSUB_EMULATOR_HOST to localhost:8085 {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Set PUBSUB_EMULATOR_HOST to localhost:8085"}}
-[debug] [2021-09-05T01:14:41.026Z] [runtime-status] [20088] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
-[debug] [2021-09-05T01:14:41.027Z] [runtime-status] [20088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-05T01:14:41.112Z] [runtime-status] [20088] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Checked functions.config() {\"config\":{}}"}}
-[debug] [2021-09-05T01:14:41.113Z] [runtime-status] [20088] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}}"}}
-[debug] [2021-09-05T01:14:41.113Z] [runtime-status] [20088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-05T01:14:41.115Z] [runtime-status] [20088] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-05T01:14:41.116Z] [runtime-status] [20088] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.15.4","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-functions\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.15.4\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\index.js\"}"}}
-[debug] [2021-09-05T01:14:41.116Z] [runtime-status] [20088] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.11.1","resolution":"C:\\Users\\bjrat\\source\\repos\\Javascript\\word-morph-image\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"9.11.1\",\"resolution\":\"C:\\\\Users\\\\bjrat\\\\source\\\\repos\\\\Javascript\\\\word-morph-image\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
-[debug] [2021-09-05T01:14:41.119Z] [runtime-status] [20088] initializeApp(DEFAULT) {"storageBucket":"word-morph-image.appspot.com","databaseURL":"http://localhost:9000/?ns=word-morph-image-default-rtdb","projectId":"word-morph-image"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [20088] initializeApp(DEFAULT) {\"storageBucket\":\"word-morph-image.appspot.com\",\"databaseURL\":\"http://localhost:9000/?ns=word-morph-image-default-rtdb\",\"projectId\":\"word-morph-image\"}"}}
-[info] +  functions[us-central1-helloWorld]: http function initialized (http://localhost:5001/word-morph-image/us-central1/helloWorld). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/word-morph-image/us-central1/helloWorld)."}}
-[debug] [2021-09-05T01:14:41.718Z] >>> HTTP REQUEST PUT http://localhost:9000/.settings/rules.json?ns=word-morph-image-default-rtdb  
- {
-  "rules": {
-    ".read": true,
-    ".write": true
-  }
-}
-[debug] [2021-09-05T01:14:41.719Z] [worker-~diagnostic~-c1bf9aa2-cef4-452d-84fe-1c0561e4d3ce]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-c1bf9aa2-cef4-452d-84fe-1c0561e4d3ce]: IDLE"}}
-[debug] [2021-09-05T01:14:42.288Z] <<< HTTP RESPONSE 200 {"content-length":"15","content-type":"application/json; charset=utf-8","access-control-allow-origin":"*","cache-control":"no-cache","x-firebase-project-id":"word-morph-image-default-rtdb","x-firebase-project-number":"123456789","x-firebase-uuid":"0112bf77-d7d5-49a3-a105-5b3ccd2347f6"}
-[info] 
-┌─────────────────────────────────────────────────────────────┐
-│ ✔  All emulators ready! It is now safe to connect your app. │
-│ i  View Emulator UI at http://localhost:4001                │
-└─────────────────────────────────────────────────────────────┘
-
-┌────────────────┬────────────────┬─────────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI             │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Authentication │ localhost:9099 │ http://localhost:4001/auth      │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Functions      │ localhost:5001 │ http://localhost:4001/functions │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Firestore      │ localhost:8080 │ http://localhost:4001/firestore │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Database       │ localhost:9000 │ http://localhost:4001/database  │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Hosting        │ localhost:5000 │ n/a                             │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Pub/Sub        │ localhost:8085 │ n/a                             │
-├────────────────┼────────────────┼─────────────────────────────────┤
-│ Storage        │ localhost:9199 │ http://localhost:4001/storage   │
-└────────────────┴────────────────┴─────────────────────────────────┘
-  Emulator Hub running at localhost:4400
-  Other reserved ports: 4500
-
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
- 
-[debug] [2021-09-05T01:17:34.519Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast [none]
-[debug] [2021-09-05T01:17:34.519Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast {"eventId":"56a00451-5631-4caa-9432-5db9e6f697a2","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/word-morph-image","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2021-09-05T01:17:34.519Z","data":{"uid":"Xsgke59qDuEVLU6BkJJByHPB601D","metadata":{"creationTime":"1630804654518","lastSignInTime":"1630804654518"},"customClaims":{}}}
-[debug] [2021-09-05T01:17:34.528Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast 200
-[debug] [2021-09-05T01:17:34.529Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/word-morph-image/trigger_multicast {"status":"multicast_acknowledged"}
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Sep 09, 2021 9:49:12 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
