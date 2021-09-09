@@ -1,4 +1,6 @@
 import clsx from "clsx";
+import firebase from "firebase/app";
+import "firebase/auth";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import {PermIdentity} from "@material-ui/icons";
@@ -8,7 +10,7 @@ function VisitorSignInButton(props) {
     const classes = useStyles();
     return (
         <Button
-            // onClick={anonymousLogin}
+            onClick={() => firebase.auth().signInAnonymously()}
             className={clsx(classes.button, { [classes.color1]: true })}
             variant={"contained"}
         >

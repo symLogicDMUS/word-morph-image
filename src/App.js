@@ -16,8 +16,9 @@ import TextInput from "./Components/TextInput/TextInput";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
+import {updateDictionary} from "./API/updateDictionary";
 import Home from "./Components/Home/Home";
 import { reducer } from "./App.red";
 import "./App.scss";
@@ -39,26 +40,6 @@ function App() {
             return createTheme({ ...lightTheme });
         }
     }, [state.isDarkMode]);
-
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (!!user) {
-                const dir = user.isAnonymous ? "visitors" : "users";
-                firebase
-                    .database()
-                    .ref(`/${dir}/dictionary/${user.uid}`)
-                    .once("value")
-                    .then(function (snapshot) {
-                        if (!!snapshot.val()) {
-                            dispatch({
-                                type: "new-dictionary",
-                                dictionary: snapshot.val(),
-                            });
-                        }
-                    });
-            }
-        });
-    }, []);
 
     return (
         <AppContext.Provider value={appContextValue}>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="sample.svg"
+   id="svg10"
+   version="1.1"
+   class="material-logo-svg"
+   viewBox="0 0 96 96"
+   aria-hidden="true"
+   _ngcontent-euv-c18="">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="svg10"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-9"
+     inkscape:window-x="-9"
+     inkscape:cy="129.33498"
+     inkscape:cx="31.983811"
+     inkscape:zoom="1.5283818"
+     showgrid="false"
+     id="namedview12"
+     inkscape:window-height="1001"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs4"
+     _ngcontent-euv-c18="">
+    <style
+       id="style2"
+       _ngcontent-euv-c18="">.cls-1{fill:#fff;}</style>
+  </defs>
+  <title
+     id="title6"
+     _ngcontent-euv-c18="">material_light</title>
+  <path
+     style="fill:#8a8a8a;fill-opacity:1"
+     id="path8"
+     class="cls-1"
+     d="M48,0A48,48,0,1,0,96,48,48,48,0,0,0,48,0ZM18,22,46,78H18Zm2.47-4H75.53L48,73.06ZM78,22V78H50Zm4-1.9a43.92,43.92,0,0,1,0,55.8ZM75.9,14H20.1a43.92,43.92,0,0,1,55.8,0ZM14,20.1V75.9a43.92,43.92,0,0,1,0-55.8ZM20.1,82H75.9a43.92,43.92,0,0,1-55.8,0Z"
+     _ngcontent-euv-c18="" />
+</svg>
