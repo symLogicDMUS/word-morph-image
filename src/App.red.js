@@ -1,4 +1,7 @@
+import { copy } from "./helpers/copy";
+
 export function reducer(state, action) {
+    let newDict;
     switch (action.type) {
         // word/image pair:
         case "add-pair":
@@ -9,6 +12,21 @@ export function reducer(state, action) {
                     [action.word]: action.url,
                 },
             };
+        case "update-pair":
+            newDict = copy(state.dictionary);
+            delete newDict[action.oldWord];
+            newDict[action.word] = action.url;
+            return {
+                ...state,
+                dictionary: newDict,
+            };
+        case "remove-pair":
+            newDict = copy(state.dictionary);
+            delete newDict[action.word]
+            return {
+                ...state,
+                dictionary: newDict,
+            }
         case "new-dictionary":
             return {
                 ...state,

@@ -48,11 +48,11 @@ export const useStyles = makeStyles((theme) => ({
     img: {
         height: "var(--size)",
         width: "var(--size)",
-        background: 'none',
+        background: "none",
     },
     alt: {
-        width: '100%',
-        height: '100%',
-        opacity: 0.35
-    }
+        width: "100%",
+        height: "100%",
+        opacity: 0.3,
+    },
 }));

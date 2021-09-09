@@ -16,13 +16,14 @@ import TextInput from "./Components/TextInput/TextInput";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
-import {updateDictionary} from "./API/updateDictionary";
+import { updateDictionary } from "./API/updateDictionary";
 import Home from "./Components/Home/Home";
 import { reducer } from "./App.red";
 import "./App.scss";
 import SavedPairs from "./Components/SavedPairs/SavedPairs";
+import { getDir } from "./helpers/getDir";
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
@@ -45,7 +46,7 @@ function App() {
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (!!user) {
-                const dir = user.isAnonymous ? "visitors" : "users";
+                const dir = getDir(user);
                 firebase
                     .database()
                     .ref(`/${dir}/dictionary/${user.uid}`)
@@ -57,13 +58,15 @@ function App() {
                                 dictionary: snapshot.val(),
                             });
                         } else {
-                            const firstEntry = {sample: "/Images/material_design.svg"}
-                            updateDictionary(firstEntry).then(r => {
+                            const firstEntry = {
+                                sample: "/Images/material_design.svg",
+                            };
+                            updateDictionary(firstEntry).then((r) => {
                                 dispatch({
                                     type: "new-dictionary",
                                     dictionary: firstEntry,
                                 });
-                            })
+                            });
                         }
                     });
             }

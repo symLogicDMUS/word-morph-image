@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { Box } from "@material-ui/core";
