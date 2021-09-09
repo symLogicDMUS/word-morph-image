@@ -1,16 +1,23 @@
 import React from "react";
 import IconButton from "@material-ui/core/IconButton";
-import {ReactComponent as GitHub} from "./github.svg";
+import { ReactComponent as GitHub } from "./github.svg";
 import Typography from "@material-ui/core/Typography";
-import {useStyles} from "./HomeIconButton.jss";
-import {motion} from "framer-motion";
+import { useStyles } from "./HomeIconButton.jss";
+import { motion } from "framer-motion";
 
 function GitHubIconButton() {
     const classes = useStyles();
     return (
-        <motion.div className={classes.listItem} whileHover={{scale: 1.15}}>
+        <motion.div
+            className={classes.listItem}
+            whileHover={{ scale: 1.15 }}
+            onClick={() =>
+                (window.location.href =
+                    "https://github.com/symLogicDMUS/word-morph-image")
+            }
+        >
             <IconButton>
-                <GitHub fill={"#fff"}/>
+                <GitHub fill={"#fff"} />
             </IconButton>
             <Typography
                 className={classes.iconButtonSubtitle}
@@ -19,7 +26,7 @@ function GitHubIconButton() {
                 GitHub
             </Typography>
         </motion.div>
-    )
+    );
 }
 
 export default GitHubIconButton;

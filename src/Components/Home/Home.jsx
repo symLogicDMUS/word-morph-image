@@ -3,9 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import {Box} from "@material-ui/core";
 import {useHistory} from "react-router-dom";
-import AboutIconButton from "./AboutIconButton";
-import GitHubIconButton from "./GitHubIconButton";
-import YouTubeIconButton from "./YouTubeIconButton";
+import HomeIconButtons from "./HomeIconButtons";
 import {ReactComponent as Title} from "./title.svg";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {useStyles} from "./Home.jss";
@@ -19,11 +17,7 @@ function Home() {
         <Box className={classes.body}>
             <Box className={classes.content}>
                 <Title className={classes.title} />
-                <Box className={classes.homeIconButtons}>
-                    <YouTubeIconButton />
-                    <GitHubIconButton />
-                    <AboutIconButton />
-                </Box>
+                <HomeIconButtons />
                 <StyledFirebaseAuth
                     uiConfig={{
                         signInFlow: "popup",
@@ -34,7 +28,7 @@ function Home() {
                             firebase.auth.EmailAuthProvider.PROVIDER_ID,
                         ],
                         callbacks: {
-                            signInSuccess: () => history.push("/TextInput"),
+                            signInSuccess: () => history.push("/input"),
                         },
                     }}
                     firebaseAuth={firebase.auth()}

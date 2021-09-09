@@ -1,11 +1,10 @@
+import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/database";
 import React from "react";
 import { useMemo } from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/database";
 import AppContext from "./AppContext";
 import Chips from "./Components/Chips/Chips";
 import darkTheme from "./theme/darkTheme.jss";
@@ -19,12 +18,18 @@ import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
+import About from "./Components/About/About";
 import Home from "./Components/Home/Home";
 import { reducer } from "./App.red";
 import "./App.scss";
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
+
+    const appContextValue = useMemo(
+        () => ({ state, dispatch }),
+        [state, dispatch]
+    );
 
     const theme = useMemo(() => {
         if (state.isDarkMode) {
@@ -56,11 +61,6 @@ function App() {
         });
     }, []);
 
-    const appContextValue = useMemo(
-        () => ({ state, dispatch }),
-        [state, dispatch]
-    );
-
     return (
         <AppContext.Provider value={appContextValue}>
             <ThemeProvider theme={theme}>
@@ -68,6 +68,7 @@ function App() {
                 <Router>
                     <Switch>
                         <Route exact path="/" component={Home} />
+                        <Route exact path="/about" component={About} />
                         <Route exact path="/input" component={TextInput} />
                         <Route
                             exact

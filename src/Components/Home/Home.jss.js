@@ -1,11 +1,11 @@
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles(
     (theme) => ({
-        title: props => ({
-           width: 420,
-            maxWidth: '95vw',
-            minWidth: '20vw',
+        title: (props) => ({
+            width: 420,
+            maxWidth: "95vw",
+            minWidth: "20vw",
         }),
         body: {
             width: "100vw",
@@ -15,20 +15,10 @@ export const useStyles = makeStyles(
         },
         content: {
             margin: "auto",
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-
-        },
-        homeIconButtons: {
-            display: 'flex',
-            justifyContent: 'center',
-            "& .MuiIconButton-root": {
-                "&:hover":{
-                    background: "none",
-                },
-            },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
         },
     }),
     { index: 1 }
