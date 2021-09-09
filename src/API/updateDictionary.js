@@ -6,5 +6,5 @@ export async function updateDictionary(dictionary) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
     const dir = user.isAnonymous ? "visitors" : "users";
-    return await firebase.database().ref(`/${dir}/dictionary/${uid}`).update({dictionary})
+    return await firebase.database().ref(`/${dir}/dictionary/${uid}`).update(dictionary)
 }

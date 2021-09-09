@@ -7,7 +7,7 @@ import { vs, atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import IconButton from "@material-ui/core/IconButton";
 import AppContext from "../AppContext";
 
-function RenderCodeOrOutput({
+function RenderCode({
     file = "",
     childName = "",
     replacer = null,
@@ -52,4 +52,4 @@ function RenderCodeOrOutput({
     );
 }
 
-export default RenderCodeOrOutput;
+export default RenderCode;

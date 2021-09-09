@@ -7,7 +7,7 @@ export function reducer(state, action) {
     const indexes = Object.keys(state);
     if (!indexes.includes(index)) {
         word = "";
-        url = null;
+        url = "";
     } else {
         word = state[action.key].word;
         url = state[action.key].url;

@@ -20,7 +20,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { styles } from "./ChipInput.jss";
 import { ClearAll } from "./ClearAll";
-import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
+import RenderCode from "../../helpers/RenderCode";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
 
 class ChipInput extends React.Component {
@@ -560,9 +560,9 @@ class ChipInput extends React.Component {
                         </FormHelperText>
                     )}
                 </FormControl>
-                <RenderCodeOrOutput file="ChipInput.jsx" childName={"chips"}>
+                <RenderCode file="ChipInput.jsx" childName={"chips"}>
                     {this.state.chips}
-                </RenderCodeOrOutput>
+                </RenderCode>
             </>
         );
     }

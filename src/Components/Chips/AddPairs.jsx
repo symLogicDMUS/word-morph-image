@@ -4,7 +4,7 @@ import AppContext from "../../AppContext";
 import AddIcon from "@material-ui/icons/Add";
 import firebase from "firebase/app";
 import { getDir } from "../../helpers/getDir";
-import RenderCodeOrOutput from "../../helpers/RenderCodeOrOutput";
+import RenderCode from "../../helpers/RenderCode";
 
 /**
  * Add word image pairs to App's context
@@ -33,14 +33,14 @@ export function AddPairs({ pairs }) {
 
     return (
         <>
-            <RenderCodeOrOutput
+            <RenderCode
                 file={"AddPairs.jsx"}
                 childName={"dictionary"}
                 iconButton
                 style={{ marginRight: "1rem" }}
             >
                 {state.dictionary}
-            </RenderCodeOrOutput>
+            </RenderCode>
             <Fab color={"primary"} onClick={upload}>
                 <AddIcon />
             </Fab>
