@@ -32,14 +32,23 @@ function Morph(props) {
         },
     };
 
+    let color;
+    if (index === currentIndex + 1) color = "secondary"
+    else color = "inherit"
+
     return (
         <>
             {index > currentIndex && (
-                <Typography className={classes.word}>
+                <Typography className={classes.word} color={color}>
                     {children + " "}
                 </Typography>
             )}
-            {index <= currentIndex && (
+            {index <= currentIndex && !src && (
+                <Typography className={classes.word} color={color}>
+                    {children + " "}
+                </Typography>
+            )}
+            {index <= currentIndex && !!src && (
                 <motion.img
                     src={src}
                     initial="initial"
