@@ -5,9 +5,9 @@ import { useHistory } from "react-router-dom";
 import LoremButton from "../LoremButton/LoremButton";
 import { Box, Button, TextareaAutosize } from "@material-ui/core";
 import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
-import { useStyles } from "./TextInput.jss";
+import { useStyles } from "./InputText.jss";
 
-function TextInput() {
+function InputText() {
     const history = useHistory();
 
     const classes = useStyles();
@@ -59,4 +59,4 @@ function TextInput() {
     );
 }
 
-export default TextInput;
+export default InputText;

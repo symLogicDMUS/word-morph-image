@@ -15,7 +15,7 @@ import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
 import { CssBaseline } from "@material-ui/core";
 import { appDefaultState } from "./appDefaultState";
-import TextInput from "./Components/TextInput/TextInput";
+import InputText from "./Components/InputText/InputText";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -82,7 +82,6 @@ function App() {
                 <Router>
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route exact path="/input" component={TextInput} />
                         <Route
                             exact
                             path="/morphs"

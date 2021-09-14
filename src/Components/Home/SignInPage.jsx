@@ -1,24 +1,14 @@
-import React, {useEffect} from "react";
+import React from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { Box } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 import HomeIconButtons from "./HomeIconButtons";
 import { ReactComponent as Title } from "./title.svg";
 import VisitorSignInButton from "./VisitorSignInButton";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useStyles } from "./Home.jss";
 
-function SignInPage({signedIn}) {
-    const history = useHistory();
-
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (!!user && signedIn) {
-                history.push("/input");
-            }
-        });
-    }, []);
+function SignInPage() {
 
     const classes = useStyles();
 

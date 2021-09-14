@@ -14,11 +14,10 @@ function DrawerListItems(props) {
                 <DrawerListItem path="/chips">Add Pair Group</DrawerListItem>
                 <DrawerListItem>Add Single Pair</DrawerListItem>
                 <DrawerListItem path="/saved-pairs">Saved Pairs</DrawerListItem>
-                <DrawerListItem path="/input">Input Text</DrawerListItem>
+                <DrawerListItem path="/">Input Text</DrawerListItem>
             </List>
             <Divider />
             <List>
-                <DrawerListItem path="/">Home</DrawerListItem>
                 <DrawerListItem>About</DrawerListItem>
                 <DrawerListItem>Help</DrawerListItem>
                 <DrawerListItem>Sources</DrawerListItem>

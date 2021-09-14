@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import SignInPage from "./SignInPage";
-import SignOutPage from "./SignOutPage";
+import InputText from "../InputText/InputText";
 
 function Home() {
 
@@ -22,7 +22,7 @@ function Home() {
             {! signedIn ? (
                 <SignInPage signedIn={signedIn} />
             ) : (
-                <SignOutPage />
+                <InputText />
             )}
         </>
     );
