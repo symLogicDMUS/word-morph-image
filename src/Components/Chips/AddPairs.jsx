@@ -4,7 +4,6 @@ import AppContext from "../../AppContext";
 import AddIcon from "@material-ui/icons/Add";
 import firebase from "firebase/app";
 import { getDir } from "../../helpers/getDir";
-import RenderCode from "../../helpers/RenderCode";
 
 /**
  * Add word image pairs to App's context

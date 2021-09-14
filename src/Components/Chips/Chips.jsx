@@ -1,49 +1,16 @@
-import React, { useReducer, useState } from "react";
-import { Box, Dialog } from "@material-ui/core";
-import TextFieldUnderline from "./TextFieldUnderline";
-import ChipInput from "./ChipInput";
-import { AddPairs } from "./AddPairs";
-import { reducer } from "./Chips.red";
-import { Alert } from "@material-ui/lab";
-import { useStyles } from "./Chips.jss";
+import React, { useState } from "react";
 import AlertDialog from "../AlertDialog/AlertDialog";
+import { Box } from "@material-ui/core";
+import ChipInput from "./ChipInput";
+import { useStyles } from "./Chips.jss";
 
 function Chips(props) {
-    const [state, dispatch] = useReducer(reducer, {});
+
     const [alert, setAlert] = useState({
         severity: "",
         message: "",
         open: false,
     });
-    const classes = useStyles();
-
-    const [chips, setChips] = useState([]);
-    const handleChange = (chips) => {
-        console.log("chips", chips);
-        setChips(chips);
-    };
-
-    const [isFocused, setIsFocused] = useState(false);
-    const updateFocus = (value) => {
-        setIsFocused(value);
-    };
-
-    const clearAll = (inputRef) => {
-        inputRef.current.clear();
-    };
-
-    const updatePair = (key, newItem, isUrl) => {
-        dispatch({
-            type: "update-pair",
-            key: key,
-            newItem: newItem,
-            isUrl: isUrl,
-        });
-    };
-
-    const removePair = (key) => {
-        dispatch({ type: "remove-pair", key: key });
-    };
 
     const newAlert = (severity, message, open) => {
         setAlert({
@@ -56,24 +23,16 @@ function Chips(props) {
     const closeAlert = () =>
         setAlert({ severity: "", message: "", open: false });
 
+    const classes = useStyles();
+
     return (
         <>
             <Box className={classes.body}>
                 <ChipInput
                     fullWidth
                     variant="filled"
-                    clearAll={clearAll}
-                    isFocused={isFocused}
-                    updateFocus={updateFocus}
-                    updatePair={updatePair}
-                    removePair={removePair}
-                    onChange={handleChange}
                     newAlert={newAlert}
                 />
-                <TextFieldUnderline isFocused={isFocused} />
-                <Box className={classes.actions}>
-                    <AddPairs pairs={state} />
-                </Box>
             </Box>
             <AlertDialog
                 open={alert.open}

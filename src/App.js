@@ -10,6 +10,7 @@ import { useReducer } from "react";
 import AppContext from "./AppContext";
 import Home from "./Components/Home/Home";
 import Chips from "./Components/Chips/Chips";
+import ChipInput from "./Components/Chips/ChipInput";
 import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";

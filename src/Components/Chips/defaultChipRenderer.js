@@ -5,8 +5,8 @@ import ImgUploadAvatar from "./ImgUploadAvatar";
 
 export const defaultChipRenderer = (
     {
-        value,
         text,
+        src,
         handleClick,
         handleDelete,
         updateChipAtIndex,
@@ -38,6 +38,7 @@ export const defaultChipRenderer = (
             <ImgUploadAvatar
                 key={key}
                 word={text}
+                src={src}
                 index={key}
                 updatePair={updatePair}
             />

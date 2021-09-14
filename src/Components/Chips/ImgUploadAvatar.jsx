@@ -1,20 +1,16 @@
-import React, { useContext, useState } from "react";
-import firebase from "firebase/app";
+import React from "react";
+import "firebase/auth";
 import "firebase/database";
 import "firebase/storage";
-import "firebase/auth";
+import firebase from "firebase/app";
 import { Avatar } from "@material-ui/core";
+import { getDir } from "../../helpers/getDir";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import { useStyles } from "./ImgUploadAvatar.jss";
-import { getDir } from "../../helpers/getDir";
-import AppContext from "../../AppContext";
 
-function ImgUploadAvatar({ word, index, updatePair }) {
-    const { state, dispatch } = useContext(AppContext);
+function ImgUploadAvatar({ word, src, index, updatePair }) {
 
     const classes = useStyles();
-
-    const [src, setSrc] = useState("");
 
     const uploadStorageImg = (e) => {
         const user = firebase.auth().currentUser;
@@ -36,13 +32,11 @@ function ImgUploadAvatar({ word, index, updatePair }) {
         task.on(
             "state_changed",
             function progress(snapshot) {
-                // const percentage =
-                //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                // setPercentage(percentage);
+                const percentage =
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             },
 
             function error(err) {
-                // setPercentage(100);
                 console.log(err);
             },
 
@@ -52,9 +46,8 @@ function ImgUploadAvatar({ word, index, updatePair }) {
                     .ref(`${dir}/images/${uid}/${imgName}`)
                     .getDownloadURL()
                     .then(async (url) => {
-                        console.log("URL: ", url);
+                        console.log("url", url)
                         updatePair(index, url, true);
-                        setSrc(url);
                     });
             }
         );

@@ -18,13 +18,18 @@ import FormControl from "@material-ui/core/FormControl";
 import { defaultChipRenderer } from "./defaultChipRenderer";
 import withStyles from "@material-ui/core/styles/withStyles";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import { styles } from "./ChipInput.jss";
+import TextFieldUnderline from "./TextFieldUnderline";
+import { containsInvalidCharacters } from
+        "../../helpers/containsInvalidCharacters";
 import { ClearAll } from "./ClearAll";
+import {Box} from "@material-ui/core";
+import {AddPairs} from "./AddPairs";
+import { styles } from "./ChipInput.jss";
 import RenderCode from "../../helpers/RenderCode";
-import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
 
 class ChipInput extends React.Component {
     state = {
+        pairs: {},
         chips: [],
         errorText: undefined,
         focusedChip: null,
@@ -108,15 +113,77 @@ class ChipInput extends React.Component {
         }
     };
 
+    updateFocus = (value) => {
+        this.setState({isFocused: value})
+    }
+
+    updatePair = (key, newItem, isUrl) => {
+        console.log("newItem", newItem)
+        let word, url;
+        const index = String(key);
+        const indexes = Object.keys(this.state.pairs);
+        if (!indexes.includes(index)) {
+            word = "";
+            url = "";
+        } else {
+            word = this.state.pairs[key].word;
+            url = this.state.pairs[key].url;
+        }
+        if (isUrl) {
+            this.setState({
+                pairs: {
+                    ...this.state.pairs,
+                    [key]: {
+                        word: word,
+                        url: newItem,
+                    }
+                }
+            })
+        } else {
+            this.setState({
+                pairs: {
+                    ...this.state.pairs,
+                    [key]: {
+                        word: newItem,
+                        url: url,
+                    }
+                }
+            })
+        }
+    }
+
+    reorderPairs = (pairs) => {
+        const newPairs = {};
+        let i = -1;
+        Object.keys(pairs).forEach((index) => {
+            i += 1;
+            newPairs[i] = pairs[index];
+        });
+        return newPairs;
+    }
+
+    removePair = (key) => {
+        const pairs = copy(this.state.pairs);
+        delete pairs[key];
+        const newPairs = this.reorderPairs(pairs);
+        this.setState({pairs: newPairs})
+    }
+
     handlePaste = (event) => {
         event.preventDefault();
         const text = event.clipboardData.getData("Text");
         const chips = text.match(wordPattern);
         if (!!chips) {
-            this.setState({ chips: [...this.state.chips, ...chips] }, () => {
-                this.state.chips.forEach((chip, index) => {
-                    this.props.updatePair(index, chip, false);
-                });
+            const pairs = {}
+            chips.forEach((chip, index) => {
+                pairs[String(index)] = {
+                    word: chip,
+                    url: "",
+                }
+            });
+            this.setState({
+                chips: [...this.state.chips, ...chips],
+                pairs: this.reorderPairs({...this.state.pairs, ...pairs})
             });
         }
     };
@@ -150,7 +217,7 @@ class ChipInput extends React.Component {
                 if (result !== false) {
                     event.preventDefault();
                 }
-                this.props.updatePair(
+                this.updatePair(
                     this.state.chips.length,
                     event.target.value,
                     false
@@ -166,6 +233,7 @@ class ChipInput extends React.Component {
                     event.target.value,
                     false
                 );
+                break;
             case keyCodes.BACKSPACE:
                 if (event.target.value === "") {
                     if (focusedChip != null) {
@@ -245,7 +313,7 @@ class ChipInput extends React.Component {
 
     /**
      * Handles adding a chip.
-     * @param {string|object} chip Value of the chip, either a string or an object (if dataSourceConfig is set)
+     * @param {string=} chip a word in the input
      * @param {object=} options Additional options
      * @param {boolean=} options.clearInputOnFail If `true`, and `onBeforeAdd` returns `false`, clear the input
      * @returns True if the chip was added (or at least `onAdd` was called), false if adding the chip was prevented
@@ -260,31 +328,6 @@ class ChipInput extends React.Component {
         }
         this.clearInput();
         const chips = this.props.value || this.state.chips;
-
-        if (this.props.dataSourceConfig) {
-            if (typeof chip === "string") {
-                chip = {
-                    [this.props.dataSourceConfig.text]: chip,
-                    [this.props.dataSourceConfig.value]: chip,
-                };
-            }
-
-            if (
-                this.props.allowDuplicates ||
-                !chips.some(
-                    (c) =>
-                        c[this.props.dataSourceConfig.value] ===
-                        chip[this.props.dataSourceConfig.value]
-                )
-            ) {
-                if (this.props.value && this.props.onAdd) {
-                    this.props.onAdd(chip);
-                } else {
-                    this.updateChips([...this.state.chips, chip]);
-                }
-            }
-            return true;
-        }
 
         if (chip.trim().length > 0) {
             if (this.props.allowDuplicates || chips.indexOf(chip) === -1) {
@@ -356,9 +399,30 @@ class ChipInput extends React.Component {
     /*edit text field of already created chip*/
     updateChipAtIndex = (i, value) => {
         let chips = copy(this.state.chips);
+        let pairs = copy(this.state.pairs);
+
         chips[i] = value;
-        this.setState({ chips: chips });
+        pairs[String(i)].word = value
+
+        this.setState({
+            chips: chips,
+            pairs: pairs,
+        });
     };
+
+    filterWhitespace = () => {
+        const pairs = copy(this.state.pairs)
+        Object.keys(this.state.pairs).forEach(index => {
+            if (index.trim().length === 0) {
+                delete pairs[index]
+            }
+        })
+        const chips = this.state.chips.filter(chip => chip.trim().length !== 0)
+        this.setState({
+            chips: chips,
+            pairs: this.reorderPairs(pairs)
+        })
+    }
 
     render() {
         const {
@@ -374,7 +438,6 @@ class ChipInput extends React.Component {
             className,
             clearInputValueOnChange,
             dataSource,
-            dataSourceConfig,
             defaultValue,
             delayBeforeAdd,
             disabled,
@@ -407,8 +470,6 @@ class ChipInput extends React.Component {
             rootRef,
             value,
             variant,
-            updatePair,
-            removePair,
             chipProps,
             ...other
         } = this.props;
@@ -426,30 +487,8 @@ class ChipInput extends React.Component {
                 : label != null &&
                   (hasInput || this.state.isFocused || chips.length > 0);
 
-        const chipComponents = chips.map((chip, i) => {
-            const value = dataSourceConfig
-                ? chip[dataSourceConfig.value]
-                : chip;
-            return chipRenderer(
-                {
-                    value,
-                    text: dataSourceConfig ? chip[dataSourceConfig.text] : chip,
-                    chip,
-                    handleDelete: () => this.handleDeleteChip(chip, i),
-                    handleClick: () => this.setState({ focusedChip: i }),
-                    updateChipAtIndex: this.updateChipAtIndex,
-                    refocusParent: () => {
-                        this.input.current.focus();
-                        this.actualInput.focus();
-                    },
-                    className: classes.chip,
-                    updatePair,
-                    removePair,
-                    chipProps,
-                },
-                i
-            );
-        });
+        const chipComponents =
+            this.getChipComponents(chips, chipRenderer, classes, chipProps);
 
         const InputMore = {};
         if (variant === "outlined") {
@@ -483,9 +522,10 @@ class ChipInput extends React.Component {
                         [classes.marginDense]: other.margin === "dense",
                     })}
                     error={error}
-                    required={chips.length > 0 ? undefined : required}
-                    disabled={disabled}
                     variant={variant}
+                    disabled={disabled}
+                    onFocus={this.filterWhitespace}
+                    required={chips.length > 0 ? undefined : required}
                     {...other}
                 >
                     {label && (
@@ -528,8 +568,8 @@ class ChipInput extends React.Component {
                             onChange={this.handleUpdateInput}
                             onKeyPress={this.handleKeyPress}
                             inputRef={this.setActualInputRef}
-                            onFocus={() => updateFocus(true)}
-                            onBlur={() => updateFocus(false)}
+                            onFocus={() => this.updateFocus(true)}
+                            onBlur={() => this.updateFocus(false)}
                             disabled={disabled}
                             fullWidth={fullWidthInput}
                             placeholder={
@@ -560,8 +600,47 @@ class ChipInput extends React.Component {
                         </FormHelperText>
                     )}
                 </FormControl>
+                <TextFieldUnderline isFocused={this.state.isFocused} />
+                <Box className={classes.actions}>
+                    <RenderCode
+                        file={"ChipInput.jsx"}
+                        childName={"chips, pairs"}
+                        style={{marginRight: '1rem'}}
+                    >
+                        {this.state.chips}
+                        {this.state.pairs}
+                    </RenderCode>
+                    <AddPairs pairs={this.state.pairs} />
+                </Box>
             </>
         );
+    }
+
+    getChipComponents(chips, chipRenderer, classes, chipProps) {
+        return chips.map((chip, i) => {
+
+            const key = String(i)
+            const src = this.state.pairs[key].url;
+
+            return chipRenderer(
+                {
+                    text: chip,
+                    src: src,
+                    handleDelete: () => this.handleDeleteChip(chip, i),
+                    handleClick: () => this.setState({focusedChip: i}),
+                    updateChipAtIndex: this.updateChipAtIndex,
+                    refocusParent: () => {
+                        this.input.current.focus();
+                        this.actualInput.focus();
+                    },
+                    className: classes.chip,
+                    updatePair: this.updatePair,
+                    removePair: this.removePair,
+                    chipProps,
+                },
+                i
+            );
+        });
     }
 }
 
@@ -572,17 +651,12 @@ ChipInput.propTypes = {
     alwaysShowPlaceholder: PropTypes.bool,
     /** Behavior when the chip input is blurred: `'clear'` clears the input, `'add'` creates a chip and `'ignore'` keeps the input. */
     blurBehavior: PropTypes.oneOf(["clear", "add", "add-or-clear", "ignore"]),
-    /** A function of the type `({ value, text, chip, isFocused, isDisabled, isReadOnly, handleClick, handleDelete, className }, key) => node` that returns a chip based on the given properties. This can be used to customize chip styles.  Each item in the `dataSource` array will be passed to `chipRenderer` as arguments `chip`, `value` and `text`. If `dataSource` is an array of objects and `dataSourceConfig` is present, then `value` and `text` will instead correspond to the object values defined in `dataSourceConfig`. If `dataSourceConfig` is not set and `dataSource` is an array of objects, then a custom `chipRenderer` must be set. `chip` is always the raw value from `dataSource`, either an object or a string. */
+
     chipRenderer: PropTypes.func,
     /** Whether the input value should be cleared if the `value` prop is changed. */
     clearInputValueOnChange: PropTypes.bool,
     /** Data source for auto complete. This should be an array of strings or objects. */
     dataSource: PropTypes.array,
-    /** Config for objects list dataSource, e.g. `{ text: 'text', value: 'value' }`. If not specified, the `dataSource` must be a flat array of strings or a custom `chipRenderer` must be set to handle the objects. */
-    dataSourceConfig: PropTypes.shape({
-        text: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-    }),
     /** The chips to display by default (for uncontrolled mode). */
     defaultValue: PropTypes.array,
     /** Whether to use `setTimeout` to delay adding chips in case other input events like `onSelection` need to fire first */
@@ -630,9 +704,9 @@ ChipInput.propTypes = {
     /** The variant of the Input component */
     variant: PropTypes.oneOf(["outlined", "standard", "filled"]),
 };
+
 ChipInput.defaultProps = {
     allowDuplicates: false,
-    // blurBehavior: "clear",
     clearInputValueOnChange: false,
     delayBeforeAdd: false,
     disableUnderline: true,
