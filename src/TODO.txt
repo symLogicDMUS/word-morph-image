@@ -12,4 +12,3 @@
 * BorrowFirebaseStyle component (import global css file?)
 * add svg title where title exists on AppBar
 * add alert if dictionary empty, that should add some pairs
-* fix default icon on morph page

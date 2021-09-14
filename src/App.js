@@ -1,11 +1,14 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
+import "firebase/functions";
 import React from "react";
 import { useMemo } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import AppContext from "./AppContext";
+import Home from "./Components/Home/Home";
 import Chips from "./Components/Chips/Chips";
 import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
@@ -18,12 +21,11 @@ import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
+import SavedPairs from "./Components/SavedPairs/SavedPairs";
 import { updateDictionary } from "./API/updateDictionary";
-import Home from "./Components/Home/Home";
+import { getDir } from "./helpers/getDir";
 import { reducer } from "./App.red";
 import "./App.scss";
-import SavedPairs from "./Components/SavedPairs/SavedPairs";
-import { getDir } from "./helpers/getDir";
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);

@@ -8,14 +8,19 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     storageBucket: "word-morph-image.appspot.com",
 });
-*/
-
-//For development:
-admin.initializeApp()
 
 const bucket = admin.storage().bucket();
 
-exports.helloWorld = functions.https.onRequest((request, response) => {
-    functions.logger.info("Hello logs!", {structuredData: true});
-    response.send(bucket.ref());
-});
+*/
+
+
+// For development:
+admin.initializeApp()
+
+
+// const unsplash = require("./unsplash.json")
+// exports.getUnsplashImg = functions.https.onRequest(() => {
+//     const result = fetch("https://api.unsplash.com/photos/random/?client_id=FACImHv41SdvWpGX2dWopBS_38yovOMPXCcMJhyB8Xc").then(result => {
+//         console.log(result.json())
+//     })
+// });
