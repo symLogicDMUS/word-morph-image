@@ -1,9 +1,8 @@
 import React from "react";
-import { useStyles } from "./LoremPicsumButton.jss";
 import Button from "@material-ui/core/Button";
+import {useStyles} from "./LoremPicsumButton.jss";
 
 function LoremPicsumButton(props) {
-
     const {setRandomImages, ...other} = props;
 
     const classes = useStyles();
@@ -13,6 +12,7 @@ function LoremPicsumButton(props) {
             color={"primary"}
             variant={"contained"}
             onClick={setRandomImages}
+            className={classes.loremPicsum}
             {...other}
         >
             Lorem Picsum

@@ -1,4 +1,4 @@
-* Add progress component to Chips
+*** Add progress component to Chips
 * fix default icon appearing no matter what on start page
 * implement word morph page
 * implement add single pair page

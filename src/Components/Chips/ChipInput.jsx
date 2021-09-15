@@ -14,9 +14,8 @@ import PropTypes from "prop-types";
 import firebase from "firebase/app";
 import { keyCodes } from "./keyCodes";
 import { ClearAll } from "./ClearAll";
-import {Backdrop, Box, Container, Dialog, DialogContent, Paper} from "@material-ui/core";
+import {Box} from "@material-ui/core";
 import {AddPairs} from "./AddPairs";
-import { styles } from "./ChipInput.jss";
 import { copy } from "../../helpers/copy";
 import RenderCode from "../../helpers/RenderCode";
 import wordPattern from "../../regex/wordPattern";
@@ -31,22 +30,8 @@ import {getLoremPicsumBlob} from "../../API/getLoremPicsumBlob";
 import LoremPicsumButton from "../LoremPicsumButton/LoremPicsumButton";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
 import {getDir} from "../../helpers/getDir";
-import {LoremIpsum} from "lorem-ipsum";
-import {getFileBlob} from "../../API/getFileBlob";
-import LinearProgressWithLabel from "../LinearValueWithLabel/LinearProgressWithLabel";
-import LinearValueWithLabel from "../LinearValueWithLabel/LinearValueWithLabel";
-import {Contactless} from "@material-ui/icons";
-
-const lorem = new LoremIpsum({
-    sentencesPerParagraph: {
-        max: 8,
-        min: 4,
-    },
-    wordsPerSentence: {
-        max: 16,
-        min: 4,
-    },
-});
+import LoadBar from "../LoadBar/LoadBar";
+import { styles } from "./ChipInput.jss";
 
 class ChipInput extends React.Component {
     state = {
@@ -385,9 +370,6 @@ class ChipInput extends React.Component {
 
     updateChips(chips, additionalUpdates = {}) {
         this.setState({ chips, chipsUpdated: true, ...additionalUpdates });
-        if (!!this.props.onChange) {
-            this.props.onChange(chips);
-        }
     }
 
     /**
@@ -402,6 +384,9 @@ class ChipInput extends React.Component {
     clearAll() {
         this.updateInput("");
         this.updateChips([]);
+        this.setState({
+            pairs: {}
+        })
     }
 
     updateInput(value) {
@@ -685,7 +670,9 @@ class ChipInput extends React.Component {
                 </FormControl>
                 <TextFieldUnderline isFocused={this.state.isFocused} />
                 <Box className={classes.actions}>
-                    <LoremPicsumButton setRandomImages={this.setRandomImages} style={{marginRight: 'auto',}} />
+                    <LoremPicsumButton
+                        setRandomImages={this.setRandomImages}
+                    />
                     <RenderCode
                         file={"ChipInput.jsx"}
                         childName={"chips, pairs"}
@@ -696,11 +683,10 @@ class ChipInput extends React.Component {
                     </RenderCode>
                     <AddPairs pairs={this.state.pairs} />
                 </Box>
-                <Backdrop open={this.state.loadDialog} style={{zIndex: 1600}}>
-                    <Paper style={{padding: '1rem'}}>
-                        <LinearValueWithLabel progress={this.state.progress} />
-                    </Paper>
-                </Backdrop>
+                <LoadBar
+                    open={this.state.loadDialog}
+                    progress={this.state.progress}
+                />
             </>
         );
     }
