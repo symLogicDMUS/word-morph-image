@@ -160,12 +160,11 @@ class ChipInput extends React.Component {
         }
     }
 
+    /*expects Object.values(pairs) as argument*/
     reorderPairs = (pairs) => {
         const newPairs = {};
-        let i = -1;
-        Object.keys(pairs).forEach((index) => {
-            i += 1;
-            newPairs[i] = pairs[index];
+        pairs.forEach((pair, i) => {
+            newPairs[i] = pair;
         });
         return newPairs;
     }
@@ -173,7 +172,7 @@ class ChipInput extends React.Component {
     removePair = (key) => {
         const pairs = copy(this.state.pairs);
         delete pairs[key];
-        const newPairs = this.reorderPairs(pairs);
+        const newPairs = this.reorderPairs(Object.values(pairs));
         this.setState({pairs: newPairs})
     }
 
@@ -191,7 +190,7 @@ class ChipInput extends React.Component {
             });
             this.setState({
                 chips: [...this.state.chips, ...chips],
-                pairs: this.reorderPairs({...this.state.pairs, ...pairs})
+                pairs: this.reorderPairs([...Object.values(this.state.pairs), ...Object.values(pairs)])
             });
         }
     };
@@ -428,7 +427,7 @@ class ChipInput extends React.Component {
         const chips = this.state.chips.filter(chip => chip.trim().length !== 0)
         this.setState({
             chips: chips,
-            pairs: this.reorderPairs(pairs)
+            pairs: this.reorderPairs(Object.values(pairs))
         })
     }
 
