@@ -7,9 +7,9 @@ import { otherCommonWords } from "./otherCommonWords";
 export const commonWords = Array.from(
     new Set([
         ...articles,
-        pronouns,
-        conjunctions,
-        prepositions,
-        otherCommonWords,
+        ...pronouns,
+        ...conjunctions,
+        ...prepositions,
+        ...otherCommonWords,
     ])
 );

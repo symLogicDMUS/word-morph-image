@@ -24,6 +24,7 @@ export const pronouns = [
     "himself",
     "his",
     "I",
+    "i", // so can check using toLowerCase()
     "idem",
     "it",
     "its",

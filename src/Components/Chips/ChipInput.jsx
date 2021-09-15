@@ -446,16 +446,16 @@ class ChipInput extends React.Component {
         return url;
     };
 
-    filterWords = (newWords) => {
+    filterWords = (words) => {
         const pairs = copy(this.state.pairs)
         Object.keys(this.state.pairs).forEach(index => {
-            if (! newWords.includes(this.state.pairs[index].word)) {
+            if (words.includes(this.state.pairs[index].word.toLowerCase())) {
                 delete pairs[index]
             }
         })
 
         this.setState({
-            chips: this.state.chips.filter(chip => newWords.includes(chip)),
+            chips: this.state.chips.filter(chip => ! words.includes(chip.toLowerCase())),
             pairs: this.reorderPairs(Object.values(pairs))
         })
     }
