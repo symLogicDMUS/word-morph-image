@@ -442,32 +442,32 @@ class ChipInput extends React.Component {
         })
     }
 
+    getRandomImgUrl = async (word, size, dir, uid) => {
+        const blob = await getLoremPicsumBlob(`https://picsum.photos/${size}`)
+        const ref = `${dir}/images/${uid}/${word}`;
+        await firebase.storage().ref(ref).put(blob)
+        const url = await firebase.storage().ref(ref).getDownloadURL()
+        console.log("\nURL", url)
+        return url;
+    }
+
     setRandomImages = async () => {
-        const blob = await getLoremPicsumBlob("https://picsum.photos/200")
         const user = firebase.auth().currentUser;
         const dir = getDir(user);
         const uid = user.uid;
-        const imgName = String(Math.floor(Math.random() * 100))
-        console.log("BLOB", blob)
-        const storageRef = firebase.storage().ref(`${dir}/images/${uid}/${imgName}`);
-        const task = storageRef.put(blob)
-        task.on("state_changed",
-            function progress(snapshot) {
-                const percentage =
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log(percentage, "%")
-            },
-            function error(err) { console.log(err)},
-            async function complete() {
-                return await firebase
-                    .storage()
-                    .ref()
-                    .getDownloadURL()
-                    .then(async (url) => {
-                        console.log("url", url)
-                    });
+        const pairs = copy(this.state.pairs);
+        let word, url;
+        for (let i = 0; i < this.state.chips.length; i++) {
+            if (!!this.state.pairs[String(i)].url)
+                continue;
+            word = this.state.chips[i];
+            url = await this.getRandomImgUrl(word, 400, dir, uid)
+            pairs[String(i)] = {
+                word: word,
+                url: url,
             }
-        )
+        }
+        this.setState({pairs: pairs})
     }
 
     render()  {
