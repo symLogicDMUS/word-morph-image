@@ -9,7 +9,7 @@ function HighlightedWord({children, incrementIndex}) {
     useEffect(() => {
         const interval = setInterval(() => {
             setSeconds(seconds => seconds - 1);
-        }, 1000);
+        }, 750);
         return () => clearInterval(interval);
     }, []);
 

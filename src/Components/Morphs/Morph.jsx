@@ -1,11 +1,11 @@
 import React, { useContext, useMemo } from "react";
 import { motion } from "framer-motion";
+import AppContext from "../../AppContext";
 import totalDuration from "./totalDuration";
+import { useTheme } from "@material-ui/core";
+import HighlightedWord from "./HighlightedWord";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./Morph.jss";
-import { useTheme } from "@material-ui/core";
-import AppContext from "../../AppContext";
-import HighlightedWord from "./HighlightedWord";
 
 function Morph(props) {
     const { index, currentIndex, incrementIndex, children } = props;
