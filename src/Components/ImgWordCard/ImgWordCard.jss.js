@@ -1,14 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const useStyles = makeStyles(
-    {
-        root: {
-            display: "inline-block",
-            // margin: '0.25rem',
-        },
-        img: {
-            width: "100%",
-        },
+export const useStyles = makeStyles((theme) => ({
+    root: {
+        display: "inline-block",
+        margin: theme.spacing(1),
     },
-    { index: 1 }
-);
+    img: {
+        width: 150,
+        height: 150
+    },
+}), {index: 1});

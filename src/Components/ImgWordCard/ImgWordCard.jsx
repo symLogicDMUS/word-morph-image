@@ -21,16 +21,23 @@ function ImgWordCard(props) {
 
     const { state, dispatch } = useContext(AppContext);
 
-    let src = state.dictionary[children];
-    if (!state.dictionary[children]) {
-        src = "/Images/alt/alt-dark.svg";
-    }
+    const src = state.dictionary[children];
+
+    console.log("src", src)
+
     let isSvg = false;
-    if (src.endsWith(".svg") || src.endsWith(".SVG")) {
+    if (!!src && (src.endsWith(".svg") || src.endsWith(".SVG"))) {
         isSvg = true;
     }
 
     const classes = useStyles();
+
+    let textColor;
+    if (index === currentIndex) {
+        textColor = "secondary";
+    } else {
+        textColor = "inherit";
+    }
 
     return (
         <>
@@ -51,20 +58,15 @@ function ImgWordCard(props) {
                 >
                     <Card>
                         <CardActionArea>
-                            {isSvg ? (
+                            {!!src && (
                                 <img
                                     src={src}
                                     alt={children}
                                     className={classes.img}
                                 />
-                            ) : (
-                                <CardMedia
-                                    image={src}
-                                    className={classes.img}
-                                />
                             )}
                             <CardContent>
-                                <Typography>{children}</Typography>
+                                <Typography color={textColor}>{children}</Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>

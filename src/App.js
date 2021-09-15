@@ -25,6 +25,7 @@ import { getDir } from "./helpers/getDir";
 import "firebaseui/dist/firebaseui.css";
 import { reducer } from "./App.red";
 import "./App.scss";
+import AddSinglePair from "./Components/AddSinglePair/AddSinglePair";
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
@@ -105,6 +106,15 @@ function App() {
                             component={(props) => (
                                 <ResponsiveDrawer>
                                     <Chips {...props} />
+                                </ResponsiveDrawer>
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/add-single-pair"
+                            component={(props) => (
+                                <ResponsiveDrawer>
+                                    <AddSinglePair {...props} />
                                 </ResponsiveDrawer>
                             )}
                         />

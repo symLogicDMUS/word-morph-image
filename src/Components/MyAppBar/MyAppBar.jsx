@@ -11,9 +11,9 @@ import {
 } from "@material-ui/core";
 import SignOutButton from "./SignOutButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import { useStyles } from "./MyAppBar.jss";
-import AppContext from "../../AppContext";
 import RenderCode from "../../helpers/RenderCode";
+import AppContext from "../../AppContext";
+import { useStyles } from "./MyAppBar.jss";
 
 export function MyAppBar({ handleDrawerToggle }) {
     const { state, dispatch } = useContext(AppContext);

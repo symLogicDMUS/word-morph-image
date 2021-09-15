@@ -1,8 +1,8 @@
 import React from "react";
 import List from "@material-ui/core/List";
+import DrawerListItem from "./DrawerListItem";
 import Divider from "@material-ui/core/Divider";
 import { useStyles } from "./DrawerListItems.jss";
-import DrawerListItem from "./DrawerListItem";
 
 function DrawerListItems(props) {
     const classes = useStyles();
@@ -12,7 +12,7 @@ function DrawerListItems(props) {
             <Divider />
             <List>
                 <DrawerListItem path="/chips">Add Pair Group</DrawerListItem>
-                <DrawerListItem>Add Single Pair</DrawerListItem>
+                <DrawerListItem path="/add-single-pair">Add Single Pair</DrawerListItem>
                 <DrawerListItem path="/saved-pairs">Saved Pairs</DrawerListItem>
                 <DrawerListItem path="/">Input Text</DrawerListItem>
             </List>
