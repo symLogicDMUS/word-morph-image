@@ -33,8 +33,8 @@ function Morph(props) {
     };
 
     let color;
-    if (index === currentIndex + 1) color = "secondary"
-    else color = "inherit"
+    if (index === currentIndex + 1) color = "secondary";
+    else color = "inherit";
 
     return (
         <>

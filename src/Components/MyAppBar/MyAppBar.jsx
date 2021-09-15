@@ -47,7 +47,7 @@ export function MyAppBar({ handleDrawerToggle }) {
                             })
                         }
                     >
-                        <Brightness7Icon />
+                        {state.isDarkMode ? <Brightness7Icon/> : <Brightness4Icon />}
                     </IconButton>
                 </Tooltip>
                 <SignOutButton />

@@ -1,12 +1,15 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme) => ({
-    root: {
-        '@media screen and (max-width: 960px)': {
-            width: '95vw',
+export const useStyles = makeStyles(
+    (theme) => ({
+        root: {
+            "@media screen and (max-width: 960px)": {
+                width: "95vw",
+            },
+            "@media screen and (min-width: 960px)": {
+                width: "70vw",
+            },
         },
-        '@media screen and (min-width: 960px)': {
-            width: '70vw'
-        },
-    },
-}), {index: 1});
+    }),
+    { index: 1 }
+);

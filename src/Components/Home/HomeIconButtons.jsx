@@ -10,12 +10,11 @@ import { useStyles } from "./HomeIconButtons.jss";
 
 function HomeIconButtons() {
     const classes = useStyles();
-    const hidden = ! firebase.auth().currentUser;
+    const hidden = !firebase.auth().currentUser;
     return (
         <Box className={classes.homeIconButtons}>
             <YouTubeIconButton />
-            <HomeSignOutButton
-                hidden={hidden} />
+            <HomeSignOutButton hidden={hidden} />
             <GitHubIconButton />
             <AboutIconButton />
         </Box>

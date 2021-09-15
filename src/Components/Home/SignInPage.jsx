@@ -9,7 +9,6 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useStyles } from "./Home.jss";
 
 function SignInPage() {
-
     const classes = useStyles();
 
     return (

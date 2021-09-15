@@ -58,7 +58,7 @@ export function PairModifier(props) {
                     .ref(`${dir}/images/${uid}/${imgName}`)
                     .getDownloadURL()
                     .then(async (url) => {
-                        setNewImage(url)
+                        setNewImage(url);
                     });
             }
         );
@@ -104,7 +104,12 @@ export function PairModifier(props) {
                     >
                         Save
                     </Button>
-                    <Button variant={"outlined"} onClick={() => dispatch({type: "remove-pair", word: newWord})}>
+                    <Button
+                        variant={"outlined"}
+                        onClick={() =>
+                            dispatch({ type: "remove-pair", word: newWord })
+                        }
+                    >
                         Delete
                     </Button>
                     <Button onClick={close}>Cancel</Button>

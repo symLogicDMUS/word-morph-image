@@ -9,19 +9,13 @@ export const styles = (theme) => ({
     body: {
         width: "100%",
         "@media (min-width:0px) and (orientation: landscape)": {
-            height: `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(
-                6
-            )}px)`,
+            height: `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(6)}px)`,
         },
         "@media screen and (max-width: 960px)": {
-            height: `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(
-                6
-            )}px)`,
+            height: `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(6)}px)`,
         },
         "@media (min-width:960px)": {
-            height: `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(
-                6
-            )}px)`,
+            height: `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(6)}px)`,
         },
     },
     actions: {

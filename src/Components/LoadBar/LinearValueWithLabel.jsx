@@ -2,7 +2,7 @@ import React from "react";
 import LinearProgressWithLabel from "./LinearProgressWithLabel";
 import { useStyles } from "./LinearProgressWithLabel.jss";
 
-function LinearValueWithLabel({progress}) {
+function LinearValueWithLabel({ progress }) {
     const classes = useStyles();
 
     return (

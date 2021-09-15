@@ -5,7 +5,6 @@ import ChipInput from "./ChipInput";
 import { useStyles } from "./Chips.jss";
 
 function Chips(props) {
-
     const [alert, setAlert] = useState({
         severity: "",
         message: "",
@@ -28,11 +27,7 @@ function Chips(props) {
     return (
         <>
             <Box className={classes.body}>
-                <ChipInput
-                    fullWidth
-                    variant="filled"
-                    newAlert={newAlert}
-                />
+                <ChipInput fullWidth variant="filled" newAlert={newAlert} />
             </Box>
             <AlertDialog
                 open={alert.open}

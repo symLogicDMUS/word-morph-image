@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import "firebase/storage";
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import AppContext from "../../AppContext";
 import { useHistory } from "react-router-dom";
 import LoremButton from "../LoremButton/LoremButton";

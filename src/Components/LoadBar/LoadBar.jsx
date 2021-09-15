@@ -1,9 +1,9 @@
 import React from "react";
-import {Backdrop, Paper} from "@material-ui/core";
+import { Backdrop, Paper } from "@material-ui/core";
 import LinearValueWithLabel from "./LinearValueWithLabel";
-import {useStyles} from "./LoadBar.jss";
+import { useStyles } from "./LoadBar.jss";
 
-function LoadBar({open, progress}) {
+function LoadBar({ open, progress }) {
     const classes = useStyles();
     return (
         <Backdrop open={open} className={classes.backdrop}>
@@ -11,7 +11,7 @@ function LoadBar({open, progress}) {
                 <LinearValueWithLabel progress={progress} />
             </Paper>
         </Backdrop>
-    )
+    );
 }
 
 export default LoadBar;

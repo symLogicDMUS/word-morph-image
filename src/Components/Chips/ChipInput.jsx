@@ -14,8 +14,8 @@ import PropTypes from "prop-types";
 import firebase from "firebase/app";
 import { keyCodes } from "./keyCodes";
 import { ClearAll } from "./ClearAll";
-import {Box} from "@material-ui/core";
-import {AddPairs} from "./AddPairs";
+import { Box } from "@material-ui/core";
+import { AddPairs } from "./AddPairs";
 import { copy } from "../../helpers/copy";
 import RenderCode from "../../helpers/RenderCode";
 import wordPattern from "../../regex/wordPattern";
@@ -26,12 +26,13 @@ import FormControl from "@material-ui/core/FormControl";
 import { defaultChipRenderer } from "./defaultChipRenderer";
 import withStyles from "@material-ui/core/styles/withStyles";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import {getLoremPicsumBlob} from "../../API/getLoremPicsumBlob";
+import { getLoremPicsumBlob } from "../../API/getLoremPicsumBlob";
 import LoremPicsumButton from "../LoremPicsumButton/LoremPicsumButton";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
-import {getDir} from "../../helpers/getDir";
+import { getDir } from "../../helpers/getDir";
 import LoadBar from "../LoadBar/LoadBar";
 import { styles } from "./ChipInput.jss";
+import FilterWordsButton from "../FilterWordsButton/FilterWordsButton";
 
 class ChipInput extends React.Component {
     state = {
@@ -122,11 +123,11 @@ class ChipInput extends React.Component {
     };
 
     updateFocus = (value) => {
-        this.setState({isFocused: value})
-    }
+        this.setState({ isFocused: value });
+    };
 
     updatePair = (key, newItem, isUrl) => {
-        console.log("newItem", newItem)
+        console.log("newItem", newItem);
         let word, url;
         const index = String(key);
         const indexes = Object.keys(this.state.pairs);
@@ -144,9 +145,9 @@ class ChipInput extends React.Component {
                     [key]: {
                         word: word,
                         url: newItem,
-                    }
-                }
-            })
+                    },
+                },
+            });
         } else {
             this.setState({
                 pairs: {
@@ -154,11 +155,11 @@ class ChipInput extends React.Component {
                     [key]: {
                         word: newItem,
                         url: url,
-                    }
-                }
-            })
+                    },
+                },
+            });
         }
-    }
+    };
 
     /*expects Object.values(pairs) as argument*/
     reorderPairs = (pairs) => {
@@ -167,30 +168,33 @@ class ChipInput extends React.Component {
             newPairs[i] = pair;
         });
         return newPairs;
-    }
+    };
 
     removePair = (key) => {
         const pairs = copy(this.state.pairs);
         delete pairs[key];
         const newPairs = this.reorderPairs(Object.values(pairs));
-        this.setState({pairs: newPairs})
-    }
+        this.setState({ pairs: newPairs });
+    };
 
     handlePaste = (event) => {
         event.preventDefault();
         const text = event.clipboardData.getData("Text");
         const chips = text.match(wordPattern);
         if (!!chips) {
-            const pairs = {}
+            const pairs = {};
             chips.forEach((chip, index) => {
                 pairs[String(index)] = {
                     word: chip,
                     url: "",
-                }
+                };
             });
             this.setState({
                 chips: [...this.state.chips, ...chips],
-                pairs: this.reorderPairs([...Object.values(this.state.pairs), ...Object.values(pairs)])
+                pairs: this.reorderPairs([
+                    ...Object.values(this.state.pairs),
+                    ...Object.values(pairs),
+                ]),
             });
         }
     };
@@ -384,8 +388,8 @@ class ChipInput extends React.Component {
         this.updateInput("");
         this.updateChips([]);
         this.setState({
-            pairs: {}
-        })
+            pairs: {},
+        });
     }
 
     updateInput(value) {
@@ -409,7 +413,7 @@ class ChipInput extends React.Component {
         let pairs = copy(this.state.pairs);
 
         chips[i] = value;
-        pairs[String(i)].word = value
+        pairs[String(i)].word = value;
 
         this.setState({
             chips: chips,
@@ -418,56 +422,70 @@ class ChipInput extends React.Component {
     };
 
     filterWhitespace = () => {
+        const pairs = copy(this.state.pairs);
+        Object.keys(this.state.pairs).forEach((index) => {
+            if (index.trim().length === 0) {
+                delete pairs[index];
+            }
+        });
+        const chips = this.state.chips.filter(
+            (chip) => chip.trim().length !== 0
+        );
+        this.setState({
+            chips: chips,
+            pairs: this.reorderPairs(Object.values(pairs)),
+        });
+    };
+
+    getRandomImgUrl = async (word, size, dir, uid) => {
+        const blob = await getLoremPicsumBlob(`https://picsum.photos/${size}`);
+        const ref = `${dir}/images/${uid}/${word}`;
+        await firebase.storage().ref(ref).put(blob);
+        const url = await firebase.storage().ref(ref).getDownloadURL();
+        console.log("\nURL", url);
+        return url;
+    };
+
+    filterWords = (newWords) => {
         const pairs = copy(this.state.pairs)
         Object.keys(this.state.pairs).forEach(index => {
-            if (index.trim().length === 0) {
+            if (! newWords.includes(this.state.pairs[index].word)) {
                 delete pairs[index]
             }
         })
-        const chips = this.state.chips.filter(chip => chip.trim().length !== 0)
+
         this.setState({
-            chips: chips,
+            chips: this.state.chips.filter(chip => newWords.includes(chip)),
             pairs: this.reorderPairs(Object.values(pairs))
         })
-    }
-
-    getRandomImgUrl = async (word, size, dir, uid) => {
-        const blob = await getLoremPicsumBlob(`https://picsum.photos/${size}`)
-        const ref = `${dir}/images/${uid}/${word}`;
-        await firebase.storage().ref(ref).put(blob)
-        const url = await firebase.storage().ref(ref).getDownloadURL()
-        console.log("\nURL", url)
-        return url;
     }
 
     setRandomImages = async () => {
         this.setState({
             loadDialog: true,
-        })
+        });
         const user = firebase.auth().currentUser;
         const dir = getDir(user);
         const uid = user.uid;
         const pairs = copy(this.state.pairs);
         let word, url;
-        let numChips = this.state.chips.length
+        let numChips = this.state.chips.length;
         for (let i = 0; i < numChips; i++) {
-            if (!!this.state.pairs[String(i)].url)
-                continue;
+            if (!!this.state.pairs[String(i)].url) continue;
             word = this.state.chips[i];
-            url = await this.getRandomImgUrl(word, 400, dir, uid)
+            url = await this.getRandomImgUrl(word, 400, dir, uid);
             pairs[String(i)] = {
                 word: word,
                 url: url,
-            }
-            this.setState({progress: ((numChips - i) / numChips) * 100 })
+            };
+            this.setState({ progress: ((numChips - i) / numChips) * 100 });
         }
-        this.setState({pairs: pairs, loadDialog: false, progress: 0})
-    }
+        this.setState({ pairs: pairs, loadDialog: false, progress: 0 });
+    };
 
     getChipComponents(chips, chipRenderer, classes, chipProps) {
         return chips.map((chip, i) => {
-
-            const key = String(i)
+            const key = String(i);
             const src = this.state.pairs[key].url;
 
             return chipRenderer(
@@ -475,7 +493,7 @@ class ChipInput extends React.Component {
                     text: chip,
                     src: src,
                     handleDelete: () => this.handleDeleteChip(chip, i),
-                    handleClick: () => this.setState({focusedChip: i}),
+                    handleClick: () => this.setState({ focusedChip: i }),
                     updateChipAtIndex: this.updateChipAtIndex,
                     refocusParent: () => {
                         this.input.current.focus();
@@ -491,7 +509,7 @@ class ChipInput extends React.Component {
         });
     }
 
-    render()  {
+    render() {
         const {
             clearAll,
             isFocused,
@@ -554,8 +572,12 @@ class ChipInput extends React.Component {
                 : label != null &&
                   (hasInput || this.state.isFocused || chips.length > 0);
 
-        const chipComponents =
-            this.getChipComponents(chips, chipRenderer, classes, chipProps);
+        const chipComponents = this.getChipComponents(
+            chips,
+            chipRenderer,
+            classes,
+            chipProps
+        );
 
         const InputMore = {};
         if (variant === "outlined") {
@@ -669,17 +691,8 @@ class ChipInput extends React.Component {
                 </FormControl>
                 <TextFieldUnderline isFocused={this.state.isFocused} />
                 <Box className={classes.actions}>
-                    <LoremPicsumButton
-                        setRandomImages={this.setRandomImages}
-                    />
-                    <RenderCode
-                        file={"ChipInput.jsx"}
-                        childName={"chips, pairs"}
-                        style={{marginRight: '1rem'}}
-                    >
-                        {this.state.chips}
-                        {this.state.pairs}
-                    </RenderCode>
+                    <LoremPicsumButton setRandomImages={this.setRandomImages} />
+                    <FilterWordsButton filterWords={this.filterWords} />
                     <AddPairs pairs={this.state.pairs} />
                 </Box>
                 <LoadBar

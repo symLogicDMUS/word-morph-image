@@ -24,12 +24,12 @@ export function reducer(state, action) {
             };
         case "remove-pair":
             newDict = copy(state.dictionary);
-            delete newDict[action.word]
+            delete newDict[action.word];
             return {
                 ...state,
                 numUpdates: state.numUpdates + 1,
                 dictionary: newDict,
-            }
+            };
         case "new-dictionary":
             return {
                 ...state,

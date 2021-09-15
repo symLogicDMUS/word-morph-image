@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from "react";
+import React, { useContext, useMemo } from "react";
 import WordImagePair from "./WordImagePair";
 import { Box } from "@material-ui/core";
 import AppContext from "../../AppContext";
@@ -8,12 +8,14 @@ function SavedPairs() {
     const { state, dispatch } = useContext(AppContext);
 
     const pairs = useMemo(() => {
-        const newPairs = {}
-        Object.entries(state.dictionary).sort().forEach(arrPair => {
-            newPairs[arrPair[0]] = arrPair[1]
-        })
+        const newPairs = {};
+        Object.entries(state.dictionary)
+            .sort()
+            .forEach((arrPair) => {
+                newPairs[arrPair[0]] = arrPair[1];
+            });
         return newPairs;
-    }, [state.numUpdates])
+    }, [state.numUpdates]);
 
     const classes = useStyles();
 
