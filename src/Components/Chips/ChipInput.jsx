@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
 import firebase from "firebase/app";
 import { keyCodes } from "./keyCodes";
 import { ClearAll } from "./ClearAll";
-import {Box} from "@material-ui/core";
+import {Backdrop, Box, Container, Dialog, DialogContent, Paper} from "@material-ui/core";
 import {AddPairs} from "./AddPairs";
 import { styles } from "./ChipInput.jss";
 import { copy } from "../../helpers/copy";
@@ -33,6 +33,9 @@ import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacte
 import {getDir} from "../../helpers/getDir";
 import {LoremIpsum} from "lorem-ipsum";
 import {getFileBlob} from "../../API/getFileBlob";
+import LinearProgressWithLabel from "../LinearValueWithLabel/LinearProgressWithLabel";
+import LinearValueWithLabel from "../LinearValueWithLabel/LinearValueWithLabel";
+import {Contactless} from "@material-ui/icons";
 
 const lorem = new LoremIpsum({
     sentencesPerParagraph: {
@@ -57,6 +60,8 @@ class ChipInput extends React.Component {
         chipsUpdated: false,
         prevPropsValue: [],
         numChars: 0,
+        loadDialog: false,
+        progress: 0,
     };
 
     constructor(props) {
@@ -452,12 +457,16 @@ class ChipInput extends React.Component {
     }
 
     setRandomImages = async () => {
+        this.setState({
+            loadDialog: true,
+        })
         const user = firebase.auth().currentUser;
         const dir = getDir(user);
         const uid = user.uid;
         const pairs = copy(this.state.pairs);
         let word, url;
-        for (let i = 0; i < this.state.chips.length; i++) {
+        let numChips = this.state.chips.length
+        for (let i = 0; i < numChips; i++) {
             if (!!this.state.pairs[String(i)].url)
                 continue;
             word = this.state.chips[i];
@@ -466,8 +475,36 @@ class ChipInput extends React.Component {
                 word: word,
                 url: url,
             }
+            this.setState({progress: ((numChips - i) / numChips) * 100 })
         }
-        this.setState({pairs: pairs})
+        this.setState({pairs: pairs, loadDialog: false, progress: 0})
+    }
+
+    getChipComponents(chips, chipRenderer, classes, chipProps) {
+        return chips.map((chip, i) => {
+
+            const key = String(i)
+            const src = this.state.pairs[key].url;
+
+            return chipRenderer(
+                {
+                    text: chip,
+                    src: src,
+                    handleDelete: () => this.handleDeleteChip(chip, i),
+                    handleClick: () => this.setState({focusedChip: i}),
+                    updateChipAtIndex: this.updateChipAtIndex,
+                    refocusParent: () => {
+                        this.input.current.focus();
+                        this.actualInput.focus();
+                    },
+                    className: classes.chip,
+                    updatePair: this.updatePair,
+                    removePair: this.removePair,
+                    chipProps,
+                },
+                i
+            );
+        });
     }
 
     render()  {
@@ -659,35 +696,13 @@ class ChipInput extends React.Component {
                     </RenderCode>
                     <AddPairs pairs={this.state.pairs} />
                 </Box>
+                <Backdrop open={this.state.loadDialog} style={{zIndex: 1600}}>
+                    <Paper style={{padding: '1rem'}}>
+                        <LinearValueWithLabel progress={this.state.progress} />
+                    </Paper>
+                </Backdrop>
             </>
         );
-    }
-
-    getChipComponents(chips, chipRenderer, classes, chipProps) {
-        return chips.map((chip, i) => {
-
-            const key = String(i)
-            const src = this.state.pairs[key].url;
-
-            return chipRenderer(
-                {
-                    text: chip,
-                    src: src,
-                    handleDelete: () => this.handleDeleteChip(chip, i),
-                    handleClick: () => this.setState({focusedChip: i}),
-                    updateChipAtIndex: this.updateChipAtIndex,
-                    refocusParent: () => {
-                        this.input.current.focus();
-                        this.actualInput.focus();
-                    },
-                    className: classes.chip,
-                    updatePair: this.updatePair,
-                    removePair: this.removePair,
-                    chipProps,
-                },
-                i
-            );
-        });
     }
 }
 

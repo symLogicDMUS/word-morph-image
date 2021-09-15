@@ -1,8 +1,8 @@
+* Add progress component to Chips
 * fix default icon appearing no matter what on start page
 * implement word morph page
 * implement add single pair page
 ** implement saved pairs page (with editing)
-    *
 * create demo
 * add logos to drawer menu items and buttons
 * save success message for saving pairs
@@ -12,3 +12,6 @@
 * BorrowFirebaseStyle component (import global css file?)
 * add svg title where title exists on AppBar
 * add alert if dictionary empty, that should add some pairs
+* add notice that anonymous user data deleted every 24 hours
+* Add logo to Lorem Picsum button
+* Make "Add" Fab secondary color
