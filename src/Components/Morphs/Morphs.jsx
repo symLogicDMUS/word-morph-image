@@ -25,7 +25,7 @@ function Morphs(props) {
     }, []);
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const incrementIndex = () => setCurrentIndex((prevIndex) => prevIndex + 1);
+    const incrementIndex = () => setCurrentIndex(currentIndex + 1);
 
     const classes = useStyles();
 

@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./Morph.jss";
 import { useTheme } from "@material-ui/core";
 import AppContext from "../../AppContext";
+import HighlightedWord from "./HighlightedWord";
 
 function Morph(props) {
     const { index, currentIndex, incrementIndex, children } = props;
@@ -16,11 +17,11 @@ function Morph(props) {
     const classes = useStyles({ word: children });
 
     const src = useMemo(() => {
-        if (!!state.dictionary[children]) return state.dictionary[children];
-
-        if (theme.palette.type === "dark") return "/Images/alt/alt-dark.svg";
-
-        if (theme.palette.type === "light") return "/Images/alt/alt-light.svg";
+        if (!!state.dictionary[children]) {
+            return state.dictionary[children];
+        } else {
+            return null;
+        }
     }, [theme.palette.type]);
 
     const variants = {
@@ -32,23 +33,14 @@ function Morph(props) {
         },
     };
 
-    let color;
-    if (index === currentIndex + 1) color = "secondary";
-    else color = "inherit";
-
     return (
         <>
             {index > currentIndex && (
-                <Typography className={classes.word} color={color}>
+                <Typography className={classes.word}>
                     {children + " "}
                 </Typography>
             )}
-            {index <= currentIndex && !src && (
-                <Typography className={classes.word} color={color}>
-                    {children + " "}
-                </Typography>
-            )}
-            {index <= currentIndex && !!src && (
+            {index === currentIndex && !!src && (
                 <motion.img
                     src={src}
                     initial="initial"
@@ -58,6 +50,23 @@ function Morph(props) {
                     onAnimationComplete={incrementIndex}
                     className={classes.img}
                 />
+            )}
+            {index === currentIndex && ! src && (
+                <HighlightedWord incrementIndex={incrementIndex}>
+                    {children + " "}
+                </HighlightedWord>
+            )}
+            {index < currentIndex && !!src && (
+                <img
+                    src={src}
+                    className={classes.img}
+                    alt={children}
+                />
+            )}
+            {index < currentIndex && ! src && (
+                <Typography className={classes.word}>
+                    {children + " "}
+                </Typography>
             )}
         </>
     );
