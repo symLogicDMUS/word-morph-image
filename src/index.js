@@ -2,17 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import firebase from "firebase/app";
 import { emulators } from "./emulators";
-import "firebase/auth";
-import "firebase/storage";
-import "firebase/database";
-import "firebase/firestore";
-import "firebase/functions";
-import "firebase/functions";
-import "firebase/functions";
-import "firebase/database";
 import App from "./App";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyBqfHHi_jK_cMEX0O_0dD8d6ymJPxVA9Jc",
     authDomain: "word-morph-image.firebaseapp.com",

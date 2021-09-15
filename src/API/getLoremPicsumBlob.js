@@ -3,6 +3,5 @@ export async function getLoremPicsumBlob(url) {
         await fetch(url)
         .then(r => r.blob())
         .catch(err => console.log(err));
-    console.log(blob)
-    return blob
+    return blob;
 }
