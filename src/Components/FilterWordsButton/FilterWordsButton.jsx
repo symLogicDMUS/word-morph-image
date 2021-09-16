@@ -1,5 +1,5 @@
 import React from "react";
-import {Tooltip} from "@material-ui/core";
+import {Tooltip, Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import {commonWords} from "../../words/commonWords";
 import {useTheme} from "@material-ui/core/styles";
@@ -24,7 +24,7 @@ function FilterWordsButton({filterWords}) {
                 startIcon={<WIcon fill={iconColor} />}
                 onClick={() => filterWords(commonWords)}
             >
-                Filter common
+                <Typography variant={"button"} noWrap>Filter</Typography>
             </Button>
         </Tooltip>
     )

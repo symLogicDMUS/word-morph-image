@@ -1,15 +1,15 @@
-import { Box, Fab } from "@material-ui/core";
-import React, { useContext } from "react";
+import {Fab} from "@material-ui/core";
+import React, {useContext} from "react";
 import AppContext from "../../AppContext";
 import AddIcon from "@material-ui/icons/Add";
 import firebase from "firebase/app";
-import { getDir } from "../../helpers/getDir";
+import {getDir} from "../../helpers/getDir";
+import {useStyles} from "./AddPairs.jss";
 
-/**
- * Add word image pairs to App's context
- */
 export function AddPairs({ pairs }) {
     const { state, dispatch } = useContext(AppContext);
+
+    const classes = useStyles();
 
     const upload = async () => {
         const newPairs = {};
@@ -31,10 +31,12 @@ export function AddPairs({ pairs }) {
     };
 
     return (
-        <>
-            <Fab color={"secondary"} onClick={upload}>
-                <AddIcon />
-            </Fab>
-        </>
+        <Fab
+            onClick={upload}
+            color={"secondary"}
+            className={classes.fabButton}
+        >
+            <AddIcon />
+        </Fab>
     );
 }

@@ -14,7 +14,7 @@ function ClearAllButton({clearAll}) {
             className={classes.clearAllButton}
             onClick={clearAll}
         >
-            Clear All
+            Clear
         </Button>
     )
 }

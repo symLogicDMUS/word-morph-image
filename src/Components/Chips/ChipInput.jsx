@@ -462,9 +462,6 @@ class ChipInput extends React.Component {
     }
 
     setRandomImages = async () => {
-        this.setState({
-            loadDialog: true,
-        });
         const user = firebase.auth().currentUser;
         const dir = getDir(user);
         const uid = user.uid;
@@ -479,9 +476,9 @@ class ChipInput extends React.Component {
                 word: word,
                 url: url,
             };
-            this.setState({ progress: ((numChips - i) / numChips) * 100 });
+            this.setState({loadDialog: true, progress: (i / numChips) * 100 });
         }
-        this.setState({ pairs: pairs, loadDialog: false, progress: 0 });
+        this.setState({ pairs: pairs, loadDialog: false, progress: 100 });
     };
 
     getChipComponents(chips, chipRenderer, classes, chipProps) {
