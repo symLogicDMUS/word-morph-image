@@ -1,15 +1,16 @@
 import firebase from "firebase";
 import Box from "@material-ui/core/Box";
+import AppContext from "../../AppContext";
 import {getDir} from "../../helpers/getDir";
-import {Avatar, Fab, Paper, TextField} from "@material-ui/core";
-import React, {useEffect, useState} from "react";
 import {ReactComponent as Alt} from "./sample.svg";
 import {vh, vw} from "../../helpers/windowMeasurements";
-import {useStyles} from "./AddSinglePair.jss";
-import {Add} from "@material-ui/icons";
+import {Avatar, Paper, TextField} from "@material-ui/core";
+import React, {useContext, useEffect, useState} from "react";
 import Button from "@material-ui/core/Button";
+import {useStyles} from "./AddSinglePair.jss";
 
 function AddSinglePair() {
+    const {state, dispatch} = useContext(AppContext);
 
     const [landscape, setLandscape] = useState(vw() > vh());
     useEffect(() => {
@@ -74,6 +75,14 @@ function AddSinglePair() {
         );
     };
 
+    const addToDictionary = () => {
+        dispatch({
+            type: "add-pair",
+            word: word,
+            url: src,
+        })
+    };
+
     return (
         <>
             <Box className={classes.body}>
@@ -104,6 +113,7 @@ function AddSinglePair() {
                         variant={"contained"}
                         className={classes.addButton}
                         disabled={! src || ! word}
+                        onClick={addToDictionary}
                     >
                         Add
                     </Button>

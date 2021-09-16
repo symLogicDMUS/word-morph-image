@@ -478,7 +478,7 @@ class ChipInput extends React.Component {
             };
             this.setState({loadDialog: true, progress: (i / numChips) * 100 });
         }
-        this.setState({ pairs: pairs, loadDialog: false, progress: 100 });
+        this.setState({ pairs: pairs, loadDialog: false });
     };
 
     getChipComponents(chips, chipRenderer, classes, chipProps) {
