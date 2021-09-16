@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import BackspaceIcon from '@material-ui/icons/Backspace';
-import {useStyles} from "./ClearAllButton.jss";
+import BackspaceIcon from "@material-ui/icons/Backspace";
+import { useStyles } from "./ClearAllButton.jss";
 
-function ClearAllButton({clearAll}) {
+function ClearAllButton({ clearAll }) {
     const classes = useStyles();
 
     return (
@@ -16,7 +16,7 @@ function ClearAllButton({clearAll}) {
         >
             Clear
         </Button>
-    )
+    );
 }
 
 export default ClearAllButton;

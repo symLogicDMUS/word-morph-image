@@ -448,18 +448,20 @@ class ChipInput extends React.Component {
     };
 
     filterWords = (words) => {
-        const pairs = copy(this.state.pairs)
-        Object.keys(this.state.pairs).forEach(index => {
+        const pairs = copy(this.state.pairs);
+        Object.keys(this.state.pairs).forEach((index) => {
             if (words.includes(this.state.pairs[index].word.toLowerCase())) {
-                delete pairs[index]
+                delete pairs[index];
             }
-        })
+        });
 
         this.setState({
-            chips: this.state.chips.filter(chip => ! words.includes(chip.toLowerCase())),
-            pairs: this.reorderPairs(Object.values(pairs))
-        })
-    }
+            chips: this.state.chips.filter(
+                (chip) => !words.includes(chip.toLowerCase())
+            ),
+            pairs: this.reorderPairs(Object.values(pairs)),
+        });
+    };
 
     setRandomImages = async () => {
         const user = firebase.auth().currentUser;
@@ -476,7 +478,7 @@ class ChipInput extends React.Component {
                 word: word,
                 url: url,
             };
-            this.setState({loadDialog: true, progress: (i / numChips) * 100 });
+            this.setState({ loadDialog: true, progress: (i / numChips) * 100 });
         }
         this.setState({ pairs: pairs, loadDialog: false });
     };

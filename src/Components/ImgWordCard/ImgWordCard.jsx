@@ -23,7 +23,7 @@ function ImgWordCard(props) {
 
     const src = state.dictionary[children];
 
-    console.log("src", src)
+    console.log("src", src);
 
     let isSvg = false;
     if (!!src && (src.endsWith(".svg") || src.endsWith(".SVG"))) {
@@ -66,7 +66,9 @@ function ImgWordCard(props) {
                                 />
                             )}
                             <CardContent>
-                                <Typography color={textColor}>{children}</Typography>
+                                <Typography color={textColor}>
+                                    {children}
+                                </Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>

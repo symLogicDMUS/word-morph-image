@@ -1,20 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Typography from "@material-ui/core/Typography";
-import {useStyles} from "./HighlightedWord.jss";
+import { useStyles } from "./HighlightedWord.jss";
 
-function HighlightedWord({children, incrementIndex}) {
-
+function HighlightedWord({ children, incrementIndex }) {
     const [seconds, setSeconds] = useState(1);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setSeconds(seconds => seconds - 1);
+            setSeconds((seconds) => seconds - 1);
         }, 750);
         return () => clearInterval(interval);
     }, []);
 
     if (seconds === 0) {
-        incrementIndex()
+        incrementIndex();
     }
 
     const classes = useStyles();

@@ -51,19 +51,15 @@ function Morph(props) {
                     className={classes.img}
                 />
             )}
-            {index === currentIndex && ! src && (
+            {index === currentIndex && !src && (
                 <HighlightedWord incrementIndex={incrementIndex}>
                     {children + " "}
                 </HighlightedWord>
             )}
             {index < currentIndex && !!src && (
-                <img
-                    src={src}
-                    className={classes.img}
-                    alt={children}
-                />
+                <img src={src} className={classes.img} alt={children} />
             )}
-            {index < currentIndex && ! src && (
+            {index < currentIndex && !src && (
                 <Typography className={classes.word}>
                     {children + " "}
                 </Typography>

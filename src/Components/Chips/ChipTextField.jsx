@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
-import AlertDialog from "../AlertDialog/AlertDialog";
+import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
 
 export function ChipTextField(props) {
     const { value, index, updateChipAtIndex, refocusParent, ...other } = props;
@@ -10,6 +10,7 @@ export function ChipTextField(props) {
         message: "",
         open: false,
     });
+
     const handleChange = (e) => {
         if (containsInvalidCharacters(e.target.value)) {
             setAlert({
@@ -47,13 +48,13 @@ export function ChipTextField(props) {
                 className="MuiInputBase-input MuiInput-input"
                 {...other}
             />
-            <AlertDialog
-                severity={alert.severity}
+            <SnackbarAlert
                 open={alert.open}
-                onBackdropClick={closeAlert}
+                severity={alert.severity}
+                onClose={closeAlert}
             >
                 {alert.message}
-            </AlertDialog>
+            </SnackbarAlert>
         </>
     );
 }

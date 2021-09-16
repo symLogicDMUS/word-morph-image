@@ -3,11 +3,11 @@ import "firebase/storage";
 import React, { useContext } from "react";
 import AppContext from "../../AppContext";
 import { useHistory } from "react-router-dom";
-import {ReactComponent as MorphIcon} from "./morph.svg";
-import {ReactComponent as CardsIcon} from "./cards.svg";
+import { ReactComponent as MorphIcon } from "./morph.svg";
+import { ReactComponent as CardsIcon } from "./cards.svg";
 import { Box, Button, TextareaAutosize } from "@material-ui/core";
 import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
-import {useTheme} from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import { useStyles } from "./InputText.jss";
 
 function InputText() {
@@ -15,7 +15,7 @@ function InputText() {
 
     const classes = useStyles();
 
-    const theme = useTheme()
+    const theme = useTheme();
 
     const { state, dispatch } = useContext(AppContext);
 
@@ -23,7 +23,11 @@ function InputText() {
         dispatch({ type: "update-text", text: e.target.value });
     };
 
-    const textColor = ! state.text ? theme.palette.text.disabled : (state.isDarkMode ? "#000" : "#fff");
+    const textColor = !state.text
+        ? theme.palette.text.disabled
+        : state.isDarkMode
+        ? "#000"
+        : "#fff";
 
     return (
         <ResponsiveDrawer>
@@ -44,9 +48,7 @@ function InputText() {
                                 wordIndex: 0,
                             })
                         }
-                        startIcon={
-                            <MorphIcon fill={textColor}/>
-                        }
+                        startIcon={<MorphIcon fill={textColor} />}
                         disabled={!state.text}
                     >
                         Morph
@@ -60,9 +62,7 @@ function InputText() {
                                 wordIndex: 0,
                             })
                         }
-                        startIcon={
-                            <CardsIcon fill={textColor}/>
-                        }
+                        startIcon={<CardsIcon fill={textColor} />}
                         disabled={!state.text}
                     >
                         Cards

@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import {ReactComponent as LoremPicsum} from "./lorem_picsum.svg";
+import { ReactComponent as LoremPicsum } from "./lorem_picsum.svg";
 import { useStyles } from "./LoremPicsumButton.jss";
-import {Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 function LoremPicsumButton(props) {
     const { setRandomImages, ...other } = props;
@@ -18,7 +18,9 @@ function LoremPicsumButton(props) {
             {...other}
             startIcon={<LoremPicsum />}
         >
-            <Typography variant={"button"} noWrap>Set all</Typography>
+            <Typography variant={"button"} noWrap>
+                Set all
+            </Typography>
         </Button>
     );
 }

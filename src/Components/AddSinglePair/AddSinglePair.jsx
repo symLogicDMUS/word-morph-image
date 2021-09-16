@@ -1,24 +1,24 @@
 import firebase from "firebase";
 import Box from "@material-ui/core/Box";
 import AppContext from "../../AppContext";
-import {getDir} from "../../helpers/getDir";
-import {ReactComponent as Alt} from "./sample.svg";
-import {vh, vw} from "../../helpers/windowMeasurements";
-import {Avatar, Paper, TextField} from "@material-ui/core";
-import React, {useContext, useEffect, useState} from "react";
+import { getDir } from "../../helpers/getDir";
+import { ReactComponent as Alt } from "./sample.svg";
+import { vh, vw } from "../../helpers/windowMeasurements";
+import { Avatar, Paper, TextField } from "@material-ui/core";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
-import {useStyles} from "./AddSinglePair.jss";
+import { useStyles } from "./AddSinglePair.jss";
 
 function AddSinglePair() {
-    const {state, dispatch} = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
 
     const [landscape, setLandscape] = useState(vw() > vh());
     useEffect(() => {
         function handleResize() {
             if (vw() > vh()) {
-                setLandscape(true)
+                setLandscape(true);
             } else {
-                setLandscape(false)
+                setLandscape(false);
             }
         }
         window.addEventListener("resize", handleResize);
@@ -27,11 +27,11 @@ function AddSinglePair() {
         };
     });
 
-    const classes = useStyles({landscape: landscape});
+    const classes = useStyles({ landscape: landscape });
 
     const [word, setWord] = useState("");
     const handleChange = (e) => {
-        setWord(e.target.value)
+        setWord(e.target.value);
     };
 
     const [src, setSrc] = useState("");
@@ -80,7 +80,7 @@ function AddSinglePair() {
             type: "add-pair",
             word: word,
             url: src,
-        })
+        });
     };
 
     return (
@@ -95,7 +95,11 @@ function AddSinglePair() {
                         type="file"
                     />
                     <label htmlFor={"add-single-new-pair"}>
-                        <Avatar src={src} variant={"square"} className={classes.avatar}>
+                        <Avatar
+                            src={src}
+                            variant={"square"}
+                            className={classes.avatar}
+                        >
                             <Alt className={classes.alt} />
                         </Avatar>
                     </label>
@@ -112,7 +116,7 @@ function AddSinglePair() {
                         color={"primary"}
                         variant={"contained"}
                         className={classes.addButton}
-                        disabled={! src || ! word}
+                        disabled={!src || !word}
                         onClick={addToDictionary}
                     >
                         Add
@@ -120,7 +124,7 @@ function AddSinglePair() {
                 </Paper>
             </Box>
         </>
-    )
+    );
 }
 
 export default AddSinglePair;
