@@ -11,6 +11,12 @@ import { useStyles } from "./ImgUploadAvatar.jss";
 function ImgUploadAvatar({ word, src, index, updatePair }) {
     const classes = useStyles();
 
+    /**
+     * The following needs to be just different enough from its
+     * brothers with the same name in PairModifier.jsx and
+     * AddSinglePair.jsx that I predict trying to be DRY would
+     * likely introduce bugs.
+     */
     const uploadStorageImg = (e) => {
         const user = firebase.auth().currentUser;
         //visitors or users:

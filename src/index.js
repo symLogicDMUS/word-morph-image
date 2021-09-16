@@ -17,7 +17,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-emulators();
+// emulators();
 
 ReactDOM.render(
     <React.StrictMode>

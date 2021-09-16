@@ -27,8 +27,9 @@ export function PairModifier(props) {
 
     /**
      * The following needs to be just different enough from its
-     * brother with the same name in ImageUploadAvatar.jsx,that
-     * I predict trying to be DRY would likely introduce bugs.
+     * brothers with the same name in ImageUploadAvatar.jsx and
+     * AddSinglePair.jsx that I predict trying to be DRY would
+     * likely introduce bugs.
      */
     const uploadStorageImg = (e) => {
         const user = firebase.auth().currentUser;

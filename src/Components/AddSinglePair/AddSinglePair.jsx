@@ -1,20 +1,11 @@
-import React, {useEffect, useState} from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import {Avatar, Card, TextField} from "@material-ui/core";
 import firebase from "firebase";
+import Box from "@material-ui/core/Box";
 import {getDir} from "../../helpers/getDir";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import {ReactComponent as Alt} from "../SavedPairs/sample.svg";
-import {appBarHeightLg, appBarHeightMd, appBarHeightSm} from "../MyAppBar/appBarAndPadding.jss";
-import Button from "@material-ui/core/Button";
-import {drawerWidth} from "../ResponsiveDrawer/ResponsiveDrawer.jss";
+import {Avatar, Paper, TextField} from "@material-ui/core";
+import React, {useEffect, useState} from "react";
+import {ReactComponent as Alt} from "./sample.svg";
 import {vh, vw} from "../../helpers/windowMeasurements";
-
-export const cardActionHeight = 64;
-
-export const useStyles = makeStyles((theme) => ({
-
-}), {index: 1});
+import {useStyles} from "./AddSinglePair.jss";
 
 function AddSinglePair() {
 
@@ -34,89 +25,74 @@ function AddSinglePair() {
     });
 
     const classes = useStyles({landscape: landscape});
+
+    const [word, setWord] = useState("");
+    const handleChange = (e) => {
+        setWord(e.target.value)
+    };
+
+    const [src, setSrc] = useState("");
+    /**
+     * The following needs to be just different enough from its
+     * brothers with the same name in PairModifier.jsx and
+     * ImgUploadAvatar.jsx that I predict trying to be DRY would
+     * likely introduce bugs.
+     */
+    const uploadStorageImg = (e) => {
+        const user = firebase.auth().currentUser;
+        const dir = getDir(user);
+        const uid = user.uid;
+        const file = e.target.files[0];
+        const exten = file.type.split("/")[1];
+        const imgName = word + "." + exten;
+
+        const storageRef = firebase
+            .storage()
+            .ref(`${dir}/images/${uid}/${imgName}`);
+
+        const task = storageRef.put(file);
+
+        task.on(
+            "state_changed",
+            function progress(snapshot) {},
+
+            function error(err) {
+                console.log(err);
+            },
+
+            async function complete() {
+                return await firebase
+                    .storage()
+                    .ref(`${dir}/images/${uid}/${imgName}`)
+                    .getDownloadURL()
+                    .then(async (url) => {
+                        setSrc(url);
+                    });
+            }
+        );
+    };
+
     return (
-        <div className={classes.root}>
-            <div className={classes.avatar} />
-            {/*<CardActionArea>*/}
-            {/*    <Button>Hello World</Button>*/}
-            {/*    <Button>Lorem Ipsum</Button>*/}
-            {/*</CardActionArea>*/}
-        </div>
-
+        <Box className={classes.body}>
+            <Paper className={classes.card}>
+                <input
+                    accept="image/*"
+                    onChange={uploadStorageImg}
+                    className={classes.input}
+                    id={"add-single-new-pair"}
+                    type="file"
+                />
+                <label htmlFor={"add-single-new-pair"}>
+                    <Avatar src={src} variant={"square"} className={classes.avatar}>
+                        <Alt className={classes.alt} />
+                    </Avatar>
+                </label>
+                <Box className={classes.textFieldContainer}>
+                    <TextField variant={"filled"}  className={classes.textField} autoFocus fullWidth />
+                </Box>
+            </Paper>
+        </Box>
     )
-    // return (<div className={classes.root}></div>)
-
-    // const [word, setWord] = useState("");
-    // const handleChange = (e) => {
-    //     setWord(e.target.value)
-    // };
-    //
-    // const [src, setSrc] = useState("");
-    //
-    // const uploadStorageImg = (e) => {
-    //     const user = firebase.auth().currentUser;
-    //     const dir = getDir(user);
-    //     const uid = user.uid;
-    //     const file = e.target.files[0];
-    //     const exten = file.type.split("/")[1];
-    //     const imgName = word + "." + exten;
-    //
-    //     const storageRef = firebase
-    //         .storage()
-    //         .ref(`${dir}/images/${uid}/${imgName}`);
-    //
-    //     const task = storageRef.put(file);
-    //
-    //     task.on(
-    //         "state_changed",
-    //         function progress(snapshot) {},
-    //
-    //         function error(err) {
-    //             console.log(err);
-    //         },
-    //
-    //         async function complete() {
-    //             return await firebase
-    //                 .storage()
-    //                 .ref(`${dir}/images/${uid}/${imgName}`)
-    //                 .getDownloadURL()
-    //                 .then(async (url) => {
-    //                     setSrc(url);
-    //                 });
-    //         }
-    //     );
-    // };
-    //
-    // return (
-    //     <div className={classes.root}>
-    //         <Card>
-    //             <CardActionArea>
-    //                 <input
-    //                     accept="image/*"
-    //                     onChange={uploadStorageImg}
-    //                     className={classes.input}
-    //                     id={"new-word-image-pair"}
-    //                     type="file"
-    //                 />
-    //                 <label htmlFor={"new-word-image-pair"}>
-    //                     <Avatar
-    //                         src={src}
-    //                         className={classes.avatar}
-    //                     >
-    //                         <Alt className={classes.alt} />
-    //                     </Avatar>
-    //                 </label>
-    //                 <CardActionArea>
-    //                     <TextField
-    //                         value={word}
-    //                         onChange={handleChange}
-    //                         fullWidth
-    //                     />
-    //                 </CardActionArea>
-    //             </CardActionArea>
-    //         </Card>
-    //     </div>
-    // )
 }
 
 export default AddSinglePair;
