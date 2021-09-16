@@ -3,7 +3,8 @@ import {drawerWidth} from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 import {appBarHeightLg, appBarHeightMd, appBarHeightSm} from "../MyAppBar/appBarAndPadding.jss";
 
 const s = 6;
-const textFieldContainer = 58;
+const actions = 98;
+const textFieldHeight = 58;
 const minSize = 150;
 
 export const useStyles = makeStyles((theme) => ({
@@ -83,58 +84,66 @@ export const useStyles = makeStyles((theme) => ({
             return {
                 background: "none",
                 "@media (min-width:0px) and (orientation: landscape)": {
-                    width: `calc(var(--heightSm) - ${textFieldContainer}px)`,
-                    height: `calc(var(--heightSm) - ${textFieldContainer}px)`,
+                    width: `calc(var(--heightSm) - ${actions}px)`,
+                    height: `calc(var(--heightSm) - ${actions}px)`,
                 },
                 "@media screen and (max-width: 960px)": {
-                    width: `calc(var(--heightMd) - ${textFieldContainer}px)`,
-                    height: `calc(var(--heightMd) - ${textFieldContainer}px)`,
+                    width: `calc(var(--heightMd) - ${actions}px)`,
+                    height: `calc(var(--heightMd) - ${actions}px)`,
                 },
                 "@media (min-width:960px)": {
-                    width: `calc(var(--heightLg) - ${textFieldContainer}px)`,
-                    height: `calc(var(--heightLg) - ${textFieldContainer}px)`,
+                    width: `calc(var(--heightLg) - ${actions}px)`,
+                    height: `calc(var(--heightLg) - ${actions}px)`,
                 },
                 minWidth: minSize,
                 minHeight: minSize,
                 margin: 'auto',
+                cursor: "pointer",
             }
         } else {
             return {
                 background: "none",
                 "@media (min-width:0px) and (orientation: landscape)": {
-                    width: `calc(var(--widthSm) - ${textFieldContainer}px)`,
-                    height: `calc(var(--widthSm) - ${textFieldContainer}px )`,
+                    width: `calc(var(--widthSm) - ${actions}px)`,
+                    height: `calc(var(--widthSm) - ${actions}px )`,
                 },
                 "@media screen and (max-width: 960px)": {
-                    width: `calc(var(--widthMd) - ${textFieldContainer}px)`,
-                    height: `calc(var(--widthMd) - ${textFieldContainer}px)`,
+                    width: `calc(var(--widthMd) - ${actions}px)`,
+                    height: `calc(var(--widthMd) - ${actions}px)`,
                 },
                 "@media (min-width:960px)": {
-                    width: `calc(var(--widthLg) - ${textFieldContainer}px)`,
-                    height: `calc(var(--widthLg) - ${textFieldContainer}px)`,
+                    width: `calc(var(--widthLg) - ${actions}px)`,
+                    height: `calc(var(--widthLg) - ${actions}px)`,
                 },
                 minWidth: minSize,
                 minHeight: minSize,
                 margin: 'auto',
+                cursor: "pointer",
             }
         }
     },
-    alt: { width: "98%", height: "98%", opacity: 0.3 },
+    alt: { width: "100%", height: "100%", opacity: 0.3 },
     input: {
         display: "none",
     },
-    textFieldContainer: {
-        display: 'flex',
-        height: textFieldContainer,
+    actionsArea: {
+        height: actions,
     },
     textField: {
         "& .MuiInput-root": {
-            height: textFieldContainer,
+            height: textFieldHeight,
+            padding: "12px 12px 10px",
+
         },
         "& .MuiFilledInput-input": {
-            height: textFieldContainer*0.625,
+            height: textFieldHeight*0.625,
             padding: "12px 12px 10px",
         },
-        // backgroundColor: lighten(theme.palette.background.paper, 0.1)
-    }
+        background: '#51515155',
+    },
+    addButton: {
+        height: 'auto',
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+    },
 }), {index: 1});

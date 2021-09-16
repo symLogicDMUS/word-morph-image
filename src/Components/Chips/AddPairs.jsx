@@ -32,7 +32,7 @@ export function AddPairs({ pairs }) {
 
     return (
         <>
-            <Fab color={"primary"} onClick={upload}>
+            <Fab color={"secondary"} onClick={upload}>
                 <AddIcon />
             </Fab>
         </>

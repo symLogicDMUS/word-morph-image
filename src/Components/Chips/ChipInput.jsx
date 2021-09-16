@@ -33,6 +33,7 @@ import { getDir } from "../../helpers/getDir";
 import LoadBar from "../LoadBar/LoadBar";
 import { styles } from "./ChipInput.jss";
 import FilterWordsButton from "../FilterWordsButton/FilterWordsButton";
+import ClearAllButton from "../ClearAllButton/ClearAllButton";
 
 class ChipInput extends React.Component {
     state = {
@@ -597,7 +598,6 @@ class ChipInput extends React.Component {
 
         const InputProps = {
             disableUnderline: true,
-            endAdornment: <ClearAll clearAll={this.clearAll} />,
         };
 
         const InputComponent = variantComponent[variant];
@@ -693,6 +693,7 @@ class ChipInput extends React.Component {
                 <Box className={classes.actions}>
                     <LoremPicsumButton setRandomImages={this.setRandomImages} />
                     <FilterWordsButton filterWords={this.filterWords} />
+                    <ClearAllButton clearAll={this.clearAll} />
                     <AddPairs pairs={this.state.pairs} />
                 </Box>
                 <LoadBar

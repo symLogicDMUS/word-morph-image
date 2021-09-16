@@ -1,11 +1,13 @@
 import firebase from "firebase";
 import Box from "@material-ui/core/Box";
 import {getDir} from "../../helpers/getDir";
-import {Avatar, Paper, TextField} from "@material-ui/core";
+import {Avatar, Fab, Paper, TextField} from "@material-ui/core";
 import React, {useEffect, useState} from "react";
 import {ReactComponent as Alt} from "./sample.svg";
 import {vh, vw} from "../../helpers/windowMeasurements";
 import {useStyles} from "./AddSinglePair.jss";
+import {Add} from "@material-ui/icons";
+import Button from "@material-ui/core/Button";
 
 function AddSinglePair() {
 
@@ -73,25 +75,41 @@ function AddSinglePair() {
     };
 
     return (
-        <Box className={classes.body}>
-            <Paper className={classes.card}>
-                <input
-                    accept="image/*"
-                    onChange={uploadStorageImg}
-                    className={classes.input}
-                    id={"add-single-new-pair"}
-                    type="file"
-                />
-                <label htmlFor={"add-single-new-pair"}>
-                    <Avatar src={src} variant={"square"} className={classes.avatar}>
-                        <Alt className={classes.alt} />
-                    </Avatar>
-                </label>
-                <Box className={classes.textFieldContainer}>
-                    <TextField variant={"filled"}  className={classes.textField} autoFocus fullWidth />
-                </Box>
-            </Paper>
-        </Box>
+        <>
+            <Box className={classes.body}>
+                <Paper className={classes.card}>
+                    <input
+                        accept="image/*"
+                        onChange={uploadStorageImg}
+                        className={classes.input}
+                        id={"add-single-new-pair"}
+                        type="file"
+                    />
+                    <label htmlFor={"add-single-new-pair"}>
+                        <Avatar src={src} variant={"square"} className={classes.avatar}>
+                            <Alt className={classes.alt} />
+                        </Avatar>
+                    </label>
+                    <TextField
+                        autoFocus
+                        fullWidth
+                        variant={"outlined"}
+                        className={classes.textField}
+                        onChange={handleChange}
+                        value={word}
+                    />
+                    <Button
+                        fullWidth
+                        color={"primary"}
+                        variant={"contained"}
+                        className={classes.addButton}
+                        disabled={! src || ! word}
+                    >
+                        Add
+                    </Button>
+                </Paper>
+            </Box>
+        </>
     )
 }
 

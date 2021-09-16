@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Button } from "@material-ui/core";
 import SubjectIcon from "@material-ui/icons/Subject";
-import { useStyles } from "./LoremButton.jss";
+import { useStyles } from "./LoremIpsumButton.jss";
 import { LoremIpsum } from "lorem-ipsum";
 import AppContext from "../../AppContext";
 
-function LoremButton(props) {
+function LoremIpsumButton(props) {
     const { children, ...other } = props;
     const classes = useStyles();
     const { state, dispatch } = useContext(AppContext);
@@ -38,4 +38,4 @@ function LoremButton(props) {
     );
 }
 
-export default LoremButton;
+export default LoremIpsumButton;
