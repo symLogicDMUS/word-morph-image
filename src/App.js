@@ -19,13 +19,15 @@ import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
+import AddSinglePair from "./Components/AddSinglePair/AddSinglePair";
 import SavedPairs from "./Components/SavedPairs/SavedPairs";
 import { updateDictionary } from "./API/updateDictionary";
+import SavedText from "./Components/SavedText/SavedText";
 import { getDir } from "./helpers/getDir";
 import "firebaseui/dist/firebaseui.css";
 import { reducer } from "./App.red";
 import "./App.scss";
-import AddSinglePair from "./Components/AddSinglePair/AddSinglePair";
+import {updateParagraphs} from "./API/updateParagraphs";
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
@@ -79,8 +81,18 @@ function App() {
                         if (!!snapshot.val()) {
                             dispatch({
                                 type: "new-paragraphs",
-                                dictionary: snapshot.val(),
+                                paragraphs: snapshot.val(),
                             });
+                        } else {
+                            const firstParagraph = {
+                                "First": "Hello word!"
+                            };
+                            updateParagraphs(firstParagraph).then(r => {
+                                dispatch({
+                                    type: "new-paragraphs",
+                                    paragraphs: firstParagraph,
+                                });
+                            })
                         }
                     });
             }
@@ -145,6 +157,15 @@ function App() {
                             component={(props) => (
                                 <ResponsiveDrawer>
                                     <SavedPairs {...props} />
+                                </ResponsiveDrawer>
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/saved-text"
+                            component={(props) => (
+                                <ResponsiveDrawer>
+                                    <SavedText {...props} />
                                 </ResponsiveDrawer>
                             )}
                         />

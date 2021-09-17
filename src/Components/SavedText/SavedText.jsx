@@ -1,25 +1,10 @@
-import React, { useContext } from "react";
-import firebase from "firebase/app";
+import React, {useContext} from "react";
 import "firebase/auth";
 import "firebase/database";
 import Box from "@material-ui/core/Box";
-
-import { makeStyles } from "@material-ui/core/styles";
-import TextCard from "./TextCard";
 import AppContext from "../../AppContext";
-
-export const useStyles = makeStyles(
-    (theme) => ({
-        body: {
-            display: "flex",
-            flexWrap: "wrap",
-            "& > *": {
-                margin: theme.spacing(3),
-            },
-        },
-    }),
-    { index: 1 }
-);
+import {useStyles} from "./SavedText.jss";
+import TextCard from "./TextCard";
 
 function SavedText() {
     const { state, dispatch } = useContext(AppContext);

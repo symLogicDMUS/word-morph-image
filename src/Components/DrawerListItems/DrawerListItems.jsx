@@ -51,7 +51,7 @@ function DrawerListItems(props) {
                     Input Text
                 </DrawerListItem>
                 <DrawerListItem
-                    path="/"
+                    path="/saved-text"
                     icon={<SavedTextIcon fill={textColor} />}
                 >
                     Saved Text

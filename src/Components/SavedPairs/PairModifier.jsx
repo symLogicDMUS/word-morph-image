@@ -77,7 +77,7 @@ export function PairModifier(props) {
                         type="file"
                     />
                     <label htmlFor={`${word}-${image}`}>
-                        <Avatar src={newImage} className={classes.avatar}>
+                        <Avatar src={newImage} variant="square" className={classes.avatar}>
                             <Alt className={classes.alt} />
                         </Avatar>
                     </label>

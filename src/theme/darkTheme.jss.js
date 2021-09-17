@@ -7,9 +7,6 @@ const darkTheme = {
                 backgroundColor: "#333333",
             },
         },
-        MuiTextareaAutosize: {
-            backgroundColor: "#515151",
-        },
         MuiButton: {
             containedPrimary: {
                 color: "#000",

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import "firebase/storage";
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import AppContext from "../../AppContext";
 import {useHistory} from "react-router-dom";
 import {ReactComponent as MorphIcon} from "./morph.svg";

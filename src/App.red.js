@@ -3,7 +3,12 @@ import { copy } from "./helpers/copy";
 export function reducer(state, action) {
     let newDict;
     switch (action.type) {
-        // word/image pair:
+        case "update-text":
+            return {
+                ...state,
+                numUpdates: state.numUpdates + 1,
+                text: action.text,
+            };
         case "add-pair":
             return {
                 ...state,
@@ -50,12 +55,6 @@ export function reducer(state, action) {
                     message: "Pairs added successfully!",
                 },
             };
-        case "update-text":
-            return {
-                ...state,
-                numUpdates: state.numUpdates + 1,
-                text: action.text,
-            };
         case "new-paragraphs":
             return {
                 ...state,
@@ -73,14 +72,8 @@ export function reducer(state, action) {
                 alert: {
                     open: true,
                     severity: "success",
-                    message: "Text added successfully!",
+                    message: "Text saved successfully!",
                 },
-            };
-        case "update-mode":
-            return {
-                ...state,
-                numUpdates: state.numUpdates + 1,
-                isDarkMode: action.isDarkMode,
             };
         case "new-alert":
             return {
@@ -99,6 +92,12 @@ export function reducer(state, action) {
                     message: "",
                     severity: "",
                 },
+            };
+        case "update-mode":
+            return {
+                ...state,
+                numUpdates: state.numUpdates + 1,
+                isDarkMode: action.isDarkMode,
             };
         default:
             throw new Error();

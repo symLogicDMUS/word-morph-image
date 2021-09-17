@@ -1,20 +1,10 @@
 import React, {useContext, useState} from "react";
-import firebase from "firebase/app";
 import "firebase/database";
-import {
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle, TextField, useTheme,
-} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
-import {updateParagraph} from "../../API/updateParagraph";
-import {vh} from "../../helpers/windowMeasurements";
+import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField,} from "@material-ui/core";
 import AppContext from "../../AppContext";
-
-// const theme = useTheme()
-// const vhInRem = Number(theme.typography.pxToRem(vh()).match(/[0-9]+/g)[0]);
+import Button from "@material-ui/core/Button";
+import {updateParagraphs} from "../../API/updateParagraphs";
+import {useStyles} from "./TextDialog.jss";
 
 function TextDialog(props) {
     const { title, text, open, onBackdropClick } = props;
@@ -28,7 +18,7 @@ function TextDialog(props) {
     };
 
     const handleClick = () => {
-        updateParagraph({[title]: paragraph}).then(r => {
+        updateParagraphs({[title]: paragraph}).then(r => {
             dispatch({
                 type: "update-paragraphs",
                 title: title,
@@ -37,18 +27,38 @@ function TextDialog(props) {
         })
     };
 
+    const classes = useStyles();
+
     return (
-        <Dialog open={open} onBackdropClick={onBackdropClick}>
+        <Dialog
+            fullWidth
+            open={open}
+            maxWidth={"lg"}
+            onBackdropClick={onBackdropClick}
+        >
             <DialogTitle>{title}</DialogTitle>
-            <DialogContent maxHeight={400}>
-                <TextField onChange={handleChange} value={paragraph} multiline rows={200} />
-                {/*<DialogContentText>{text}</DialogContentText>*/}
+            <DialogContent>
+                <DialogContentText>
+                    <TextField
+                        autoFocus
+                        multiline
+                        fullWidth
+                        rows={200}
+                        value={paragraph}
+                        onChange={handleChange}
+                        className={classes.input}
+                        InputProps={{disableUnderline: true}}
+                    />
+                </DialogContentText>
             </DialogContent>
             <DialogActions>
                 <Button variant={"contained"} color={"primary"} onClick={handleClick}>
                     Save
                 </Button>
                 <Button variant={"outlined"}>Delete</Button>
+                <Button onClick={onBackdropClick}>
+                    Cancel
+                </Button>
             </DialogActions>
         </Dialog>
     );

@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import AppContext from "../../AppContext";
-import {updateParagraph} from "../../API/updateParagraph";
+import {updateParagraphs} from "../../API/updateParagraphs";
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@material-ui/core";
 import {Save} from "@material-ui/icons";
 import {useStyles} from "./SaveTextButton.jss";
@@ -16,7 +16,8 @@ export function SaveTextButton() {
     const [saveDialog, setSaveDialog] = useState(false);
 
     const saveText = () => {
-        updateParagraph({[title]: state.text}).then(r => {
+        updateParagraphs({[title]: state.text}).then(r => {
+            setSaveDialog(false)
             dispatch({
                 type: "update-paragraphs",
                 title: title,
@@ -50,7 +51,7 @@ export function SaveTextButton() {
                     <Button color={"primary"} variant={"contained"} onClick={saveText}>
                         Save
                     </Button>
-                    <Button color={"primary"} onClick={() => setSaveDialog(false)}>
+                    <Button onClick={() => setSaveDialog(false)}>
                         Cancel
                     </Button>
                 </DialogActions>

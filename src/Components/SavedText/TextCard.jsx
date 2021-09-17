@@ -1,30 +1,19 @@
 import * as React from "react";
+import {useContext, useState} from "react";
+import TextDialog from "./TextDialog";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-
-import { makeStyles } from "@material-ui/core/styles";
-import { useState } from "react";
-import TextDialog from "./TextDialog";
-import { useHistory } from "react-router-dom";
-
-export const useStyles = makeStyles(
-    (theme) => ({
-        card: {
-            maxWidth: 345,
-        },
-        text: {
-            maxHeight: 150,
-            overflowY: "hidden",
-        },
-    }),
-    { index: 1 }
-);
+import {useHistory} from "react-router-dom";
+import AppContext from "../../AppContext";
+import {useStyles} from "./TextCard.jss";
 
 function TextCard(props) {
     const { title, children } = props;
+
+    const {state, dispatch} = useContext(AppContext);
 
     const history = useHistory();
 
@@ -50,23 +39,20 @@ function TextCard(props) {
                 <CardActions>
                     <Button
                         size="small"
-                        onClick={() =>
-                            history.push("/morphs", {
-                                wordIndex: 0,
-                            })
-                        }
+                        color="primary"
+                        onClick={() => {
+                            dispatch({type: "update-text", text: children})
+                            history.push("/")
+                        }}
                     >
-                        Morph
+                        Load
                     </Button>
                     <Button
                         size="small"
-                        onClick={() =>
-                            history.push("/cards", {
-                                wordIndex: 0,
-                            })
-                        }
+                        color="primary"
+                        onClick={() => setDialog(true)}
                     >
-                        Cards
+                        Edit...
                     </Button>
                 </CardActions>
             </Card>
