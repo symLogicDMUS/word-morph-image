@@ -55,7 +55,6 @@ function TextDialog(props) {
                 <Button variant={"contained"} color={"primary"} onClick={handleClick}>
                     Save
                 </Button>
-                <Button variant={"outlined"}>Delete</Button>
                 <Button onClick={onBackdropClick}>
                     Cancel
                 </Button>

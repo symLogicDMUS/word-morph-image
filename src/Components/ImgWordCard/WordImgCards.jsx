@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import wordPattern from "../../regex/wordPattern";
 import { AnimatePresence } from "framer-motion";
-import ImgWordCard from "./ImgWordCard";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { MyAppBar } from "../MyAppBar/MyAppBar";
+import ImgWordCard from "./ImgWordCard";
 import AppContext from "../../AppContext";
 
 function WordImgCards(props) {
-    const history = useHistory();
-    const wordIndex = props.location.state.wordIndex;
+    // const history = useHistory();
+    // const wordIndex = props.location.state.wordIndex;
     const { state, dispatch } = useContext(AppContext);
     const words = state.text.match(wordPattern);
     const numWords = words.length;

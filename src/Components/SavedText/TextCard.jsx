@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import {updateParagraphs} from "../../API/updateParagraphs";
 import {useHistory} from "react-router-dom";
 import AppContext from "../../AppContext";
 import {useStyles} from "./TextCard.jss";
@@ -20,6 +21,15 @@ function TextCard(props) {
     const classes = useStyles();
 
     const [dialog, setDialog] = useState(false);
+
+    const deleteParagraph = () => {
+        updateParagraphs({[title]: null}).then(r => {
+            dispatch({
+                type: "remove-paragraph",
+                title: title
+            })
+        })
+    };
 
     return (
         <>
@@ -46,6 +56,13 @@ function TextCard(props) {
                         }}
                     >
                         Load
+                    </Button>
+                    <Button
+                        size="small"
+                        color="primary"
+                        onClick={deleteParagraph}
+                    >
+                        Delete
                     </Button>
                     <Button
                         size="small"

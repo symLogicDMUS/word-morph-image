@@ -23,11 +23,13 @@ import AddSinglePair from "./Components/AddSinglePair/AddSinglePair";
 import SavedPairs from "./Components/SavedPairs/SavedPairs";
 import { updateDictionary } from "./API/updateDictionary";
 import SavedText from "./Components/SavedText/SavedText";
+import {updateParagraphs} from "./API/updateParagraphs";
+import About from "./Components/About/About";
 import { getDir } from "./helpers/getDir";
 import "firebaseui/dist/firebaseui.css";
 import { reducer } from "./App.red";
 import "./App.scss";
-import {updateParagraphs} from "./API/updateParagraphs";
+import Sources from "./Components/Sources/Sources";
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
@@ -166,6 +168,24 @@ function App() {
                             component={(props) => (
                                 <ResponsiveDrawer>
                                     <SavedText {...props} />
+                                </ResponsiveDrawer>
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/about"
+                            component={(props) => (
+                                <ResponsiveDrawer>
+                                    <About {...props} />
+                                </ResponsiveDrawer>
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/sources"
+                            component={(props) => (
+                                <ResponsiveDrawer>
+                                    <Sources {...props} />
                                 </ResponsiveDrawer>
                             )}
                         />

@@ -75,6 +75,19 @@ export function reducer(state, action) {
                     message: "Text saved successfully!",
                 },
             };
+        case "remove-paragraph":
+            const paragraphs = copy(state.paragraphs);
+            delete paragraphs[action.title]
+            return {
+                ...state,
+                numUpdates: state.numUpdates + 1,
+                paragraphs: paragraphs,
+                alert: {
+                    open: true,
+                    severity: "info",
+                    message: `"${action.title}" deleted.`
+                }
+            }
         case "new-alert":
             return {
                 ...state,

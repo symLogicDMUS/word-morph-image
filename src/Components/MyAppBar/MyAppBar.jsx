@@ -7,21 +7,18 @@ import {
     Tooltip,
     Toolbar,
     IconButton,
-    Typography, useTheme,
+    Typography,
 } from "@material-ui/core";
 import SignOutButton from "./SignOutButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import RenderCode from "../../helpers/RenderCode";
 import AppContext from "../../AppContext";
 import { useStyles } from "./MyAppBar.jss";
-import {vh} from "../../helpers/windowMeasurements";
 
 export function MyAppBar({ handleDrawerToggle }) {
     const { state, dispatch } = useContext(AppContext);
 
     const classes = useStyles();
-
-    const theme = useTheme()
 
     return (
         <AppBar position="fixed" className={classes.appBar}>
@@ -38,9 +35,6 @@ export function MyAppBar({ handleDrawerToggle }) {
                 <Typography className={classes.title} noWrap>
                     Words to Images
                 </Typography>
-                <RenderCode childName={"state"} iconButton>
-                    {state}
-                </RenderCode>
                 <Tooltip title={"Toggle light/dark theme"}>
                     <IconButton
                         onClick={() =>
