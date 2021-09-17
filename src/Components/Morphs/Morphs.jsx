@@ -14,14 +14,15 @@ function Morphs(props) {
     const { state, dispatch } = useContext(AppContext);
     const words = state.text.match(wordPattern);
     const morphs = words.slice(wordIndex);
+
     const prevMorphs = useMemo(() => {
-        const images = [];
-        for (let i = 0; i <= wordIndex; i++) {
-            images.push(
-                <Morphed word={words[i]}>{state.dictionary[words[i]]}</Morphed>
+        const morphs = [];
+        for (let i = 0; i < wordIndex; i++) {
+            morphs.push(
+                <Morphed>{words[i]}</Morphed>
             );
         }
-        return images;
+        return morphs;
     }, []);
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,7 +34,7 @@ function Morphs(props) {
         <>
             <Box className={classes.body}>
                 <Typography className={classes.morphs}>
-                    {/*{prevMorphs}*/}
+                    {prevMorphs}
                     {morphs.map((word, index) => (
                         <Morph
                             key={index}

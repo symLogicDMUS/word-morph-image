@@ -30,7 +30,7 @@ function PausedMorphs(props) {
         const images = [];
         for (let i = 0; i <= currentIndex; i++) {
             images.push(
-                <Morphed word={words[i]}>{state.dictionary[words[i]]}</Morphed>
+                <Morphed>{words[i]}</Morphed>
             );
         }
         return images;

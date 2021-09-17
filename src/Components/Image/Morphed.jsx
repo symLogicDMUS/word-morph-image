@@ -3,10 +3,10 @@ import { useStyles } from "../Morphs/Morph.jss";
 import { Typography, useTheme } from "@material-ui/core";
 import AppContext from "../../AppContext";
 
-function Morphed({ word, children }) {
+function Morphed({ children }) {
     const { state, dispatch } = useContext(AppContext);
 
-    const classes = useStyles({ word: word });
+    const classes = useStyles();
 
     return (
         <>
@@ -14,7 +14,7 @@ function Morphed({ word, children }) {
                 <img
                     src={state.dictionary[children]}
                     className={classes.img}
-                    alt={word}
+                    alt={children}
                 />
             ) : (
                 <Typography className={classes.word}>

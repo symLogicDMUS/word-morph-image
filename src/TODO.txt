@@ -6,3 +6,4 @@
 * add logos to drawer menu items and buttons
 * add svg title where title exists on AppBar
 * add slider that adjusts the animation duration + number miliseconds word is highlighted
+* implement paused cards

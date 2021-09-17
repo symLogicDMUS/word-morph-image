@@ -8,13 +8,13 @@ export const useStyles = makeStyles(
             bottom: theme.typography.h2.fontSize,
             transform: 'translate(0, 0.5rem)',
         },
-        img: (props) => ({
+        img:  {
             display: "inline-block",
             height: theme.typography.h2.fontSize,
             marginLeft: "0.5rem",
             marginRight: "0.5rem",
             cursor: 'pointer',
-        }),
+        },
         word: {
             display: "inline",
         },
