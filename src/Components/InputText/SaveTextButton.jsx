@@ -1,8 +1,8 @@
 import React, {useContext, useState} from "react";
 import AppContext from "../../AppContext";
 import {updateParagraphs} from "../../API/updateParagraphs";
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@material-ui/core";
-import {Save} from "@material-ui/icons";
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
+import {Save} from "@mui/icons-material";
 import {useStyles} from "./SaveTextButton.jss";
 
 export function SaveTextButton() {
@@ -45,7 +45,7 @@ export function SaveTextButton() {
                     Enter Title:
                 </DialogTitle>
                 <DialogContent>
-                    <TextField value={title} onChange={handleChange} autoFocus fullWidth/>
+                    <TextField variant={"filled"} value={title} onChange={handleChange} autoFocus fullWidth/>
                 </DialogContent>
                 <DialogActions>
                     <Button color={"primary"} variant={"contained"} onClick={saveText}>

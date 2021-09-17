@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles(

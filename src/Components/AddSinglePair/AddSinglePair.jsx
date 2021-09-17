@@ -1,12 +1,12 @@
 import firebase from "firebase";
-import Box from "@material-ui/core/Box";
+import Box from "@mui/material/Box";
 import AppContext from "../../AppContext";
 import { getDir } from "../../helpers/getDir";
 import { ReactComponent as Alt } from "./sample.svg";
 import { vh, vw } from "../../helpers/windowMeasurements";
-import { Avatar, Paper, TextField } from "@material-ui/core";
+import { Avatar, Paper, TextField } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 import { useStyles } from "./AddSinglePair.jss";
 
 function AddSinglePair() {

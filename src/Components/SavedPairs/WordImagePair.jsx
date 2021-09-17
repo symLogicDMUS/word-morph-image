@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Avatar } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
+import { Avatar } from "@mui/material";
+import Card from "@mui/material/Card";
 import { ReactComponent as Alt } from "./sample.svg";
-import CardContent from "@material-ui/core/CardContent";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import Typography from "@material-ui/core/Typography";
+import CardContent from "@mui/material/CardContent";
+import CardActionArea from "@mui/material/CardActionArea";
+import Typography from "@mui/material/Typography";
 import { PairModifier } from "./PairModifier";
 import { useStyles } from "./WordImagePair.jss";
-import { Cancel } from "@material-ui/icons";
+import { Cancel } from "@mui/icons-material";
 import AppContext from "../../AppContext";
 
 function WordImagePair(props) {

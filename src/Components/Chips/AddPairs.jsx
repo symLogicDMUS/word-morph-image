@@ -1,7 +1,7 @@
-import { Fab } from "@material-ui/core";
+import { Fab } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import AppContext from "../../AppContext";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@mui/icons-material/Add";
 import firebase from "firebase/app";
 import { getDir } from "../../helpers/getDir";
 import { useStyles } from "./AddPairs.jss";

@@ -1,13 +1,16 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 import { ReactComponent as LoremPicsum } from "./lorem_picsum.svg";
 import { useStyles } from "./LoremPicsumButton.jss";
-import { Typography } from "@material-ui/core";
+import {useTheme} from "@mui/styles";
+import { Typography } from "@mui/material";
 
 function LoremPicsumButton(props) {
     const { setRandomImages, ...other } = props;
 
     const classes = useStyles();
+
+    const theme = useTheme();
 
     return (
         <Button
@@ -16,7 +19,7 @@ function LoremPicsumButton(props) {
             onClick={setRandomImages}
             className={classes.loremPicsum}
             {...other}
-            startIcon={<LoremPicsum />}
+            startIcon={<LoremPicsum fill={theme.palette.primary.contrastText} />}
         >
             <Typography variant={"button"} noWrap>
                 Set all

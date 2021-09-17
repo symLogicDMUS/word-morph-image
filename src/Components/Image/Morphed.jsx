@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import AppContext from "../../AppContext";
-import { Badge, Typography } from "@material-ui/core";
+import { Badge, Typography } from "@mui/material";
 import { useStyles } from "../Morphs/Morph.jss";
 
 function Morphed({ children }) {

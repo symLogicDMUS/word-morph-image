@@ -1,31 +1,18 @@
 const lightTheme = {
-    overrides: {
-        MuiIconButton: {
-            root: {
-                color: "#fff",
-            },
-        },
+    components: {
         MuiChip: {
-            root: {
-                height: "auto",
-                borderRadius: 6,
-                padding: "0.5rem 1rem",
-            },
-            label: {
-                height: "auto",
-            },
+            styleOverrides: {
+                root: {
+                    height: "auto",
+                    borderRadius: 6,
+                    padding: "0.5rem 1rem",
+                },
+                label: {
+                    height: "auto",
+                    paddingRight: 0,
+                },
+            }
         },
-    },
-    palette: {
-        type: "light",
-        primary: {
-            main: "#1a73e8",
-            light: "#69a1ff",
-            dark: "#0049b5",
-        },
-    },
-    typography: {
-        fontSize: 16,
     },
 };
 

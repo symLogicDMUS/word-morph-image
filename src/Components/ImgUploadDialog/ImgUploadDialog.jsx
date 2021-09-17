@@ -6,7 +6,7 @@ import {
     Step,
     StepLabel,
     Stepper,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useStyles } from "./ImgUploadDialog.jss";
 
 function ImgUploadDialog({ open }) {

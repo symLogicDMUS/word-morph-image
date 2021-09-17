@@ -1,5 +1,5 @@
 import React from "react";
-import Chip from "@material-ui/core/Chip";
+import Chip from "@mui/material/Chip";
 import { ChipTextField } from "./ChipTextField";
 import ImgUploadAvatar from "./ImgUploadAvatar";
 

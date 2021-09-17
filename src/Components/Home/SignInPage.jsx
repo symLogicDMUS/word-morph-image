@@ -1,7 +1,7 @@
 import React from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import HomeIconButtons from "./HomeIconButtons";
 import { ReactComponent as Title } from "./title.svg";
 import VisitorSignInButton from "./VisitorSignInButton";

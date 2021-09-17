@@ -6,8 +6,8 @@ import {
     DialogContentText,
     DialogTitle,
     Link,
-} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+} from "@mui/material";
+import Button from "@mui/material/Button";
 
 function AboutDialog(props) {
     const { open, setAboutDialog, ...other } = props;
@@ -27,6 +27,7 @@ function AboutDialog(props) {
                     creation. One of my first reactions was that these resources
                     (particularly the
                     <Link
+                        underline="hover"
                         href={"https://www.nngroup.com/articles/"}
                         style={{
                             marginLeft: "0.25rem",

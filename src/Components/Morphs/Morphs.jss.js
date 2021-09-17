@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import {
     appBarHeightLg,
     appBarHeightMd,
@@ -40,7 +40,7 @@ export const useStyles = makeStyles(
             "& > .MuiIconButton-root": {
                 marginRight: "auto",
                 marginLeft: "auto",
-                transform: `translate(-${theme.spacing(1.5)}px,  0px)`,
+                transform: `translate(-${theme.spacing(1.5)},  0px)`,
             },
         },
         word: {

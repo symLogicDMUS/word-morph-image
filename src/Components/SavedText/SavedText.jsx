@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import "firebase/auth";
 import "firebase/database";
 import TextCard from "./TextCard";
-import Box from "@material-ui/core/Box";
+import Box from "@mui/material/Box";
 import AppContext from "../../AppContext";
 import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
 import {useStyles} from "./SavedText.jss";

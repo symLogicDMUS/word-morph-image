@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from "react";
 import WordImagePair from "./WordImagePair";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import AppContext from "../../AppContext";
 import { useStyles } from "./SavedPairs.jss";
 

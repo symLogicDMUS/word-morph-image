@@ -1,4 +1,5 @@
-import { lighten, makeStyles } from "@material-ui/core/styles";
+import { lighten } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 import {
     appBarHeightLg,
@@ -20,19 +21,19 @@ export const useStyles = makeStyles(
                 height: `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(
                     s
                 )}px)`,
-                width: `calc(100vw - ${theme.spacing(s)}px)`,
+                width: `calc(100vw - ${theme.spacing(s)})`,
             },
             "@media screen and (max-width: 960px)": {
                 height: `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(
                     s
                 )}px)`,
-                width: `calc(100vw - ${theme.spacing(s)}px)`,
+                width: `calc(100vw - ${theme.spacing(s)})`,
             },
             "@media (min-width:960px)": {
                 height: `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(
                     s
                 )}px)`,
-                width: `calc(100vw - ${drawerWidth}px - ${theme.spacing(s)}px)`,
+                width: `calc(100vw - ${drawerWidth}px - ${theme.spacing(s)})`,
             },
         },
 
@@ -48,7 +49,7 @@ export const useStyles = makeStyles(
                     s
                 )}px)`,
 
-                "--widthSm": `calc(100vw - ${theme.spacing(s)}px)`,
+                "--widthSm": `calc(100vw - ${theme.spacing(s)})`,
                 "--widthMd": "var(--widthSm)",
                 "--widthLg": `calc(100vw - ${drawerWidth}px - ${theme.spacing(
                     s

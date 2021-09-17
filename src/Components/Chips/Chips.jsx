@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ChipInput from "./ChipInput";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
 import { useStyles } from "./Chips.jss";
 import AppContext from "../../AppContext";

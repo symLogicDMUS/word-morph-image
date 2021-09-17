@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import Card from "@material-ui/core/Card";
-import Button from "@material-ui/core/Button";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import { Dialog, Fab, TextField } from "@material-ui/core";
+import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Dialog, Fab, TextField } from "@mui/material";
 import LandscapeSvgIcon from "./LandscapeSvgIcon";
 import { ModeContext } from "../ModeContext";
-import { useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@mui/material/styles";
 import { useStyles } from "./ImgMediaCard.jss";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@mui/icons-material/Add";
 
 function ImgMediaCard() {
     const { isDarkMode, setIsDarkMode } = useContext(ModeContext);

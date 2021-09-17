@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
-import {GitHub} from "@material-ui/icons";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
-import Brightness7Icon from "@material-ui/icons/Brightness7";
-import {AppBar, IconButton, Toolbar, Tooltip,} from "@material-ui/core";
+import {GitHub} from "@mui/icons-material";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import {AppBar, IconButton, Toolbar, Tooltip,} from "@mui/material";
 import SignOutButton from "./SignOutButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
 import AppContext from "../../AppContext";
 import {useStyles} from "./MyAppBar.jss";
 import AppTitle from "./AppTitle";
@@ -23,7 +23,7 @@ export function MyAppBar({ handleDrawerToggle }) {
                     edge="start"
                     onClick={handleDrawerToggle}
                     className={classes.menuButton}
-                >
+                    size="large">
                     <MenuIcon />
                 </IconButton>
                 <AppTitle />
@@ -35,7 +35,7 @@ export function MyAppBar({ handleDrawerToggle }) {
                                 isDarkMode: !state.isDarkMode,
                             })
                         }
-                    >
+                        size="large">
                         {state.isDarkMode ? (
                             <Brightness7Icon />
                         ) : (
@@ -50,7 +50,7 @@ export function MyAppBar({ handleDrawerToggle }) {
                             (window.location.href =
                                 "https://github.com/symLogicDMUS/word-morph-image")
                         }
-                    >
+                        size="large">
                         <GitHub />
                     </IconButton>
                 </Tooltip>

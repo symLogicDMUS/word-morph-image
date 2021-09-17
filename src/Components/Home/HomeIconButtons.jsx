@@ -1,7 +1,7 @@
 import React from "react";
 import "firebase/auth";
 import firebase from "firebase/app";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import YouTubeIconButton from "./YouTubeIconButton";
 import GitHubIconButton from "./GitHubIconButton";
 import AboutIconButton from "./AboutIconButton";

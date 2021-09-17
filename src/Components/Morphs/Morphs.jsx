@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useState } from "react";
 import wordPattern from "../../regex/wordPattern";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography } from "@mui/material";
 import Morph from "./Morph";
 import Morphed from "../Image/Morphed";
 import { PauseButton } from "./PauseButton";

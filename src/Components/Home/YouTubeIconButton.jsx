@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+import { useTheme } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import { ReactComponent as YouTube } from "./youtube.svg";
 import { useStyles } from "./HomeIconButton.jss";
 
@@ -19,7 +19,7 @@ function YouTubeIconButton() {
                     "https://www.youtube.com/channel/UCltAA2bRVBpfrqWy-RbqY2w/videos")
             }
         >
-            <IconButton>
+            <IconButton size="large">
                 <YouTube fill={theme.palette.secondary.main} />
             </IconButton>
             <Typography

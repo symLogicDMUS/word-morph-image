@@ -1,5 +1,5 @@
 import React from "react";
-import { Backdrop, Paper } from "@material-ui/core";
+import { Backdrop, Paper } from "@mui/material";
 import LinearValueWithLabel from "./LinearValueWithLabel";
 import { useStyles } from "./LoadBar.jss";
 

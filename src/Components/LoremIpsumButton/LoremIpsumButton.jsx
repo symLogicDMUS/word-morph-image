@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { Button } from "@material-ui/core";
-import SubjectIcon from "@material-ui/icons/Subject";
+import { Button } from "@mui/material";
+import SubjectIcon from "@mui/icons-material/Subject";
 import { useStyles } from "./LoremIpsumButton.jss";
 import { LoremIpsum } from "lorem-ipsum";
 import AppContext from "../../AppContext";

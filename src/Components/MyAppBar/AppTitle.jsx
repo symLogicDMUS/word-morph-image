@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
+import Box from "@mui/material/Box";
 import {useHistory} from "react-router-dom";
 import {useStyles} from "./AppTitle.jss";
 

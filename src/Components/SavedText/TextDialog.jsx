@@ -1,8 +1,8 @@
 import React, {useContext, useState} from "react";
 import "firebase/database";
-import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField,} from "@material-ui/core";
+import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField,} from "@mui/material";
 import AppContext from "../../AppContext";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 import {updateParagraphs} from "../../API/updateParagraphs";
 import {useStyles} from "./TextDialog.jss";
 
@@ -44,6 +44,7 @@ function TextDialog(props) {
                         multiline
                         fullWidth
                         rows={200}
+                        variant={"filled"}
                         value={paragraph}
                         onChange={handleChange}
                         className={classes.input}

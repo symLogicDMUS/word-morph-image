@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import {
     appBarHeightLg,
     appBarHeightMd,
@@ -31,7 +31,7 @@ export const useStyles = makeStyles(
             flexWrap: "nowrap",
             alignItems: "center",
             justifyContent: "flex-end",
-            padding: `${theme.spacing(3)}px ${theme.spacing(1)}px`,
+            padding: `${theme.spacing(3)} ${theme.spacing(1)}`,
         },
         icon: {
             marginRight: theme.spacing(1),

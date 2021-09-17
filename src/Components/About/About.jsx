@@ -1,6 +1,6 @@
 import React from "react";
-import {Link, Typography, useTheme} from "@material-ui/core";
-import Box from "@material-ui/core/Box";
+import {Link, Typography, useTheme} from "@mui/material";
+import Box from "@mui/material/Box";
 import {useStyles} from "./About.jss";
 
 function About(props) {
@@ -22,6 +22,7 @@ function About(props) {
             creation. One of my first reactions was that these resources
             (particularly the
             <Link
+                underline="hover"
                 href={"https://www.nngroup.com/articles/"}
                 style={{
                     marginLeft: "0.25rem",

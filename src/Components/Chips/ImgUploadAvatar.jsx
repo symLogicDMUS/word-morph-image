@@ -3,9 +3,9 @@ import "firebase/auth";
 import "firebase/database";
 import "firebase/storage";
 import firebase from "firebase/app";
-import { Avatar } from "@material-ui/core";
+import { Avatar } from "@mui/material";
 import { getDir } from "../../helpers/getDir";
-import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import { useStyles } from "./ImgUploadAvatar.jss";
 
 function ImgUploadAvatar({ word, src, index, updatePair }) {

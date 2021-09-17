@@ -1,7 +1,7 @@
 import React from "react";
-import { AccountCircle } from "@material-ui/icons";
-import IconButton from "@material-ui/core/IconButton";
-import { Tooltip } from "@material-ui/core";
+import { AccountCircle } from "@mui/icons-material";
+import IconButton from "@mui/material/IconButton";
+import { Tooltip } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -18,7 +18,7 @@ function SignOutButton() {
                         .signOut()
                         .then((r) => history.push("/"))
                 }
-            >
+                size="large">
                 <AccountCircle />
             </IconButton>
         </Tooltip>

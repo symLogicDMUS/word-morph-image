@@ -9,13 +9,13 @@ export const styles = (theme) => ({
     body: {
         width: "100%",
         "@media (min-width:0px) and (orientation: landscape)": {
-            height: `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(6)}px)`,
+            height: `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(6)})`,
         },
         "@media screen and (max-width: 960px)": {
-            height: `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(6)}px)`,
+            height: `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(6)})`,
         },
         "@media (min-width:960px)": {
-            height: `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(6)}px)`,
+            height: `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(6)})`,
         },
     },
     actions: {
@@ -24,7 +24,7 @@ export const styles = (theme) => ({
         flexWrap: "nowrap",
         alignItems: "center",
         justifyContent: "flex-end",
-        padding: `${theme.spacing(3)}px ${theme.spacing(1)}px`,
+        padding: `${theme.spacing(3)} ${theme.spacing(1)}`,
     },
     inputRoot: {
         display: "inline-flex",
@@ -58,6 +58,9 @@ export const styles = (theme) => ({
             paddingLeft: "1rem",
             paddingTop: "1rem",
             overflowY: "scroll",
+            color: theme.palette.mode === "dark" ? "#fff" : "#000",
+            background: theme.palette.mode === "dark" ? theme.palette.grey[900] : "inherit",
+
         },
     },
     input: {

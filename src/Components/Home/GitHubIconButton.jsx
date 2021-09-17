@@ -1,7 +1,7 @@
 import React from "react";
-import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@mui/material/IconButton";
 import { ReactComponent as GitHub } from "./github.svg";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import { useStyles } from "./HomeIconButton.jss";
 import { motion } from "framer-motion";
 
@@ -16,7 +16,7 @@ function GitHubIconButton() {
                     "https://github.com/symLogicDMUS/word-morph-image")
             }
         >
-            <IconButton>
+            <IconButton size="large">
                 <GitHub fill={"#fff"} />
             </IconButton>
             <Typography

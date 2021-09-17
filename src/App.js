@@ -12,11 +12,11 @@ import Chips from "./Components/Chips/Chips";
 import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
-import { CssBaseline } from "@material-ui/core";
+import { CssBaseline, adaptV4Theme } from "@mui/material";
+import { createTheme } from '@mui/material/styles';
 import { appDefaultState } from "./appDefaultState";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
 import AddSinglePair from "./Components/AddSinglePair/AddSinglePair";
@@ -31,6 +31,8 @@ import "firebaseui/dist/firebaseui.css";
 import { reducer } from "./App.red";
 import "./App.scss";
 
+import { ThemeProvider, StyledEngineProvider, createMuiTheme, makeStyles } from '@mui/material/styles';
+
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
 
@@ -42,10 +44,10 @@ function App() {
     const theme = useMemo(() => {
         if (state.isDarkMode) {
             document.body.className = "scrollbars-dark";
-            return createTheme({ ...darkTheme });
+            return createTheme(darkTheme);
         } else {
             document.body.className = "scrollbars-light";
-            return createTheme({ ...lightTheme });
+            return createTheme();
         }
     }, [state.isDarkMode]);
 
@@ -103,95 +105,97 @@ function App() {
 
     return (
         <AppContext.Provider value={appContextValue}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Router>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route
-                            exact
-                            path="/morphs"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <Morphs {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/cards"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <WordImgCards {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/chips"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <Chips {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/add-single-pair"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <AddSinglePair {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/pause"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <PausedMorphs {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/saved-pairs"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <SavedPairs {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/saved-text"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <SavedText {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/about"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <About {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                        <Route
-                            exact
-                            path="/sources"
-                            component={(props) => (
-                                <ResponsiveDrawer>
-                                    <Sources {...props} />
-                                </ResponsiveDrawer>
-                            )}
-                        />
-                    </Switch>
-                </Router>
-            </ThemeProvider>
+            <StyledEngineProvider injectFirst>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <Router>
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route
+                                exact
+                                path="/morphs"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <Morphs {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/cards"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <WordImgCards {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/chips"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <Chips {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/add-single-pair"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <AddSinglePair {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/pause"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <PausedMorphs {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/saved-pairs"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <SavedPairs {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/saved-text"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <SavedText {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/about"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <About {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path="/sources"
+                                component={(props) => (
+                                    <ResponsiveDrawer>
+                                        <Sources {...props} />
+                                    </ResponsiveDrawer>
+                                )}
+                            />
+                        </Switch>
+                    </Router>
+                </ThemeProvider>
+            </StyledEngineProvider>
         </AppContext.Provider>
     );
 }

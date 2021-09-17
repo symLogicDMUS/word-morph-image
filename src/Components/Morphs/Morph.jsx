@@ -2,9 +2,9 @@ import React, { useContext, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import AppContext from "../../AppContext";
 import totalDuration from "./totalDuration";
-import { Badge, useTheme } from "@material-ui/core";
+import { Badge, useTheme } from "@mui/material";
 import HighlightedWord from "./HighlightedWord";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import { useStyles } from "./Morph.jss";
 
 function Morph(props) {
@@ -22,7 +22,7 @@ function Morph(props) {
         } else {
             return null;
         }
-    }, [theme.palette.type]);
+    }, [theme.palette.mode]);
 
     const variants = {
         initial: {

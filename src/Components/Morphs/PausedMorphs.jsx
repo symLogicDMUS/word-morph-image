@@ -3,9 +3,9 @@ import Morphed from "../Image/Morphed";
 import { useHistory } from "react-router-dom";
 import { MyAppBar } from "../MyAppBar/MyAppBar";
 import wordPattern from "../../regex/wordPattern";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { PlayArrow, SkipPrevious } from "@material-ui/icons";
-import { Box, Button, Typography } from "@material-ui/core";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { PlayArrow, SkipPrevious } from "@mui/icons-material";
+import { Box, Button, Typography } from "@mui/material";
 import AppContext from "../../AppContext";
 import { useStyles } from "./Morphs.jss";
 

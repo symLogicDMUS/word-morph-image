@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import firebase from "firebase/app";
 import "firebase/auth";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import { PermIdentity } from "@material-ui/icons";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { PermIdentity } from "@mui/icons-material";
 import { useStyles } from "./VisitorSignInButton.jss";
 
 function VisitorSignInButton(props) {

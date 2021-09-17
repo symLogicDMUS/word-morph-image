@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import firebase from "firebase";
 import AppContext from "../../AppContext";
-import Card from "@material-ui/core/Card";
-import Button from "@material-ui/core/Button";
+import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
 import { getDir } from "../../helpers/getDir";
 import { ReactComponent as Alt } from "./sample.svg";
-import CardContent from "@material-ui/core/CardContent";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import { Avatar, Dialog, DialogActions, TextField } from "@material-ui/core";
+import CardContent from "@mui/material/CardContent";
+import CardActionArea from "@mui/material/CardActionArea";
+import { Avatar, Dialog, DialogActions, TextField } from "@mui/material";
 import { useStyles } from "./PairModifier.jss";
 
 export function PairModifier(props) {
@@ -83,6 +83,7 @@ export function PairModifier(props) {
                     </label>
                     <CardContent>
                         <TextField
+                            variant={"filled"}
                             value={newWord}
                             onChange={handleChange}
                             fullWidth

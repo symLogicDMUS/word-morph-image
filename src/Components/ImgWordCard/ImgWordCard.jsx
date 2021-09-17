@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import variants from "../Morphs/variants";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import { useStyles } from "./ImgWordCard.jss";
 import AppContext from "../../AppContext";
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { Tooltip, Typography } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+import { Tooltip, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
 import { commonWords } from "../../words/commonWords";
-import { useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@mui/material/styles";
 import { ReactComponent as WIcon } from "./W.svg";
 import { useStyles } from "./FilterWordsButton.jss";
 

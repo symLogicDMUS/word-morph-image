@@ -1,12 +1,13 @@
-import { lighten, makeStyles } from "@material-ui/core/styles";
+import { lighten } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: {
         // 2 objects per row, drawer hidden by default:
-        [theme.breakpoints.down("sm")]: {
-            "--contentWidth": `calc(100vw - ${theme.spacing(3) * 2}px)`,
-            "--totalNegativeSpaceWidth": `${theme.spacing(3) * 2}px`,
+        [theme.breakpoints.down('md')]: {
+            "--contentWidth": `calc(100vw - calc(${theme.spacing(3)} * 2))`,
+            "--totalNegativeSpaceWidth": `calc(${theme.spacing(3)} * 2)`,
             "--availSpace":
                 "calc(var(--contentWidth) - var(--totalNegativeSpaceWidth))",
             "--size": "calc(var(--availSpace) * 0.5)",
@@ -16,7 +17,7 @@ export const useStyles = makeStyles((theme) => ({
             "--contentWidth": `calc(100vw - ${drawerWidth}px - ${
                 theme.spacing(3) * 2
             }px)`,
-            "--totalNegativeSpaceWidth": `${theme.spacing(3) * 2}px`,
+            "--totalNegativeSpaceWidth": `calc(${theme.spacing(3)} * 2)`,
             "--availSpace":
                 "calc(var(--contentWidth) - var(--totalNegativeSpaceWidth))",
             "--size": "calc(var(--availSpace) * 0.5)",
@@ -26,7 +27,7 @@ export const useStyles = makeStyles((theme) => ({
             "--contentWidth": `calc(100vw - ${drawerWidth}px - ${
                 theme.spacing(3) * 2
             }px)`,
-            "--totalNegativeSpaceWidth": `calc(${theme.spacing(3) * 3}px)`,
+            "--totalNegativeSpaceWidth": `calc(calc(${theme.spacing(3)} * 3))`,
             "--availSpace":
                 "calc(var(--contentWidth) - var(--totalNegativeSpaceWidth))",
             "--size": "calc(var(--availSpace) * 0.333333333333)",
@@ -36,7 +37,7 @@ export const useStyles = makeStyles((theme) => ({
             "--contentWidth": `calc(100vw - ${drawerWidth}px - ${
                 theme.spacing(3) * 2
             }px)`,
-            "--totalNegativeSpaceWidth": `calc(${theme.spacing(3) * 4}px)`,
+            "--totalNegativeSpaceWidth": `calc(calc(${theme.spacing(3)} * 4))`,
             "--availSpace":
                 "calc(var(--contentWidth) - var(--totalNegativeSpaceWidth))",
             "--size": "calc(var(--availSpace) * 0.2)",

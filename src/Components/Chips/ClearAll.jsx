@@ -1,6 +1,6 @@
 import React from "react";
-import BackspaceIcon from "@material-ui/icons/Backspace";
-import { Box, InputAdornment, Tooltip } from "@material-ui/core";
+import BackspaceIcon from "@mui/icons-material/Backspace";
+import { Box, InputAdornment, Tooltip } from "@mui/material";
 import { useStyles } from "./ClearAll.jss";
 
 export function ClearAll({ clearAll }) {

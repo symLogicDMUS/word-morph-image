@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import { useTheme } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import Drawer from "@mui/material/Drawer";
+import Hidden from "@mui/material/Hidden";
+import { useTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import DrawerListItems from "../DrawerListItems/DrawerListItems";
 import { useStyles } from "./ResponsiveDrawer.jss";
 import { MyAppBar } from "../MyAppBar/MyAppBar";
@@ -45,7 +45,7 @@ function ResponsiveDrawer(props) {
                         <DrawerListItems />
                     </Drawer>
                 </Hidden>
-                <Hidden smDown implementation="css">
+                <Hidden mdDown implementation="css">
                     <Drawer
                         classes={{
                             paper: classes.drawerPaper,

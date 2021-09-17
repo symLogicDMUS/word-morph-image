@@ -1,8 +1,8 @@
 import React from "react";
-import { useTheme } from "@material-ui/core";
-import List from "@material-ui/core/List";
+import { useTheme } from "@mui/material";
+import List from "@mui/material/List";
 import DrawerListItem from "./DrawerListItem";
-import Divider from "@material-ui/core/Divider";
+import Divider from "@mui/material/Divider";
 import { ReactComponent as AboutIcon } from "./icons/about.svg";
 import { ReactComponent as SourcesIcon } from "./icons/sources.svg";
 import { ReactComponent as InputTextIcon } from "./icons/input text.svg";

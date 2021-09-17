@@ -13,27 +13,25 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import firebase from "firebase/app";
 import { keyCodes } from "./keyCodes";
-import { ClearAll } from "./ClearAll";
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import { AddPairs } from "./AddPairs";
 import { copy } from "../../helpers/copy";
-import RenderCode from "../../helpers/RenderCode";
+import withStyles from '@mui/styles/withStyles';
 import wordPattern from "../../regex/wordPattern";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
 import TextFieldUnderline from "./TextFieldUnderline";
-import InputLabel from "@material-ui/core/InputLabel";
 import { variantComponent } from "./variantComponent";
-import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
 import { defaultChipRenderer } from "./defaultChipRenderer";
-import withStyles from "@material-ui/core/styles/withStyles";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import { getLoremPicsumBlob } from "../../API/getLoremPicsumBlob";
 import LoremPicsumButton from "../LoremPicsumButton/LoremPicsumButton";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
+import FilterWordsButton from "../FilterWordsButton/FilterWordsButton";
+import ClearAllButton from "../ClearAllButton/ClearAllButton";
 import { getDir } from "../../helpers/getDir";
 import LoadBar from "../LoadBar/LoadBar";
 import { styles } from "./ChipInput.jss";
-import FilterWordsButton from "../FilterWordsButton/FilterWordsButton";
-import ClearAllButton from "../ClearAllButton/ClearAllButton";
 
 class ChipInput extends React.Component {
     state = {
@@ -637,6 +635,7 @@ class ChipInput extends React.Component {
                         {variant === "standard" && chipComponents}
                         <InputComponent
                             ref={this.input}
+                            autoFocus
                             classes={{
                                 input: cx(classes.input, classes[variant]),
                                 root: cx(classes.inputRoot, classes[variant]),

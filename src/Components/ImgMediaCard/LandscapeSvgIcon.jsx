@@ -1,13 +1,13 @@
 import React from "react";
-import { useTheme } from "@material-ui/core/styles";
-import { grey } from "@material-ui/core/colors";
+import { useTheme } from "@mui/material/styles";
+import { grey } from "@mui/material/colors";
 import { useStyles } from "./LandscapeSvgIcon.jss";
 
 function LandscapeSvgIcon() {
     const theme = useTheme();
     const classes = useStyles();
 
-    const color = theme.palette.type === "dark" ? grey["300"] : grey["600"];
+    const color = theme.palette.mode === "dark" ? grey["300"] : grey["600"];
 
     return (
         <svg

@@ -1,4 +1,6 @@
-import {lighten, makeStyles} from "@material-ui/core/styles";
+import { lighten } from "@mui/material/styles";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 export const useStyles = makeStyles((theme) => ({
     input: {
