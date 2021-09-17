@@ -1,17 +1,18 @@
 import clsx from "clsx";
 import "firebase/storage";
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
+import {Box, Button} from "@mui/material";
 import AppContext from "../../AppContext";
 import {useHistory} from "react-router-dom";
+import {vh, vw} from "../../helpers/windowMeasurements";
 import {ReactComponent as MorphIcon} from "./morph.svg";
 import {ReactComponent as CardsIcon} from "./cards.svg";
-import {Box, Button, TextField} from "@mui/material";
-import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
-import {useTheme} from "@mui/material/styles";
-import {muiTheme, useStyles} from "./InputText.jss";
-import {SaveTextButton} from "./SaveTextButton";
 import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
-import {ThemeProvider} from "@mui/styles";
+import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
+import {appBarHeightLg, appBarHeightMd, appBarHeightSm} from "../MyAppBar/appBarAndPadding.jss";
+import {SaveTextButton} from "./SaveTextButton";
+import {useTheme} from "@mui/material/styles";
+import {useStyles} from "./InputText.jss";
 
 function InputText() {
     const history = useHistory();
@@ -26,24 +27,44 @@ function InputText() {
         dispatch({ type: "update-text", text: e.target.value });
     };
 
+    const getTextareaHeight = () => {
+        const spacing = 24;
+        const buttonsHeight = 36;
+        const isLandscape = (vh() / vw()) < 1;
+        if (vw() <= 600 && isLandscape) {
+            return vh() - appBarHeightSm - spacing*3 - buttonsHeight;
+        } else if (vw() <= 600 && ! isLandscape) {
+            return vh() - appBarHeightMd - spacing*3 - buttonsHeight;
+        } else {
+            return vh() - appBarHeightLg - spacing*3 -buttonsHeight;
+        }
+    };
+    const [textareaHeight, setTextareaHeight] = useState(getTextareaHeight());
+    useEffect(() => {
+        function handleResize() {
+            setTextareaHeight(getTextareaHeight())
+        }
+        window.addEventListener("resize", handleResize);
+        return (_) => {
+            window.removeEventListener("resize", handleResize);
+        };
+    });
+
     const textColor = !state.text
         ? theme.palette.text.disabled
         : state.isDarkMode
-        ? "#000"
-        : "#fff";
+            ? "#000"
+            : "#fff";
 
     return (
         <ResponsiveDrawer>
             <Box className={classes.body}>
-                <TextField
-                    autoFocus
-                    multiline
-                    rows={400}
-                    value={state.text}
-                    placeholder="input text..."
-                    className={classes.textBox}
-                    onChange={handleChange}
-                />
+                <textarea style={{
+                    height: textareaHeight,
+                    backgroundColor: 'red',
+                }}>
+                    {state.text}
+                </textarea>
                 <Box className={classes.buttons}>
                     <SaveTextButton />
                     <Button

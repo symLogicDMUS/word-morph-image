@@ -32,7 +32,7 @@ export function MyAppBar({ handleDrawerToggle }) {
                 </IconButton>
                 <AppTitle />
                 <RenderCode iconButton>
-                    {theme.spacing(6)}
+                    {theme.spacing(3)}
                 </RenderCode>
                 <Tooltip title={"Toggle light/dark theme"}>
                     <IconButton
