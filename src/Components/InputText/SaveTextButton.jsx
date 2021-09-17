@@ -31,9 +31,10 @@ export function SaveTextButton() {
         <>
             <Button
                 startIcon={<Save/>}
-                variant={"contained"}
                 color={"primary"}
+                variant={"contained"}
                 disabled={!state.text}
+                className={classes.button}
                 onClick={() => setSaveDialog(true)}
             >
                 Save
@@ -43,7 +44,7 @@ export function SaveTextButton() {
                     Enter Title:
                 </DialogTitle>
                 <DialogContent>
-                    <TextField value={title} onChange={handleChange} variant={"filled"} fullWidth/>
+                    <TextField value={title} onChange={handleChange} autoFocus fullWidth/>
                 </DialogContent>
                 <DialogActions>
                     <Button color={"primary"} variant={"contained"} onClick={saveText}>

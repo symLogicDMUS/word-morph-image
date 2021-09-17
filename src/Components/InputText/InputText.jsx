@@ -10,6 +10,7 @@ import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
 import {useTheme} from "@material-ui/core/styles";
 import {useStyles} from "./InputText.jss";
 import {SaveTextButton} from "./SaveTextButton";
+import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
 
 function InputText() {
     const history = useHistory();
@@ -70,6 +71,7 @@ function InputText() {
                         Cards
                     </Button>
                 </Box>
+                <SnackbarAlert />
             </Box>
         </ResponsiveDrawer>
     );
