@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Avatar } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
-import CloseIcon from "@material-ui/icons/Close";
 import { ReactComponent as Alt } from "./sample.svg";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";

@@ -1,6 +1,7 @@
 export const appDefaultState = {
     text: "",
     dictionary: {},
+    paragraphs: {},
     isDarkMode: true,
     alert: {
         open: false,

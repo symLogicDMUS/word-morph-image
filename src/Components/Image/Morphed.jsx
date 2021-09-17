@@ -1,6 +1,6 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import AppContext from "../../AppContext";
-import {Badge, Typography} from "@material-ui/core";
+import { Badge, Typography } from "@material-ui/core";
 import { useStyles } from "../Morphs/Morph.jss";
 
 function Morphed({ children }) {
@@ -9,7 +9,7 @@ function Morphed({ children }) {
     const classes = useStyles();
 
     const [badge, setBadge] = useState(false);
-    const toggleBadge = () => setBadge((prevState) => ! prevState)
+    const toggleBadge = () => setBadge((prevState) => !prevState);
 
     return (
         <>
@@ -22,10 +22,14 @@ function Morphed({ children }) {
                         alt={children}
                     />
                     {badge && (
-                        <Badge badgeContent={children} color="secondary" className={classes.badge} />
+                        <Badge
+                            badgeContent={children}
+                            color="secondary"
+                            className={classes.badge}
+                        />
                     )}
                 </>
-                ) : (
+            ) : (
                 <Typography className={classes.word}>
                     {children + " "}
                 </Typography>

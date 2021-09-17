@@ -71,6 +71,18 @@ function App() {
                             });
                         }
                     });
+                firebase
+                    .database()
+                    .ref(`/${dir}/paragraphs/${user.uid}`)
+                    .once("value")
+                    .then(function (snapshot) {
+                        if (!!snapshot.val()) {
+                            dispatch({
+                                type: "new-paragraphs",
+                                dictionary: snapshot.val(),
+                            });
+                        }
+                    });
             }
         });
     }, []);

@@ -4,16 +4,16 @@ import { getTextWidth } from "../../helpers/getTextWidth";
 export const useStyles = makeStyles(
     (theme) => ({
         badge: {
-            position: 'relative',
+            position: "relative",
             bottom: theme.typography.h2.fontSize,
-            transform: 'translate(0, 0.5rem)',
+            transform: "translate(0, 0.5rem)",
         },
-        img:  {
+        img: {
             display: "inline-block",
             height: theme.typography.h2.fontSize,
             marginLeft: "0.5rem",
             marginRight: "0.5rem",
-            cursor: 'pointer',
+            cursor: "pointer",
         },
         word: {
             display: "inline",

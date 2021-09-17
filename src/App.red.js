@@ -56,6 +56,12 @@ export function reducer(state, action) {
                 numUpdates: state.numUpdates + 1,
                 text: action.text,
             };
+        case "new-paragraphs":
+            return {
+                ...state,
+                numUpdates: state.numUpdates + 1,
+                paragraphs: action.paragraphs,
+            };
         case "update-mode":
             return {
                 ...state,

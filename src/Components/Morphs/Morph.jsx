@@ -1,8 +1,8 @@
-import React, {useContext, useMemo, useState} from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import AppContext from "../../AppContext";
 import totalDuration from "./totalDuration";
-import {Badge, useTheme} from "@material-ui/core";
+import { Badge, useTheme } from "@material-ui/core";
 import HighlightedWord from "./HighlightedWord";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./Morph.jss";
@@ -34,7 +34,7 @@ function Morph(props) {
     };
 
     const [badge, setBadge] = useState(false);
-    const toggleBadge = () => setBadge((prevState) => ! prevState)
+    const toggleBadge = () => setBadge((prevState) => !prevState);
 
     return (
         <>
@@ -54,7 +54,11 @@ function Morph(props) {
                         onAnimationComplete={incrementIndex}
                         className={classes.img}
                     />
-                    <Badge badgeContent={children} color="secondary" className={classes.badge} />
+                    <Badge
+                        badgeContent={children}
+                        color="secondary"
+                        className={classes.badge}
+                    />
                 </>
             )}
             {index === currentIndex && !src && (
@@ -64,9 +68,18 @@ function Morph(props) {
             )}
             {index < currentIndex && !!src && (
                 <>
-                    <img src={src} className={classes.img} alt={children} onClick={toggleBadge} />
+                    <img
+                        src={src}
+                        className={classes.img}
+                        alt={children}
+                        onClick={toggleBadge}
+                    />
                     {badge && (
-                        <Badge badgeContent={children} color="secondary" className={classes.badge} />
+                        <Badge
+                            badgeContent={children}
+                            color="secondary"
+                            className={classes.badge}
+                        />
                     )}
                 </>
             )}

@@ -18,9 +18,7 @@ function Morphs(props) {
     const prevMorphs = useMemo(() => {
         const morphs = [];
         for (let i = 0; i < wordIndex; i++) {
-            morphs.push(
-                <Morphed>{words[i]}</Morphed>
-            );
+            morphs.push(<Morphed>{words[i]}</Morphed>);
         }
         return morphs;
     }, []);
