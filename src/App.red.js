@@ -47,8 +47,8 @@ export function reducer(state, action) {
                 alert: {
                     open: true,
                     severity: "success",
-                    message: "Pairs added successfully!"
-                }
+                    message: "Pairs added successfully!",
+                },
             };
         case "update-text":
             return {
@@ -69,8 +69,8 @@ export function reducer(state, action) {
                     open: action.open,
                     message: action.message,
                     severity: action.severity,
-                }
-            }
+                },
+            };
         case "close-alert":
             return {
                 ...state,
@@ -78,8 +78,8 @@ export function reducer(state, action) {
                     open: false,
                     message: "",
                     severity: "",
-                }
-            }
+                },
+            };
         default:
             throw new Error();
     }

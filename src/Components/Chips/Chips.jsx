@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import ChipInput from "./ChipInput";
 import { Box } from "@material-ui/core";
 import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
@@ -6,10 +6,15 @@ import { useStyles } from "./Chips.jss";
 import AppContext from "../../AppContext";
 
 function Chips(props) {
-    const {state, dispatch} = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
 
     const newAlert = (severity, message, open) =>
-        dispatch({type: "new-alert", severity: severity, message: message, open: open});
+        dispatch({
+            type: "new-alert",
+            severity: severity,
+            message: message,
+            open: open,
+        });
 
     const classes = useStyles();
 

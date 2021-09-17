@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
+import Morphed from "../Image/Morphed";
 import { useHistory } from "react-router-dom";
-import wordPattern from "../../regex/wordPattern";
-import { Box, Button, Typography } from "@material-ui/core";
-import Word from "../Word/Word";
-import Image from "../Image/Image";
-import { useStyles } from "./Morphs.jss";
 import { MyAppBar } from "../MyAppBar/MyAppBar";
-import { PlayArrow, SkipPrevious } from "@material-ui/icons";
+import wordPattern from "../../regex/wordPattern";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { PlayArrow, SkipPrevious } from "@material-ui/icons";
+import { Box, Button, Typography } from "@material-ui/core";
 import AppContext from "../../AppContext";
+import { useStyles } from "./Morphs.jss";
 
 function PausedMorphs(props) {
     const history = useHistory();
@@ -31,7 +30,7 @@ function PausedMorphs(props) {
         const images = [];
         for (let i = 0; i <= currentIndex; i++) {
             images.push(
-                <Image word={words[i]}>{state.dictionary[words[i]]}</Image>
+                <Morphed word={words[i]}>{state.dictionary[words[i]]}</Morphed>
             );
         }
         return images;
@@ -40,7 +39,11 @@ function PausedMorphs(props) {
     const notMorphed = () => {
         const wordComponents = [];
         for (let i = currentIndex + 1; i < numWords; i++) {
-            wordComponents.push(<Word>{words[i]}</Word>);
+            wordComponents.push(
+                <Typography className={classes.word}>
+                    {words[i] + " "}
+                </Typography>
+            );
         }
         return wordComponents;
     };

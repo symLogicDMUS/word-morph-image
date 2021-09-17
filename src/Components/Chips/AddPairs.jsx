@@ -37,17 +37,13 @@ export function AddPairs({ pairs }) {
                     severity: "error",
                     message: `An Error occurred adding pairs: ${err}`,
                     open: true,
-                })
+                });
                 console.log("ERROR:", err);
             });
     };
 
     return (
-        <Fab
-            onClick={upload}
-            color={"secondary"}
-            className={classes.fabButton}
-        >
+        <Fab onClick={upload} color={"secondary"} className={classes.fabButton}>
             <AddIcon />
         </Fab>
     );

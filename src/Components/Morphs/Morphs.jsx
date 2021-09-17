@@ -2,7 +2,7 @@ import React, { useContext, useMemo, useState } from "react";
 import wordPattern from "../../regex/wordPattern";
 import { Box, Typography } from "@material-ui/core";
 import Morph from "./Morph";
-import Image from "../Image/Image";
+import Morphed from "../Image/Morphed";
 import { PauseButton } from "./PauseButton";
 import { RestartButton } from "./RestartButton";
 import { BackButton } from "./BackButton";
@@ -18,7 +18,7 @@ function Morphs(props) {
         const images = [];
         for (let i = 0; i <= wordIndex; i++) {
             images.push(
-                <Image word={words[i]}>{state.dictionary[words[i]]}</Image>
+                <Morphed word={words[i]}>{state.dictionary[words[i]]}</Morphed>
             );
         }
         return images;
@@ -33,7 +33,7 @@ function Morphs(props) {
         <>
             <Box className={classes.body}>
                 <Typography className={classes.morphs}>
-                    {prevMorphs}
+                    {/*{prevMorphs}*/}
                     {morphs.map((word, index) => (
                         <Morph
                             key={index}

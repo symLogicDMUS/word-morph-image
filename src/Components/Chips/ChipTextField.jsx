@@ -1,11 +1,11 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import AppContext from "../../AppContext";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
 
 export function ChipTextField(props) {
     const { value, index, updateChipAtIndex, refocusParent, ...other } = props;
 
-    const {state, dispatch} = useContext(AppContext)
+    const { state, dispatch } = useContext(AppContext);
 
     const handleChange = (e) => {
         if (containsInvalidCharacters(e.target.value)) {

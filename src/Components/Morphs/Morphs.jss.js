@@ -42,6 +42,9 @@ export const useStyles = makeStyles(
                 transform: `translate(-${theme.spacing(1.5)}px,  0px)`,
             },
         },
+        word: {
+            display: "inline",
+        },
     }),
     { index: 1 }
 );
