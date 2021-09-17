@@ -1,28 +1,26 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Alert } from "@material-ui/lab";
+import AppContext from "../../AppContext";
 import { Snackbar } from "@material-ui/core";
 
 function SnackbarAlert(props) {
-    const { open, onClose, severity, callback, children, ...other } = props;
+    const {state, dispatch} = useContext(AppContext);
 
     const handleClose = (event, reason) => {
         if (reason === "clickaway") {
             return;
         }
-
-        if (!!callback) {
-            callback()
-        }
-
-        onClose();
+        dispatch({type: "close-alert"})
     };
 
     return (
-        <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity={severity} {...other}>
-                {children}
-            </Alert>
-        </Snackbar>
+        <div {...props}>
+            <Snackbar open={state.alert.open} autoHideDuration={3000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={state.alert.severity}>
+                    {state.alert.message}
+                </Alert>
+            </Snackbar>
+        </div>
     );
 }
 

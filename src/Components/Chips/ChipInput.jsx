@@ -239,13 +239,6 @@ class ChipInput extends React.Component {
         }
 
         switch (event.keyCode) {
-            case keyCodes.ENTER:
-                this.props.updatePair(
-                    this.state.chips.length,
-                    event.target.value,
-                    false
-                );
-                break;
             case keyCodes.BACKSPACE:
                 if (event.target.value === "") {
                     if (focusedChip != null) {

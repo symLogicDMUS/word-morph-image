@@ -1,26 +1,15 @@
-import React, { useState } from "react";
+import React, {useContext} from "react";
 import ChipInput from "./ChipInput";
 import { Box } from "@material-ui/core";
 import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
 import { useStyles } from "./Chips.jss";
+import AppContext from "../../AppContext";
 
 function Chips(props) {
-    const [alert, setAlert] = useState({
-        severity: "",
-        message: "",
-        open: false,
-    });
+    const {state, dispatch} = useContext(AppContext);
 
-    const newAlert = (severity, message, open) => {
-        setAlert({
-            severity: severity,
-            message: message,
-            open: open,
-        });
-    };
-
-    const closeAlert = () =>
-        setAlert({ severity: "", message: "", open: false });
+    const newAlert = (severity, message, open) =>
+        dispatch({type: "new-alert", severity: severity, message: message, open: open});
 
     const classes = useStyles();
 
@@ -29,13 +18,7 @@ function Chips(props) {
             <Box className={classes.body}>
                 <ChipInput fullWidth variant="filled" newAlert={newAlert} />
             </Box>
-            <SnackbarAlert
-                open={alert.open}
-                onClose={closeAlert}
-                severity={alert.severity}
-            >
-                {alert.message}
-            </SnackbarAlert>
+            <SnackbarAlert />
         </>
     );
 }

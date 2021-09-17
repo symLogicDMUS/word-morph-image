@@ -12,13 +12,6 @@ export function AddPairs({ pairs }) {
 
     const classes = useStyles();
 
-    const [alert, setAlert] = useState({
-        severity: "",
-        message: "",
-        open: false,
-        callback: null,
-    });
-
     const upload = () => {
         const newPairs = {};
         Object.values(pairs).forEach((pair) => {
@@ -33,56 +26,29 @@ export function AddPairs({ pairs }) {
             .ref(`${dir}/dictionary/${uid}`)
             .update(newPairs)
             .then((r) => {
-                setAlert({
-                    open: true,
-                    severity: "success",
-                    message: "New pairs added successfully!",
-                    callback: () =>
-                        dispatch({
-                            type: "update-dictionary",
-                            newPairs: newPairs,
-                        }),
+                dispatch({
+                    type: "update-dictionary",
+                    newPairs: newPairs,
                 });
             })
             .catch((err) => {
-                console.log("ERROR:", err);
-                setAlert({
-                    open: true,
+                dispatch({
+                    type: "new-alert",
                     severity: "error",
-                    message: `Error adding new pairs: ${err}`,
-                    callback: () =>
-                        dispatch({
-                            type: "update-dictionary",
-                            newPairs: newPairs,
-                        }),
-                });
+                    message: `An Error occurred adding pairs: ${err}`,
+                    open: true,
+                })
+                console.log("ERROR:", err);
             });
     };
 
     return (
-        <>
-            <Fab
-                onClick={upload}
-                color={"secondary"}
-                className={classes.fabButton}
-            >
-                <AddIcon />
-            </Fab>
-            <SnackbarAlert
-                open={alert.open}
-                severity={alert.severity}
-                callback={alert.callback}
-                onClose={() =>
-                    setAlert({
-                        severity: "",
-                        message: "",
-                        open: false,
-                        callback: null,
-                    })
-                }
-            >
-                {alert.message}
-            </SnackbarAlert>
-        </>
+        <Fab
+            onClick={upload}
+            color={"secondary"}
+            className={classes.fabButton}
+        >
+            <AddIcon />
+        </Fab>
     );
 }

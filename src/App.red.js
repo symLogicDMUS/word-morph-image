@@ -44,6 +44,11 @@ export function reducer(state, action) {
                     ...state.dictionary,
                     ...action.newPairs,
                 },
+                alert: {
+                    open: true,
+                    severity: "success",
+                    message: "Pairs added successfully!"
+                }
             };
         case "update-text":
             return {
@@ -57,6 +62,24 @@ export function reducer(state, action) {
                 numUpdates: state.numUpdates + 1,
                 isDarkMode: action.isDarkMode,
             };
+        case "new-alert":
+            return {
+                ...state,
+                alert: {
+                    open: action.open,
+                    message: action.message,
+                    severity: action.severity,
+                }
+            }
+        case "close-alert":
+            return {
+                ...state,
+                alert: {
+                    open: false,
+                    message: "",
+                    severity: "",
+                }
+            }
         default:
             throw new Error();
     }

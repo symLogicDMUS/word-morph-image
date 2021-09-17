@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, {useContext} from "react";
+import AppContext from "../../AppContext";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
-import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
 
 export function ChipTextField(props) {
     const { value, index, updateChipAtIndex, refocusParent, ...other } = props;
 
-    const [alert, setAlert] = useState({
-        severity: "",
-        message: "",
-        open: false,
-    });
+    const {state, dispatch} = useContext(AppContext)
 
     const handleChange = (e) => {
         if (containsInvalidCharacters(e.target.value)) {
-            setAlert({
+            dispatch({
+                type: "new-alert",
                 severity: "warning",
                 message: "cannot add word with these characters: # $ [ ] . ",
                 open: true,
@@ -29,32 +26,15 @@ export function ChipTextField(props) {
         }
     };
 
-    const closeAlert = () => {
-        setAlert({
-            severity: "",
-            message: "",
-            open: false,
-        });
-    };
-
     return (
-        <>
-            <input
-                type="text"
-                value={value}
-                onChange={handleChange}
-                onKeyDown={handleKeyPress}
-                size={value.length > 0 ? value.length : 1}
-                className="MuiInputBase-input MuiInput-input"
-                {...other}
-            />
-            <SnackbarAlert
-                open={alert.open}
-                severity={alert.severity}
-                onClose={closeAlert}
-            >
-                {alert.message}
-            </SnackbarAlert>
-        </>
+        <input
+            type="text"
+            value={value}
+            onChange={handleChange}
+            onKeyDown={handleKeyPress}
+            size={value.length > 0 ? value.length : 1}
+            className="MuiInputBase-input MuiInput-input"
+            {...other}
+        />
     );
 }
