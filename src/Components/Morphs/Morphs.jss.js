@@ -28,7 +28,8 @@ export const useStyles = makeStyles(
         },
         morphs: {
             flexGrow: 1,
-            overflowY: "scroll",
+            padding: '0.5rem',
+            overflow: "scroll",
         },
         buttons: {
             marginTop: theme.spacing(3),

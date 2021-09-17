@@ -11,8 +11,8 @@ export const useStyles = makeStyles(
         img: (props) => ({
             display: "inline-block",
             height: theme.typography.h2.fontSize,
-            marginLeft: "0.25rem",
-            marginRight: "0.25rem",
+            marginLeft: "0.5rem",
+            marginRight: "0.5rem",
             cursor: 'pointer',
         }),
         word: {
