@@ -8,11 +8,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AppContext from "../../AppContext";
 import {useStyles} from "./MyAppBar.jss";
 import AppTitle from "./AppTitle";
+import {useTheme} from "@mui/styles"
+import RenderCode from "../../helpers/RenderCode";
 
 export function MyAppBar({ handleDrawerToggle }) {
     const { state, dispatch } = useContext(AppContext);
 
     const classes = useStyles();
+
+    const theme = useTheme()
 
     return (
         <AppBar position="fixed" className={classes.appBar}>
@@ -27,6 +31,9 @@ export function MyAppBar({ handleDrawerToggle }) {
                     <MenuIcon />
                 </IconButton>
                 <AppTitle />
+                <RenderCode iconButton>
+                    {theme.spacing(6)}
+                </RenderCode>
                 <Tooltip title={"Toggle light/dark theme"}>
                     <IconButton
                         onClick={() =>

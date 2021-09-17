@@ -5,12 +5,13 @@ import AppContext from "../../AppContext";
 import {useHistory} from "react-router-dom";
 import {ReactComponent as MorphIcon} from "./morph.svg";
 import {ReactComponent as CardsIcon} from "./cards.svg";
-import {Box, Button, TextareaAutosize} from "@mui/material";
+import {Box, Button, TextField} from "@mui/material";
 import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
 import {useTheme} from "@mui/material/styles";
-import {useStyles} from "./InputText.jss";
+import {muiTheme, useStyles} from "./InputText.jss";
 import {SaveTextButton} from "./SaveTextButton";
 import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
+import {ThemeProvider} from "@mui/styles";
 
 function InputText() {
     const history = useHistory();
@@ -34,7 +35,10 @@ function InputText() {
     return (
         <ResponsiveDrawer>
             <Box className={classes.body}>
-                <TextareaAutosize
+                <TextField
+                    autoFocus
+                    multiline
+                    rows={400}
                     value={state.text}
                     placeholder="input text..."
                     className={classes.textBox}

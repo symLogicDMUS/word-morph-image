@@ -4,6 +4,7 @@ import {
     appBarHeightMd,
     appBarHeightSm,
 } from "../MyAppBar/appBarAndPadding.jss";
+import {alpha} from "@mui/material/styles";
 
 export const useStyles = makeStyles(
     (theme) => ({
@@ -28,6 +29,7 @@ export const useStyles = makeStyles(
         },
         textBox: {
             flexGrow: 1,
+            background: theme.palette.mode === "dark" ? alpha(theme.palette.background.paper, 0.5) : "inherit",
         },
         buttons: {
             marginTop: theme.spacing(3),
