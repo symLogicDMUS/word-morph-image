@@ -62,6 +62,20 @@ export function reducer(state, action) {
                 numUpdates: state.numUpdates + 1,
                 paragraphs: action.paragraphs,
             };
+        case "update-paragraphs":
+            return {
+                ...state,
+                numUpdates: state.numUpdates + 1,
+                paragraphs: {
+                    ...state.paragraphs,
+                    [action.title]: action.text,
+                },
+                alert: {
+                    open: true,
+                    severity: "success",
+                    message: "Text added successfully!",
+                },
+            };
         case "update-mode":
             return {
                 ...state,

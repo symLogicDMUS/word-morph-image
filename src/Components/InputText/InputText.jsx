@@ -1,14 +1,15 @@
 import clsx from "clsx";
 import "firebase/storage";
-import React, { useContext } from "react";
+import React, {useContext, useState} from "react";
 import AppContext from "../../AppContext";
-import { useHistory } from "react-router-dom";
-import { ReactComponent as MorphIcon } from "./morph.svg";
-import { ReactComponent as CardsIcon } from "./cards.svg";
-import { Box, Button, TextareaAutosize } from "@material-ui/core";
+import {useHistory} from "react-router-dom";
+import {ReactComponent as MorphIcon} from "./morph.svg";
+import {ReactComponent as CardsIcon} from "./cards.svg";
+import {Box, Button, TextareaAutosize} from "@material-ui/core";
 import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
-import { useTheme } from "@material-ui/core/styles";
-import { useStyles } from "./InputText.jss";
+import {useTheme} from "@material-ui/core/styles";
+import {useStyles} from "./InputText.jss";
+import {SaveTextButton} from "./SaveTextButton";
 
 function InputText() {
     const history = useHistory();
@@ -39,6 +40,7 @@ function InputText() {
                     onChange={handleChange}
                 />
                 <Box className={classes.buttons}>
+                    <SaveTextButton />
                     <Button
                         variant="contained"
                         color={"primary"}
