@@ -1,13 +1,21 @@
 import React from "react";
-import {Link, Typography} from "@material-ui/core";
+import {Link, Typography, useTheme} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 import {useStyles} from "./About.jss";
 
 function About(props) {
     const classes = useStyles();
 
+    const theme = useTheme();
+
     return (
         <Typography className={classes.paragraph} paragraph {...props}>
-            Recent to the writing of this dialog I had more of an
+            <Box pt={1} pb={2}>
+                <Typography variant={"h5"}>
+                    About Word to Image
+                </Typography>
+            </Box>
+            Recent to the writing of the Word to Image app, I had more of an
             interest in the design role of product lifecycle. A fellow
             graduate in Computer Science had pointed me to many
             resources for the user experience and design side of website

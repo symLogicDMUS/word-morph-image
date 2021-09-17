@@ -24,12 +24,12 @@ import SavedPairs from "./Components/SavedPairs/SavedPairs";
 import { updateDictionary } from "./API/updateDictionary";
 import SavedText from "./Components/SavedText/SavedText";
 import {updateParagraphs} from "./API/updateParagraphs";
+import Sources from "./Components/Sources/Sources";
 import About from "./Components/About/About";
 import { getDir } from "./helpers/getDir";
 import "firebaseui/dist/firebaseui.css";
 import { reducer } from "./App.red";
 import "./App.scss";
-import Sources from "./Components/Sources/Sources";
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
