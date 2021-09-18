@@ -6,6 +6,8 @@ import {
 } from "../MyAppBar/appBarAndPadding.jss";
 import {alpha} from "@mui/material/styles";
 
+const lightGrey = '#f0f0f0'
+
 export const useStyles = makeStyles(
     (theme) => ({
         body: {

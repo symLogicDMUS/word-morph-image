@@ -68,28 +68,27 @@ export function PairModifier(props) {
     return (
         <Dialog open={open} onBackdropClick={close} {...other}>
             <Card>
-                <CardActionArea>
-                    <input
-                        accept="image/*"
-                        onChange={uploadStorageImg}
-                        className={classes.input}
-                        id={`${word}-${image}`}
-                        type="file"
+                <input
+                    accept="image/*"
+                    onChange={uploadStorageImg}
+                    className={classes.input}
+                    id={`${word}-${image}`}
+                    type="file"
+                />
+                <label htmlFor={`${word}-${image}`}>
+                    <Avatar src={newImage} variant="square" className={classes.avatar}>
+                        <Alt className={classes.alt} />
+                    </Avatar>
+                </label>
+                <CardContent>
+                    <TextField
+                        value={newWord}
+                        variant={"standard"}
+                        onChange={handleChange}
+                        fullWidth
+                        autoFocus
                     />
-                    <label htmlFor={`${word}-${image}`}>
-                        <Avatar src={newImage} variant="square" className={classes.avatar}>
-                            <Alt className={classes.alt} />
-                        </Avatar>
-                    </label>
-                    <CardContent>
-                        <TextField
-                            variant={"filled"}
-                            value={newWord}
-                            onChange={handleChange}
-                            fullWidth
-                        />
-                    </CardContent>
-                </CardActionArea>
+                </CardContent>
                 <DialogActions>
                     <Button
                         color={"primary"}

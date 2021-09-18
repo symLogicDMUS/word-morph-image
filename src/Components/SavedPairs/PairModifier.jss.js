@@ -10,7 +10,7 @@ export const useStyles = makeStyles(
             height: 400,
             background: "none",
         },
-        alt: { width: "95%", height: "95%", opacity: 0.3 },
+        alt: { width: "95%", height: "95%", opacity: 0.2 },
         input: {
             display: "none",
         },

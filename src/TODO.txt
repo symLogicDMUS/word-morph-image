@@ -1,6 +1,7 @@
+* Edit appearence of Chip components
+* add modals to load cards both from add pair group page and input text page
 * add firebase function that deletes anonymous accounts every 24 hours.
 * add notice that anonymous user data deleted every 24 hours at bottom of sign-in page
 * create demo
-* update light theme
 * add search field to Saved pairs page
 * add slider that adjusts the animation duration + number miliseconds word is highlighted

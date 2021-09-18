@@ -12,13 +12,13 @@ import Chips from "./Components/Chips/Chips";
 import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
-import { CssBaseline, adaptV4Theme } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import { appDefaultState } from "./appDefaultState";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
+import { ThemeProvider, StyledEngineProvider} from '@mui/material/styles';
 import AddSinglePair from "./Components/AddSinglePair/AddSinglePair";
 import SavedPairs from "./Components/SavedPairs/SavedPairs";
 import { updateDictionary } from "./API/updateDictionary";
@@ -27,11 +27,10 @@ import {updateParagraphs} from "./API/updateParagraphs";
 import Sources from "./Components/Sources/Sources";
 import About from "./Components/About/About";
 import { getDir } from "./helpers/getDir";
+import { CssBaseline } from "@mui/material";
 import "firebaseui/dist/firebaseui.css";
 import { reducer } from "./App.red";
 import "./App.scss";
-
-import { ThemeProvider, StyledEngineProvider, createMuiTheme, makeStyles } from '@mui/material/styles';
 
 function App() {
     const [state, dispatch] = useReducer(reducer, appDefaultState);
@@ -47,7 +46,7 @@ function App() {
             return createTheme(darkTheme);
         } else {
             document.body.className = "scrollbars-light";
-            return createTheme();
+            return createTheme(lightTheme);
         }
     }, [state.isDarkMode]);
 

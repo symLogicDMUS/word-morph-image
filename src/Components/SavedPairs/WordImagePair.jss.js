@@ -1,60 +1,60 @@
 import { lighten } from "@mui/material/styles";
 import makeStyles from '@mui/styles/makeStyles';
-import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
+import {drawerWidth} from "../ResponsiveDrawer/ResponsiveDrawer.jss";
+
+const spacing = 48;
 
 export const useStyles = makeStyles((theme) => ({
     root: {
-        // 2 objects per row, drawer hidden by default:
-        [theme.breakpoints.down('md')]: {
-            "--contentWidth": `calc(100vw - calc(${theme.spacing(3)} * 2))`,
-            "--totalNegativeSpaceWidth": `calc(${theme.spacing(3)} * 2)`,
-            "--availSpace":
-                "calc(var(--contentWidth) - var(--totalNegativeSpaceWidth))",
-            "--size": "calc(var(--availSpace) * 0.5)",
+        '--spacing': 48,
+        '--contentWidthSm': '100vw',
+        '--contentWidthLg': `calc(100vw - ${drawerWidth}px)`,
+        '--availSpaceSm': `calc( var(--contentWidthSm) - ${spacing}px)`,
+        '--availSpaceLg': `calc( var(--contentWidthLg) - ${spacing}px)`,
+        '--sizeSm': `calc( var(--availSpaceSm) * 3)`,
+        '--sizeLg': `calc( var(--availSpaceLg) * 5)`,
+        [theme.breakpoints.up("xs")]: {
+            padding: spacing*0.4,
+
         },
-        // 2 objects per row, drawer visible by default:
-        [theme.breakpoints.up("sm")]: {
-            "--contentWidth": `calc(100vw - ${drawerWidth}px - ${
-                theme.spacing(3) * 2
-            }px)`,
-            "--totalNegativeSpaceWidth": `calc(${theme.spacing(3)} * 2)`,
-            "--availSpace":
-                "calc(var(--contentWidth) - var(--totalNegativeSpaceWidth))",
-            "--size": "calc(var(--availSpace) * 0.5)",
-        },
-        // 3 objects per row:
         [theme.breakpoints.up("md")]: {
-            "--contentWidth": `calc(100vw - ${drawerWidth}px - ${
-                theme.spacing(3) * 2
-            }px)`,
-            "--totalNegativeSpaceWidth": `calc(calc(${theme.spacing(3)} * 3))`,
-            "--availSpace":
-                "calc(var(--contentWidth) - var(--totalNegativeSpaceWidth))",
-            "--size": "calc(var(--availSpace) * 0.333333333333)",
+            padding: spacing*0.435,
+
         },
-        // 5 objects per row:
         [theme.breakpoints.up("lg")]: {
-            "--contentWidth": `calc(100vw - ${drawerWidth}px - ${
-                theme.spacing(3) * 2
-            }px)`,
-            "--totalNegativeSpaceWidth": `calc(calc(${theme.spacing(3)} * 4))`,
-            "--availSpace":
-                "calc(var(--contentWidth) - var(--totalNegativeSpaceWidth))",
-            "--size": "calc(var(--availSpace) * 0.2)",
+            paddingLg: spacing*0.45
         },
     },
     card: {
-        maxWidth: "var(--size)",
+        [theme.breakpoints.up("xs")]: {
+            maxWidth: `calc( (100vw - ${spacing*3}px) / 2 )`,
+        },
+        [theme.breakpoints.up("md")]: {
+            maxWidth: `calc( ( (100vw - ${drawerWidth}px) - ${spacing*4}px) / 3 )`,
+        },
+        [theme.breakpoints.up("lg")]: {
+            maxWidth: `calc( ( (100vw - ${drawerWidth}px) - ${spacing*5}px) / 4 )`,
+        },
     },
     img: {
-        height: "var(--size)",
-        width: "var(--size)",
+        [theme.breakpoints.up("xs")]: {
+            width: `calc( (100vw - ${spacing*3}px) / 2 )`,
+            height: `calc( (100vw - ${spacing*3}px) / 2 )`,
+        },
+        [theme.breakpoints.up("md")]: {
+            width: `calc( ( (100vw - ${drawerWidth}px) - ${spacing*4}px) / 3 )`,
+            height: `calc( ( (100vw - ${drawerWidth}px) - ${spacing*4}px) / 3 )`,
+        },
+        [theme.breakpoints.up("lg")]: {
+            width: `calc( ( (100vw - ${drawerWidth}px) - ${spacing*5}px) / 4 )`,
+            height: `calc( ( (100vw - ${drawerWidth}px) - ${spacing*5}px) / 4 )`,
+        },
         background: "none",
     },
     alt: {
         width: "100%",
         height: "100%",
-        opacity: 0.3,
+        opacity: 0.2,
     },
     deletePair: {
         margin: theme.spacing(1),

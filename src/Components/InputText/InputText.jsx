@@ -65,7 +65,7 @@ function InputText() {
                         backgroundColor:
                             theme.palette.mode === "dark" ?
                                 lighten(theme.palette.background.paper, 0.05)
-                            : "inherit",
+                            : "#f0f0f0",
                         borderColor: theme.palette.divider,
                         borderRadius: 4,
                         padding: theme.spacing(1.5),

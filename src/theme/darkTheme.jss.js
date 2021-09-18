@@ -1,5 +1,3 @@
-import {appBarHeightLg, appBarHeightMd, appBarHeightSm} from "../Components/MyAppBar/appBarAndPadding.jss";
-
 const darkTheme = {
     components: {
         MuiChip: {

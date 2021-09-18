@@ -40,11 +40,7 @@ function WordImagePair(props) {
                         }
                     />
                     <CardActionArea>
-                        <Avatar
-                            src={image}
-                            variant={"square"}
-                            className={classes.img}
-                        >
+                        <Avatar variant={"square"} src={image} className={classes.img}>
                             <Alt className={classes.alt} />
                         </Avatar>
                         <CardContent>

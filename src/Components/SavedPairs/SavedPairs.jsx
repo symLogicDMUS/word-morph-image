@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from "react";
-import WordImagePair from "./WordImagePair";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import AppContext from "../../AppContext";
+import WordImagePair from "./WordImagePair";
 import { useStyles } from "./SavedPairs.jss";
 
 function SavedPairs() {
@@ -34,4 +34,4 @@ function SavedPairs() {
     );
 }
 
-export default SavedPairs;
+export default SavedPairs
