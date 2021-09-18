@@ -3,14 +3,14 @@ import Box from "@mui/material/Box";
 import {useHistory} from "react-router-dom";
 import {useStyles} from "./AppTitle.jss";
 
-function AppTitle() {
+function AppTitle({mode}) {
     const history = useHistory();
 
     const classes = useStyles();
 
     return (
         <Box className={classes.container} onClick={() => history.push("/about")}>
-            <img className={classes.title} src={"/Images/title.svg"} alt=""/>
+            <img className={classes.title} src={`/Images/title-${mode}.svg`} alt=""/>
         </Box>
     )
 }

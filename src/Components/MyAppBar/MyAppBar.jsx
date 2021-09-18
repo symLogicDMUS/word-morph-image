@@ -30,7 +30,7 @@ export function MyAppBar({ handleDrawerToggle }) {
                     size="large">
                     <MenuIcon />
                 </IconButton>
-                <AppTitle />
+                <AppTitle mode={theme.palette.mode} />
                 <RenderCode iconButton>
                     {theme.spacing(3)}
                 </RenderCode>

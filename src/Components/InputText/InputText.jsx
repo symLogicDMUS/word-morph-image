@@ -11,7 +11,7 @@ import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
 import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
 import {appBarHeightLg, appBarHeightMd, appBarHeightSm} from "../MyAppBar/appBarAndPadding.jss";
 import {SaveTextButton} from "./SaveTextButton";
-import {useTheme} from "@mui/material/styles";
+import {lighten, useTheme} from "@mui/material/styles";
 import {useStyles} from "./InputText.jss";
 
 function InputText() {
@@ -59,12 +59,24 @@ function InputText() {
     return (
         <ResponsiveDrawer>
             <Box className={classes.body}>
-                <textarea style={{
-                    height: textareaHeight,
-                    backgroundColor: 'red',
-                }}>
-                    {state.text}
-                </textarea>
+                <textarea
+                    style={{
+                        height: textareaHeight,
+                        backgroundColor:
+                            theme.palette.mode === "dark" ?
+                                lighten(theme.palette.background.paper, 0.05)
+                            : "inherit",
+                        borderColor: theme.palette.divider,
+                        borderRadius: 4,
+                        padding: theme.spacing(1.5),
+                        color: theme.palette.mode === "dark" ? "#fff" : "#000",
+                        fontSize: '1rem',
+                        resize: 'none',
+                    }}
+                    placeholder="input text..."
+                    onChange={handleChange}
+                    value={state.text}
+                />
                 <Box className={classes.buttons}>
                     <SaveTextButton />
                     <Button
