@@ -13,9 +13,9 @@ export const useStyles = makeStyles((theme) => ({
         '--availSpaceLg': `calc( var(--contentWidthLg) - ${spacing}px)`,
         '--sizeSm': `calc( var(--availSpaceSm) * 3)`,
         '--sizeLg': `calc( var(--availSpaceLg) * 5)`,
+        
         [theme.breakpoints.up("xs")]: {
-            padding: spacing*0.4,
-
+            padding: spacing*0.425,
         },
         [theme.breakpoints.up("md")]: {
             padding: spacing*0.435,
@@ -27,6 +27,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     card: {
         [theme.breakpoints.up("xs")]: {
+            maxWidth: `calc( (100vw - ${spacing*2}px) )`,
+        },
+        [theme.breakpoints.up("sm")]: {
             maxWidth: `calc( (100vw - ${spacing*3}px) / 2 )`,
         },
         [theme.breakpoints.up("md")]: {
@@ -38,6 +41,10 @@ export const useStyles = makeStyles((theme) => ({
     },
     img: {
         [theme.breakpoints.up("xs")]: {
+            width: `calc( (100vw - ${spacing*2}px) )`,
+            height: `calc( (100vw - ${spacing*2}px) )`,
+        },
+        [theme.breakpoints.up("sm")]: {
             width: `calc( (100vw - ${spacing*3}px) / 2 )`,
             height: `calc( (100vw - ${spacing*3}px) / 2 )`,
         },
@@ -54,7 +61,7 @@ export const useStyles = makeStyles((theme) => ({
     alt: {
         width: "100%",
         height: "100%",
-        opacity: 0.2,
+        opacity: 0.3,
     },
     deletePair: {
         margin: theme.spacing(1),
