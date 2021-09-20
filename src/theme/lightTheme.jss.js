@@ -11,12 +11,12 @@ const lightTheme = {
                     height: "auto",
                     paddingRight: 0,
                 },
-            }
+            },
         },
     },
     palette: {
         mode: "light",
-    }
+    },
 };
 
 export default lightTheme;

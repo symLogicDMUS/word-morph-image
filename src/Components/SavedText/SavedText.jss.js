@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 
 export const useStyles = makeStyles(
     (theme) => ({
@@ -10,5 +10,5 @@ export const useStyles = makeStyles(
             },
         },
     }),
-    {index: 1}
+    { index: 1 }
 );

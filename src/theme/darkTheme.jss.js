@@ -11,16 +11,16 @@ const darkTheme = {
                     height: "auto",
                     paddingRight: 0,
                 },
-            }
+            },
         },
         MuiTextField: {
             styleOverrides: {
                 root: {
                     input: {
-                        color: '#fff',
+                        color: "#fff",
                     },
-                }
-            }
+                },
+            },
         },
     },
     palette: {

@@ -1,14 +1,14 @@
-import React, {useContext} from "react";
-import {GitHub} from "@mui/icons-material";
+import React, { useContext } from "react";
+import { GitHub } from "@mui/icons-material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import {AppBar, IconButton, Toolbar, Tooltip,} from "@mui/material";
+import { AppBar, IconButton, Toolbar, Tooltip } from "@mui/material";
 import SignOutButton from "./SignOutButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppContext from "../../AppContext";
-import {useStyles} from "./MyAppBar.jss";
+import { useStyles } from "./MyAppBar.jss";
 import AppTitle from "./AppTitle";
-import {useTheme} from "@mui/styles"
+import { useTheme } from "@mui/styles";
 import RenderCode from "../../helpers/RenderCode";
 
 export function MyAppBar({ handleDrawerToggle }) {
@@ -16,7 +16,7 @@ export function MyAppBar({ handleDrawerToggle }) {
 
     const classes = useStyles();
 
-    const theme = useTheme()
+    const theme = useTheme();
 
     return (
         <AppBar position="fixed" className={classes.appBar}>
@@ -27,13 +27,12 @@ export function MyAppBar({ handleDrawerToggle }) {
                     edge="start"
                     onClick={handleDrawerToggle}
                     className={classes.menuButton}
-                    size="large">
+                    size="large"
+                >
                     <MenuIcon />
                 </IconButton>
                 <AppTitle mode={theme.palette.mode} />
-                <RenderCode iconButton>
-                    {theme.spacing(3)}
-                </RenderCode>
+                <RenderCode iconButton>{theme.spacing(3)}</RenderCode>
                 <Tooltip title={"Toggle light/dark theme"}>
                     <IconButton
                         onClick={() =>
@@ -42,7 +41,8 @@ export function MyAppBar({ handleDrawerToggle }) {
                                 isDarkMode: !state.isDarkMode,
                             })
                         }
-                        size="large">
+                        size="large"
+                    >
                         {state.isDarkMode ? (
                             <Brightness7Icon />
                         ) : (
@@ -57,7 +57,8 @@ export function MyAppBar({ handleDrawerToggle }) {
                             (window.location.href =
                                 "https://github.com/symLogicDMUS/word-morph-image")
                         }
-                        size="large">
+                        size="large"
+                    >
                         <GitHub />
                     </IconButton>
                 </Tooltip>

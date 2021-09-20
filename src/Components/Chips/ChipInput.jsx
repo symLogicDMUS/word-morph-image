@@ -16,7 +16,7 @@ import { keyCodes } from "./keyCodes";
 import { Box } from "@mui/material";
 import { AddPairs } from "./AddPairs";
 import { copy } from "../../helpers/copy";
-import withStyles from '@mui/styles/withStyles';
+import withStyles from "@mui/styles/withStyles";
 import wordPattern from "../../regex/wordPattern";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";

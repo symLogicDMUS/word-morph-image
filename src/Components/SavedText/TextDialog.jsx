@@ -1,10 +1,17 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import "firebase/database";
-import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField,} from "@mui/material";
+import {
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    TextField,
+} from "@mui/material";
 import AppContext from "../../AppContext";
 import Button from "@mui/material/Button";
-import {updateParagraphs} from "../../API/updateParagraphs";
-import {useStyles} from "./TextDialog.jss";
+import { updateParagraphs } from "../../API/updateParagraphs";
+import { useStyles } from "./TextDialog.jss";
 
 function TextDialog(props) {
     const { title, text, open, onBackdropClick } = props;
@@ -14,17 +21,17 @@ function TextDialog(props) {
     const [paragraph, setParagraph] = useState(text);
 
     const handleChange = (e) => {
-        setParagraph(e.target.value)
+        setParagraph(e.target.value);
     };
 
     const handleClick = () => {
-        updateParagraphs({[title]: paragraph}).then(r => {
+        updateParagraphs({ [title]: paragraph }).then((r) => {
             dispatch({
                 type: "update-paragraphs",
                 title: title,
                 text: paragraph,
-            })
-        })
+            });
+        });
     };
 
     const classes = useStyles();
@@ -48,17 +55,19 @@ function TextDialog(props) {
                         value={paragraph}
                         onChange={handleChange}
                         className={classes.input}
-                        InputProps={{disableUnderline: true}}
+                        InputProps={{ disableUnderline: true }}
                     />
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button variant={"contained"} color={"primary"} onClick={handleClick}>
+                <Button
+                    variant={"contained"}
+                    color={"primary"}
+                    onClick={handleClick}
+                >
                     Save
                 </Button>
-                <Button onClick={onBackdropClick}>
-                    Cancel
-                </Button>
+                <Button onClick={onBackdropClick}>Cancel</Button>
             </DialogActions>
         </Dialog>
     );

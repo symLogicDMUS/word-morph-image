@@ -34,4 +34,4 @@ function SavedPairs() {
     );
 }
 
-export default SavedPairs
+export default SavedPairs;

@@ -1,12 +1,12 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 import {
     appBarHeightLg,
     appBarHeightMd,
     appBarHeightSm,
 } from "../MyAppBar/appBarAndPadding.jss";
-import {alpha} from "@mui/material/styles";
+import { alpha } from "@mui/material/styles";
 
-const lightGrey = '#f0f0f0'
+const lightGrey = "#f0f0f0";
 
 export const useStyles = makeStyles(
     (theme) => ({
@@ -31,7 +31,10 @@ export const useStyles = makeStyles(
         },
         textBox: {
             flexGrow: 1,
-            background: theme.palette.mode === "dark" ? alpha(theme.palette.background.paper, 0.5) : "inherit",
+            background:
+                theme.palette.mode === "dark"
+                    ? alpha(theme.palette.background.paper, 0.5)
+                    : "inherit",
         },
         buttons: {
             marginTop: theme.spacing(3),

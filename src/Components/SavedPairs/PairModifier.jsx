@@ -1,12 +1,11 @@
 import React, { useContext, useState } from "react";
 import firebase from "firebase";
-import AppContext from "../../AppContext";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
+import AppContext from "../../AppContext";
 import { getDir } from "../../helpers/getDir";
 import { ReactComponent as Alt } from "./sample.svg";
 import CardContent from "@mui/material/CardContent";
-import CardActionArea from "@mui/material/CardActionArea";
 import { Avatar, Dialog, DialogActions, TextField } from "@mui/material";
 import { useStyles } from "./PairModifier.jss";
 
@@ -76,7 +75,11 @@ export function PairModifier(props) {
                     type="file"
                 />
                 <label htmlFor={`${word}-${image}`}>
-                    <Avatar src={newImage} variant="square" className={classes.avatar}>
+                    <Avatar
+                        src={newImage}
+                        variant="square"
+                        className={classes.avatar}
+                    >
                         <Alt className={classes.alt} />
                     </Avatar>
                 </label>

@@ -19,35 +19,41 @@ function RenderCode({
     const { state, dispatch } = useContext(AppContext);
     const [open, setOpen] = useState(false);
 
-    return <>
-        <Portal>
-            <Dialog open={open} onBackdropClick={() => setOpen(false)}>
-                <DialogTitle>{file}</DialogTitle>
-                <DialogContent>
-                    {childName}
-                    <SyntaxHighlighter
-                        language="javascript"
-                        style={state.isDarkMode ? atomDark : vs}
-                    >
-                        {JSON.stringify(children, replacer, space)}
-                    </SyntaxHighlighter>
-                </DialogContent>
-            </Dialog>
-        </Portal>
-        {iconButton ? (
-            <IconButton onClick={() => setOpen(true)} style={style} size="large">
-                <CodeIcon />
-            </IconButton>
-        ) : (
-            <Button onClick={() => setOpen(true)} style={style}>
-                <CodeIcon
-                    fontSize="small"
-                    style={{ marginRight: "0.5rem" }}
-                />{" "}
-                Current Code
-            </Button>
-        )}
-    </>;
+    return (
+        <>
+            <Portal>
+                <Dialog open={open} onBackdropClick={() => setOpen(false)}>
+                    <DialogTitle>{file}</DialogTitle>
+                    <DialogContent>
+                        {childName}
+                        <SyntaxHighlighter
+                            language="javascript"
+                            style={state.isDarkMode ? atomDark : vs}
+                        >
+                            {JSON.stringify(children, replacer, space)}
+                        </SyntaxHighlighter>
+                    </DialogContent>
+                </Dialog>
+            </Portal>
+            {iconButton ? (
+                <IconButton
+                    onClick={() => setOpen(true)}
+                    style={style}
+                    size="large"
+                >
+                    <CodeIcon />
+                </IconButton>
+            ) : (
+                <Button onClick={() => setOpen(true)} style={style}>
+                    <CodeIcon
+                        fontSize="small"
+                        style={{ marginRight: "0.5rem" }}
+                    />{" "}
+                    Current Code
+                </Button>
+            )}
+        </>
+    );
 }
 
 export default RenderCode;

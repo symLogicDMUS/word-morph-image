@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 import { getTextWidth } from "../../helpers/getTextWidth";
 
 export const useStyles = makeStyles(

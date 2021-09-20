@@ -12,18 +12,18 @@ import Chips from "./Components/Chips/Chips";
 import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 import { appDefaultState } from "./appDefaultState";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
-import { ThemeProvider, StyledEngineProvider} from '@mui/material/styles';
+import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import AddSinglePair from "./Components/AddSinglePair/AddSinglePair";
 import SavedPairs from "./Components/SavedPairs/SavedPairs";
 import { updateDictionary } from "./API/updateDictionary";
 import SavedText from "./Components/SavedText/SavedText";
-import {updateParagraphs} from "./API/updateParagraphs";
+import { updateParagraphs } from "./API/updateParagraphs";
 import Sources from "./Components/Sources/Sources";
 import About from "./Components/About/About";
 import { getDir } from "./helpers/getDir";
@@ -88,14 +88,14 @@ function App() {
                             });
                         } else {
                             const firstParagraph = {
-                                "First": "Hello word!"
+                                First: "Hello word!",
                             };
-                            updateParagraphs(firstParagraph).then(r => {
+                            updateParagraphs(firstParagraph).then((r) => {
                                 dispatch({
                                     type: "new-paragraphs",
                                     paragraphs: firstParagraph,
                                 });
-                            })
+                            });
                         }
                     });
             }

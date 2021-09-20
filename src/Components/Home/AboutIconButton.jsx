@@ -11,24 +11,26 @@ function AboutIconButton() {
     const [aboutDialog, setAboutDialog] = useState(false);
 
     const classes = useStyles();
-    return <>
-        <motion.div
-            className={classes.listItem}
-            whileHover={{ scale: 1.15 }}
-            onClick={() => setAboutDialog(true)}
-        >
-            <IconButton size="large">
-                <InfoOutlinedIcon fill={"#fff"} />
-            </IconButton>
-            <Typography
-                className={classes.iconButtonSubtitle}
-                variant={"subtitle2"}
+    return (
+        <>
+            <motion.div
+                className={classes.listItem}
+                whileHover={{ scale: 1.15 }}
+                onClick={() => setAboutDialog(true)}
             >
-                About
-            </Typography>
-        </motion.div>
-        <AboutDialog open={aboutDialog} setAboutDialog={setAboutDialog} />
-    </>;
+                <IconButton size="large">
+                    <InfoOutlinedIcon fill={"#fff"} />
+                </IconButton>
+                <Typography
+                    className={classes.iconButtonSubtitle}
+                    variant={"subtitle2"}
+                >
+                    About
+                </Typography>
+            </motion.div>
+            <AboutDialog open={aboutDialog} setAboutDialog={setAboutDialog} />
+        </>
+    );
 }
 
 export default AboutIconButton;

@@ -59,8 +59,10 @@ export const styles = (theme) => ({
             paddingTop: "1rem",
             overflowY: "scroll",
             color: theme.palette.mode === "dark" ? "#fff" : "#000",
-            background: theme.palette.mode === "dark" ? theme.palette.grey[900] : "#f0f0f0",
-
+            background:
+                theme.palette.mode === "dark"
+                    ? theme.palette.grey[900]
+                    : "#f0f0f0",
         },
     },
     input: {

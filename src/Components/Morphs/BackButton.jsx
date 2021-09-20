@@ -12,22 +12,24 @@ export function BackButton() {
 
     const goBack = () => history.push("/");
 
-    return <>
-        <Hidden smDown>
-            <Button onClick={goBack} variant="outlined">
-                <ArrowBackIcon
-                    fontSize={"small"}
-                    className={classes.icon}
-                />{" "}
-                Go Back
-            </Button>
-        </Hidden>
-        <Hidden smUp>
-            <Tooltip title={"Go back"} placement={"bottom"}>
-                <IconButton color={"primary"} size="large">
-                    <ArrowBackIcon fontSize={"large"} />
-                </IconButton>
-            </Tooltip>
-        </Hidden>
-    </>;
+    return (
+        <>
+            <Hidden smDown>
+                <Button onClick={goBack} variant="outlined">
+                    <ArrowBackIcon
+                        fontSize={"small"}
+                        className={classes.icon}
+                    />{" "}
+                    Go Back
+                </Button>
+            </Hidden>
+            <Hidden smUp>
+                <Tooltip title={"Go back"} placement={"bottom"}>
+                    <IconButton color={"primary"} size="large">
+                        <ArrowBackIcon fontSize={"large"} />
+                    </IconButton>
+                </Tooltip>
+            </Hidden>
+        </>
+    );
 }

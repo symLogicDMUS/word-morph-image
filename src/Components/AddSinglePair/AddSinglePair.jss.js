@@ -1,5 +1,5 @@
 import { lighten } from "@mui/material/styles";
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 import {
     appBarHeightLg,

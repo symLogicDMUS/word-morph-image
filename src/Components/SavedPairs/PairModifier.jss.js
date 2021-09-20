@@ -1,6 +1,6 @@
 import { alpha } from "@mui/material/styles";
 
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 
 export const useStyles = makeStyles(
     (theme) => ({
@@ -10,7 +10,7 @@ export const useStyles = makeStyles(
             height: 400,
             background: "none",
         },
-        alt: { width: "95%", height: "95%", opacity: 0.2 },
+        alt: { width: "95%", height: "95%", opacity: 0.16 },
         input: {
             display: "none",
         },

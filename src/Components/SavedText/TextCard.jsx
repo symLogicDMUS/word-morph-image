@@ -1,20 +1,20 @@
 import * as React from "react";
-import {useContext, useState} from "react";
+import { useContext, useState } from "react";
 import TextDialog from "./TextDialog";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import {updateParagraphs} from "../../API/updateParagraphs";
-import {useHistory} from "react-router-dom";
+import { updateParagraphs } from "../../API/updateParagraphs";
+import { useHistory } from "react-router-dom";
 import AppContext from "../../AppContext";
-import {useStyles} from "./TextCard.jss";
+import { useStyles } from "./TextCard.jss";
 
 function TextCard(props) {
     const { title, children } = props;
 
-    const {state, dispatch} = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
 
     const history = useHistory();
 
@@ -23,12 +23,12 @@ function TextCard(props) {
     const [dialog, setDialog] = useState(false);
 
     const deleteParagraph = () => {
-        updateParagraphs({[title]: null}).then(r => {
+        updateParagraphs({ [title]: null }).then((r) => {
             dispatch({
                 type: "remove-paragraph",
-                title: title
-            })
-        })
+                title: title,
+            });
+        });
     };
 
     return (
@@ -51,8 +51,8 @@ function TextCard(props) {
                         size="small"
                         color="primary"
                         onClick={() => {
-                            dispatch({type: "update-text", text: children})
-                            history.push("/")
+                            dispatch({ type: "update-text", text: children });
+                            history.push("/");
                         }}
                     >
                         Load

@@ -17,19 +17,21 @@ export function RestartButton({ wordIndex, currentIndex }) {
         });
     };
 
-    return <>
-        <Hidden smDown>
-            <Button variant="outlined" onClick={restart}>
-                <SkipPrevious fontSize={"small"} className={classes.icon} />{" "}
-                Restart
-            </Button>
-        </Hidden>
-        <Hidden smUp>
-            <Tooltip title={"Restart"} placement={"bottom"}>
-                <IconButton color={"primary"} size="large">
-                    <SkipPrevious fontSize={"large"} />
-                </IconButton>
-            </Tooltip>
-        </Hidden>
-    </>;
+    return (
+        <>
+            <Hidden smDown>
+                <Button variant="outlined" onClick={restart}>
+                    <SkipPrevious fontSize={"small"} className={classes.icon} />{" "}
+                    Restart
+                </Button>
+            </Hidden>
+            <Hidden smUp>
+                <Tooltip title={"Restart"} placement={"bottom"}>
+                    <IconButton color={"primary"} size="large">
+                        <SkipPrevious fontSize={"large"} />
+                    </IconButton>
+                </Tooltip>
+            </Hidden>
+        </>
+    );
 }

@@ -59,10 +59,16 @@ function DrawerListItems(props) {
             </List>
             <Divider />
             <List>
-                <DrawerListItem path="/about" icon={<AboutIcon fill={textColor} />}>
+                <DrawerListItem
+                    path="/about"
+                    icon={<AboutIcon fill={textColor} />}
+                >
                     About
                 </DrawerListItem>
-                <DrawerListItem path="/sources" icon={<SourcesIcon fill={textColor} />}>
+                <DrawerListItem
+                    path="/sources"
+                    icon={<SourcesIcon fill={textColor} />}
+                >
                     Sources
                 </DrawerListItem>
             </List>

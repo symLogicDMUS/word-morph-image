@@ -15,18 +15,20 @@ export function PauseButton({ wordIndex, currentIndex }) {
         });
     };
 
-    return <>
-        <Hidden smDown>
-            <Button color="primary" variant="contained" onClick={pause}>
-                <Pause fontSize={"small"} className={classes.icon} /> Pause
-            </Button>
-        </Hidden>
-        <Hidden smUp>
-            <Tooltip title={"Pause"} placement={"bottom"}>
-                <IconButton color="secondary" size="large">
-                    <Pause fontSize={"large"} />
-                </IconButton>
-            </Tooltip>
-        </Hidden>
-    </>;
+    return (
+        <>
+            <Hidden smDown>
+                <Button color="primary" variant="contained" onClick={pause}>
+                    <Pause fontSize={"small"} className={classes.icon} /> Pause
+                </Button>
+            </Hidden>
+            <Hidden smUp>
+                <Tooltip title={"Pause"} placement={"bottom"}>
+                    <IconButton color="secondary" size="large">
+                        <Pause fontSize={"large"} />
+                    </IconButton>
+                </Tooltip>
+            </Hidden>
+        </>
+    );
 }

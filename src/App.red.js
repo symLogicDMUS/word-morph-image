@@ -77,7 +77,7 @@ export function reducer(state, action) {
             };
         case "remove-paragraph":
             const paragraphs = copy(state.paragraphs);
-            delete paragraphs[action.title]
+            delete paragraphs[action.title];
             return {
                 ...state,
                 numUpdates: state.numUpdates + 1,
@@ -85,9 +85,9 @@ export function reducer(state, action) {
                 alert: {
                     open: true,
                     severity: "info",
-                    message: `"${action.title}" deleted.`
-                }
-            }
+                    message: `"${action.title}" deleted.`,
+                },
+            };
         case "new-alert":
             return {
                 ...state,

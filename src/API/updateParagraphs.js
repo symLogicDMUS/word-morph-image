@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
-import {getDir} from "../helpers/getDir";
+import { getDir } from "../helpers/getDir";
 
 export async function updateParagraphs(paragraph) {
     const user = firebase.auth().currentUser;
@@ -10,5 +10,5 @@ export async function updateParagraphs(paragraph) {
     return await firebase
         .database()
         .ref(`${dir}/paragraphs/${uid}`)
-        .update(paragraph)
+        .update(paragraph);
 }

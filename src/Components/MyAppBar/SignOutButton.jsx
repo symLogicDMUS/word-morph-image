@@ -18,7 +18,8 @@ function SignOutButton() {
                         .signOut()
                         .then((r) => history.push("/"))
                 }
-                size="large">
+                size="large"
+            >
                 <AccountCircle />
             </IconButton>
         </Tooltip>

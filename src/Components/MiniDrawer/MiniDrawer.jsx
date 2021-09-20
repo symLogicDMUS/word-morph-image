@@ -50,7 +50,8 @@ export default function MiniDrawer({ children }) {
                         className={clsx(classes.menuButton, {
                             [classes.hide]: open,
                         })}
-                        size="large">
+                        size="large"
+                    >
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
