@@ -1,16 +1,16 @@
-import React, { useContext, useState } from "react";
 import "firebase/database";
-import {
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    TextField,
-} from "@mui/material";
-import AppContext from "../../AppContext";
-import Button from "@mui/material/Button";
+import React from "react";
+import { useState } from "react";
+import { useContext } from "react";
 import { updateParagraphs } from "../../API/updateParagraphs";
+import { Dialog } from "@mui/material";
+import { TextField } from "@mui/material";
+import { DialogTitle } from "@mui/material";
+import Button from "@mui/material/Button";
+import { DialogActions } from "@mui/material";
+import { DialogContent } from "@mui/material";
+import { DialogContentText } from "@mui/material";
+import AppContext from "../../AppContext";
 import { useStyles } from "./TextDialog.jss";
 
 function TextDialog(props) {
@@ -51,8 +51,8 @@ function TextDialog(props) {
                         multiline
                         fullWidth
                         rows={200}
-                        variant={"filled"}
                         value={paragraph}
+                        variant={"standard"}
                         onChange={handleChange}
                         className={classes.input}
                         InputProps={{ disableUnderline: true }}

@@ -5,14 +5,6 @@ export const useStyles = makeStyles(
         button: {
             marginRight: theme.spacing(3),
         },
-        dialog: {
-            backgroundColor: theme.palette.background.paper,
-        },
-        paper: {
-            height: "100%",
-            display: "grid",
-            gridAutoFlow: "column",
-        },
     }),
     { index: 1 }
 );

@@ -5,9 +5,6 @@ export const useStyles = makeStyles(
         body: {
             display: "flex",
             flexWrap: "wrap",
-            "& > *": {
-                margin: theme.spacing(3),
-            },
         },
     }),
     { index: 1 }

@@ -7,7 +7,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { updateParagraphs } from "../../API/updateParagraphs";
-import { useHistory } from "react-router-dom";
 import AppContext from "../../AppContext";
 import { useStyles } from "./TextCard.jss";
 
@@ -15,8 +14,6 @@ function TextCard(props) {
     const { title, children } = props;
 
     const { state, dispatch } = useContext(AppContext);
-
-    const history = useHistory();
 
     const classes = useStyles();
 
@@ -50,12 +47,9 @@ function TextCard(props) {
                     <Button
                         size="small"
                         color="primary"
-                        onClick={() => {
-                            dispatch({ type: "update-text", text: children });
-                            history.push("/");
-                        }}
+                        onClick={() => setDialog(true)}
                     >
-                        Load
+                        Edit...
                     </Button>
                     <Button
                         size="small"
@@ -63,13 +57,6 @@ function TextCard(props) {
                         onClick={deleteParagraph}
                     >
                         Delete
-                    </Button>
-                    <Button
-                        size="small"
-                        color="primary"
-                        onClick={() => setDialog(true)}
-                    >
-                        Edit...
                     </Button>
                 </CardActions>
             </Card>

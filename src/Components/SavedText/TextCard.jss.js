@@ -3,7 +3,9 @@ import makeStyles from "@mui/styles/makeStyles";
 export const useStyles = makeStyles(
     (theme) => ({
         card: {
-            width: 345,
+            flex: 1,
+            minWidth: 345,
+            margin: theme.spacing(3),
         },
         text: {
             height: 150,
