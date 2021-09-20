@@ -83,11 +83,11 @@ function InputText() {
                     value={state.text}
                 />
                 <Box className={classes.buttons}>
-                    <LoadTextButton />
+                    <LoadTextButton variant={"contained"} />
                     <SaveTextButton />
                     <Button
                         variant="contained"
-                        color={"primary"}
+                        color="primary"
                         className={clsx({ [classes.marginRight]: true })}
                         onClick={() =>
                             history.push("/morphs", {

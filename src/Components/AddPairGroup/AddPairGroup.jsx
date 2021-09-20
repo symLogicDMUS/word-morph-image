@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import ChipInput from "./ChipInput";
 import { Box } from "@mui/material";
 import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
-import { useStyles } from "./Chips.jss";
+import { useStyles } from "./AddPairGroup.jss";
 import AppContext from "../../AppContext";
 
-function Chips(props) {
+function AddPairGroup(props) {
     const { state, dispatch } = useContext(AppContext);
 
     const newAlert = (severity, message, open) =>
@@ -28,4 +28,4 @@ function Chips(props) {
     );
 }
 
-export default Chips;
+export default AddPairGroup;

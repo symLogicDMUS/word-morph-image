@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useReducer } from "react";
 import AppContext from "./AppContext";
 import Home from "./Components/Home/Home";
-import Chips from "./Components/Chips/Chips";
+import AddPairGroup from "./Components/AddPairGroup/AddPairGroup";
 import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
@@ -133,7 +133,7 @@ function App() {
                                 path="/chips"
                                 component={(props) => (
                                     <ResponsiveDrawer>
-                                        <Chips {...props} />
+                                        <AddPairGroup {...props} />
                                     </ResponsiveDrawer>
                                 )}
                             />

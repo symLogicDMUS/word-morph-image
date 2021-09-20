@@ -5,7 +5,7 @@ import { Dialog, Paper, Stack } from "@mui/material";
 import ModalTextCard from "../SavedText/ModalTextCard";
 import { useStyles } from "./LoadTextDialog.jss";
 
-export function LoadTextDialog({ open, onClose, callback }) {
+export function LoadTextDialog({ open, parseText, isDispatch, onClose }) {
     const { state, dispatch } = useContext(AppContext);
 
     const [card, setCard] = useState({
@@ -20,11 +20,12 @@ export function LoadTextDialog({ open, onClose, callback }) {
     };
 
     const load = () => {
-        dispatch({ type: "update-text", text: card.text });
-        onClose();
-        if (!!callback) {
-            callback();
+        if (isDispatch) {
+            dispatch({ type: "update-text", text: card.text });
+        } else if (!!parseText) {
+            parseText(card.text);
         }
+        onClose();
     };
 
     const classes = useStyles();

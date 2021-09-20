@@ -4,7 +4,7 @@ import { LoadTextDialog } from "./LoadTextDialog";
 import { StorageRounded } from "@mui/icons-material";
 import { useStyles } from "./LoadTextButton.jss";
 
-function LoadTextButton({ callback }) {
+function LoadTextButton({ parseText, isDispatch= true}) {
     const [textDialog, setTextDialog] = useState(false);
 
     const classes = useStyles();
@@ -13,7 +13,8 @@ function LoadTextButton({ callback }) {
         <>
             <LoadTextDialog
                 open={textDialog}
-                callback={callback}
+                parseText={parseText}
+                isDispatch={isDispatch}
                 onClose={() => setTextDialog(false)}
             />
             <Button
