@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
-import AppContext from "../../AppContext";
+import React, { useState } from "react";
 import { Badge, Typography } from "@mui/material";
 import { useStyles } from "../Morphs/Morph.jss";
 
-function Morphed({ children }) {
-    const { state, dispatch } = useContext(AppContext);
+function Morphed({ word, children }) {
+    const src = !!children ? children : null;
 
     const classes = useStyles();
 
@@ -13,26 +12,24 @@ function Morphed({ children }) {
 
     return (
         <>
-            {!!state.dictionary[children] ? (
+            {!!src ? (
                 <>
                     <img
-                        src={state.dictionary[children]}
-                        className={classes.img}
+                        src={src}
+                        alt={word}
                         onClick={toggleBadge}
-                        alt={children}
+                        className={classes.img}
                     />
                     {badge && (
                         <Badge
-                            badgeContent={children}
                             color="secondary"
+                            badgeContent={word}
                             className={classes.badge}
                         />
                     )}
                 </>
             ) : (
-                <Typography className={classes.word}>
-                    {children + " "}
-                </Typography>
+                <Typography className={classes.word}>{word + " "}</Typography>
             )}
         </>
     );

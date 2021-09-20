@@ -4,7 +4,7 @@ import { LoadTextDialog } from "./LoadTextDialog";
 import { StorageRounded } from "@mui/icons-material";
 import { useStyles } from "./LoadTextButton.jss";
 
-function LoadTextButton({ parseText, isDispatch= true}) {
+function LoadTextButton({ parseText, isDispatch = true }) {
     const [textDialog, setTextDialog] = useState(false);
 
     const classes = useStyles();

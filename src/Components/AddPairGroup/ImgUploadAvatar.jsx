@@ -36,10 +36,7 @@ function ImgUploadAvatar({ word, src, index, updatePair }) {
 
         task.on(
             "state_changed",
-            function progress(snapshot) {
-                const percentage =
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            },
+            function progress(snapshot) {},
 
             function error(err) {
                 console.log(err);

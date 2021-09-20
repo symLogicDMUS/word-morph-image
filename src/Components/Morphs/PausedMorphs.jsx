@@ -29,7 +29,9 @@ function PausedMorphs(props) {
     const morphed = () => {
         const images = [];
         for (let i = 0; i <= currentIndex; i++) {
-            images.push(<Morphed>{words[i]}</Morphed>);
+            images.push(
+                <Morphed word={words[i]}>{state.dictionary[words[i]]}</Morphed>
+            );
         }
         return images;
     };

@@ -1,7 +1,9 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, {useContext,useMemo,useState} from "react";
 import wordPattern from "../../regex/wordPattern";
 import { Box, Typography } from "@mui/material";
 import Morph from "./Morph";
+import "firebase/auth";
+import "firebase/database";
 import Morphed from "../Image/Morphed";
 import { PauseButton } from "./PauseButton";
 import { RestartButton } from "./RestartButton";
@@ -18,7 +20,11 @@ function Morphs(props) {
     const prevMorphs = useMemo(() => {
         const morphs = [];
         for (let i = 0; i < wordIndex; i++) {
-            morphs.push(<Morphed>{words[i]}</Morphed>);
+            morphs.push(
+                <Morphed key={i} word={words[i]}>
+                    {state.dictionary[words[i]]}
+                </Morphed>
+            );
         }
         return morphs;
     }, []);
@@ -36,11 +42,12 @@ function Morphs(props) {
                     {morphs.map((word, index) => (
                         <Morph
                             key={index}
+                            word={word}
                             index={index}
                             currentIndex={currentIndex}
                             incrementIndex={incrementIndex}
                         >
-                            {word}
+                            {state.dictionary[word]}
                         </Morph>
                     ))}
                 </Typography>

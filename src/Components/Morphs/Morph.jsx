@@ -1,77 +1,58 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
+import { Badge } from "@mui/material";
+import variants from "./variants";
 import { motion } from "framer-motion";
-import AppContext from "../../AppContext";
-import totalDuration from "./totalDuration";
-import { Badge, useTheme } from "@mui/material";
 import HighlightedWord from "./HighlightedWord";
 import Typography from "@mui/material/Typography";
+import { transition } from "./transition";
 import { useStyles } from "./Morph.jss";
 
 function Morph(props) {
-    const { index, currentIndex, incrementIndex, children } = props;
+    const { index, currentIndex, incrementIndex, word, children } = props;
 
-    const { state, dispatch } = useContext(AppContext);
-
-    const theme = useTheme();
-
-    const classes = useStyles({ word: children });
-
-    const src = useMemo(() => {
-        if (!!state.dictionary[children]) {
-            return state.dictionary[children];
-        } else {
-            return null;
-        }
-    }, [theme.palette.mode]);
-
-    const variants = {
-        initial: {
-            scale: 0,
-        },
-        animate: {
-            scale: 1,
-        },
-    };
+    const src = !!children ? children : null
 
     const [badge, setBadge] = useState(false);
     const toggleBadge = () => setBadge((prevState) => !prevState);
 
+    const classes = useStyles();
+
     return (
         <>
             {index > currentIndex && (
-                <Typography className={classes.word}>
-                    {children + " "}
-                </Typography>
+                <Typography className={classes.word}>{word + " "}</Typography>
             )}
             {index === currentIndex && !!src && (
                 <>
                     <motion.img
                         src={src}
+                        alt={word}
+                        key={index}
                         initial="initial"
                         animate="animate"
                         variants={variants}
-                        transition={{ duration: totalDuration }}
+                        transition={transition}
                         onAnimationComplete={incrementIndex}
                         className={classes.img}
                     />
                     <Badge
-                        badgeContent={children}
                         color="secondary"
+                        badgeContent={word}
                         className={classes.badge}
                     />
                 </>
             )}
             {index === currentIndex && !src && (
                 <HighlightedWord incrementIndex={incrementIndex}>
-                    {children + " "}
+                    {word + " "}
                 </HighlightedWord>
             )}
             {index < currentIndex && !!src && (
                 <>
                     <img
                         src={src}
+                        alt={word}
                         className={classes.img}
-                        alt={children}
                         onClick={toggleBadge}
                     />
                     {badge && (
@@ -84,9 +65,7 @@ function Morph(props) {
                 </>
             )}
             {index < currentIndex && !src && (
-                <Typography className={classes.word}>
-                    {children + " "}
-                </Typography>
+                <Typography className={classes.word}>{word + " "}</Typography>
             )}
         </>
     );
