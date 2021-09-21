@@ -66,9 +66,9 @@ function ImgUploadAvatar({ word, src, index, updatePair }) {
             />
             <label htmlFor={`${word}-${index}-img`}>
                 <Avatar
-                    className={classes.avatar}
-                    variant={"rounded"}
                     src={src}
+                    variant={"rounded"}
+                    className={classes.avatar}
                 >
                     <AddPhotoAlternateIcon />
                 </Avatar>

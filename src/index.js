@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import firebase from "firebase/app";
-import { emulators } from "./emulators";
+// import { emulators } from "./emulators";
 import App from "./App";
 
 const firebaseConfig = {
@@ -16,6 +16,8 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+// emulators();
 
 ReactDOM.render(
     <React.StrictMode>

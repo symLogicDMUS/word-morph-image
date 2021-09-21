@@ -7,6 +7,7 @@ import { ReactComponent as Title } from "./title.svg";
 import VisitorSignInButton from "./VisitorSignInButton";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useStyles } from "./Home.jss";
+import VisitorDataAlertBar from "./VistitorDataAlertBar";
 
 function SignInPage() {
     const classes = useStyles();
@@ -33,6 +34,7 @@ function SignInPage() {
                     firebaseAuth={firebase.auth()}
                 />
             </Box>
+            <VisitorDataAlertBar />
         </Box>
     );
 }

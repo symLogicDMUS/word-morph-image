@@ -34,6 +34,7 @@ import LoadBar from "../LoadBar/LoadBar";
 import { styles } from "./ChipInput.jss";
 import LoadTextButton from "../LoadTextButton/LoadTextButton";
 import AppContext from "../../AppContext";
+import RenderCode from "../../helpers/RenderCode";
 
 class ChipInput extends React.Component {
     state = {
@@ -690,6 +691,10 @@ class ChipInput extends React.Component {
                 </FormControl>
                 <TextFieldUnderline isFocused={this.state.isFocused} />
                 <Box className={classes.actions}>
+                    <RenderCode childName={"chips, pairs"}>
+                        {this.state.chips}
+                        {this.state.pairs}
+                    </RenderCode>
                     <LoremPicsumButton setRandomImages={this.setRandomImages} />
                     <LoadTextButton
                         isDispatch={false}

@@ -1,6 +1,6 @@
-import Input from "@material-ui/core/Input";
-import FilledInput from "@material-ui/core/FilledInput/FilledInput";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
+import Input from "@mui/material/Input";
+import FilledInput from "@mui/material/FilledInput/FilledInput";
+import OutlinedInput from "@mui/material/OutlinedInput";
 
 export const variantComponent = {
     standard: Input,

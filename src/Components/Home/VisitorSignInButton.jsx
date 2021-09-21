@@ -16,7 +16,7 @@ function VisitorSignInButton(props) {
         >
             <PermIdentity fontSize={"small"} />
             <Typography className={classes.text} noWrap>
-                Sign in as visitor
+                Sign in as visitor *
             </Typography>
         </Button>
     );

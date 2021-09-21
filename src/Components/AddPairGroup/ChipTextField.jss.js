@@ -5,6 +5,8 @@ export const useStyles = makeStyles(
         span: {
             outline: "none",
             border: "1px solid rgba(0, 0, 0, 0)",
+            marginRight: theme.spacing(2),
+            padding: '0.25rem',
         },
     }),
     { index: 1 }

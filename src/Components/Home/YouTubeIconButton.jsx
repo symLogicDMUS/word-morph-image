@@ -20,12 +20,12 @@ function YouTubeIconButton() {
             }
         >
             <IconButton size="large">
-                <YouTube fill={theme.palette.secondary.main} />
+                <YouTube fill='#f48fb1' />
             </IconButton>
             <Typography
-                className={classes.iconButtonSubtitle}
                 variant={"subtitle2"}
-                color={"secondary"}
+                style={{color: '#f48fb1'}}
+                className={classes.iconButtonSubtitle}
             >
                 Watch demo
             </Typography>
