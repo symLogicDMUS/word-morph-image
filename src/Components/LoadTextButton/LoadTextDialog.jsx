@@ -1,7 +1,7 @@
-import React, {useContext, useMemo, useState} from "react";
+import React, { useContext, useMemo, useState } from "react";
 import AppContext from "../../AppContext";
 import Button from "@mui/material/Button";
-import {Dialog, Paper, Stack} from "@mui/material";
+import { Dialog, Paper, Stack } from "@mui/material";
 import ModalTextCard from "../SavedText/ModalTextCard";
 import { useStyles } from "./LoadTextDialog.jss";
 import PrimarySearch from "../Search/PrimarySearch";
@@ -39,32 +39,30 @@ export function LoadTextDialog({ open, parseText, isDispatch, onClose }) {
                 index={index + 1}
                 selected={card.selected}
                 onClick={() =>
-                    handleCardClick(
-                        state.paragraphs[title],
-                        index + 1
-                    )
+                    handleCardClick(state.paragraphs[title], index + 1)
                 }
             >
                 {state.paragraphs[title]}
             </ModalTextCard>
-        ))
+        ));
     };
 
     const [searchField, setSearchField] = useState("");
     const handleSearchInput = (e) => {
-        setSearchField(e.target.value)
+        setSearchField(e.target.value);
     };
 
     const textCards = useMemo(() => {
         if (!!searchField && searchField !== "") {
-            const filteredTitles =
-                Object.keys(state.paragraphs)
-                    .filter(title => title.startsWith(searchField))
-            return getTextCards(filteredTitles)
+            const filteredTitles = Object.keys(state.paragraphs).filter(
+                (title) =>
+                    title.toLowerCase().startsWith(searchField.toLowerCase())
+            );
+            return getTextCards(filteredTitles);
         } else {
-            return getTextCards(Object.keys(state.paragraphs))
+            return getTextCards(Object.keys(state.paragraphs));
         }
-    }, [searchField, state.paragraphs] )
+    }, [searchField, state.paragraphs]);
 
     return (
         <Dialog fullScreen open={open} className={classes.dialog}>

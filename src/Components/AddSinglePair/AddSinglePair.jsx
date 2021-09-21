@@ -1,9 +1,9 @@
 import firebase from "firebase";
 import Box from "@mui/material/Box";
-import {Add} from "@mui/icons-material";
+import { Add } from "@mui/icons-material";
 import AppContext from "../../AppContext";
 import { getDir } from "../../helpers/getDir";
-import {Fab, Paper, TextField} from "@mui/material";
+import { Fab, Paper, TextField } from "@mui/material";
 import { vh, vw } from "../../helpers/windowMeasurements";
 import React, { useContext, useEffect, useState } from "react";
 import { useStyles } from "./AddSinglePair.jss";
@@ -93,11 +93,18 @@ function AddSinglePair() {
                     type="file"
                 />
                 <Paper className={classes.paper}>
-                    <label htmlFor={"add-single-new-pair"} className={classes.label}>
+                    <label
+                        htmlFor={"add-single-new-pair"}
+                        className={classes.label}
+                    >
                         {!!src ? (
                             <img src={src} className={classes.img} alt="" />
                         ) : (
-                            <img src={"/Images/alt/alt.svg"} className={classes.alt} alt="" />
+                            <img
+                                src={"/Images/alt/alt.svg"}
+                                className={classes.alt}
+                                alt=""
+                            />
                         )}
                     </label>
                 </Paper>
@@ -108,7 +115,7 @@ function AddSinglePair() {
                     onChange={handleChange}
                     className={classes.textField}
                     InputProps={{
-                        endAdornment:
+                        endAdornment: (
                             <Fab
                                 fullWidth
                                 color={"primary"}
@@ -118,6 +125,7 @@ function AddSinglePair() {
                             >
                                 <Add />
                             </Fab>
+                        ),
                     }}
                 />
             </Box>

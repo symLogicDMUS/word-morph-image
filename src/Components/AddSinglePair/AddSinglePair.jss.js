@@ -1,11 +1,11 @@
 import makeStyles from "@mui/styles/makeStyles";
-import {drawerWidth} from "../ResponsiveDrawer/ResponsiveDrawer.jss";
+import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 import {
     appBarHeightLg,
     appBarHeightMd,
     appBarHeightSm,
 } from "../MyAppBar/appBarAndPadding.jss";
-import {alpha} from "@mui/material/styles";
+import { alpha } from "@mui/material/styles";
 
 const spacing = 48;
 
@@ -35,67 +35,67 @@ export const useStyles = makeStyles(
         paper: (props) => {
             if (props.landscape) {
                 return {
-                    width: '80vh',
-                    height: '80vh',
-                    display: 'flex',
-                    flexDirection: 'column',
+                    width: "80vh",
+                    height: "80vh",
+                    display: "flex",
+                    flexDirection: "column",
                     borderRadius: theme.shape.borderRadius,
                     backgroundColor: theme.palette.background.paper,
                     border: theme.palette.divider,
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                }
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                };
             } else {
                 return {
-                    width: '80vw',
-                    height: '80vw',
+                    width: "80vw",
+                    height: "80vw",
                     [theme.breakpoints.down("sm")]: {
                         width: `calc(100vw - ${spacing}px)`,
                         height: `calc(100vw - ${spacing}px)`,
                     },
-                    display: 'flex',
-                    flexDirection: 'column',
+                    display: "flex",
+                    flexDirection: "column",
                     borderRadius: theme.shape.borderRadius,
                     backgroundColor: theme.palette.background.paper,
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                }
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                };
             }
         },
         label: {
-            width: '100%',
-            height: '100%',
-            display: 'flex',
+            width: "100%",
+            height: "100%",
+            display: "flex",
             cursor: "pointer",
         },
         img: {
-            width: '100%',
-            height: '100%',
+            width: "100%",
+            height: "100%",
         },
         alt: {
-            width: '80%',
-            height: '80%',
-            margin: 'auto',
+            width: "80%",
+            height: "80%",
+            margin: "auto",
             opacity: theme.palette.mode === "dark" ? 0.08 : 1,
         },
-        textField: props => {
+        textField: (props) => {
             if (props.landscape) {
                 return {
-                    width: '80vh',
-                    background: alpha('#fff', 0.02),
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                }
+                    width: "80vh",
+                    background: alpha("#fff", 0.02),
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                };
             } else {
                 return {
-                    width: '80vw',
+                    width: "80vw",
                     [theme.breakpoints.down("sm")]: {
                         width: `calc(100vw - ${spacing}px)`,
                     },
-                    background: alpha('#fff', 0.02),
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                }
+                    background: alpha("#fff", 0.02),
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                };
             }
         },
         input: {
@@ -103,8 +103,8 @@ export const useStyles = makeStyles(
         },
         addButton: {
             borderRadius: 0,
-            height: '100%'
-        }
+            height: "100%",
+        },
     }),
-    {index: 1}
+    { index: 1 }
 );

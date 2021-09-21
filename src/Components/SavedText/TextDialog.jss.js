@@ -5,7 +5,10 @@ export const useStyles = makeStyles(
     (theme) => ({
         text: {
             "& .MuiInput-input": {
-                color: theme.palette.mode === "dark" ? theme.palette.primary.light : '#000',
+                color:
+                    theme.palette.mode === "dark"
+                        ? theme.palette.primary.light
+                        : "#000",
             },
         },
         input: {

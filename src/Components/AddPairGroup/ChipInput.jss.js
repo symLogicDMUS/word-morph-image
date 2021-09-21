@@ -34,13 +34,19 @@ export const styles = (theme) => ({
         flex: 1,
         minWidth: 70,
         "@media (min-width:0px) and (orientation: landscape)": {
-            maxHeight: `calc(100vh - ${appBarHeightSm}px - ${spacing*2}px - 48px)`,
+            maxHeight: `calc(100vh - ${appBarHeightSm}px - ${
+                spacing * 2
+            }px - 48px)`,
         },
         "@media screen and (max-width: 960px)": {
-            maxHeight: `calc(100vh - ${appBarHeightMd}px - ${spacing*2}px - 48px)`,
+            maxHeight: `calc(100vh - ${appBarHeightMd}px - ${
+                spacing * 2
+            }px - 48px)`,
         },
         "@media (min-width:960px)": {
-            maxHeight: `calc(100vh - ${appBarHeightLg}px - ${spacing*2}px - 48px)`,
+            maxHeight: `calc(100vh - ${appBarHeightLg}px - ${
+                spacing * 2
+            }px - 48px)`,
         },
         "&$outlined,&$filled": {
             boxSizing: "border-box",

@@ -10,7 +10,7 @@ import { useStyles } from "./Morph.jss";
 function Morph(props) {
     const { index, currentIndex, incrementIndex, word, children } = props;
 
-    const src = !!children ? children : null
+    const src = !!children ? children : null;
 
     const [badge, setBadge] = useState(false);
     const toggleBadge = () => setBadge((prevState) => !prevState);

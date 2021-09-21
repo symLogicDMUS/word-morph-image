@@ -198,13 +198,12 @@ class ChipInput extends React.Component {
                 ]),
             });
         }
-
-    }
+    };
 
     handlePaste = (event) => {
         event.preventDefault();
         const text = event.clipboardData.getData("Text");
-        this.parseText(text)
+        this.parseText(text);
     };
 
     handleKeyDown = (event) => {
@@ -692,7 +691,10 @@ class ChipInput extends React.Component {
                 <TextFieldUnderline isFocused={this.state.isFocused} />
                 <Box className={classes.actions}>
                     <LoremPicsumButton setRandomImages={this.setRandomImages} />
-                    <LoadTextButton isDispatch={false} parseText={this.parseText} />
+                    <LoadTextButton
+                        isDispatch={false}
+                        parseText={this.parseText}
+                    />
                     <FilterWordsButton filterWords={this.filterWords} />
                     <ClearAllButton clearAll={this.clearAll} />
                     <AddPairs pairs={this.state.pairs} />
