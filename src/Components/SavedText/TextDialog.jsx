@@ -2,6 +2,7 @@ import "firebase/database";
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
+import AppContext from "../../AppContext";
 import { updateParagraphs } from "../../API/updateParagraphs";
 import { Dialog } from "@mui/material";
 import { TextField } from "@mui/material";
@@ -10,7 +11,6 @@ import Button from "@mui/material/Button";
 import { DialogActions } from "@mui/material";
 import { DialogContent } from "@mui/material";
 import { DialogContentText } from "@mui/material";
-import AppContext from "../../AppContext";
 import { useStyles } from "./TextDialog.jss";
 
 function TextDialog(props) {
@@ -45,7 +45,7 @@ function TextDialog(props) {
         >
             <DialogTitle>{title}</DialogTitle>
             <DialogContent>
-                <DialogContentText>
+                <DialogContentText className={classes.text}>
                     <TextField
                         autoFocus
                         multiline
@@ -61,8 +61,8 @@ function TextDialog(props) {
             </DialogContent>
             <DialogActions>
                 <Button
-                    variant={"contained"}
                     color={"primary"}
+                    variant={"contained"}
                     onClick={handleClick}
                 >
                     Save

@@ -1,16 +1,13 @@
-import { lighten } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
-import { drawerWidth } from "../ResponsiveDrawer/ResponsiveDrawer.jss";
+import {drawerWidth} from "../ResponsiveDrawer/ResponsiveDrawer.jss";
 import {
     appBarHeightLg,
     appBarHeightMd,
     appBarHeightSm,
 } from "../MyAppBar/appBarAndPadding.jss";
+import {alpha} from "@mui/material/styles";
 
-const s = 6;
-const actions = 98;
-const textFieldHeight = 58;
-const minSize = 150;
+const spacing = 48;
 
 export const useStyles = makeStyles(
     (theme) => ({
@@ -18,152 +15,96 @@ export const useStyles = makeStyles(
             display: "flex",
             flexDirection: "column",
             "@media (min-width:0px) and (orientation: landscape)": {
-                height: `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(
-                    s
-                )}px)`,
-                width: `calc(100vw - ${theme.spacing(s)})`,
+                height: `calc(100vh - ${appBarHeightSm}px - ${spacing}px)`,
+                width: `calc(100vw - ${spacing}px)`,
             },
             "@media screen and (max-width: 960px)": {
-                height: `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(
-                    s
-                )}px)`,
-                width: `calc(100vw - ${theme.spacing(s)})`,
+                height: `calc(100vh - ${appBarHeightMd}px - ${spacing}px)`,
+                width: `calc(100vw - ${spacing}px)`,
             },
             "@media (min-width:960px)": {
-                height: `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(
-                    s
-                )}px)`,
-                width: `calc(100vw - ${drawerWidth}px - ${theme.spacing(s)})`,
+                height: `calc(100vh - ${appBarHeightLg}px - ${spacing}px)`,
+                width: `calc(100vw - ${drawerWidth}px - ${spacing}px)`,
+            },
+            "& .MuiOutlinedInput-root": {
+                paddingRight: 0,
+                paddingLeft: theme.typography.body2.fontSize,
             },
         },
 
-        card: (props) => {
-            const calculations = {
-                "--heightSm": `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(
-                    s
-                )}px)`,
-                "--heightMd": `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(
-                    s
-                )}px)`,
-                "--heightLg": `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(
-                    s
-                )}px)`,
-
-                "--widthSm": `calc(100vw - ${theme.spacing(s)})`,
-                "--widthMd": "var(--widthSm)",
-                "--widthLg": `calc(100vw - ${drawerWidth}px - ${theme.spacing(
-                    s
-                )}px)`,
-            };
-
+        paper: (props) => {
             if (props.landscape) {
                 return {
-                    ...calculations,
-
-                    "@media (min-width:0px) and (orientation: landscape)": {
-                        width: `var(--heightSm)`,
-                        height: `var(--heightSm)`,
-                    },
-                    "@media screen and (max-width: 960px)": {
-                        width: `var(--heightMd)`,
-                        height: `var(--heightMd)`,
-                    },
-                    "@media (min-width:960px)": {
-                        width: `var(--heightLg)`,
-                        height: `var(--heightLg)`,
-                    },
-                    minWidth: minSize,
-                    minHeight: minSize,
-                    margin: "auto",
-                };
+                    width: '80vh',
+                    height: '80vh',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    borderRadius: theme.shape.borderRadius,
+                    backgroundColor: theme.palette.background.paper,
+                    border: theme.palette.divider,
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                }
             } else {
                 return {
-                    ...calculations,
-
-                    "@media (min-width:0px) and (orientation: landscape)": {
-                        width: `var(--widthSm)`,
-                        height: `var(--widthSm)`,
+                    width: '80vw',
+                    height: '80vw',
+                    [theme.breakpoints.down("sm")]: {
+                        width: `calc(100vw - ${spacing}px)`,
+                        height: `calc(100vw - ${spacing}px)`,
                     },
-                    "@media screen and (max-width: 960px)": {
-                        width: `var(--widthMd)`,
-                        height: `var(--widthMd)`,
-                    },
-                    "@media (min-width:960px)": {
-                        width: `var(--widthLg)`,
-                        height: `var(--widthLg)`,
-                    },
-                    minWidth: minSize,
-                    minHeight: minSize,
-                    margin: "auto",
-                };
+                    display: 'flex',
+                    flexDirection: 'column',
+                    borderRadius: theme.shape.borderRadius,
+                    backgroundColor: theme.palette.background.paper,
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                }
             }
         },
-        avatar: (props) => {
+        label: {
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            cursor: "pointer",
+        },
+        img: {
+            width: '100%',
+            height: '100%',
+        },
+        alt: {
+            width: '80%',
+            height: '80%',
+            margin: 'auto',
+            opacity: theme.palette.mode === "dark" ? 0.08 : 1,
+        },
+        textField: props => {
             if (props.landscape) {
                 return {
-                    background: "none",
-                    "@media (min-width:0px) and (orientation: landscape)": {
-                        width: `calc(var(--heightSm) - ${actions}px)`,
-                        height: `calc(var(--heightSm) - ${actions}px)`,
-                    },
-                    "@media screen and (max-width: 960px)": {
-                        width: `calc(var(--heightMd) - ${actions}px)`,
-                        height: `calc(var(--heightMd) - ${actions}px)`,
-                    },
-                    "@media (min-width:960px)": {
-                        width: `calc(var(--heightLg) - ${actions}px)`,
-                        height: `calc(var(--heightLg) - ${actions}px)`,
-                    },
-                    minWidth: minSize,
-                    minHeight: minSize,
-                    margin: "auto",
-                    cursor: "pointer",
-                };
+                    width: '80vh',
+                    background: alpha('#fff', 0.02),
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                }
             } else {
                 return {
-                    background: "none",
-                    "@media (min-width:0px) and (orientation: landscape)": {
-                        width: `calc(var(--widthSm) - ${actions}px)`,
-                        height: `calc(var(--widthSm) - ${actions}px )`,
+                    width: '80vw',
+                    [theme.breakpoints.down("sm")]: {
+                        width: `calc(100vw - ${spacing}px)`,
                     },
-                    "@media screen and (max-width: 960px)": {
-                        width: `calc(var(--widthMd) - ${actions}px)`,
-                        height: `calc(var(--widthMd) - ${actions}px)`,
-                    },
-                    "@media (min-width:960px)": {
-                        width: `calc(var(--widthLg) - ${actions}px)`,
-                        height: `calc(var(--widthLg) - ${actions}px)`,
-                    },
-                    minWidth: minSize,
-                    minHeight: minSize,
-                    margin: "auto",
-                    cursor: "pointer",
-                };
+                    background: alpha('#fff', 0.02),
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                }
             }
         },
-        alt: { width: "100%", height: "100%", opacity: 0.3 },
         input: {
             display: "none",
         },
-        actionsArea: {
-            height: actions,
-        },
-        textField: {
-            "& .MuiInput-root": {
-                height: textFieldHeight,
-                padding: "12px 12px 10px",
-            },
-            "& .MuiFilledInput-input": {
-                height: textFieldHeight * 0.625,
-                padding: "12px 12px 10px",
-            },
-            background: "#51515155",
-        },
         addButton: {
-            height: "auto",
-            borderTopLeftRadius: 0,
-            borderTopRightRadius: 0,
-        },
+            borderRadius: 0,
+            height: '100%'
+        }
     }),
-    { index: 1 }
+    {index: 1}
 );

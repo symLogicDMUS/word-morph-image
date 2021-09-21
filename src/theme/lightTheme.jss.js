@@ -16,6 +16,9 @@ const lightTheme = {
     },
     palette: {
         mode: "light",
+        background: {
+            default: "#eaeef3"
+        }
     },
 };
 

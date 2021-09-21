@@ -70,7 +70,7 @@ function InputText() {
                         backgroundColor:
                             theme.palette.mode === "dark"
                                 ? lighten(theme.palette.background.paper, 0.05)
-                                : "#f0f0f0",
+                                : "#fff",
                         borderColor: theme.palette.divider,
                         borderRadius: 4,
                         padding: theme.spacing(1.5),

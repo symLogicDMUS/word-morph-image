@@ -1,9 +1,10 @@
-import { useContext, useState } from "react";
+import React, {useContext, useMemo, useState} from "react";
 import AppContext from "../../AppContext";
 import Button from "@mui/material/Button";
-import { Dialog, Paper, Stack } from "@mui/material";
+import {Dialog, Paper, Stack} from "@mui/material";
 import ModalTextCard from "../SavedText/ModalTextCard";
 import { useStyles } from "./LoadTextDialog.jss";
+import PrimarySearch from "../Search/PrimarySearch";
 
 export function LoadTextDialog({ open, parseText, isDispatch, onClose }) {
     const { state, dispatch } = useContext(AppContext);
@@ -30,26 +31,46 @@ export function LoadTextDialog({ open, parseText, isDispatch, onClose }) {
 
     const classes = useStyles();
 
+    const getTextCards = (titles) => {
+        return titles.map((title, index) => (
+            <ModalTextCard
+                key={index}
+                title={title}
+                index={index + 1}
+                selected={card.selected}
+                onClick={() =>
+                    handleCardClick(
+                        state.paragraphs[title],
+                        index + 1
+                    )
+                }
+            >
+                {state.paragraphs[title]}
+            </ModalTextCard>
+        ))
+    };
+
+    const [searchField, setSearchField] = useState("");
+    const handleSearchInput = (e) => {
+        setSearchField(e.target.value)
+    };
+
+    const textCards = useMemo(() => {
+        if (!!searchField && searchField !== "") {
+            const filteredTitles =
+                Object.keys(state.paragraphs)
+                    .filter(title => title.startsWith(searchField))
+            return getTextCards(filteredTitles)
+        } else {
+            return getTextCards(Object.keys(state.paragraphs))
+        }
+    }, [searchField, state.paragraphs] )
+
     return (
         <Dialog fullScreen open={open} className={classes.dialog}>
             <Paper>
                 <Stack p={1.5} direction="row" flexWrap="wrap">
-                    {Object.keys(state.paragraphs).map((title, index) => (
-                        <ModalTextCard
-                            key={index}
-                            title={title}
-                            index={index + 1}
-                            selected={card.selected}
-                            onClick={() =>
-                                handleCardClick(
-                                    state.paragraphs[title],
-                                    index + 1
-                                )
-                            }
-                        >
-                            {state.paragraphs[title]}
-                        </ModalTextCard>
-                    ))}
+                    {textCards}
                 </Stack>
             </Paper>
             <Paper className={classes.bottomArea}>
@@ -60,6 +81,7 @@ export function LoadTextDialog({ open, parseText, isDispatch, onClose }) {
                     justifyContent="flex-end"
                     className={classes.actionButtonsBar}
                 >
+                    <PrimarySearch handleChange={handleSearchInput} />
                     <Button
                         onClick={load}
                         color={"primary"}

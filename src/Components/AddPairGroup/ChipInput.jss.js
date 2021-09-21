@@ -4,18 +4,20 @@ import {
     appBarHeightSm,
 } from "../MyAppBar/appBarAndPadding.jss";
 
+const spacing = 48;
+
 export const styles = (theme) => ({
     root: {},
     body: {
         width: "100%",
         "@media (min-width:0px) and (orientation: landscape)": {
-            height: `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(6)})`,
+            height: `calc(100vh - ${appBarHeightSm}px - ${spacing})`,
         },
         "@media screen and (max-width: 960px)": {
-            height: `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(6)})`,
+            height: `calc(100vh - ${appBarHeightMd}px - ${spacing})`,
         },
         "@media (min-width:960px)": {
-            height: `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(6)})`,
+            height: `calc(100vh - ${appBarHeightLg}px - ${spacing})`,
         },
     },
     actions: {
@@ -32,19 +34,13 @@ export const styles = (theme) => ({
         flex: 1,
         minWidth: 70,
         "@media (min-width:0px) and (orientation: landscape)": {
-            maxHeight: `calc(100vh - ${appBarHeightSm}px - ${theme.spacing(
-                12
-            )}px - 56px)`,
+            maxHeight: `calc(100vh - ${appBarHeightSm}px - ${spacing*2}px - 48px)`,
         },
         "@media screen and (max-width: 960px)": {
-            maxHeight: `calc(100vh - ${appBarHeightMd}px - ${theme.spacing(
-                12
-            )}px - 56px)`,
+            maxHeight: `calc(100vh - ${appBarHeightMd}px - ${spacing*2}px - 48px)`,
         },
         "@media (min-width:960px)": {
-            maxHeight: `calc(100vh - ${appBarHeightLg}px - ${theme.spacing(
-                12
-            )}px - 56px)`,
+            maxHeight: `calc(100vh - ${appBarHeightLg}px - ${spacing*2}px - 48px)`,
         },
         "&$outlined,&$filled": {
             boxSizing: "border-box",

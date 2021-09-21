@@ -57,8 +57,8 @@ function Morph(props) {
                     />
                     {badge && (
                         <Badge
-                            badgeContent={children}
                             color="secondary"
+                            badgeContent={word}
                             className={classes.badge}
                         />
                     )}

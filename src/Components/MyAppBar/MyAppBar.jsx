@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
+import AppTitle from "./AppTitle";
+import { useTheme } from "@mui/styles";
 import { GitHub } from "@mui/icons-material";
+import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { AppBar, IconButton, Toolbar, Tooltip } from "@mui/material";
 import SignOutButton from "./SignOutButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import AppContext from "../../AppContext";
 import { useStyles } from "./MyAppBar.jss";
-import AppTitle from "./AppTitle";
-import { useTheme } from "@mui/styles";
-import RenderCode from "../../helpers/RenderCode";
 
 export function MyAppBar({ handleDrawerToggle }) {
     const { state, dispatch } = useContext(AppContext);
@@ -32,7 +31,6 @@ export function MyAppBar({ handleDrawerToggle }) {
                     <MenuIcon />
                 </IconButton>
                 <AppTitle mode={theme.palette.mode} />
-                <RenderCode iconButton>{theme.spacing(3)}</RenderCode>
                 <Tooltip title={"Toggle light/dark theme"}>
                     <IconButton
                         onClick={() =>

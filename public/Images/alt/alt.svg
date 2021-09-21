@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="wordImgIcon"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   version="1.1"
+   sodipodi:docname="alt.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="34.583333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="wordImgIcon" />
+  <path
+     id="path2"
+     d="M0,0H24V24H0Z"
+     fill="none" />
+  <path
+     style="fill:#f0f0f0;fill-opacity:1"
+     fill="#f0f0f0"
+     id="path4"
+     d="M18,13v7H4V6H9.02A6.3,6.3,0,0,1,9.5,4H4A2.006,2.006,0,0,0,2,6V20a2.006,2.006,0,0,0,2,2H18a2.006,2.006,0,0,0,2-2V15Zm-1.5,5H5.5l2.75-3.53,1.96,2.36,2.75-3.54Z" />
+  <g
+     id="text839"
+     transform="translate(-3.786 -0.1)"
+     style="fill:#f0f0f0;fill-opacity:1">
+    <path
+       fill="#f0f0f0"
+       id="path841"
+       d="M17.748,11.64,15.336,4.562h-.893V3.134h3.809V4.562h-.875L18.751,8.62l1.288-4.058h-.765V3.134h3.038V4.562h-.784L22.912,8.62l1.33-4.058H23.4V3.134h3.384V4.562h-.917L23.532,11.64h-1.58l-1.33-3.858L19.364,11.64Z"
+       style="fill:#f0f0f0;fill-opacity:1" />
+  </g>
+</svg>

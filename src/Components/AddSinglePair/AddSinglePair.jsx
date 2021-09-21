@@ -1,12 +1,11 @@
 import firebase from "firebase";
 import Box from "@mui/material/Box";
+import {Add} from "@mui/icons-material";
 import AppContext from "../../AppContext";
 import { getDir } from "../../helpers/getDir";
-import { ReactComponent as Alt } from "./sample.svg";
+import {Fab, Paper, TextField} from "@mui/material";
 import { vh, vw } from "../../helpers/windowMeasurements";
-import { Avatar, Paper, TextField } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import Button from "@mui/material/Button";
 import { useStyles } from "./AddSinglePair.jss";
 
 function AddSinglePair() {
@@ -86,42 +85,41 @@ function AddSinglePair() {
     return (
         <>
             <Box className={classes.body}>
-                <Paper className={classes.card}>
-                    <input
-                        accept="image/*"
-                        onChange={uploadStorageImg}
-                        className={classes.input}
-                        id={"add-single-new-pair"}
-                        type="file"
-                    />
-                    <label htmlFor={"add-single-new-pair"}>
-                        <Avatar
-                            src={src}
-                            variant={"square"}
-                            className={classes.avatar}
-                        >
-                            <Alt className={classes.alt} />
-                        </Avatar>
+                <input
+                    accept="image/*"
+                    onChange={uploadStorageImg}
+                    className={classes.input}
+                    id={"add-single-new-pair"}
+                    type="file"
+                />
+                <Paper className={classes.paper}>
+                    <label htmlFor={"add-single-new-pair"} className={classes.label}>
+                        {!!src ? (
+                            <img src={src} className={classes.img} alt="" />
+                        ) : (
+                            <img src={"/Images/alt/alt.svg"} className={classes.alt} alt="" />
+                        )}
                     </label>
-                    <TextField
-                        autoFocus
-                        fullWidth
-                        variant={"outlined"}
-                        className={classes.textField}
-                        onChange={handleChange}
-                        value={word}
-                    />
-                    <Button
-                        fullWidth
-                        color={"primary"}
-                        variant={"contained"}
-                        className={classes.addButton}
-                        disabled={!src || !word}
-                        onClick={addToDictionary}
-                    >
-                        Add
-                    </Button>
                 </Paper>
+                <TextField
+                    autoFocus
+                    fullWidth
+                    value={word}
+                    onChange={handleChange}
+                    className={classes.textField}
+                    InputProps={{
+                        endAdornment:
+                            <Fab
+                                fullWidth
+                                color={"primary"}
+                                disabled={!src || !word}
+                                onClick={addToDictionary}
+                                className={classes.addButton}
+                            >
+                                <Add />
+                            </Fab>
+                    }}
+                />
             </Box>
         </>
     );
