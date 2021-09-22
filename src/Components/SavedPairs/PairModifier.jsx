@@ -10,19 +10,9 @@ import { Avatar, Dialog, DialogActions, TextField } from "@mui/material";
 import { useStyles } from "./PairModifier.jss";
 
 export function PairModifier(props) {
-    const classes = useStyles();
-
-    const { open, word, image, close, ...other } = props;
+    const { open, word, image, handleNewPair, close, ...other } = props;
 
     const { state, dispatch } = useContext(AppContext);
-
-    const [newWord, setNewWord] = useState(word);
-
-    const handleChange = (e) => {
-        setNewWord(e.target.value);
-    };
-
-    const [newImage, setNewImage] = useState(image);
 
     /**
      * The following needs to be just different enough from its
@@ -58,11 +48,13 @@ export function PairModifier(props) {
                     .ref(`${dir}/images/${uid}/${imgName}`)
                     .getDownloadURL()
                     .then(async (url) => {
-                        setNewImage(url);
+                        handleNewPair(word, url, true)
                     });
             }
         );
     };
+
+    const classes = useStyles();
 
     return (
         <Dialog open={open} onBackdropClick={close} {...other}>
@@ -76,7 +68,7 @@ export function PairModifier(props) {
                 />
                 <label htmlFor={`${word}-${image}`}>
                     <Avatar
-                        src={newImage}
+                        src={image}
                         variant="square"
                         className={classes.avatar}
                     >
@@ -85,11 +77,11 @@ export function PairModifier(props) {
                 </label>
                 <CardContent>
                     <TextField
-                        value={newWord}
+                        value={word}
                         variant={"standard"}
-                        onChange={handleChange}
                         fullWidth
                         autoFocus
+                        onChange={(e) => handleNewPair(e.target.value, image, true)}
                     />
                 </CardContent>
                 <DialogActions>
@@ -100,8 +92,8 @@ export function PairModifier(props) {
                             dispatch({
                                 type: "update-pair",
                                 oldWord: word,
-                                word: newWord,
-                                url: newImage,
+                                word: word,
+                                url: image,
                             });
                             close();
                         }}
@@ -111,7 +103,7 @@ export function PairModifier(props) {
                     <Button
                         variant={"outlined"}
                         onClick={() =>
-                            dispatch({ type: "remove-pair", word: newWord })
+                            dispatch({ type: "remove-pair", word: word })
                         }
                     >
                         Delete

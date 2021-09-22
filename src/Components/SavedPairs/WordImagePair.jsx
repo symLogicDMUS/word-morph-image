@@ -11,26 +11,18 @@ import { Cancel } from "@mui/icons-material";
 import AppContext from "../../AppContext";
 
 function WordImagePair(props) {
-    const { word, image } = props;
+    const { word, image, handleNewPair, openPairModifier } = props;
 
     const { state, dispatch } = useContext(AppContext);
-
-    const [pairModifier, setPairModifier] = useState(false);
 
     const classes = useStyles();
 
     return (
         <>
-            <PairModifier
-                word={word}
-                image={image}
-                open={pairModifier}
-                close={() => setPairModifier(false)}
-            />
             <div className={classes.root}>
                 <Card
                     className={classes.card}
-                    onClick={() => setPairModifier(true)}
+                    onClick={() => handleNewPair(word, image, true)}
                 >
                     <Cancel
                         fontSize={"small"}

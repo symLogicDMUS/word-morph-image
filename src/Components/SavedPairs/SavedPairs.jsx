@@ -5,9 +5,24 @@ import AppContext from "../../AppContext";
 import WordImagePair from "./WordImagePair";
 import { useStyles } from "./SavedPairs.jss";
 import BottomBarWithSearch from "../Search/BottomBarWithSearch";
+import {PairModifier} from "./PairModifier";
 
 function SavedPairs() {
     const { state, dispatch } = useContext(AppContext);
+
+    const [modifiedPair, setModifiedPair] = useState({
+        dialog: false,
+        word: "",
+        image: null,
+    });
+
+    const handleNewPair = (word, image, dialog) => {
+        setModifiedPair({
+            word: word,
+            image: image,
+            dialog: dialog,
+        })
+    };
 
     const getWordImagePairs = (words) => {
         words.sort()
@@ -16,6 +31,7 @@ function SavedPairs() {
                 key={index}
                 word={word}
                 image={state.dictionary[word]}
+                handleNewPair={handleNewPair}
             />
         ));
     };
@@ -37,7 +53,6 @@ function SavedPairs() {
         }
     }, [searchField, state.dictionary]);
 
-
     const classes = useStyles();
 
     return (
@@ -47,6 +62,13 @@ function SavedPairs() {
             </Box>
             <BottomBarWithSearch
                 handleChange={handleSearchInput}
+            />
+            <PairModifier
+                word={modifiedPair.word}
+                image={modifiedPair.image}
+                open={modifiedPair.dialog}
+                handleNewPair={handleNewPair}
+                close={() => handleNewPair("", null, false)}
             />
         </>
     );

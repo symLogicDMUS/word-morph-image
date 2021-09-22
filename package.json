@@ -30,6 +30,7 @@
     "sass": "^1.38.2",
     "unsplash-js": "^7.0.15",
     "unsplash-react": "^0.2.0",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
