@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import firebase from "firebase";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
@@ -48,6 +48,10 @@ export function PairModifier(props) {
                     .ref(`${dir}/images/${uid}/${imgName}`)
                     .getDownloadURL()
                     .then(async (url) => {
+                        await firebase
+                            .database()
+                            .ref(`${dir}/dictionary/${uid}`)
+                            .update({word: url})
                         handleNewPair(word, url, true)
                     });
             }
