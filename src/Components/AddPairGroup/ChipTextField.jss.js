@@ -4,9 +4,10 @@ export const useStyles = makeStyles(
     (theme) => ({
         span: {
             outline: "none",
-            border: "1px solid rgba(0, 0, 0, 0)",
-            marginRight: theme.spacing(2),
             padding: '0.25rem',
+            marginRight: theme.spacing(2),
+            border: "1px solid rgba(0, 0, 0, 0)",
+            fontSize: theme.typography.htmlFontSize,
         },
     }),
     { index: 1 }

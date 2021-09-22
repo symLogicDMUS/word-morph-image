@@ -20,7 +20,7 @@ function AboutDialog(props) {
             <DialogTitle>Motivation for Word to Image</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    Recent to the writing of this dialog I had more of an
+                    Recent to the writing of this dialog I had taken an
                     interest in the design role of product lifecycle. A fellow
                     graduate in Computer Science had pointed me to many
                     resources for the user experience and design side of website
