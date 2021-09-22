@@ -16,8 +16,8 @@ import {
 } from "../MyAppBar/appBarAndPadding.jss";
 import { SaveTextButton } from "./SaveTextButton";
 import { lighten, useTheme } from "@mui/material/styles";
-import { useStyles } from "./InputText.jss";
 import LoadTextButton from "../LoadTextButton/LoadTextButton";
+import { useStyles } from "./InputText.jss";
 
 function InputText() {
     const history = useHistory();

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import firebase from "firebase";
+import "firebase/database";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import AppContext from "../../AppContext";
@@ -48,14 +49,26 @@ export function PairModifier(props) {
                     .ref(`${dir}/images/${uid}/${imgName}`)
                     .getDownloadURL()
                     .then(async (url) => {
-                        await firebase
-                            .database()
-                            .ref(`${dir}/dictionary/${uid}`)
-                            .update({word: url})
                         handleNewPair(word, url, true)
                     });
             }
         );
+    };
+
+    const save = async () => {
+        const user = firebase.auth().currentUser;
+        const dir = getDir(user)
+        const uid = user.uid;
+        await firebase
+            .database()
+            .ref(`${dir}/dictionary/${uid}`)
+            .update({[word]: image})
+        dispatch({
+            type: "update-pair",
+            oldWord: word,
+            word: word,
+            url: image,
+        });
     };
 
     const classes = useStyles();
@@ -93,13 +106,9 @@ export function PairModifier(props) {
                         color={"primary"}
                         variant={"contained"}
                         onClick={() => {
-                            dispatch({
-                                type: "update-pair",
-                                oldWord: word,
-                                word: word,
-                                url: image,
-                            });
-                            close();
+                            save().then(r => {
+                                close()
+                            })
                         }}
                     >
                         Save
