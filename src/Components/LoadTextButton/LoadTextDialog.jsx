@@ -62,7 +62,7 @@ export function LoadTextDialog({ open, parseText, isDispatch, onClose }) {
         } else {
             return getTextCards(Object.keys(state.paragraphs));
         }
-    }, [searchField, state.paragraphs]);
+    }, [searchField, state.paragraphs, card.selected]);
 
     return (
         <Dialog fullScreen open={open} className={classes.dialog}>
