@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import AppContext from "../../AppContext";
 import { containsInvalidCharacters }
        from "../../helpers/containsInvalidCharacters";
+import {getTextWidth} from "../../helpers/getTextWidth";
 import { useStyles } from "./ChipTextField.jss";
 
 export function ChipTextField(props) {
@@ -13,7 +14,7 @@ export function ChipTextField(props) {
         if (e.key === "Enter") {
             refocusParent();
         } else {
-            if (containsInvalidCharacters(e.target.innerHTML)) {
+            if (containsInvalidCharacters(e.target.value)) {
                 dispatch({
                     type: "new-alert",
                     severity: "warning",
@@ -21,7 +22,7 @@ export function ChipTextField(props) {
                     open: true,
                 });
             } else {
-                updateChipAtIndex(index, e.target.innerHTML);
+                updateChipAtIndex(index, e.target.value);
             }
         }
     };
@@ -29,13 +30,17 @@ export function ChipTextField(props) {
     const classes = useStyles();
 
     return (
-        <span
-            contentEditable={true}
-            className={classes.span}
-            onKeyPress={handleChange}
+        <input
+            value={value}
+            onChange={handleChange}
+            className={classes.input}
+            style={{
+                height: 'auto',
+                marginRight: 6,
+                fontFamily: 'Roboto',
+                width: getTextWidth(value),
+            }}
             {...other}
-        >
-            {value}
-        </span>
+        />
     );
 }

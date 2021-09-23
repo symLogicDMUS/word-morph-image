@@ -1,5 +1,5 @@
 import makeStyles from "@mui/styles/makeStyles";
-import { getTextWidth } from "../../helpers/getTextWidth";
+import { getTextWidthFromInnerHTML } from "../../helpers/getTextWidthFromInnerHTML";
 
 export const useStyles = makeStyles(
     (theme) => ({
