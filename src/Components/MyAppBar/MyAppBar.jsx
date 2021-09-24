@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import AppTitle from "./AppTitle";
 import { useTheme } from "@mui/styles";
-import { GitHub } from "@mui/icons-material";
+import {GitHub, YouTube} from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { AppBar, IconButton, Toolbar, Tooltip } from "@mui/material";
+import {AppBar, Icon, IconButton, Toolbar, Tooltip} from "@mui/material";
 import SignOutButton from "./SignOutButton";
 import AppContext from "../../AppContext";
 import { useStyles } from "./MyAppBar.jss";
@@ -31,6 +31,16 @@ export function MyAppBar({ handleDrawerToggle }) {
                     <MenuIcon />
                 </IconButton>
                 <AppTitle mode={theme.palette.mode} />
+                <Tooltip title={"watch demo"}>
+                    <IconButton
+                        color="secondary"
+                        onClick={() =>
+                            window.location.href = "https://youtu.be/0wN4SHmRHT4"
+                        }
+                    >
+                        <YouTube fontSize={"large"} />
+                    </IconButton>
+                </Tooltip>
                 <Tooltip title={"Toggle light/dark theme"}>
                     <IconButton
                         onClick={() =>

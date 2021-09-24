@@ -20,7 +20,7 @@ export function getTextWidth(text) {
         }
         /* TODO: add for all other ASCII printable characters minus those not allowed in db */
     }
-    width += 8;
+    width += 16;
 
     return width;
 }

@@ -36,7 +36,6 @@ export function ChipTextField(props) {
             className={classes.input}
             style={{
                 height: 'auto',
-                marginRight: 6,
                 fontFamily: 'Roboto',
                 width: getTextWidth(value),
             }}
