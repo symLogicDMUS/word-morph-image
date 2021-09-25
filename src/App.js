@@ -7,8 +7,7 @@ import { useMemo } from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import AppContext from "./AppContext";
-import Home from "./Components/Home/Home";
-import AddPairGroup from "./Components/AddPairGroup/AddPairGroup";
+import Input from "./Components/InputText/InputText";
 import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
@@ -16,9 +15,11 @@ import { createTheme } from "@mui/material/styles";
 import { appDefaultState } from "./appDefaultState";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
+import AddPairGroup from "./Components/AddPairGroup/AddPairGroup";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ResponsiveDrawer from "./Components/ResponsiveDrawer/ResponsiveDrawer";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import SnackbarAlert from "./Components/SnackbarAlert/SnackbarAlert";
 import AddSinglePair from "./Components/AddSinglePair/AddSinglePair";
 import SavedPairs from "./Components/SavedPairs/SavedPairs";
 import { updateDictionary } from "./API/updateDictionary";
@@ -27,7 +28,7 @@ import { updateParagraphs } from "./API/updateParagraphs";
 import Sources from "./Components/Sources/Sources";
 import About from "./Components/About/About";
 import { getDir } from "./helpers/getDir";
-import { CssBaseline } from "@mui/material";
+import {CssBaseline} from "@mui/material";
 import "firebaseui/dist/firebaseui.css";
 import { reducer } from "./App.red";
 import "./App.scss";
@@ -49,6 +50,22 @@ function App() {
             return createTheme(lightTheme);
         }
     }, [state.isDarkMode]);
+
+    if (! firebase.auth().currentUser) {
+        firebase.auth().signInAnonymously().then(r => {
+            dispatch({
+                type: "new-alert",
+                alert: {
+                    open: true,
+                    severity: "info",
+                    title: "You aren't signed in",
+                    message: "What you save will be deleted after 24 hours.",
+                    autoHideDuration: 10000,
+                    action: "login",
+                },
+            })
+        })
+    }
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -109,7 +126,7 @@ function App() {
                     <CssBaseline />
                     <Router>
                         <Switch>
-                            <Route exact path="/" component={Home} />
+                            <Route exact path="/" component={Input} />
                             <Route
                                 exact
                                 path="/morphs"
@@ -193,6 +210,7 @@ function App() {
                             />
                         </Switch>
                     </Router>
+                    <SnackbarAlert />
                 </ThemeProvider>
             </StyledEngineProvider>
         </AppContext.Provider>

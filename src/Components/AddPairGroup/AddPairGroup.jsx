@@ -11,9 +11,11 @@ function AddPairGroup(props) {
     const newAlert = (severity, message, open) =>
         dispatch({
             type: "new-alert",
-            severity: severity,
-            message: message,
-            open: open,
+            alert: {
+                open: open,
+                message: message,
+                severity: severity,
+            },
         });
 
     const classes = useStyles();

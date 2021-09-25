@@ -34,9 +34,11 @@ export function AddPairs({ pairs }) {
             .catch((err) => {
                 dispatch({
                     type: "new-alert",
-                    severity: "error",
-                    message: `An Error occurred adding pairs: ${err}`,
-                    open: true,
+                    alert: {
+                        severity: "error",
+                        message: `An Error occurred adding pairs: ${err}`,
+                        open: true,
+                    }
                 });
                 console.log("ERROR:", err);
             });

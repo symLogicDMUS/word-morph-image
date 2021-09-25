@@ -1,7 +1,7 @@
 import { copy } from "./helpers/copy";
 
 export function reducer(state, action) {
-    let newDict;
+    let newDict; // alert
     switch (action.type) {
         case "update-text":
             return {
@@ -50,9 +50,12 @@ export function reducer(state, action) {
                     ...action.newPairs,
                 },
                 alert: {
+                    action:null,
+                    title: null,
                     open: true,
                     severity: "success",
                     message: "Pairs added successfully!",
+                    autoHideDuration: 3000,
                 },
             };
         case "new-paragraphs":
@@ -70,9 +73,13 @@ export function reducer(state, action) {
                     [action.title]: action.text,
                 },
                 alert: {
+                    action: null,
+                    title: null,
                     open: true,
                     severity: "success",
                     message: "Text saved successfully!",
+                    autoHideDuration: 3000,
+
                 },
             };
         case "remove-paragraph":
@@ -83,24 +90,25 @@ export function reducer(state, action) {
                 numUpdates: state.numUpdates + 1,
                 paragraphs: paragraphs,
                 alert: {
+                    action: null,
+                    title: null,
                     open: true,
                     severity: "info",
                     message: `"${action.title}" deleted.`,
+                    autoHideDuration: 3000,
                 },
             };
         case "new-alert":
             return {
                 ...state,
-                alert: {
-                    open: action.open,
-                    message: action.message,
-                    severity: action.severity,
-                },
+                alert: action.alert,
             };
         case "close-alert":
             return {
                 ...state,
                 alert: {
+                    action: null,
+                    title: null,
                     open: false,
                     message: "",
                     severity: "",

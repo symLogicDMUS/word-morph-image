@@ -1,23 +1,17 @@
-import React from "react";
-import firebase from "firebase/app";
-import "firebase/auth";
-import { Box } from "@mui/material";
-import HomeIconButtons from "./HomeIconButtons";
-import { ReactComponent as Title } from "./title.svg";
-import VisitorSignInButton from "./VisitorSignInButton";
+import {Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/material";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { useStyles } from "./Home.jss";
-import VisitorDataAlertBar from "./VistitorDataAlertBar";
+import firebase from "firebase";
+import Button from "@mui/material/Button";
+import React from "react";
 
-function SignInPage() {
-    const classes = useStyles();
-
+export function SignInDialog({open, onClose}) {
     return (
-        <Box className={classes.body}>
-            <Box className={classes.content}>
-                <Title className={classes.title} />
-                <HomeIconButtons />
-                <VisitorSignInButton />
+        <Dialog
+            open={open}
+            onBackdropClick={onClose}
+        >
+            <DialogTitle>Sign In</DialogTitle>
+            <DialogContent>
                 <StyledFirebaseAuth
                     uiConfig={{
                         signInFlow: "popup",
@@ -33,10 +27,12 @@ function SignInPage() {
                     }}
                     firebaseAuth={firebase.auth()}
                 />
-            </Box>
-            <VisitorDataAlertBar />
-        </Box>
-    );
+            </DialogContent>
+            <DialogActions>
+                <Button fullWidth onClick={onClose}>
+                    Cancel
+                </Button>
+            </DialogActions>
+        </Dialog>
+    )
 }
-
-export default SignInPage;

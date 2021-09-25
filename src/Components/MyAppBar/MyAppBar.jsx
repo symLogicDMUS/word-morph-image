@@ -21,9 +21,9 @@ export function MyAppBar({ handleDrawerToggle }) {
         <AppBar position="fixed" className={classes.appBar}>
             <Toolbar>
                 <IconButton
+                    edge="start"
                     color="inherit"
                     aria-label="open drawer"
-                    edge="start"
                     onClick={handleDrawerToggle}
                     className={classes.menuButton}
                     size="large"
@@ -33,12 +33,12 @@ export function MyAppBar({ handleDrawerToggle }) {
                 <AppTitle mode={theme.palette.mode} />
                 <Tooltip title={"watch demo"}>
                     <IconButton
-                        color="secondary"
+                        style={{color: '#f48fb1'}}
                         onClick={() =>
                             window.location.href = "https://youtu.be/0wN4SHmRHT4"
                         }
                     >
-                        <YouTube fontSize={"large"} />
+                        <YouTube fontSize={"large"} style={{color: '#f48fb1'}} />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title={"Toggle light/dark theme"}>

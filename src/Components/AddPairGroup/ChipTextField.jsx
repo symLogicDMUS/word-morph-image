@@ -17,9 +17,11 @@ export function ChipTextField(props) {
             if (containsInvalidCharacters(e.target.value)) {
                 dispatch({
                     type: "new-alert",
-                    severity: "warning",
-                    message: "cannot add word with these characters: # $ [ ] . ",
-                    open: true,
+                    alert: {
+                        severity: "warning",
+                        message: "cannot add word with these characters: # $ [ ] . ",
+                        open: true,
+                    }
                 });
             } else {
                 updateChipAtIndex(index, e.target.value);

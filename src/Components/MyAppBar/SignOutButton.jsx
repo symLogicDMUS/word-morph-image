@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
+import { Tooltip } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import IconButton from "@mui/material/IconButton";
-import { Tooltip } from "@mui/material";
 import { useHistory } from "react-router-dom";
+import AppContext from "../../AppContext";
 import firebase from "firebase/app";
 import "firebase/auth";
 
 function SignOutButton() {
     const history = useHistory();
+
+    const {state, dispatch} = useContext(AppContext);
 
     return (
         <Tooltip title={"Sign Out"}>
@@ -16,7 +19,16 @@ function SignOutButton() {
                     firebase
                         .auth()
                         .signOut()
-                        .then((r) => history.push("/"))
+                        .then((r) => {
+                            dispatch({
+                                type: "new-alert",
+                                alert: {
+                                    open: true,
+                                    severity: "success",
+                                    message: "signed out successfully!",
+                                }
+                            })
+                        })
                 }
                 size="large"
             >
