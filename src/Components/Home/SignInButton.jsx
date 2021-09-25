@@ -1,7 +1,7 @@
 import "firebase/auth";
 import React, {useState} from "react";
 import Button from "@mui/material/Button";
-import {SignInDialog} from "./SignInDialog";
+import SignInDialog from "./SignInDialog";
 
 function SignInButton() {
     const [dialog, setDialog] = useState(false);

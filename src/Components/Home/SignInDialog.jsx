@@ -1,10 +1,10 @@
-import {Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/material";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import React from "react";
 import firebase from "firebase";
 import Button from "@mui/material/Button";
-import React from "react";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import {Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/material";
 
-export function SignInDialog({open, onClose}) {
+function SignInDialog({open, onClose}) {
     return (
         <Dialog
             open={open}
@@ -36,3 +36,5 @@ export function SignInDialog({open, onClose}) {
         </Dialog>
     )
 }
+
+export default SignInDialog;
