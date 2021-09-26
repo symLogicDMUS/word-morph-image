@@ -33,8 +33,8 @@ function WordImagePair(props) {
                     />
                     <CardActionArea>
                         <Avatar
-                            variant={"square"}
                             src={image}
+                            variant={"square"}
                             className={classes.img}
                         >
                             <Alt className={classes.alt} />

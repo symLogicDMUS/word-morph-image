@@ -1,21 +1,22 @@
 import React, {useContext} from "react";
-import {useTheme} from "@mui/styles";
 import AppContext from "../../AppContext";
 import SignOutButton from "./SignOutButton";
 import {GitHub} from "@mui/icons-material";
 import {IconButton, Tooltip} from "@mui/material";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
+import RenderCode from "../../helpers/RenderCode";
 
 function MyAppBarItems(props) {
     const {handleDrawerToggle, ...other} = props;
 
     const { state, dispatch } = useContext(AppContext);
 
-    const theme = useTheme();
-
     return (
         <div {...other}>
+            <RenderCode childName={"state"} iconButton>
+                {state}
+            </RenderCode>
             <Tooltip title={"Toggle light/dark theme"}>
                 <IconButton
                     onClick={() =>
