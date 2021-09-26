@@ -1,5 +1,5 @@
 import "firebase/auth";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import SignInDialog from "./SignInDialog";
 
@@ -8,10 +8,7 @@ function SignInButton() {
 
     return (
         <>
-            <SignInDialog
-                open={dialog}
-                onClose={() => setDialog(false)}
-            />
+            <SignInDialog open={dialog} onClose={() => setDialog(false)} />
             <Button
                 size="small"
                 color="primary"

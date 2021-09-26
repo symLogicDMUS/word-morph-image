@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import {Alert, Stack} from "@mui/material";
-import AlertTitle from '@mui/material/AlertTitle';
+import { Alert, Stack } from "@mui/material";
+import AlertTitle from "@mui/material/AlertTitle";
 import SignInButton from "../Home/SignInButton";
 import AppContext from "../../AppContext";
 import Button from "@mui/material/Button";
@@ -20,9 +20,17 @@ function SnackbarAlert(props) {
         switch (state.alert.action) {
             case "login":
                 return (
-                    <Stack spacing={2} direction="row" style={{marginTop: 'auto'}}>
+                    <Stack
+                        spacing={2}
+                        direction="row"
+                        style={{ marginTop: "auto" }}
+                    >
                         <SignInButton />
-                        <Button color="inherit" size="small" onClick={handleClose}>
+                        <Button
+                            color="inherit"
+                            size="small"
+                            onClick={handleClose}
+                        >
                             Close
                         </Button>
                     </Stack>

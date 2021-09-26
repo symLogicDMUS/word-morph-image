@@ -49,7 +49,7 @@ export function PairModifier(props) {
                     .ref(`${dir}/images/${uid}/${imgName}`)
                     .getDownloadURL()
                     .then(async (url) => {
-                        handleNewPair(word, url, true)
+                        handleNewPair(word, url, true);
                     });
             }
         );
@@ -57,12 +57,12 @@ export function PairModifier(props) {
 
     const save = async () => {
         const user = firebase.auth().currentUser;
-        const dir = getDir(user)
+        const dir = getDir(user);
         const uid = user.uid;
         await firebase
             .database()
             .ref(`${dir}/dictionary/${uid}`)
-            .update({[word]: image})
+            .update({ [word]: image });
         dispatch({
             type: "update-pair",
             oldWord: word,
@@ -98,7 +98,9 @@ export function PairModifier(props) {
                         variant={"standard"}
                         fullWidth
                         autoFocus
-                        onChange={(e) => handleNewPair(e.target.value, image, true)}
+                        onChange={(e) =>
+                            handleNewPair(e.target.value, image, true)
+                        }
                     />
                 </CardContent>
                 <DialogActions>
@@ -106,9 +108,9 @@ export function PairModifier(props) {
                         color={"primary"}
                         variant={"contained"}
                         onClick={() => {
-                            save().then(r => {
-                                close()
-                            })
+                            save().then((r) => {
+                                close();
+                            });
                         }}
                     >
                         Save

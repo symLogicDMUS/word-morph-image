@@ -7,7 +7,10 @@ function Sources(props) {
         <List>
             <ListItem color={"primary"}>
                 <ListItemText>
-                    <Link underline="hover" href={"https://www.youtube.com/watch?v=8GW6sLrK40k"}>
+                    <Link
+                        underline="hover"
+                        href={"https://www.youtube.com/watch?v=8GW6sLrK40k"}
+                    >
                         Demo song
                     </Link>
                 </ListItemText>

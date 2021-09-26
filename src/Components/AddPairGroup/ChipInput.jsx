@@ -25,7 +25,7 @@ import { variantComponent } from "./variantComponent";
 import FormHelperText from "@mui/material/FormHelperText";
 import { defaultChipRenderer } from "./defaultChipRenderer";
 import { getLoremPicsumBlob } from "../../API/getLoremPicsumBlob";
-import LoremPicsumButton from "../LoremPicsumButton/LoremPicsumButton";
+import SetAllButton from "../SetAllButton/SetAllButton";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
 import FilterWordsButton from "../FilterWordsButton/FilterWordsButton";
 import ClearAllButton from "../ClearAllButton/ClearAllButton";
@@ -691,7 +691,7 @@ class ChipInput extends React.Component {
                 </FormControl>
                 <TextFieldUnderline isFocused={this.state.isFocused} />
                 <Box className={classes.actions}>
-                    <LoremPicsumButton setRandomImages={this.setRandomImages} />
+                    <SetAllButton setRandomImages={this.setRandomImages} />
                     <LoadTextButton
                         isDispatch={false}
                         parseText={this.parseText}

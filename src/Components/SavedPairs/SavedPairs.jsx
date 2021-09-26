@@ -1,11 +1,10 @@
-import React,
-{useContext, useMemo, useState} from "react";
+import React, { useContext, useMemo, useState } from "react";
 import Box from "@mui/material/Box";
 import AppContext from "../../AppContext";
 import WordImagePair from "./WordImagePair";
 import { useStyles } from "./SavedPairs.jss";
 import BottomBarWithSearch from "../Search/BottomBarWithSearch";
-import {PairModifier} from "./PairModifier";
+import { PairModifier } from "./PairModifier";
 
 function SavedPairs() {
     const { state, dispatch } = useContext(AppContext);
@@ -21,11 +20,11 @@ function SavedPairs() {
             word: word,
             image: image,
             dialog: dialog,
-        })
+        });
     };
 
     const getWordImagePairs = (words) => {
-        words.sort()
+        words.sort();
         return words.map((word, index) => (
             <WordImagePair
                 key={index}
@@ -57,12 +56,8 @@ function SavedPairs() {
 
     return (
         <>
-            <Box className={classes.pairs}>
-                {wordImagePairs}
-            </Box>
-            <BottomBarWithSearch
-                handleChange={handleSearchInput}
-            />
+            <Box className={classes.pairs}>{wordImagePairs}</Box>
+            <BottomBarWithSearch handleChange={handleSearchInput} />
             <PairModifier
                 word={modifiedPair.word}
                 image={modifiedPair.image}

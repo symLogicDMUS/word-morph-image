@@ -17,16 +17,15 @@ function YouTubeIconButton() {
                 className={classes.listItem}
                 whileHover={{ scale: 1.15 }}
                 onClick={() =>
-                    window.location.href =
-                        "https://youtu.be/0wN4SHmRHT4"
+                    (window.location.href = "https://youtu.be/0wN4SHmRHT4")
                 }
             >
                 <IconButton size="large">
-                    <YouTube fill='#f48fb1' />
+                    <YouTube fill="#f48fb1" />
                 </IconButton>
                 <Typography
                     variant={"subtitle2"}
-                    style={{color: '#f48fb1'}}
+                    style={{ color: "#f48fb1" }}
                     className={classes.iconButtonSubtitle}
                 >
                     Watch demo

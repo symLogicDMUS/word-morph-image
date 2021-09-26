@@ -1,16 +1,9 @@
-import React, {
-    useContext,
-    useEffect,
-    useState
-} from "react";
-import clsx from "clsx";
+import React, { useContext, useEffect, useState } from "react";
 import "firebase/storage";
-import { Box, Button } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import AppContext from "../../AppContext";
 import { useHistory } from "react-router-dom";
 import { vh, vw } from "../../helpers/windowMeasurements";
-import { ReactComponent as MorphIcon } from "./morph.svg";
-import { ReactComponent as CardsIcon } from "./cards.svg";
 import SnackbarAlert from "../SnackbarAlert/SnackbarAlert";
 import ResponsiveDrawer from "../ResponsiveDrawer/ResponsiveDrawer";
 import {
@@ -18,9 +11,11 @@ import {
     appBarHeightMd,
     appBarHeightSm,
 } from "../MyAppBar/appBarAndPadding.jss";
-import { SaveTextButton } from "./SaveTextButton";
-import { lighten, useTheme } from "@mui/material/styles";
 import LoadTextButton from "../LoadTextButton/LoadTextButton";
+import { lighten, useTheme } from "@mui/material/styles";
+import { SaveTextButton } from "./SaveTextButton";
+import { CardsButton } from "./CardsButton";
+import { MorphButton } from "./MorphButton";
 import { useStyles } from "./InputText.jss";
 
 function InputText() {
@@ -86,38 +81,12 @@ function InputText() {
                     onChange={handleChange}
                     value={state.text}
                 />
-                <Box className={classes.buttons}>
-                    <LoadTextButton variant={"contained"} />
+                <Stack direction="row" spacing={{ xs: 1, sm: 3 }} mt={3}>
+                    <LoadTextButton />
                     <SaveTextButton />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        className={clsx({ [classes.marginRight]: true })}
-                        onClick={() =>
-                            history.push("/morphs", {
-                                wordIndex: 0,
-                            })
-                        }
-                        startIcon={<MorphIcon fill={textColor} />}
-                        disabled={!state.text}
-                    >
-                        Morph
-                    </Button>
-                    <Button
-                        variant="contained"
-                        color={"primary"}
-                        className={clsx({ [classes.marginRight]: true })}
-                        onClick={() =>
-                            history.push("/cards", {
-                                wordIndex: 0,
-                            })
-                        }
-                        startIcon={<CardsIcon fill={textColor} />}
-                        disabled={!state.text}
-                    >
-                        Cards
-                    </Button>
-                </Box>
+                    <MorphButton />
+                    <CardsButton />
+                </Stack>
                 <SnackbarAlert />
             </Box>
         </ResponsiveDrawer>

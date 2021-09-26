@@ -50,7 +50,7 @@ export function reducer(state, action) {
                     ...action.newPairs,
                 },
                 alert: {
-                    action:null,
+                    action: null,
                     title: null,
                     open: true,
                     severity: "success",
@@ -79,7 +79,6 @@ export function reducer(state, action) {
                     severity: "success",
                     message: "Text saved successfully!",
                     autoHideDuration: 3000,
-
                 },
             };
         case "remove-paragraph":

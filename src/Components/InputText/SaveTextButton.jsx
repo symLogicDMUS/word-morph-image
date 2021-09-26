@@ -8,12 +8,17 @@ import {
     DialogContent,
     DialogTitle,
     TextField,
+    useMediaQuery,
 } from "@mui/material";
 import { Save } from "@mui/icons-material";
-import { useStyles } from "./SaveTextButton.jss";
+import IconButton from "@mui/material/IconButton";
+import { ReactComponent as CardsIcon } from "./cards.svg";
+import { useTheme } from "@mui/material/styles";
 
 export function SaveTextButton() {
     const { state, dispatch } = useContext(AppContext);
+
+    const sm = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
     const [title, setTitle] = useState("");
     const handleChange = (e) => {
@@ -33,7 +38,7 @@ export function SaveTextButton() {
         });
     };
 
-    const classes = useStyles();
+    const theme = useTheme();
 
     return (
         <>
@@ -42,11 +47,26 @@ export function SaveTextButton() {
                 color={"primary"}
                 variant={"contained"}
                 disabled={!state.text}
-                className={classes.button}
                 onClick={() => setSaveDialog(true)}
+                style={sm ? { display: "none" } : null}
             >
                 Save
             </Button>
+            <IconButton
+                size="large"
+                color="primary"
+                disabled={!state.text}
+                onClick={() => setSaveDialog(true)}
+                style={!sm ? { display: "none" } : null}
+            >
+                <Save
+                    fill={
+                        !state.text
+                            ? theme.palette.action.disabled
+                            : theme.palette.primary.main
+                    }
+                />
+            </IconButton>
             <Dialog
                 open={saveDialog}
                 onBackdropClick={() => setSaveDialog(false)}

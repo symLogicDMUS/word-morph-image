@@ -34,15 +34,6 @@ export const useStyles = makeStyles(
                     ? alpha(theme.palette.background.paper, 0.5)
                     : "inherit",
         },
-        buttons: {
-            marginTop: theme.spacing(3),
-        },
-        marginLeft: {
-            marginLeft: theme.spacing(3),
-        },
-        marginRight: {
-            marginRight: theme.spacing(3),
-        },
     }),
     { index: 1 }
 );

@@ -2,14 +2,16 @@ import React from "react";
 import firebase from "firebase";
 import Button from "@mui/material/Button";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import {Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/material";
+import {
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+} from "@mui/material";
 
-function SignInDialog({open, onClose}) {
+function SignInDialog({ open, onClose }) {
     return (
-        <Dialog
-            open={open}
-            onBackdropClick={onClose}
-        >
+        <Dialog open={open} onBackdropClick={onClose}>
             <DialogTitle>Sign In</DialogTitle>
             <DialogContent>
                 <StyledFirebaseAuth
@@ -22,7 +24,10 @@ function SignInDialog({open, onClose}) {
                             firebase.auth.EmailAuthProvider.PROVIDER_ID,
                         ],
                         callbacks: {
-                            signInSuccess: () => false,
+                            signInSuccess: () => {
+                                onClose();
+                                return false;
+                            },
                         },
                     }}
                     firebaseAuth={firebase.auth()}
@@ -34,7 +39,7 @@ function SignInDialog({open, onClose}) {
                 </Button>
             </DialogActions>
         </Dialog>
-    )
+    );
 }
 
 export default SignInDialog;

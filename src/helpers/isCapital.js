@@ -1,5 +1,5 @@
-import {capitals} from "./capitals";
+import { capitals } from "./capitals";
 
 export function isCapital(letter) {
-    return capitals.includes(letter)
+    return capitals.includes(letter);
 }

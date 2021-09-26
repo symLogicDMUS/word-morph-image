@@ -24,9 +24,17 @@ export const styles = (theme) => ({
         display: "flex",
         flexDirection: "row",
         flexWrap: "nowrap",
-        alignItems: "center",
-        justifyContent: "flex-end",
-        padding: `${theme.spacing(3)} ${theme.spacing(1)}`,
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
+        padding: `${theme.spacing(3)} 0`,
+
+        "& > *": {
+            marginRight: theme.spacing(3),
+            '&:last-child': {
+                marginRight: 0,
+                marginLeft: 'auto',
+            },
+        },
     },
     inputRoot: {
         display: "inline-flex",

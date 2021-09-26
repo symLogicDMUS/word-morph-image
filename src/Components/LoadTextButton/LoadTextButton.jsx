@@ -1,13 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { LoadTextDialog } from "./LoadTextDialog";
 import { StorageRounded } from "@mui/icons-material";
-import { useStyles } from "./LoadTextButton.jss";
+import { useMediaQuery, useTheme } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import { ReactComponent as CardsIcon } from "../InputText/cards.svg";
 
 function LoadTextButton({ parseText, isDispatch = true }) {
     const [textDialog, setTextDialog] = useState(false);
 
-    const classes = useStyles();
+    const sm = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+
+    const theme = useTheme();
 
     return (
         <>
@@ -18,13 +22,20 @@ function LoadTextButton({ parseText, isDispatch = true }) {
                 onClose={() => setTextDialog(false)}
             />
             <Button
-                onClick={() => setTextDialog(true)}
+                variant="contained"
                 startIcon={<StorageRounded />}
-                className={classes.button}
-                variant={"contained"}
+                onClick={() => setTextDialog(true)}
+                style={sm ? { display: "none" } : null}
             >
                 Load
             </Button>
+            <IconButton
+                size={"large"}
+                onClick={() => setTextDialog(true)}
+                style={!sm ? { display: "none" } : null}
+            >
+                <StorageRounded color={"primary"} />
+            </IconButton>
         </>
     );
 }

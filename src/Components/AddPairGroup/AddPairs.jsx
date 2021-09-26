@@ -38,7 +38,7 @@ export function AddPairs({ pairs }) {
                         severity: "error",
                         message: `An Error occurred adding pairs: ${err}`,
                         open: true,
-                    }
+                    },
                 });
                 console.log("ERROR:", err);
             });

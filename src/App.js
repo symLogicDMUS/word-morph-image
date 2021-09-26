@@ -28,7 +28,7 @@ import { updateParagraphs } from "./API/updateParagraphs";
 import Sources from "./Components/Sources/Sources";
 import About from "./Components/About/About";
 import { getDir } from "./helpers/getDir";
-import {CssBaseline} from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import "firebaseui/dist/firebaseui.css";
 import { reducer } from "./App.red";
 import "./App.scss";
@@ -51,20 +51,24 @@ function App() {
         }
     }, [state.isDarkMode]);
 
-    if (! firebase.auth().currentUser) {
-        firebase.auth().signInAnonymously().then(r => {
-            dispatch({
-                type: "new-alert",
-                alert: {
-                    open: true,
-                    severity: "info",
-                    title: "You aren't signed in",
-                    message: "What you save will be deleted after 24 hours.",
-                    autoHideDuration: 10000,
-                    action: "login",
-                },
-            })
-        })
+    if (!firebase.auth().currentUser) {
+        firebase
+            .auth()
+            .signInAnonymously()
+            .then((r) => {
+                dispatch({
+                    type: "new-alert",
+                    alert: {
+                        open: true,
+                        severity: "info",
+                        title: "You aren't signed in",
+                        message:
+                            "What you save will be deleted after 24 hours.",
+                        autoHideDuration: 10000,
+                        action: "login",
+                    },
+                });
+            });
     }
 
     useEffect(() => {
