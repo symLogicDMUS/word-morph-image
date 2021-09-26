@@ -15,17 +15,17 @@ export function BackButton() {
     return (
         <>
             <Hidden smDown>
-                <Button onClick={goBack} variant="outlined">
-                    <ArrowBackIcon
-                        fontSize={"small"}
-                        className={classes.icon}
-                    />{" "}
+                <Button
+                    onClick={goBack}
+                    startIcon={<ArrowBackIcon />}
+                    variant="outlined"
+                >
                     Go Back
                 </Button>
             </Hidden>
             <Hidden smUp>
                 <Tooltip title={"Go back"} placement={"bottom"}>
-                    <IconButton color={"primary"} size="large">
+                    <IconButton onClick={goBack} color={"primary"} size="large">
                         <ArrowBackIcon fontSize={"large"} />
                     </IconButton>
                 </Tooltip>

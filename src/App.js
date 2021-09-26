@@ -89,7 +89,7 @@ function App() {
                             const firstEntry = {
                                 sample: "Images/material_design_logo.svg",
                             };
-                            updateDictionary(firstEntry).then(r => {
+                            updateDictionary(firstEntry).then((r) => {
                                 dispatch({
                                     type: "new-dictionary",
                                     dictionary: firstEntry,

@@ -7,7 +7,8 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
-    TextField, Tooltip,
+    TextField,
+    Tooltip,
     useMediaQuery,
 } from "@mui/material";
 import { Save } from "@mui/icons-material";
@@ -52,7 +53,10 @@ export function SaveTextButton() {
             >
                 Save
             </Button>
-            <Tooltip title={"save text"} style={!sm ? { display: "none" } : null}>
+            <Tooltip
+                title={"save text"}
+                style={!sm ? { display: "none" } : null}
+            >
                 <IconButton
                     size="large"
                     color="primary"

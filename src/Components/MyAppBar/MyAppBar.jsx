@@ -1,14 +1,21 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import AppTitle from "./AppTitle";
-import {useTheme} from "@mui/styles";
+import { useTheme } from "@mui/styles";
 import MyAppBarItems from "./MyAppBarItems";
-import {MoreHoriz, MoreVert, YouTube} from "@mui/icons-material";
+import { MoreHoriz, MoreVert, YouTube } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
-import {AppBar, Button, IconButton, Menu, Toolbar, Tooltip, useMediaQuery} from "@mui/material";
-import {useStyles} from "./MyAppBar.jss";
+import {
+    AppBar,
+    Button,
+    IconButton,
+    Menu,
+    Toolbar,
+    Tooltip,
+    useMediaQuery,
+} from "@mui/material";
+import { useStyles } from "./MyAppBar.jss";
 
 export function MyAppBar({ handleDrawerToggle }) {
-
     const classes = useStyles();
 
     const theme = useTheme();
@@ -28,52 +35,57 @@ export function MyAppBar({ handleDrawerToggle }) {
 
     return (
         <>
-        <AppBar position="fixed" className={classes.appBar}>
-            <Toolbar>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                    onClick={handleDrawerToggle}
-                    className={classes.menuButton}
-                    size="large"
-                >
-                    <MenuIcon/>
-                </IconButton>
-                <AppTitle mode={theme.palette.mode}/>
-                <Tooltip title={"watch demo"}>
+            <AppBar position="fixed" className={classes.appBar}>
+                <Toolbar>
                     <IconButton
-                        style={{color: "#f48fb1"}}
-                        onClick={() =>
-                            (window.location.href =
-                                "https://youtu.be/9lkwUOnjwUw")
-                        }
+                        edge="start"
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerToggle}
+                        className={classes.menuButton}
+                        size="large"
                     >
-                        <YouTube
-                            fontSize={"large"}
-                            style={{color: "#f48fb1"}}
+                        <MenuIcon />
+                    </IconButton>
+                    <AppTitle mode={theme.palette.mode} />
+                    <Tooltip title={"watch demo"}>
+                        <IconButton
+                            style={{ color: "#f48fb1" }}
+                            onClick={() =>
+                                (window.location.href =
+                                    "https://youtu.be/9lkwUOnjwUw")
+                            }
+                        >
+                            <YouTube
+                                fontSize={"large"}
+                                style={{ color: "#f48fb1" }}
+                            />
+                        </IconButton>
+                    </Tooltip>
+                    <MyAppBarItems
+                        handleDrawerToggle={handleDrawerToggle}
+                        style={sm ? { display: "none" } : null}
+                    />
+                    <Tooltip
+                        title={"see more"}
+                        style={!sm ? { display: "none" } : null}
+                    >
+                        <IconButton onClick={handleMenuOpen}>
+                            <MoreHoriz fontSize={"large"} />
+                        </IconButton>
+                    </Tooltip>
+                    <Menu
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleMenuClose}
+                        style={!sm ? { display: "none" } : null}
+                    >
+                        <MyAppBarItems
+                            handleDrawerToggle={handleDrawerToggle}
                         />
-                    </IconButton>
-                </Tooltip>
-                <MyAppBarItems
-                    handleDrawerToggle={handleDrawerToggle}
-                    style={sm ? { display: "none" } : null}
-                />
-                <Tooltip title={"see more"} style={! sm ? { display: "none" } : null}>
-                    <IconButton onClick={handleMenuOpen} >
-                        <MoreHoriz fontSize={"large"} />
-                    </IconButton>
-                </Tooltip>
-                <Menu
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleMenuClose}
-                    style={! sm ? { display: "none" } : null}
-                >
-                    <MyAppBarItems handleDrawerToggle={handleDrawerToggle} />
-                </Menu>
-            </Toolbar>
-        </AppBar>
+                    </Menu>
+                </Toolbar>
+            </AppBar>
         </>
     );
 }

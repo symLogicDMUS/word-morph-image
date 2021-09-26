@@ -30,9 +30,9 @@ export const styles = (theme) => ({
 
         "& > *": {
             marginRight: theme.spacing(3),
-            '&:last-child': {
+            "&:last-child": {
                 marginRight: 0,
-                marginLeft: 'auto',
+                marginLeft: "auto",
             },
         },
     },

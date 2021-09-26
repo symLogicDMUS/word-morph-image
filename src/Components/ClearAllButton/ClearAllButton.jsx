@@ -1,10 +1,9 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import BackspaceIcon from "@mui/icons-material/Backspace";
-import {IconButton, Tooltip, useMediaQuery} from "@mui/material";
+import { IconButton, Tooltip, useMediaQuery } from "@mui/material";
 
 function ClearAllButton({ clearAll }) {
-
     const sm = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
     return (
@@ -18,12 +17,11 @@ function ClearAllButton({ clearAll }) {
             >
                 Clear
             </Button>
-            <Tooltip title={"clear all"} style={! sm ? { display: "none" } : null}>
-                <IconButton
-                    onClick={clearAll}
-                    color={"primary"}
-                    size={"large"}
-                >
+            <Tooltip
+                title={"clear all"}
+                style={!sm ? { display: "none" } : null}
+            >
+                <IconButton onClick={clearAll} color={"primary"} size={"large"}>
                     <BackspaceIcon />
                 </IconButton>
             </Tooltip>

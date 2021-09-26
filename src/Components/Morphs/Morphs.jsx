@@ -1,15 +1,17 @@
 import React, { useContext, useMemo, useState } from "react";
-import wordPattern from "../../regex/wordPattern";
-import { Box, Typography } from "@mui/material";
-import Morph from "./Morph";
 import "firebase/auth";
 import "firebase/database";
+import Morph from "./Morph";
+import wordPattern from "../../regex/wordPattern";
+import { Box, Stack, Typography } from "@mui/material";
 import Morphed from "../Image/Morphed";
 import { PauseButton } from "./PauseButton";
 import { RestartButton } from "./RestartButton";
 import { BackButton } from "./BackButton";
 import AppContext from "../../AppContext";
 import { useStyles } from "./Morphs.jss";
+import PausePlayButton from "./PausePlayButton";
+import {SkipPrevious} from "@mui/icons-material";
 
 function Morphs(props) {
     const wordIndex = props.location.state.wordIndex;
@@ -51,17 +53,23 @@ function Morphs(props) {
                         </Morph>
                     ))}
                 </Typography>
-                <Box className={classes.buttons}>
-                    <PauseButton
+                <Stack spacing={3} direction="row">
+                    <PausePlayButton
+                        page={"/morphs"}
+                        numWords={morphs.length}
                         wordIndex={wordIndex}
                         currentIndex={currentIndex}
                     />
                     <RestartButton
                         wordIndex={wordIndex}
                         currentIndex={currentIndex}
-                    />
+                        startIcon={<SkipPrevious />}
+                        variant={"outlined"}
+                    >
+                        Restart
+                    </RestartButton>
                     <BackButton />
-                </Box>
+                </Stack>
             </Box>
         </>
     );

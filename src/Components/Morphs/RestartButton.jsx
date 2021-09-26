@@ -5,7 +5,7 @@ import { SkipPrevious } from "@mui/icons-material";
 import IconButton from "@mui/material/IconButton";
 import { useStyles } from "./ActionButton.jss";
 
-export function RestartButton({ wordIndex, currentIndex }) {
+export function RestartButton({ wordIndex, currentIndex, startIcon, variant, children }) {
     const history = useHistory();
 
     const classes = useStyles();
@@ -20,15 +20,18 @@ export function RestartButton({ wordIndex, currentIndex }) {
     return (
         <>
             <Hidden smDown>
-                <Button variant="outlined" onClick={restart}>
-                    <SkipPrevious fontSize={"small"} className={classes.icon} />{" "}
-                    Restart
+                <Button
+                    onClick={restart}
+                    variant={variant}
+                    startIcon={startIcon}
+                >
+                    {children}
                 </Button>
             </Hidden>
             <Hidden smUp>
                 <Tooltip title={"Restart"} placement={"bottom"}>
-                    <IconButton color={"primary"} size="large">
-                        <SkipPrevious fontSize={"large"} />
+                    <IconButton onClick={restart} color="primary" size="large">
+                        {startIcon}
                     </IconButton>
                 </Tooltip>
             </Hidden>

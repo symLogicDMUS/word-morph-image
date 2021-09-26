@@ -2,10 +2,10 @@ import { useHistory } from "react-router-dom";
 import React, { useContext } from "react";
 import AppContext from "../../AppContext";
 import { useTheme } from "@mui/material/styles";
-import {Button, Tooltip, useMediaQuery} from "@mui/material";
+import { Button, Tooltip, useMediaQuery } from "@mui/material";
 import { ReactComponent as MorphIcon } from "./morph.svg";
 import IconButton from "@mui/material/IconButton";
-import {ReactComponent as CardsIcon} from "./cards.svg";
+import { ReactComponent as CardsIcon } from "./cards.svg";
 
 export function MorphButton() {
     const history = useHistory();
@@ -38,7 +38,10 @@ export function MorphButton() {
             >
                 Morph
             </Button>
-            <Tooltip title={"morph animation"} style={!sm ? { display: "none" } : null}>
+            <Tooltip
+                title={"morph animation"}
+                style={!sm ? { display: "none" } : null}
+            >
                 <IconButton
                     size="large"
                     color="primary"

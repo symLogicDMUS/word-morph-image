@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "@mui/styles";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import {Tooltip, Typography, useMediaQuery} from "@mui/material";
+import { Tooltip, Typography, useMediaQuery } from "@mui/material";
 import { ReactComponent as LoremPicsum } from "./lorem_picsum.svg";
 
 function SetAllButton(props) {
@@ -28,7 +28,10 @@ function SetAllButton(props) {
                     Set all
                 </Typography>
             </Button>
-            <Tooltip title={"set all (give image to every word)"} style={! sm ? { display: "none" } : null}>
+            <Tooltip
+                title={"set all (give image to every word)"}
+                style={!sm ? { display: "none" } : null}
+            >
                 <IconButton
                     size={"large"}
                     color={"primary"}

@@ -1,5 +1,5 @@
 import React from "react";
-import {Tooltip, Typography, useMediaQuery} from "@mui/material";
+import { Tooltip, Typography, useMediaQuery } from "@mui/material";
 import Button from "@mui/material/Button";
 import { commonWords } from "../../words/commonWords";
 import { useTheme } from "@mui/material/styles";
@@ -7,7 +7,6 @@ import { ReactComponent as WIcon } from "./W.svg";
 import IconButton from "@mui/material/IconButton";
 
 function FilterWordsButton({ filterWords }) {
-
     const theme = useTheme();
 
     const sm = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -36,7 +35,7 @@ function FilterWordsButton({ filterWords }) {
                 <IconButton
                     size={"large"}
                     color={"primary"}
-                    style={! sm ? { display: "none" } : null}
+                    style={!sm ? { display: "none" } : null}
                     onClick={() => filterWords(commonWords)}
                 >
                     <WIcon fill={iconColor} />

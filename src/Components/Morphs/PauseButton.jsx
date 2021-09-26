@@ -18,13 +18,18 @@ export function PauseButton({ wordIndex, currentIndex }) {
     return (
         <>
             <Hidden smDown>
-                <Button color="primary" variant="contained" onClick={pause}>
-                    <Pause fontSize={"small"} className={classes.icon} /> Pause
+                <Button
+                    onClick={pause}
+                    startIcon={<Pause />}
+                    color="primary"
+                    variant="contained"
+                >
+                    Pause
                 </Button>
             </Hidden>
             <Hidden smUp>
                 <Tooltip title={"Pause"} placement={"bottom"}>
-                    <IconButton color="secondary" size="large">
+                    <IconButton onClick={pause} color="secondary" size="large">
                         <Pause fontSize={"large"} />
                     </IconButton>
                 </Tooltip>

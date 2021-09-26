@@ -3,11 +3,14 @@ import Morphed from "../Image/Morphed";
 import { useHistory } from "react-router-dom";
 import { MyAppBar } from "../MyAppBar/MyAppBar";
 import wordPattern from "../../regex/wordPattern";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { PlayArrow, SkipPrevious } from "@mui/icons-material";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import AppContext from "../../AppContext";
+import { PlayButton } from "./PlayButton";
+import { BackButton } from "./BackButton";
+import { RestartButton } from "./RestartButton";
 import { useStyles } from "./Morphs.jss";
+import {SkipPrevious} from "@mui/icons-material";
+import PausePlayButton from "./PausePlayButton";
 
 function PausedMorphs(props) {
     const history = useHistory();
@@ -48,13 +51,6 @@ function PausedMorphs(props) {
         return wordComponents;
     };
 
-    const restart = () =>
-        history.push("/morphs", {
-            wordIndex: 0,
-        });
-
-    const goBack = () => history.push("/");
-
     return (
         <>
             <MyAppBar />
@@ -63,43 +59,23 @@ function PausedMorphs(props) {
                     {morphed()}
                     {notMorphed()}
                 </Typography>
-                <Box className={classes.buttons}>
-                    <Button
-                        color="primary"
-                        variant="contained"
-                        className={classes.marginRight}
-                        onClick={() =>
-                            history.push("/morphs", {
-                                wordIndex: currentIndex,
-                            })
-                        }
+                <Stack spacing={3} direction="row">
+                    <PausePlayButton
+                        page={"/pause"}
+                        numWords={numWords}
+                        wordIndex={currentIndex}
+                        currentIndex={currentIndex}
+                    />
+                    <RestartButton
+                        wordIndex={currentIndex}
+                        currentIndex={currentIndex}
+                        startIcon={<SkipPrevious />}
+                        variant={"outlined"}
                     >
-                        <PlayArrow
-                            fontSize={"small"}
-                            className={classes.icon}
-                        />
-                        Play
-                    </Button>
-                    <Button
-                        variant="outlined"
-                        onClick={restart}
-                        className={classes.marginRight}
-                    >
-                        <SkipPrevious
-                            fontSize={"small"}
-                            className={classes.icon}
-                        />
                         Restart
-                    </Button>
-                    <Button
-                        variant="outlined"
-                        className={classes.marginRight}
-                        onClick={goBack}
-                    >
-                        <ArrowBackIcon className={classes.icon} />
-                        Go Back
-                    </Button>
-                </Box>
+                    </RestartButton>
+                    <BackButton />
+                </Stack>
             </Box>
         </>
     );
