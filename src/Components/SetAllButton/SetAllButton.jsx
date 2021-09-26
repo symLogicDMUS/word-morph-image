@@ -1,10 +1,9 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import { ReactComponent as LoremPicsum } from "./lorem_picsum.svg";
-// import { useStyles } from "./SetAllButton.jss.";
 import { useTheme } from "@mui/styles";
-import {Typography, useMediaQuery} from "@mui/material";
+import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import {Tooltip, Typography, useMediaQuery} from "@mui/material";
+import { ReactComponent as LoremPicsum } from "./lorem_picsum.svg";
 
 function SetAllButton(props) {
     const { setRandomImages, ...other } = props;
@@ -29,16 +28,16 @@ function SetAllButton(props) {
                     Set all
                 </Typography>
             </Button>
-            <IconButton
-                size={"large"}
-                color={"primary"}
-                onClick={setRandomImages}
-                // className={classes.loremPicsum}
-                style={! sm ? { display: "none" } : null}
-                {...other}
-            >
-                <LoremPicsum fill={theme.palette.primary.main} />
-            </IconButton>
+            <Tooltip title={"set all (give image to every word)"} style={! sm ? { display: "none" } : null}>
+                <IconButton
+                    size={"large"}
+                    color={"primary"}
+                    onClick={setRandomImages}
+                    {...other}
+                >
+                    <LoremPicsum fill={theme.palette.primary.main} />
+                </IconButton>
+            </Tooltip>
         </>
     );
 }

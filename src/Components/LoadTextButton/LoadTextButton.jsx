@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { LoadTextDialog } from "./LoadTextDialog";
 import { StorageRounded } from "@mui/icons-material";
-import { useMediaQuery, useTheme } from "@mui/material";
+import {Tooltip, useMediaQuery, useTheme} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { ReactComponent as CardsIcon } from "../InputText/cards.svg";
 
@@ -29,13 +29,14 @@ function LoadTextButton({ parseText, isDispatch = true }) {
             >
                 Load
             </Button>
-            <IconButton
-                size={"large"}
-                onClick={() => setTextDialog(true)}
-                style={!sm ? { display: "none" } : null}
-            >
-                <StorageRounded color={"primary"} />
-            </IconButton>
+            <Tooltip title={"load text"} style={!sm ? { display: "none" } : null}>
+                <IconButton
+                    size={"large"}
+                    onClick={() => setTextDialog(true)}
+                >
+                    <StorageRounded color={"primary"} />
+                </IconButton>
+            </Tooltip>
         </>
     );
 }

@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import React, { useContext } from "react";
 import AppContext from "../../AppContext";
 import { useTheme } from "@mui/material/styles";
-import { Button, useMediaQuery } from "@mui/material";
+import {Button, Tooltip, useMediaQuery} from "@mui/material";
 import { ReactComponent as CardsIcon } from "./cards.svg";
 import IconButton from "@mui/material/IconButton";
 
@@ -37,25 +37,26 @@ export function CardsButton() {
             >
                 Cards
             </Button>
-            <IconButton
-                size="large"
-                color="primary"
-                onClick={() =>
-                    history.push("/cards", {
-                        wordIndex: 0,
-                    })
-                }
-                disabled={!state.text}
-                style={!sm ? { display: "none" } : null}
-            >
-                <CardsIcon
-                    fill={
-                        !state.text
-                            ? theme.palette.action.disabled
-                            : theme.palette.primary.main
+            <Tooltip title={"cards animation"} style={!sm ? { display: "none" } : null}>
+                <IconButton
+                    size="large"
+                    color="primary"
+                    onClick={() =>
+                        history.push("/cards", {
+                            wordIndex: 0,
+                        })
                     }
-                />
-            </IconButton>
+                    disabled={!state.text}
+                >
+                    <CardsIcon
+                        fill={
+                            !state.text
+                                ? theme.palette.action.disabled
+                                : theme.palette.primary.main
+                        }
+                    />
+                </IconButton>
+            </Tooltip>
         </>
     );
 }

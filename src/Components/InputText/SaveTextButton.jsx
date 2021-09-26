@@ -7,7 +7,7 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
-    TextField,
+    TextField, Tooltip,
     useMediaQuery,
 } from "@mui/material";
 import { Save } from "@mui/icons-material";
@@ -52,21 +52,22 @@ export function SaveTextButton() {
             >
                 Save
             </Button>
-            <IconButton
-                size="large"
-                color="primary"
-                disabled={!state.text}
-                onClick={() => setSaveDialog(true)}
-                style={!sm ? { display: "none" } : null}
-            >
-                <Save
-                    fill={
-                        !state.text
-                            ? theme.palette.action.disabled
-                            : theme.palette.primary.main
-                    }
-                />
-            </IconButton>
+            <Tooltip title={"save text"} style={!sm ? { display: "none" } : null}>
+                <IconButton
+                    size="large"
+                    color="primary"
+                    disabled={!state.text}
+                    onClick={() => setSaveDialog(true)}
+                >
+                    <Save
+                        fill={
+                            !state.text
+                                ? theme.palette.action.disabled
+                                : theme.palette.primary.main
+                        }
+                    />
+                </IconButton>
+            </Tooltip>
             <Dialog
                 open={saveDialog}
                 onBackdropClick={() => setSaveDialog(false)}

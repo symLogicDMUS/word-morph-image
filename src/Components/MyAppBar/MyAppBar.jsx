@@ -58,15 +58,12 @@ export function MyAppBar({ handleDrawerToggle }) {
                 <MyAppBarItems
                     handleDrawerToggle={handleDrawerToggle}
                     style={sm ? { display: "none" } : null}
-
                 />
-                <IconButton
-                    onClick={handleMenuOpen}
-                    style={! sm ? { display: "none" } : null}
-
-                >
-                    <MoreHoriz fontSize={"large"} />
-                </IconButton>
+                <Tooltip title={"see more"} style={! sm ? { display: "none" } : null}>
+                    <IconButton onClick={handleMenuOpen} >
+                        <MoreHoriz fontSize={"large"} />
+                    </IconButton>
+                </Tooltip>
                 <Menu
                     open={open}
                     anchorEl={anchorEl}
