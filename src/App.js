@@ -62,8 +62,7 @@ function App() {
                         open: true,
                         severity: "info",
                         title: "You aren't signed in",
-                        message:
-                            "What you save will be deleted after 24 hours.",
+                        message: "",
                         autoHideDuration: 10000,
                         action: "login",
                     },

@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import AppTitle from "./AppTitle";
 import { useTheme } from "@mui/styles";
 import MyAppBarItems from "./MyAppBarItems";
-import { MoreHoriz, MoreVert, YouTube } from "@mui/icons-material";
+import { MoreHoriz, YouTube } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
     AppBar,
-    Button,
     IconButton,
     Menu,
     Toolbar,

@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import { Alert, Stack } from "@mui/material";
+import React, {useContext} from "react";
+import {Alert, Button, Link, Snackbar, Stack, Typography} from "@mui/material";
+import {CloseSignInAlert} from "./CloseSignInAlert";
 import AlertTitle from "@mui/material/AlertTitle";
 import SignInButton from "../Home/SignInButton";
 import AppContext from "../../AppContext";
-import Button from "@mui/material/Button";
-import { Snackbar } from "@mui/material";
 
 function SnackbarAlert(props) {
     const { state, dispatch } = useContext(AppContext);
@@ -23,16 +22,15 @@ function SnackbarAlert(props) {
                     <Stack
                         spacing={2}
                         direction="row"
-                        style={{ marginTop: "auto" }}
+                        // style={{marginTop: "auto"}}
                     >
-                        <SignInButton />
-                        <Button
-                            color="inherit"
-                            size="small"
-                            onClick={handleClose}
-                        >
-                            Close
+                        <SignInButton/>
+                        <Button color={"inherit"} size={"small"}>
+                            <Link href="https://youtu.be/9lkwUOnjwUw">
+                                Learn More
+                            </Link>
                         </Button>
+                        <CloseSignInAlert onClose={handleClose}/>
                     </Stack>
                 );
             default:
