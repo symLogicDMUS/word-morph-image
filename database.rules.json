@@ -1,32 +1,32 @@
 {
     "rules": {
-        "users":{
-            "dictionary":{
-                "$uid": {
-                    ".read": "auth != null && $uid === auth.uid",
-                    ".write": "auth != null && $uid === auth.uid"
-                },
-            },
-            "paragraphs":{
-                "$uid": {
-                    ".read": "auth != null && $uid === auth.uid",
-                    ".write": "auth != null && $uid === auth.uid"
-                },
-            },
-        },
-        "visitors":{
-            "dictionary":{
-                "$uid": {
-                    ".read": "auth != null && $uid === auth.uid",
-                    ".write": "auth != null && $uid === auth.uid"
-                },
-            },
-            "paragraphs":{
-                "$uid": {
-                    ".read": "auth != null && $uid === auth.uid",
-                    ".write": "auth != null && $uid === auth.uid"
-                },
-            },
-        },
+      "users":{
+				 "dictionary":{
+            	"$uid": {
+                ".read": "auth != null && $uid === auth.uid",
+                ".write": "auth != null && $uid === auth.uid"
+            	},           
+         },
+         "paragraphs":{
+            	"$uid": {
+                ".read": "auth != null && $uid === auth.uid",
+                ".write": "auth != null && $uid === auth.uid"
+            	},
+         },
+      },
+      "visitors":{
+				 "dictionary":{
+            	"$uid": {
+                ".read": "auth != null && $uid === auth.uid",
+                ".write": "auth != null && $uid === auth.uid"
+            	},           
+         },
+         "paragraphs":{
+            	"$uid": {
+                ".read": "auth != null && $uid === auth.uid",
+                ".write": "auth != null && $uid === auth.uid"
+            	},
+         },
+      },
     }
 }
