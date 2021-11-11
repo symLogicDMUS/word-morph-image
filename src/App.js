@@ -7,12 +7,12 @@ import { useMemo } from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
 import AppContext from "./AppContext";
-import Input from "./Components/InputText/InputText";
 import darkTheme from "./theme/darkTheme.jss";
 import lightTheme from "./theme/lightTheme.jss";
 import Morphs from "./Components/Morphs/Morphs";
 import { createTheme } from "@mui/material/styles";
 import { appDefaultState } from "./appDefaultState";
+import Input from "./Components/InputText/InputText";
 import PausedMorphs from "./Components/Morphs/PausedMorphs";
 import WordImgCards from "./Components/ImgWordCard/WordImgCards";
 import AddPairGroup from "./Components/AddPairGroup/AddPairGroup";
@@ -44,9 +44,11 @@ function App() {
     const theme = useMemo(() => {
         if (state.isDarkMode) {
             document.body.className = "scrollbars-dark";
+            document.documentElement.className = "scrollbars-dark";
             return createTheme(darkTheme);
         } else {
             document.body.className = "scrollbars-light";
+            document.documentElement.className = "scrollbars-light";
             return createTheme(lightTheme);
         }
     }, [state.isDarkMode]);
